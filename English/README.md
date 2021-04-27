@@ -8,14 +8,24 @@ So May have some Barriers For non chinese speaker
 
 If you're interested
 ```
-You Can Send email to:<br>
-1501917367@qq.com<br>
+You Can Send email to:
+1501917367@qq.com
 zhuaidadaya@163.com
 3477124880@qq.com
 
 Email format roughly as:
 
+(Departments you want to join)
 
+(What You're good at)
+
+(What of Developer Experience of You had)
+
+(Contact ways)
+
+(Signature)
+
+<a href="mailto:1501917367@qq.com">Jump to Mail</a>
 ```
 
 ### Features
