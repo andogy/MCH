@@ -4,6 +4,7 @@ The full name of MCH is "Minecraft Command Helper".You can think of it as the co
 
 ### Production
 Our Production team is Open to join,You Can add to us Team,But We Communicate on Tencent QQ and Most people use Chinese
+So May have some Barriers For non chinese speaker
 
 ### Features
 ### Documentation
