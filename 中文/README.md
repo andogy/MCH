@@ -13,7 +13,7 @@ MCH全称Minecraft Command Helper，你可以把它视做命令助手的pc版。
 ### 文档
 [用户协议](http://caibiwangluo.eu5.org/mch/yhxy.php)<br>
 帮助(等待上传)<br>
-[开发者文档(停更)](http://caibiwangluo.eu5.org/mch/code.php)<br>
+[开发者文档](http://caibiwangluo.eu5.org/mch/code.php)<br>
 ## 权利声明
 ### 开源
 本软件完全开源，你可以审查、修改、学习，但绝不可进行商业用途！！
