@@ -1,0 +1,16 @@
+.center{
+text-align: center;
+}
+textarea{
+display: none;
+}
+a{
+text-decoration: none;
+color: #44cef6;
+}
+a:visited{
+color: #257de8;
+}
+a:hover{
+color: #70f3ff;
+}
