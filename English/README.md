@@ -8,7 +8,14 @@ So May have some Barriers For non chinese speaker
 
 If you're interested
 ```
-You Can 
+You Can Send email to:<br>
+1501917367@qq.com<br>
+zhuaidadaya@163.com
+3477124880@qq.com
+
+Email format roughly as:
+
+
 ```
 
 ### Features
