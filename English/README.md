@@ -25,7 +25,7 @@ Email format roughly as:
 
 (Signature)
 
-<a href="mailto:1501917367@qq.com">Jump to Mail</a>
+[Jump to Mail](mailto:1501917367@qq.com)
 
 ```
 
