@@ -15,7 +15,20 @@ zhuaidadaya@163.com <br>
 3477124880@qq.com<br>
 
 <br>
-<a href="mailto:1501917367@qq.com">快速发送</a>
+<a href="mailto:1501917367@qq.com">快速发送</a><br>
+邮件格式大致如下:<br>
+<br>
+(希望加入的部分,例如开发或者测试,亦或运营)<br>
+<br>
+(擅长部分,使用体验测试、bug测试等方面描述)<br>
+<br>
+(经验部分,曾测试过什么程序之类的,可以不写)<br>
+<br>
+(联系方式)<br>
+<br>
+(署名)<br>
+<br>
+<br>
 ### 功能
 ### 文档
 [用户协议](http://caibiwangluo.eu5.org/mch/yhxy.php)<br>
