@@ -14,7 +14,7 @@ HOW CAN I JOIN THIS TEAM!?
 If u want to join us,you can send email to:<br>
 1501917367@qq.com<br>
 zhuaidadaya@163.com<br>
-3477124880@qq.com<br>
+ake259193@gmail.com
 
 Email format roughly as:
 
@@ -28,7 +28,7 @@ Email format roughly as:
 
 (Signature)
 
-<a href="mailto:1501917367@qq.com">Go to email</a>
+<a href="mailto:1501917367@qq.com;zhuaidadaya@163.com;3477124880@qq.com;ake259193@gmail.com">Go to email</a>
 
 ### Features
 ### Documentation
