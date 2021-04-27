@@ -13,7 +13,7 @@ MCH全称Minecraft Command Helper，你可以把它视做命令助手的pc版。
 你可以通过发送邮件至以下邮箱：<br>
 1501917367@qq.com <br>
 zhuaidadaya@163.com <br>
-3477124880@qq.com<br>
+ake259193@gmail.com
 
 邮件格式大致如下:
 
@@ -27,7 +27,7 @@ zhuaidadaya@163.com <br>
 
 (署名)
 
-<a href="mailto:1501917367@qq.com">跳转到邮箱</a>
+<a href="mailto:1501917367@qq.com;zhuaidadaya@163.com;3477124880@qq.com;ake259193@gmail.com">跳转到邮箱</a>
 
 ### 功能
 ### 文档
