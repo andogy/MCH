@@ -6,12 +6,15 @@ The full name of MCH is "Minecraft Command Helper".You can think of it as the co
 Our Production team is Open to join,You Can add to us Team,But We Communicate on [Tencent QQ](https://play.google.com/store/apps/details?id=com.tencent.mobileqq&hl=zh&gl=US&referrer=utm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_term%3D%E4%B8%8B%E8%BD%BDqq&pcampaignid=APPU_1_J92HYPrwHu3EmAXinaOYBA) and Most people use Chinese <br>
 So May have some Barriers For non chinese speaker
 
-If you're interested
+So,maybe u want to ask
 ```
-You Can Send email to:
-1501917367@qq.com
-zhuaidadaya@163.com
-3477124880@qq.com
+HOW CAN I JOIN THIS TEAM!?
+```
+
+If u want to join us,you can send email to:<br>
+1501917367@qq.com<br>
+zhuaidadaya@163.com<br>
+3477124880@qq.com<br>
 
 Email format roughly as:
 
@@ -25,10 +28,7 @@ Email format roughly as:
 
 (Signature)
 
-<a href="mailto:1501917367@qq.com">Jump to Mail</a>
-
-
-```
+<a href="mailto:1501917367@qq.com">Go to email</a>
 
 ### Features
 ### Documentation
