@@ -15,7 +15,6 @@ zhuaidadaya@163.com <br>
 3477124880@qq.com<br>
 
 <br>
-<a href="mailto:1501917367@qq.com">快速发送</a><br>
 邮件格式大致如下:<br>
 <br>
 (希望加入的部分,例如开发或者测试,亦或运营)<br>
@@ -28,6 +27,7 @@ zhuaidadaya@163.com <br>
 <br>
 (署名)<br>
 <br>
+<a href="mailto:1501917367@qq.com">跳转到邮箱</a><br>
 <br>
 ### 功能
 ### 文档
