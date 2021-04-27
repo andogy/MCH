@@ -3,7 +3,7 @@ The full name of MCH is "Minecraft Command Helper".You can think of it as the co
 ## Introdution
 
 ### Production
-Our Production team is Open to join,You Can add to us Team,But We Communicate on Tencent QQ and Most people use Chinese
+Our Production team is Open to join,You Can add to us Team,But We Communicate on [Tencent QQ](https://play.google.com/store/apps/details?id=com.tencent.mobileqq&hl=zh&gl=US&referrer=utm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_term%3D%E4%B8%8B%E8%BD%BDqq&pcampaignid=APPU_1_J92HYPrwHu3EmAXinaOYBA) and Most people use Chinese <br>
 So May have some Barriers For non chinese speaker
 
 If you're interested
