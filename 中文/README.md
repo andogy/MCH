@@ -10,9 +10,9 @@ MCH全称Minecraft Command Helper，你可以把它视做命令助手的pc版。
 如何加入团队？
 ```
 你可以通过发送邮件至以下邮箱：
-1501917367@qq.com
-zhuaidadaya@163.com
-3477124880@qq.com
+1501917367@qq.com <br>
+zhuaidadaya@163.com <br>
+3477124880@qq.com<br>
 
 <br>
 <a href="mailto:1501917367@qq.com">快速发送</a>
