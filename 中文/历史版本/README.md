@@ -5,6 +5,12 @@
 2021/4/09 发布第一个源码
 ```
 ## 更新内容
-|版本|更新内容|
-|----|----|
-|0-0-0-1|忘了|
+```mermaid
+gantt
+        dateFormat  YYYY-MM-DD
+        title MCH更新内容
+        section 设计
+        UI设计:des3, after des2, 5d
+        section 开发
+        section 测试
+```
