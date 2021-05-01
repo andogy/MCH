@@ -19,11 +19,11 @@
 
 StringSelection selection = new StringSelection(MchUI.input_Command.getText());<br>
 Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();<br>
-clipboard.setContents(selection, null);<br>
-<br>
-使用ClipBoard打开系统剪贴板<br>
-而后将从input获取到的文本加上系统剪切板去<br>
-<br>
+clipboard.setContents(selection, null);
+
+使用ClipBoard打开系统剪贴板
+而后将从input获取到的文本加上系统剪切板去
+
 在完成后,会将input设为空的<br>
 还会将复制到的数据写入历史记录<br>
 <br>
