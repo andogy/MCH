@@ -102,29 +102,29 @@ add random problem button,But this function update maybe after many version,Beca
 -
 
 MCH_ah_0-0-1-8
-Events新增switch系列方法:
-    -switchColor    切换颜色
-    -switchLanguage    切换语言
-新增Gc线程,用于回收垃圾,后来发现其实没什么用,过几个版本就被删了
-ini新增创建引导,如若没有配置文件则引导用户设置基本配置
-新增iniHas线程,用于判断配置文件是否存在,不存在就将菜单的UI关闭
-CaUI更名为MchUI
-Parsing中大部分解析都被注释了,因为准备换处理方式
-新增语言切换
+Events add switch Method set:
+    -switchColor    switch UI color
+    -switchLanguage    switch UI language
+add Gc thread,used Reclaim memory,Later it was found that it was useless.it was delete after a few versions
+ini add create guide,if config file have not then guide user go set basic settings
+add iniHas thread,used judge config file have or not,if have not then close MenuUI
+"CaUI" rename to "MchUI"
+Most of the contents in Parsing are annotated,Because will to change the precess manner
+add language switch
 
 (2021.4.17)
 
 -
 
 MCH_ah_0-0-7
-删除HelpUI
-颜色切换按钮完成
-目录ca更名为MCH
-MenuUI新增文件存储路径显示和颜色切换(未完成)
-EXI类更名为exit
-新增Times类,用于格式化时间,给状态提示使用
-新增状态提示,即时间加事件输出
-新增ini类,用于配置文件加载,因为要加载颜色、语言等,配置文件存储在C:\MCH\settings.ini
+delete HelpUI
+color switch button finished
+dir "ca" rename to "MCH"
+MenuUI add file stored path display and color switch(not finished)
+EXI claa rename to exit
+add Times class,used format time for state print
+add state print function,it is print time add doing things
+add ini class,used config file load,because need load color and language ETC,config file stored at C:\MCH\settings.ini
 
 
 (2021.4.14)
@@ -132,39 +132,39 @@ EXI类更名为exit
 -
 
 MCH_ah_0-0-1-6
-将退出事件监听更名为EXIT_Button.java
-新增EXI类,用于输入.exit退出时提示
-新增HelpUI,这个当时可能是想做使用帮助,没几个版本就删除了,因为改用了web
+exit event class rename to EXIT_Button.java
+add EXI class,Used to enter ".exit" to prompt
+add HelpUI,at that time was probably intended used for help,it was deleted after a few versions,because the website was used
 
 (2021.4.11)
 
 -
 
 MCH_ah_0-0-1-5
-将复制方式改为按下回车复制
-将按下退出按钮事件改为缩小窗口
-HelpUI更名为MenuUI
-将颜色和语言的暂存放在Community.java
-colors新增黑色
+Change the copy mode to key enter to copy
+Change the event of click exit button to smaller the window
+HelpUI rename to MenuUI
+Store Color and Language in Community. Java
+colors add black
 
 (2021.4.10)
 
 -
 
 MCH_ah_0-0-1-4
-在Parsing中将大写字母转为小写
-language新增英文
+Convert capital letters to lowercase at Parsing
+language add english
 
 (2021.4.10)
 
 -
 
 MCH_ah_0-0-1-3
-新增language线程,用于设定UI语言
-新增Parsing线程,用于判断输入以及解析输入
-在Parsing进行简单的命令判断测试
-删除复制按钮
-新增HelpUI,其实这是设置并非帮助
+add language thread,used set UI language
+add Parsing thread,used parsing the input texts
+add easy command and test at Parsing
+deleta copy button
+add HelpUI,But this is Menu,not is Helps
 
 
 (2021.4.10)
@@ -172,24 +172,24 @@ MCH_ah_0-0-1-3
 -
 
 MCH_ah_0-0-1-2
-UI新增命令输入和复制按钮
-新增colors线程,用于设定UI颜色
-新增Events方法集
-Events新增Copy方法,用于复制输入框文本
-入口方法更名为Community.java
+UI add command input area add copy button
+add colors thread,used set UI color
+add Events Method set
+Events add copy function,used copy input text
+main class rename to Community.java
 
 (2021.4.10)
 
 -
 
 MCH_ah_0-0-1-1
-增加了一个基本窗口(无内容)
-增加按下退出按钮的事件监听
+add a basic frame
+add click exit button event
 
 (2021.4.9)
 
 MCH_ah_0-0-1
-创建了一个空项目
+created a Empty project
 
 (2021.4.9)
 ```
