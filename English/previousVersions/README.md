@@ -5,50 +5,49 @@ Provide Learn and Reference for this project
 ## updateLogs
 ```
 MCH_ah_0-0-1-18
-小更新,将命令处理的整条处理改为了处理光标之前的命令
-将ver参数存储在了Community,之前是在language
+a small update,Change command process to only process the content before the cursor
+ver parameter stored the Community,before that stored in the language
 
 (2021.4.30)
 
 -
 
 MCH_ah_0-0-1-17
-新增了tips,在输入框为空时会随机显示
+New tips function,Disply at input be null
 
 (2021.4.30)
 
 -
 
 MCH_ah_0-0-1-16
-这个版本新增了颜色设置的彩蛋,提示:在输入框输入彩蛋的英文
-errors新增一个参数: er,这个参数是Error类型,目前可以使用的只有内存溢出
-    引起内存溢出方法:在输入栏输入340万以上字符后按下回车
-        在非保障情况下请不要轻易尝试,此行为可能导致电脑卡死
-
+New a color eggs,hint:entry at the input
+the errors add a new parameter: er,this parameter is Error type,at present just OutOfMemory use this parameter
+    Cause OutOfMemoryExeption:Entry 3.4 million characters at the Input and key Enter
+        Do not try without protection,This operation may crash yor Computer 
 
 (2021.4.29)
 
 -
 
 MCH_ah_0-0-1-15
-将UI从resources移动到Community里
-新增删除数据按钮,此按钮会删除:
+move the UI form the resources to the Community
+new a Button for delete MCH data,delete list:
     run.log
     errors.log
     history.txt
-将历史读取再优化,现在内存占用不超过150M
+optimize history read again,Memory used reduced to less than 150M
 
 (2021.4.27)
 
 -
 
 MCH_ah_0-0-1-14
-新增Helps类
+new Helps class
 历史记录读取新增文件长度缓存的判断
     即读取过后存储文件长度,下次读取前判断长度是否一致
         如果一致,则文件没有被修改,不进行刷新,减少CPU和内存使用率,也降低了硬盘使用
         如果不一致,则可能用户回车了一段命令或外部人为修改,这时才需要进行刷新
-MenuUI新增OnTop(应用置顶)选项,此选项可以让MCH在Minecraft全屏显示时也可以浮在屏幕中
+MenuUI new OnTop function
 
 (2021.4.23)
 
