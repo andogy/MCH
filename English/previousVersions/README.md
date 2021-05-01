@@ -13,7 +13,7 @@ ver parameter stored the Community,before that stored in the language
 -
 
 MCH_ah_0-0-1-17
-New tips function,Disply at input be null
+add tips function,Disply at input be null
 
 (2021.4.30)
 
@@ -31,22 +31,22 @@ the errors add a new parameter: er,this parameter is Error type,at present just 
 
 MCH_ah_0-0-1-15
 move the UI form the resources to the Community
-new a Button for delete MCH data,delete list:
+add a Button for delete MCH data,delete list:
     run.log
     errors.log
     history.txt
-optimize history read again,Memory used reduced to less than 150M
+Optimize history read again,Memory used reduced to less than 150M
 
 (2021.4.27)
 
 -
 
 MCH_ah_0-0-1-14
-new Helps class
-历史记录读取新增文件长度缓存的判断
-    即读取过后存储文件长度,下次读取前判断长度是否一致
-        如果一致,则文件没有被修改,不进行刷新,减少CPU和内存使用率,也降低了硬盘使用
-        如果不一致,则可能用户回车了一段命令或外部人为修改,这时才需要进行刷新
+add Helps class
+historyRead add a Judge file length function
+    it stored file length After read file,Next read need Judge file length than stored consistent or not
+        if consistent,maybe file not Revised,not refresh,Reduce CPU and Memory ETC use
+        if consistent not,maybe user copied a command or Edited at external,This is time to refresh
 MenuUI new OnTop function
 
 (2021.4.23)
@@ -54,35 +54,35 @@ MenuUI new OnTop function
 -
 
 MCH_ah_0-0-1-13
-此版本主要更新命令解析部分
+This Version updated command parsing part
 
 (2021.4.22)
 
 -
 
 MCH_ah_0-0=1-12
-MenuUI新增版本显示
-Errors的errors新增两个参数,分别是cannotHandle和exceptionSource
-    cannotHandle为boolean类型,用于设定是否能够不管
-    exceptionSource为String类型,用于判断错误来源,主要用途时写进errors.log
-删除Gc线程
-优化了历史记录读取,现在内存的占用大幅度降低
+Display MCH version in MenuUI
+errors of Error class add two parameter,they is cannotHandle and exceptionSource
+    cannotHandle is boolean type,Used to set Whether errors can be ignored
+    exceptionSource is String type,Used to set error source,will write in errors.log
+Delete Gc Thread
+Optimize history read,Memory used Significantly reduced
 
 (2021.4.22)
 
 -
 
 MCH_ah_0-0-1-11
-新增LoadAssembly类,这个类用于将状态输出的输出存储在run.log
-新增Errors类,这个类用于处理错误,在需要时会退出程序
+add LoadAssembly class,this class will write state output in the run.log
+add Errors class,this class will process errors and exit at When necessary
 
 (2021.4.20)
 
 -
 
 MCH_ah_0-0-1-10
-新增历史记录功能,这个功能将会在输入框为空时显示曾经回车过的命令
-新增快速加载功能,此功能目前只用于历史记录,开启后会减少内存回收次数,以此加快加载速度,但是内存占用极高
+add history record function,this function will record copied commands and display history at input is null
+add fast load function,this function just use for history,Enable will Reduce memory recycles,so can to speed up the loading speed,But Memory used will super hight
 
 (2021.4.19)
 
@@ -90,12 +90,12 @@ MCH_ah_0-0-1-10
 -
 
 MCH_ah_0-0-1-9
-新增退出按钮事件切换,现在可以让用户决定按钮是退出还是缩小
-新增commandLibrary类,字典作用
-将处理方式改为流式,不再在一个方法中进行
-Events新增switchExButtonWillExit方法,用于切换退出按钮事件
-配置文件不再使用Color = White之类的表达方法,现在使用Color@White
-新增随机问题按钮,这个功能在很多个版本以后才会更新,因为不是主要部分
+add exit button events switch,now user can decision click exit button will exit or smaller
+add commandLibrary class,this is a Dictionary
+Process part set to stream,not process in a class
+Events add switchExButtonWillExit function,used switch exit button will do what things
+config file is no longer expressed as "Color = Whita",now it is "Color@White
+add random problem button,But this function update maybe after many version,Because it is not the main part
 
 (2021.4.17)
 
