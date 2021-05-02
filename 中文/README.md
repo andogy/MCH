@@ -1,14 +1,14 @@
 # MCH
 MCH全称Minecraft Command Helper，你可以把它视做命令助手的pc版
 ## 彩蛋
-!! -  注意 - !!
+### !! -  注意 - !!
 目前MCH有一个彩蛋,此彩蛋内容包含有一些可能造成特定人群癫痫的图像/色彩<br>
 为了生命安全,光敏性癫痫患者不要寻找此彩蛋
 
------找彩蛋-----
+### -----找彩蛋-----
 这里暂时不提供寻找的办法
 
-### 制作团队
+## 制作团队
 我们的制作团队是开放的，你随时可以加入该团队，但我们团队使用[QQ](https://play.google.com/store/apps/details?id=com.tencent.mobileqq&hl=zh&gl=US&referrer=utm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_term%3D%E4%B8%8B%E8%BD%BDqq&pcampaignid=APPU_1_J92HYPrwHu3EmAXinaOYBA)来进行沟通，并且使用中文沟通，这可能对海外的使用者有些障碍。
 
 这时，你可能问一句
@@ -35,7 +35,7 @@ ake259193@gmail.com
 
 <a href="mailto:1501917367@qq.com;zhuaidadaya@163.com;3477124880@qq.com;ake259193@gmail.com">跳转到邮箱</a>
 
-### 功能
+## 功能
 ### 文档
 [用户协议](http://caibiwangluo.eu5.org/mch/yhxy.php)<br>
 帮助(等待上传)<br>
