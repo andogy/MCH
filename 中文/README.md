@@ -1,7 +1,9 @@
 # MCH
 MCH全称Minecraft Command Helper，你可以把它视做命令助手的pc版
-## 简介
-MCH全称Minecraft Command Helper，你可以把它视做命令助手的pc版。
+## 彩蛋
+目前MCH有一个彩蛋,此彩蛋内容包含有一些可能造成特定人群癫痫的图像/色彩
+为了生命安全,光敏性癫痫患者不要寻找此彩蛋
+
 ### 制作团队
 我们的制作团队是开放的，你随时可以加入该团队，但我们团队使用[QQ](https://play.google.com/store/apps/details?id=com.tencent.mobileqq&hl=zh&gl=US&referrer=utm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_term%3D%E4%B8%8B%E8%BD%BDqq&pcampaignid=APPU_1_J92HYPrwHu3EmAXinaOYBA)来进行沟通，并且使用中文沟通，这可能对海外的使用者有些障碍。
 
