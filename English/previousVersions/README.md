@@ -5,6 +5,25 @@ Top Version is Newly Version
 
 ## updateLogs
 ```
+MCH_ah_0-0-1-20
+add UPD(update) function,but web file cannot be ready,so this version cannot use yet this function
+add restart button
+add check UPD button,and check return
+add "getJar" class,used get own path(full path)
+add "URLs" thread,used process url request,for example check update ETC.
+
+MCH_ah_0-0-1-19(112660100119)
+after this version,will use version ID(112660100119),but not delete version(MCH_ah_0-0-1-19)
+add 3 buttons:
+    -Helps    helps document
+    -agreement    user agreement
+    -gayhub    MCH Github
+Changed some order of internal methods,now bug less(but lots too)
+
+(2021.5.2)
+
+-
+
 MCH_ah_0-0-1-18
 a small update,Change command process to only process the content before the cursor
 ver parameter stored the Community,before that stored in the language
