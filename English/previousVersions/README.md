@@ -5,11 +5,19 @@ Top Version is Newly Version
 
 ## updateLogs
 ```
+MCH_ah_0-0-1-21()
+now can use UPD function
+add switch source button,can switch UPD use Github or CbNet be download
+solved problem as "installing" of version 111970100120
+used lots Thread.sleep,Simulate processing time
+add countTime class,used judge connect out time
+has a auto check UPD as MCH start
+
 (2021.5.4)
 
 -
 
-MCH_ah_0-0-1-20
+MCH_ah_0-0-1-20(111970100120)
 add UPD(update) function,but web file cannot be ready,so this version cannot use yet this function
 add restart button
 add check UPD button,and check return
