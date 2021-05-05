@@ -5,6 +5,22 @@ Top Version is Newly Version
 
 ## updateLogs
 ```
+MCH_ah_0-0-1-23(111520100123)
+add some Shortcut key:
+    Ctrl + Esc    exit MCH
+    Ctrl + Delete    clear input(Available when entry )
+    Ctrl + M    open the Menu UI(Available when not entry)
+    Ctrl + U    check UPD
+    Ctrl + G    go to Github of MCH
+    Alt + C     switch color
+    Alt + L     switch language
+    Alt + Ctrl  switch color too
+add a key coloregg,Press the adjacent key of two at the same time to find
+
+(2021.5.5)
+
+-
+
 MCH_ah_0-0-1-22(111430100122)
 fixed problem of Github source cannot get UPD,now connect will not be rejecte ,but in china maybe will out time
 fixed version judge problem with last version
