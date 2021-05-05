@@ -5,7 +5,15 @@ Top Version is Newly Version
 
 ## updateLogs
 ```
-MCH_ah_0-0-1-21()
+MCH_ah_0-0-1-22(111430100122)
+fixed problem of Github source cannot get UPD,now connect will not be rejecte ,but in china maybe will out time
+fixed version judge problem with last version
+
+(2021.5.5)
+
+-
+
+MCH_ah_0-0-1-21(112440100121)
 now can use UPD function
 add switch source button,can switch UPD use Github or CbNet be download
 solved problem as "installing" of version 111970100120
