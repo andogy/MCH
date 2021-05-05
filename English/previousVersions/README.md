@@ -3,7 +3,23 @@ in Here,Saved all Previous Version of MCH<br>
 Provide Learn and Reference for this project
 Top Version is Newly Version
 
-## updateLogs
+## algorithm of version ID
+version ID is composed of version type and separate and version<br>
+<br>
+first two digits of ID represent the version type of this version<br>
+"11" is ah(Alpha)<br>
+"12" is beta<br>
+"13" isoOfficial release version<br>
+<br>
+3~5 digits is random number by MCH unique algorithm<br>
+<br>
+6~7 digits always is "01",this is two digit number that separates a random number from a version number<br>
+<br>
+rest number is version<br>
+like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version ID it should be done "00122"<br>
+
+
+# updateLogs
 ```
 MCH_ah_0-0-1-23(111520100123)
 add some Shortcut key:
