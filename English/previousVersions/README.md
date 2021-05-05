@@ -11,9 +11,9 @@ first two digits of ID represent the version type of this version<br>
 "12" is beta<br>
 "13" isoOfficial release version<br>
 <br>
-3~5 digits is random number by MCH unique algorithm<br>
+3-5 digits is random number by MCH unique algorithm<br>
 <br>
-6~7 digits always is "01",this is two digit number that separates a random number from a version number<br>
+6-7 digits always is "01",this is two digit number that separates a random number from a version number<br>
 <br>
 rest number is version<br>
 like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version ID it should be done "00122"<br>
