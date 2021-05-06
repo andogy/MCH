@@ -23,14 +23,14 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 ```
 (Waiting for translation)
 MCH_ah_0-0-1-25(111540100125)
-新增上下键补全命令,以及上下键填入历史
-    使用方法:
-    1.在输入时按上下或Tab键将命令补全到输入中,按下其他键生效,按下Backspace(退格)键取消
-    2.补全完成后按空格键可以生成原命令外加一个空格,如果不按空格,则只有源命令
-        如:
-        在补全"gamemode"时,按下空格键,输入框将出现"gamemode ",不然则出现"gamemode"
-这个版本主要更新此功能,其他部分有一些结构上的小改,没有可察觉的大变
-补全的bug很多,不过会很快修复的
+add completion with UP/DOWN key and Tab,this function can use in history
+    usage:
+    1.on input,Entry UP/DOWN(↑/↓) or Tab key can completion the command,Entry other key to take effect,Entry Backspace(退格) to cancel
+    2.after completion,Entry space to generate source command and a space,if not Entry space,there is only completion source command
+        such as:
+        try completion "gamemode",if Entry space,input box will have "gamemode ",if not then have "gamemode"
+this version major UPD this function,have some minor structural change in other parts,have not abundant UPD
+completion function have lots bug,but we fix will fast
 
 (2021.5.7)
 
