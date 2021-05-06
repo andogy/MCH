@@ -21,6 +21,17 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 # updateLogs
 ```
+MCH_ah_0-0-1-24(111440100124)
+fixed problem of UPD cache residue
+internal execution process is slightly adjusted
+add reStart shortcut key:
+    Ctrl + R
+    Alt + R
+
+(2021.5.6)
+
+-
+
 MCH_ah_0-0-1-23(111520100123)
 add some Shortcut key:
     Ctrl + Esc    exit MCH
