@@ -21,6 +21,16 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 # updateLogs
 ```
+MCH_ah_0-0-1-26(111540100126)
+fixed problem of cache again
+add save cache function,set in Menu>Advanced>save cache
+add a shortcut key:
+    Ctrl + H    open advanced settings
+
+(2021.5.7)
+
+-
+
 (Waiting for translation)
 MCH_ah_0-0-1-25(111540100125)
 add completion with UP/DOWN key and Tab,this function can use in history
