@@ -42,18 +42,16 @@ entry UP/Down(↑/↓) key or Tab key can select command to completion,entry oht
 at completion,command of will completion to input box will display as orange(display in up tips,not input box)<br>
 
 ### shortcut key
-熟练使用快捷键使得MCH的使用效率有所增加<br>
-MCH有以下快捷键:<br>
+use shortcut key can up efficiency of use MCH<br>
+MCH have shortcut key as below:<br>
 <br>
-Ctrl + Esc&nbsp;&nbsp;&nbsp;&nbsp;(退出MCH)<br>
-Ctrl + Delete&nbsp;&nbsp;&nbsp;&nbsp;(清空输入)<br>
-Ctrl + M&nbsp;&nbsp;&nbsp;&nbsp;(打开菜单)<br>
-Ctrl + H&nbsp;&nbsp;&nbsp;&nbsp;(打开高级设置)<br>
-Ctrl + G&nbsp;&nbsp;&nbsp;&nbsp;(打开MCH的Github页面)<br>
-Ctrl + Alt&nbsp;&nbsp;&nbsp;&nbsp;(切换颜色)<br>
+Ctrl + Esc&nbsp;&nbsp;&nbsp;&nbsp;(exit MCH)<br>
+Ctrl + Delete&nbsp;&nbsp;&nbsp;&nbsp;(clear input)<br>
+Ctrl + M&nbsp;&nbsp;&nbsp;&nbsp;(display menu)<br>
+Ctrl + H&nbsp;&nbsp;&nbsp;&nbsp;(display advanced settings)<br>
+Ctrl + G&nbsp;&nbsp;&nbsp;&nbsp;(display Github of MCH page)<br>
 <br>
 Alt + F1&nbsp;&nbsp;&nbsp;&nbsp;(entry "§" in caret position)<br>
-Alt + C&nbsp;&nbsp;&nbsp;&nbsp;(switch color)<br>
 Alt + L&nbsp;&nbsp;&nbsp;&nbsp;(switch language)<br>
 <br>
 Ctrl + /&nbsp;&nbsp;&nbsp;&nbsp;(entry "/" in first char)<br>
@@ -61,6 +59,9 @@ Alt + /&nbsp;&nbsp;&nbsp;&nbsp;(entry "/" in first char)<br>
 <br>
 Ctrl + R&nbsp;&nbsp;&nbsp;&nbsp;(restart MCH)<br>
 Alt + R&nbsp;&nbsp;&nbsp;&nbsp;(restart MCH)<br>
+<br>
+Ctrl + Alt&nbsp;&nbsp;&nbsp;&nbsp;(switch color)<br>
+Alt + C&nbsp;&nbsp;&nbsp;&nbsp;(switch color)<br>
 
 ## ----------menu usage----------
 <br>
