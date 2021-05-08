@@ -16,7 +16,7 @@ MCH系Minecraft Command Helper缩写
     -具有最少50M的存储空间<br>
     -具有最少可用1GB的内存<br>
 <br>
-当确保电脑达到最少全部满足星号标记的情况下,你可以从[用户协议](http://caibiwangluo.eu5.org/mch/yhxy.php)或[菜比网络](http://caibiwangluo.eu5.org/mch/MCH.jar)<br>
+当确保电脑达到最少全部满足星号标记的情况下,你可以从[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)或[菜比网络](http://caibiwangluo.eu5.org/mch/MCH.jar)<br>
 下载程序压缩包<br>
 将其解压到桌面双击即可打开程序<br>
 <br>
@@ -25,9 +25,9 @@ MCH系Minecraft Command Helper缩写
 <br>
 ### ----------基本使用----------
 <br>
-进入主程序时,窗口最下方有输入栏和菜单按键
-在输入栏输入完整命令后按下空格即可出现命令提示,按下回车可以复制命令
-若不知道具体命令,可以输入命令的用处进行检索
+进入主程序时,窗口最下方有输入栏和菜单按键<br>
+在输入栏输入完整命令后按下空格即可出现命令提示,按下回车可以复制命令<br>
+若不知道具体命令,可以输入命令的用处进行检索<br>
 如:gamemode
 这是一个更改游戏模式的命令,可以输入"g"查找到,也可以输入"模式"
 
