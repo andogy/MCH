@@ -21,6 +21,14 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 # updateLogs
 ```
+MCH_ah_0-0-1-28(111550100128)
+add color display of color code(§),input box will have colors
+this function is testing,maybe have lot of bug(but bugs cannot find in my test)
+
+(2021.5.8)
+
+-
+
 MCH_ah_0-0-1-27(111460100127)
 fixed some bug of command completion
 add higt light,used in command completion
