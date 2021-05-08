@@ -49,7 +49,6 @@ add a shortcut key:
 
 -
 
-(Waiting for translation)
 MCH_ah_0-0-1-25(111540100125)
 add completion with UP/DOWN key and Tab,this function can use in history
     usage:
