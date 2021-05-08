@@ -21,6 +21,15 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 # updateLogs
 ```
+MCH_ah_0-0-1-27(111460100127)
+fixed some bug of command completion
+add higt light,used in command completion
+fixed other bug
+
+(2021.5.8)
+
+-
+
 MCH_ah_0-0-1-26(111540100126)
 fixed problem of cache again
 add save cache function,set in Menu>Advanced>save cache
