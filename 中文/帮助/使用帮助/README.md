@@ -46,20 +46,21 @@ MCH系Minecraft Command Helper缩写
 熟练使用快捷键使得MCH的使用效率有所增加<br>
 MCH有以下快捷键:<br>
 <br>
-Ctrl + Esc&nbsp;&nbsp;&nbsp;&nbsp;(退出MCH)
-Ctrl + Delete&nbsp;&nbsp;&nbsp;&nbsp;(清空输入)
-Ctrl + M&nbsp;&nbsp;&nbsp;&nbsp;(打开菜单)
-Ctrl + H&nbsp;&nbsp;&nbsp;&nbsp;(打开高级设置)
-Ctrl + G&nbsp;&nbsp;&nbsp;&nbsp;(打开MCH的Github页面)
-Ctrl + R&nbsp;&nbsp;&nbsp;&nbsp;(重启MCH)
-Ctrl + Alt&nbsp;&nbsp;&nbsp;&nbsp;(切换颜色)
-
-Alt + F1&nbsp;&nbsp;&nbsp;&nbsp;(输入颜色代码[§])
-Alt + C&nbsp;&nbsp;&nbsp;&nbsp;(切换颜色)
-Alt + L&nbsp;&nbsp;&nbsp;&nbsp;(切换语言)
-
-Ctrl + /&nbsp;&nbsp;&nbsp;&nbsp;(补入斜杠)
-Alt + /&nbsp;&nbsp;&nbsp;&nbsp;(补入斜杠)
+Ctrl + Esc&nbsp;&nbsp;&nbsp;&nbsp;(退出MCH)<br>
+Ctrl + Delete&nbsp;&nbsp;&nbsp;&nbsp;(清空输入)<br>
+Ctrl + M&nbsp;&nbsp;&nbsp;&nbsp;(打开菜单)<br>
+Ctrl + H&nbsp;&nbsp;&nbsp;&nbsp;(打开高级设置)<br>
+Ctrl + G&nbsp;&nbsp;&nbsp;&nbsp;(打开MCH的Github页面)<br>
+Ctrl + R&nbsp;&nbsp;&nbsp;&nbsp;(重启MCH)<br>
+Ctrl + Alt&nbsp;&nbsp;&nbsp;&nbsp;(切换颜色)<br>
+<br>
+Alt + F1&nbsp;&nbsp;&nbsp;&nbsp;(输入颜色代码[§])<br>
+Alt + C&nbsp;&nbsp;&nbsp;&nbsp;(切换颜色)<br>
+Alt + L&nbsp;&nbsp;&nbsp;&nbsp;(切换语言)<br>
+<br>
+Ctrl + /&nbsp;&nbsp;&nbsp;&nbsp;(补入斜杠)<br>
+Alt + /&nbsp;&nbsp;&nbsp;&nbsp;(补入斜杠)<br>
+<br>
 
 ## ----------菜单使用----------
 <br>
