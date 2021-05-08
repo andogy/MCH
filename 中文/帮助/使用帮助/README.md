@@ -33,7 +33,7 @@ MCH系Minecraft Command Helper缩写
 
 如果想知道所有命令,可以在输入栏为空的时候输入tab或者输入斜杠(/)
 
-在输入栏为空的时候,一般情况下会自动读取你的历史记录,即你曾用MCH写出并回车过的命令
+在输入栏为空的时候,一般情况下会自动读取你的历史记录,即你曾用MCH写出并回车过的命令<br>
 当然如果你不想要看到,你可以在菜单里将此功能关闭
 
 ### ----------菜单使用----------
@@ -67,11 +67,11 @@ MCH系Minecraft Command Helper缩写
 ### ----------退出----------
 <br>
 退出MCH的方式目前有五种<br>
-   1.在输入栏输入.exit进行退出<br>
-   2.使用右上角的X按钮退出<br>
-   3.长按Enter键退出<br>
-   4.任务管理器结束任务<br>
-   5.关闭电脑<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1.在输入栏输入.exit进行退出<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2.使用右上角的X按钮退出<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3.长按Enter键退出<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.任务管理器结束任务<br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.关闭电脑<br>
 <br>
 第一种情况适用于将退出按钮禁用时使用<br>
 第二种情况为一般情况<br>
