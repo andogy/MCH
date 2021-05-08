@@ -1,4 +1,4 @@
-# MCH帮助
+# MCH Helps
 
 MCH is a Minecraft Command Helper
 
