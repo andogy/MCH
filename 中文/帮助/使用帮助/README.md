@@ -1,8 +1,8 @@
 # MCH帮助
 
-MCH系Minecraft Command Helper缩写
-由名可知这是个Minecraft的命令帮助软件
-
+MCH系Minecraft Command Helper缩写<br>
+知这是个Minecraft的命令帮助软件
+<br>
 <a href = "http://caibiwangluo.eu5.org/mch/yhxy.php">用户协议</a>
 
 ## ----------最低配置----------
