@@ -51,11 +51,11 @@ Ctrl + M&nbsp;&nbsp;&nbsp;&nbsp;(display menu)<br>
 Ctrl + H&nbsp;&nbsp;&nbsp;&nbsp;(display advanced settings)<br>
 Ctrl + G&nbsp;&nbsp;&nbsp;&nbsp;(display Github of MCH page)<br>
 <br>
-Alt + F1&nbsp;&nbsp;&nbsp;&nbsp;(entry "§" in caret position)<br>
+Alt + F1&nbsp;&nbsp;&nbsp;&nbsp;(entry "§" to caret position)<br>
 Alt + L&nbsp;&nbsp;&nbsp;&nbsp;(switch language)<br>
 <br>
-Ctrl + /&nbsp;&nbsp;&nbsp;&nbsp;(entry "/" in first char)<br>
-Alt + /&nbsp;&nbsp;&nbsp;&nbsp;(entry "/" in first char)<br>
+Ctrl + /&nbsp;&nbsp;&nbsp;&nbsp;(entry "/" to first char)<br>
+Alt + /&nbsp;&nbsp;&nbsp;&nbsp;(entry "/" to first char)<br>
 <br>
 Ctrl + R&nbsp;&nbsp;&nbsp;&nbsp;(restart MCH)<br>
 Alt + R&nbsp;&nbsp;&nbsp;&nbsp;(restart MCH)<br>
