@@ -7,7 +7,7 @@ MCH系Minecraft Command Helper缩写
 
 ## ----------最低配置----------
 <br>
-使用此软件前,请确保设备到达一下要求<br>
+使用此软件前,请确保设备到达以下要求<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*是一台电脑<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-具有2核1GHz或更高的CPU<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-具有360x460或更高的显示<br>
