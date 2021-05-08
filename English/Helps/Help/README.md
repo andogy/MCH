@@ -76,34 +76,32 @@ if not,it means you can switch after click this button<br>
 
 ### fast load
 
+fast load setting:<br>
+this setting reduce frequency of garbage disposal,MCH therefore can load files such as history file more quickly<br>
+<br>
+this memory used maybe more than 200MB<br>
+<br>
+but memory used hight just at load that,memory will return to normal at load finished<br>
+<br>
+
+### on top
+on top setting:<br>
+this setting can display MCH in screen top,you can convenient to query command when Minecraft is full screen<br>
+<br>
+
+### click exit button
+click exit button can do two works:<br>
+1.exit<br>
+2.smaller MCH<br>
+<br>
+smaller MCH and on top meanwhile use,maybe very convenient(?)<br>
+<br>
+
+### update source
+update source setting:<br>
+
 (Waiting For Translation)
 
-快速加载选项:<br>
-此选项减少了程序处理垃圾的频率,因此可以更快加载历史记录等文件<br>
-但是因为减少了垃圾处理,内存可能变得很高,在极限情况下可以达到8GB内存占用<br>
-(极限情况:270000行文本,每行600个龘字)<br>
-<br>
-不过,一般限制下,内存很少超出200MB<br>
-(一般限制:800行文本,每行512个龘字)<br>
-<br>
-并且内存占用仅在读取时,完成后内存都会恢复到正常水平<br>
-<br>
-
-### 置于顶层
-置于顶层选项:<br>
-此选项可以将MCH放在显示器最上方,当鼠标焦点在MC时也可很方便查询指令<br>
-<br>
-
-### 按下退出按钮
-按下退出按钮可以执行两个操作:<br>
-一个是直接退出<br>
-另一个是缩小MCH<br>
-<br>
-缩小MCH和置于顶层一起使用时,在需要很多指令的地图制作就很方便(吧?)<br>
-<br>
-
-### 更新源
-更新源选项:<br>
 此选项用于设置更新MCH时从哪里获取更新包,看情况选择即可
 
 ### 用户协议按钮
