@@ -76,7 +76,7 @@ if not,it means you can switch after click this button<br>
 
 ### fast load
 
-<Waiting For Translation>
+(Waiting For Translation)
 
 快速加载选项:<br>
 此选项减少了程序处理垃圾的频率,因此可以更快加载历史记录等文件<br>
