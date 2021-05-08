@@ -5,7 +5,7 @@ MCH系Minecraft Command Helper缩写
 
 [用户协议](http://caibiwangluo.eu5.org/mch/yhxy.php)
 
-### ----------最低配置----------
+## ----------最低配置----------
 <br>
 使用此软件前,请确保设备到达一下要求<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*是一台电脑<br>
