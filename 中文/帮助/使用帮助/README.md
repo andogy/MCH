@@ -16,8 +16,7 @@ MCH系Minecraft Command Helper缩写
     -具有最少50M的存储空间<br>
     -具有最少可用1GB的内存<br>
 <br>
-当确保电脑达到最少全部满足星号标记的情况下,你可以从[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)或[菜比网络](http://caibiwangluo.eu5.org/mch/MCH.jar)<br>
-下载程序压缩包<br>
+当确保电脑达到最少全部满足星号标记的情况下,你可以从<a herf = "https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar">Github</a>或<a herf = "http://caibiwangluo.eu5.org/mch/MCH.jar">菜比网络</a>下载程序压缩包<br>
 将其解压到桌面双击即可打开程序<br>
 <br>
 在首次使用时,需要选择一些基本配置,如语言、颜色主题等<br>
