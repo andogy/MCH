@@ -1,8 +1,8 @@
 # MCH Helps
 
-MCH is a Minecraft Command Helper
-
-<a href = "http://caibiwangluo.eu5.org/mch/yhxy.php">User agreement</a>
+MCH is a Minecraft Command Helper<br>
+<br>
+<a href = "http://caibiwangluo.eu5.org/mch/yhxy.php">User agreement</a><br>
 
 ## ----------minimum requirement----------
 <br>
