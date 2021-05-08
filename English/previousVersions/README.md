@@ -9,7 +9,8 @@ version ID is composed of version type and separate and version<br>
 first two digits of ID represent the version type of this version<br>
 "11" is ah(Alpha)<br>
 "12" is beta<br>
-"13" isoOfficial release version<br>
+"13" is Official release version<br>
+"14" is Debug version<br>
 <br>
 3-5 digits is random number by MCH unique algorithm<br>
 <br>
