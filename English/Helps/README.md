@@ -1,48 +1,47 @@
 # MCH帮助
 
-MCH系Minecraft Command Helper缩写
-由名可知这是个Minecraft的命令帮助软件
+MCH is a Minecraft Command Helper
 
-<a href = "http://caibiwangluo.eu5.org/mch/yhxy.php">用户协议</a>
+<a href = "http://caibiwangluo.eu5.org/mch/yhxy.php">User agreement</a>
 
-## ----------最低配置----------
+## ----------minimum requirement----------
 <br>
-使用此软件前,请确保设备到达一下要求<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*是一台电脑<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-具有2核1GHz或更高的CPU<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-具有360x460或更高的显示<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*具有Java8u201或更高版本的Java<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*具有键鼠(键盘与鼠标)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-具有最少50M的存储空间<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-具有最少可用1GB的内存<br>
+before used MCH,please check your computer are the following requirements met<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*your computer is normal computer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-has 2cores 1GHz or higer CPU<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-has 360x460 or higer Display screen<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*has Java8u201 or Java of higer version<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*has keyboard and mouse<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-has 50M or higer storage<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-has 1GB or higer RAM<br>
 <br>
-当确保电脑达到最少全部满足星号标记的情况下,你可以从<a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar">Github</a>或<a href = "http://caibiwangluo.eu5.org/mch/MCH.jar">菜比网络</a>下载程序压缩包<br>
-将其解压到桌面双击即可打开程序<br>
+When your computer meets at least all the asterisk marks,you can a jar from<a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar">Github</a> or <a href = "http://caibiwangluo.eu5.org/mch/MCH.jar">CbNet</a><br>
+double click it to used the program<br>
 <br>
-在首次使用时,需要选择一些基本配置,如语言、颜色主题等<br>
-设置完成后再次启动时不需要重新设置<br>
+at first use,you need do some cofig set,like language or color ETC.<br>
+need not to set again when you restart after completion<br>
 <br>
 
-## ----------基本使用----------
+## ----------basic usage----------
 <br>
-### 查找命令
-进入主程序时,窗口最下方有输入栏和菜单按键<br>
-在输入栏输入完整命令后按下空格即可出现命令提示,按下回车可以复制命令<br>
-若不知道具体命令,可以输入命令的用处进行检索<br>
-如:gamemode
-这是一个更改游戏模式的命令,可以输入"g"查找到,也可以输入"模式"
+### find commands
+in MCH,have a input box and menu button in below<br>
+After complete command in the input box,entry space to display command tip,entry Enter can copy command<br>
+if do not know specific command,can entry usage of that command<br>
+such as "gamemode"<br>
+this command is used set game mode,can entry "g" or "mode" ETC.<br>
+<br>
+if wanna get all commands,can entry "/" in input box,or entry Tab key when input box is empty<br>
+<br>
+when input box is empty,default operation is read your history file,it is commands of you write in MCH<br>
+if you do not wanna see that,you can off it in menu<br>
 
-如果想知道所有命令,可以在输入栏为空的时候输入tab或者输入斜杠(/)
+### completion command
+when input box not is empty<br>
+entry UP/Down(↑/↓) key or Tab key can select command to completion,entry ohther key then to take effect,entry Backspace(回车) to cancel change<br>
+at completion,command of will completion to input box will display as orange(display in up tips,not input box)<br>
 
-在输入栏为空的时候,一般情况下会自动读取你的历史记录,即你曾用MCH写出并回车过的命令<br>
-当然如果你不想要看到,你可以在菜单里将此功能关闭
-
-### 补全命令
-在输入框有输入字符时<br>
-按上下(↑/↓)键或Tab键可以选择命令进行补全,按其他键生效,按下Backspace(回车)则撤销改变并退出补全<br>
-补全时,即将被补入的命令会呈橙色样式显示(在上面的提示,并非输入框)<br>
-
-### 快捷键
+### shortcut key
 熟练使用快捷键使得MCH的使用效率有所增加<br>
 MCH有以下快捷键:<br>
 <br>
@@ -51,29 +50,33 @@ Ctrl + Delete&nbsp;&nbsp;&nbsp;&nbsp;(清空输入)<br>
 Ctrl + M&nbsp;&nbsp;&nbsp;&nbsp;(打开菜单)<br>
 Ctrl + H&nbsp;&nbsp;&nbsp;&nbsp;(打开高级设置)<br>
 Ctrl + G&nbsp;&nbsp;&nbsp;&nbsp;(打开MCH的Github页面)<br>
-Ctrl + R&nbsp;&nbsp;&nbsp;&nbsp;(重启MCH)<br>
 Ctrl + Alt&nbsp;&nbsp;&nbsp;&nbsp;(切换颜色)<br>
 <br>
-Alt + F1&nbsp;&nbsp;&nbsp;&nbsp;(输入颜色代码[§])<br>
-Alt + C&nbsp;&nbsp;&nbsp;&nbsp;(切换颜色)<br>
-Alt + L&nbsp;&nbsp;&nbsp;&nbsp;(切换语言)<br>
+Alt + F1&nbsp;&nbsp;&nbsp;&nbsp;(entry "§" in caret position)<br>
+Alt + C&nbsp;&nbsp;&nbsp;&nbsp;(switch color)<br>
+Alt + L&nbsp;&nbsp;&nbsp;&nbsp;(switch language)<br>
 <br>
-Ctrl + /&nbsp;&nbsp;&nbsp;&nbsp;(补入斜杠)<br>
-Alt + /&nbsp;&nbsp;&nbsp;&nbsp;(补入斜杠)<br>
+Ctrl + /&nbsp;&nbsp;&nbsp;&nbsp;(entry "/" in first char)<br>
+Alt + /&nbsp;&nbsp;&nbsp;&nbsp;(entry "/" in first char)<br>
+<br>
+Ctrl + R&nbsp;&nbsp;&nbsp;&nbsp;(restart MCH)<br>
+Alt + R&nbsp;&nbsp;&nbsp;&nbsp;(restart MCH)<br>
+
+## ----------menu usage----------
+<br>
+usage of various parts of menu<br>
 <br>
 
-## ----------菜单使用----------
-<br>
-菜单内的各个部分都有问题告知按钮用处<br>
-<br>
-
-### 颜色状态
-按钮颜色表示状态<br>
-如果按钮颜色和背景一样的话,则代表现在使用的是这个选项<br>
-如果颜色不一样,则代表按下这个按钮后可以进行切换<br>
+### color status
+button color is it status<br>
+if the button color is the same as the background,then means it are using this option<br>
+if not,it means you can switch after click this button<br>
 <br>
 
-### 快速加载
+### fast load
+
+<Waiting For Translation>
+
 快速加载选项:<br>
 此选项减少了程序处理垃圾的频率,因此可以更快加载历史记录等文件<br>
 但是因为减少了垃圾处理,内存可能变得很高,在极限情况下可以达到8GB内存占用<br>
