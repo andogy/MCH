@@ -51,7 +51,6 @@ Ctrl + Delete&nbsp;&nbsp;&nbsp;&nbsp;(清空输入)<br>
 Ctrl + M&nbsp;&nbsp;&nbsp;&nbsp;(打开菜单)<br>
 Ctrl + H&nbsp;&nbsp;&nbsp;&nbsp;(打开高级设置)<br>
 Ctrl + G&nbsp;&nbsp;&nbsp;&nbsp;(打开MCH的Github页面)<br>
-Ctrl + R&nbsp;&nbsp;&nbsp;&nbsp;(重启MCH)<br>
 Ctrl + Alt&nbsp;&nbsp;&nbsp;&nbsp;(切换颜色)<br>
 <br>
 Alt + F1&nbsp;&nbsp;&nbsp;&nbsp;(输入颜色代码[§])<br>
@@ -61,6 +60,8 @@ Alt + L&nbsp;&nbsp;&nbsp;&nbsp;(切换语言)<br>
 Ctrl + /&nbsp;&nbsp;&nbsp;&nbsp;(补入斜杠)<br>
 Alt + /&nbsp;&nbsp;&nbsp;&nbsp;(补入斜杠)<br>
 <br>
+Ctrl + R&nbsp;&nbsp;&nbsp;&nbsp;(重启MCH)<br>
+Alt + R&nbsp;&nbsp;&nbsp;&nbsp;(重启MCH)<br>
 
 ## ----------菜单使用----------
 <br>
