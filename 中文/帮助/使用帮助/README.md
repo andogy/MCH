@@ -3,7 +3,7 @@
 MCH系Minecraft Command Helper缩写<br>
 知这是个Minecraft的命令帮助软件
 <br>
-<a href = "http://caibiwangluo.eu5.org/mch/yhxy.php">用户协议</a>
+<a href = "http://github.andogy/MCH">用户协议</a>
 
 ## ----------最低配置----------
 <br>
@@ -111,7 +111,7 @@ Alt + R&nbsp;&nbsp;&nbsp;&nbsp;(重启MCH)<br>
 
 ### 帮助按钮
 按下帮助按钮会跳转到此页面,如果语言是中文的话
-如果语言选择了英文,则会跳转到<a href = "https://github.com/andogy/MCH/tree/main/English/Helps">英文帮助页面</a>
+如果语言选择了英文,则会跳转到<a href = "https://github.com/andogy/MCH/tree/main/English/Helps/Help">英文帮助页面</a>
 
 ### 重启MCH按钮
 按下这个按钮后会尝试重启MCh,如果在一秒内没有新的MCH窗口出现,请手动重启
