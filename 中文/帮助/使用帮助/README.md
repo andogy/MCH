@@ -107,7 +107,7 @@ Alt + R&nbsp;&nbsp;&nbsp;&nbsp;(重启MCH)<br>
 按下删除数据按钮可以删除MCH路径下除了配置文件以外的所有文件
 
 ### 帮助按钮
-按下帮助按钮会跳转到此页面,如果语言是中文的话
+按下帮助按钮会跳转到此页面,如果语言是中文的话<br>
 如果语言选择了英文,则会跳转到<a href = "https://github.com/andogy/MCH/tree/main/English/Helps/Help">英文帮助页面</a>
 
 ### 重启MCH按钮
