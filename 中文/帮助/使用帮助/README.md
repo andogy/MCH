@@ -3,7 +3,7 @@
 MCH系Minecraft Command Helper缩写<br>
 知这是个Minecraft的命令帮助软件
 <br>
-<a href = "http://github.andogy/MCH">用户协议</a>
+<a href = "https://github.com/andogy/MCH/tree/main/%E4%B8%AD%E6%96%87/%E5%B8%AE%E5%8A%A9/%E7%94%A8%E6%88%B7%E5%8D%8F%E8%AE%AE">用户协议</a>
 
 ## ----------最低配置----------
 <br>
