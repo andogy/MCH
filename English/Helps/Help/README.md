@@ -124,26 +124,29 @@ click this button will go advanced settings page,there have almost all MCH setti
 
 ## == exit ==
 
+<br>
+have 5 ways to exit MCH<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1.entry ".exit" to input box<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2.click exit button to exit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3.keep pressing Enter key<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.used Task Manager off MCH<br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.turn off your computer<br>
+<br>
+<br>
+at one case mostly when the exit button is disabled<br>
+at two case is normal exit <br>
+at three case is illegal exit,this case exit,will recorded in "error.log",too many uses may up a lot of storage<br>
+at four case mostly is cannot operation MCH window,can force off MCH<br>
+at five case mostlt is cannot operation computer,but at present,this case is no used for MCH causes<br>
+
+## == config ==
+<br>
+config file save in "C:\.MCH\settings.ini"<br>
+unable to customize the config file path temporarily<br>
+<br>
+<br>
 (Waiting for translation)
-
 <br>
-退出MCH的方式目前有五种<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1.在输入栏输入.exit进行退出<br>
-&nbsp;&nbsp;&nbsp;&nbsp;2.使用右上角的X按钮退出<br>
-&nbsp;&nbsp;&nbsp;&nbsp;3.长按Enter键退出<br>
-&nbsp;&nbsp;&nbsp;&nbsp;4.任务管理器结束任务<br>
-&nbsp;&nbsp;&nbsp;&nbsp;5.关闭电脑<br>
-<br>
-第一种情况适用于将退出按钮禁用时使用<br>
-第二种情况为一般情况<br>
-第三种情况为非法退出,此方法的退出会被error.log收录,使用次数过多可能会占用很大存储空间<br>
-第四种情况为无法操作窗口时常用操作,可以强行停止程序<br>
-第五种情况一般在电脑无法操作时使用,目前还没有因为MCH导致此方法使用的案例<br>
-
-## ----------配置文件----------
-<br>
-配置文件一般存储于C:\.MCH\settings.ini中<br>
-暂不考虑允许自定义配置路径<br>
 <br>
 配置文件中记录的配置是按行来存储的<br>
 每行存储一个配置<br>
