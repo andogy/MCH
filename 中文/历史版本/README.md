@@ -20,17 +20,16 @@
 剩下的即为版本号<br>
 如0.0.1.1,在版本ID里即为0011,再如0.0.1.22,在版本ID里即为00122<br>
 
-### 版本更新内容
+## 版本更新内容
 
-
-[MCH_ah_0-0-1-29(111470100129)](https://github.com/andogy/MCH/raw/main/%E4%B8%AD%E6%96%87/%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/%E6%BA%90%E7%A0%81/MCH_ah-0-0-1-29.zip)<br>
+### [MCH_ah_0-0-1-29(111470100129)](https://github.com/andogy/MCH/raw/main/%E4%B8%AD%E6%96%87/%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/%E6%BA%90%E7%A0%81/MCH_ah-0-0-1-29.zip)<br>
 新增启动器功能,此功能可以快捷启动或关闭基岩版MC<br>
 Java版启动器正在计划中<br>
 现在错误日志可以不保存了,在 菜单>进阶设置>保存错误 里进行设置<br>
 <br>
--
+
 <br>
-[MCH_ah_0-0-1-28(111550100128)](https://github.com/andogy/MCH/raw/main/%E4%B8%AD%E6%96%87/%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/%E6%BA%90%E7%A0%81/MCH_ah-0-0-1-28.zip)<br>
+### [MCH_ah_0-0-1-28(111550100128)](https://github.com/andogy/MCH/raw/main/%E4%B8%AD%E6%96%87/%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/%E6%BA%90%E7%A0%81/MCH_ah-0-0-1-28.zip)<br>
 新增彩字代码(§)颜色展示,在输入框将会有彩字效果<br>
 这个功能目前处于测试性,可能bug会有很多(但现在没有发现)<br>
 
