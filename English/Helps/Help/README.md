@@ -4,7 +4,7 @@ MCH is a Minecraft Command Helper<br>
 <br>
 <a href = "http://caibiwangluo.eu5.org/mch/yhxy.php">User agreement</a><br>
 
-## ----------minimum requirement----------
+## == minimum requirement ==
 <br>
 before used MCH,please check your computer are the following requirements met<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*your computer is normal computer<br>
@@ -22,7 +22,7 @@ at first use,you need do some cofig set,like language or color ETC.<br>
 need not to set again when you restart after completion<br>
 <br>
 
-## ----------basic usage----------
+## == basic usage ==
 <br>
 ### find commands
 in MCH,have a input box and menu button in below<br>
@@ -63,7 +63,7 @@ Alt + R&nbsp;&nbsp;&nbsp;&nbsp;(restart MCH)<br>
 Ctrl + Alt&nbsp;&nbsp;&nbsp;&nbsp;(switch color)<br>
 Alt + C&nbsp;&nbsp;&nbsp;&nbsp;(switch color)<br>
 
-## ----------menu usage----------
+## == menu usage == 
 <br>
 usage of various parts of menu<br>
 <br>
@@ -100,30 +100,32 @@ smaller MCH and on top meanwhile use,maybe very convenient(?)<br>
 ### update source
 update source setting:<br>
 
-(Waiting For Translation)
+this setting used set how where download update package for MCH,this setting need according your network environment<br>
+if you can,we recommended to you to give priority to GitHub sorce
 
-此选项用于设置更新MCH时从哪里获取更新包,看情况选择即可
+### agreement
+click this button will go user agreement page,page change with language
 
-### 用户协议按钮
-按下这个按钮后会跳转到用户协议页面,在语言不同而时会跳转到不同的页面
+### delete data button
+click this button can delete all file at directory of MCH(except settings.ini and file of user add)
 
-### 删除数据按钮
-按下删除数据按钮可以删除MCH路径下除了配置文件以外的所有文件
+### "Helps"
+click "Helps" button will go here,if language is english<br>
+if language is chinese,then will go <a href = "https://github.com/andogy/MCH/tree/main/%E4%B8%AD%E6%96%87/%E5%B8%AE%E5%8A%A9/%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9">chinese help page</a>
 
-### 帮助按钮
-按下帮助按钮会跳转到此页面,如果语言是中文的话
-如果语言选择了英文,则会跳转到<a href = "https://github.com/andogy/MCH/tree/main/English/Helps">英文帮助页面</a>
+### restart MCH button
+click this button will try rastart MCh,if no new MCH window display in 1 second,please restart by you self
 
-### 重启MCH按钮
-按下这个按钮后会尝试重启MCh,如果在一秒内没有新的MCH窗口出现,请手动重启
+### Github button
+click this button will go Github of MCH,page change with language
 
-### Github按钮
-按下这个按钮后会跳转到Github页面,此页面也是根据语言不同而变化的
+### advanced button
+click this button will go advanced settings page,there have almost all MCH setting
 
-### 进阶设置
-按下这个按钮会进入进阶设置,里面有者比较全面的MCH设置
+## == exit ==
 
-## ----------退出----------
+(Waiting for translation)
+
 <br>
 退出MCH的方式目前有五种<br>
 &nbsp;&nbsp;&nbsp;&nbsp;1.在输入栏输入.exit进行退出<br>
