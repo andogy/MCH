@@ -200,7 +200,7 @@ Update用于设定更新时的下载源<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Delete(删除)<br>
 <br>
 
-## ----------帮助----------
+## == MCH support ==
 <br>
 在使用时出现无法解决的问题,可以进入MCH反馈群反馈或者直接联系开发者<br>
 反馈群群号1026701078<br>
@@ -226,7 +226,7 @@ zhuaidadaya@163.com<br>
 在收到邮件后会在一星期内对问题和建议进行讨论并给予回复<br>
 <br>
 
-## ----------人员----------
+## == 人员 ==
 <br>
 从此往下的内容不再为一般用户需要的帮助<br>
 <br>
@@ -247,24 +247,24 @@ MCH的开发人员至今只有2名开发人员,一名测试人员<br>
 <br>
 (经验部分,曾测试过什么程序之类的,可以不写)<br>
 <br>
-(署名)<br>
+(sign name)<br>
 <br>
-以上<br>
-<br>
-
-## ----------开源----------
-<br>
-MCH是一个开源程序,也就是提供源代码<br>
-我们将MCH的源码托管在<a href = "https://github.com/andogy/MCH">Github</a><br>
-你可以随时访问下载<br>
-<br>
-你可以使用源码尝试增加功能、修复bug,甚至将其改为完全于原来不同,这随意<br>
-但是,请不要使用源码进行修改发布,这属于侵权行为,如若我们发现,可能会造成一些后果,此后果需要你自己承担,即使是由我们引起的<br>
+over<br>
 <br>
 
-## ----------可扩展性----------
+## == open source ==
 <br>
-MCH未来有打算开放使用json的扩展<br>
+MCH is open source,that is,we provide the source code<br>
+we save MCH code in <a href = "https://github.com/andogy/MCH">Github</a><br>
+you can download it any time<br>
 <br>
-至于未来是多久,这就不好说了,或许一个版本,或许几个版本<br>
+you can use source code try add new function,fix bug,and even modify it at will<br>
+but,Please do not use the modify source code to the release,this is tort,if we know it,consequences need to be borne by yourself,even if we caused it<br>
+<br>
+
+## == Expansibility ==
+<br>
+MCH plan used json to extend<br>
+<br>
+as for time,it is uncertain,maybe just one version,maybe after several<br>
 
