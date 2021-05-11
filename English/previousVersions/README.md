@@ -22,6 +22,19 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://github.com/andogy/MCH/raw/main/%E4%B8%AD%E6%96%87/%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/%E6%BA%90%E7%A0%81/MCH_ah-0-0-1-30.zip">MCH_ah-0-0-1-30(114990100130)</a>
+```
+now MCH can no save all file,except settings.ini
+set it in menu>advanced 
+modified file size count of MCH,it is more accurate now
+/
+i working on the "Websocket" these two days,so no UPD in two days
+now "Websocekt" is delayed works,UPD speed will be one day one time
+/
+
+(2021.5.11)
+```
+
 ### <a href = "https://github.com/andogy/MCH/raw/main/%E4%B8%AD%E6%96%87/%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/%E6%BA%90%E7%A0%81/MCH_ah-0-0-1-29.zip">MCH_ah_0-0-1-29(111470100129)</a>
 ```
 add launcher function,this function can start and off Minecraft Bedrock Edition
