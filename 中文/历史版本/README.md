@@ -22,7 +22,7 @@
 ## 版本更新内容
 ### <a href = "https://github.com/andogy/MCH/raw/main/%E4%B8%AD%E6%96%87/%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/%E6%BA%90%E7%A0%81/MCH_ah-0-0-1-30.zip">MCH_ah-0-0-1-30(114990100130)</a>
 ```
-现在除了settings.ini文件,其他都可以不保存了
+now MCH can no save all file,except settings.ini
 可以在 菜单>进阶设置 里寻找到这些设置不保存的文件
 修改了MCH文件占用的计算方法,现在更加精确了
 /
