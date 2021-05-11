@@ -20,7 +20,7 @@
 如0.0.1.1,在版本ID里即为0011,再如0.0.1.22,在版本ID里即为00122<br>
 
 ## 版本更新内容
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-30.zip">MCH_ah-0-0-1-30(114990100130)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-30.zip">MCH_ah-0-0-1-30(114990100130)</a>
 ```
 现在除了settings.ini文件,其他都可以不保存了
 可以在 菜单>进阶设置 里寻找到这些设置不保存的文件
@@ -33,7 +33,7 @@
 (2021.5.11)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-29.zip">MCH_ah_0-0-1-29(111470100129)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-29.zip">MCH_ah_0-0-1-29(111470100129)</a>
 ```
 新增启动器功能,此功能可以快捷启动或关闭基岩版MC
 Java版启动器正在计划中
@@ -42,7 +42,7 @@ Java版启动器正在计划中
 (2021.5.9)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-28.zip">MCH_ah_0-0-1-28(111550100128)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-28.zip">MCH_ah_0-0-1-28(111550100128)</a>
 ```
 新增彩字代码(§)颜色展示,在输入框将会有彩字效果
 这个功能目前处于测试性,可能bug会有很多(但现在没有发现)
@@ -50,7 +50,7 @@ Java版启动器正在计划中
 (2021.5.8)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-27.zip">MCH_ah_0-0-1-27(111460100127)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-27.zip">MCH_ah_0-0-1-27(111460100127)</a>
 ```
 修复部分补全的bug
 新增高亮功能,目前只在补全命令时有使用
@@ -59,7 +59,7 @@ Java版启动器正在计划中
 (2021.5.8)<br>
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-26.zip">MCH_ah_0-0-1-26(111540100126)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-26.zip">MCH_ah_0-0-1-26(111540100126)</a>
 ```
 再次修复缓存残留问题
 新增保留缓存功能,在 菜单>进阶设置>保留缓存 进行设置
@@ -68,7 +68,7 @@ Java版启动器正在计划中
     
 (2021.5.7)
 ```
-### <a href = "hhttps://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-25.zip">MCH_ah_0-0-1-25(111540100125)</a>
+### <a href = "hhttps://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-25.zip">MCH_ah_0-0-1-25(111540100125)</a>
 ```
 新增上下键补全命令,以及上下键填入历史
     使用方法:
@@ -81,7 +81,7 @@ Java版启动器正在计划中
 
 (2021.5.7)
 ```
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-24.zip">MCH_ah_0-0-1-24(111440100124)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-24.zip">MCH_ah_0-0-1-24(111440100124)</a>
 ```
 修复了版本更新残留缓存的问题
 将内部执行流程进行了稍微的调整
@@ -94,7 +94,7 @@ Java版启动器正在计划中
 
 -
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-23.zip">MCH_ah_0-0-1-23(111520100123)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-23.zip">MCH_ah_0-0-1-23(111520100123)</a>
 ```
 新增一些快捷键:
     Ctrl + Esc    退出程序
@@ -110,7 +110,7 @@ Java版启动器正在计划中
 (2021.5.5)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-22.zip">MCH_ah_0-0-1-22(111430100122) </a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-22.zip">MCH_ah_0-0-1-22(111430100122) </a>
 ```
 修复了github源无法获取更新的问题,现在不会被拒绝连接,但国内可能时常会超时
 修复了之前版本更新的版本判断问题
@@ -118,7 +118,7 @@ Java版启动器正在计划中
 (2021.5.5)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-21.zip">MCH_ah_0-0-1-21(112440100121)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-21.zip">MCH_ah_0-0-1-21(112440100121)</a>
 ```
 更新功能现在可以使用了
 新增选择源按钮,可以选择更新时使用Github或菜比网络的下载源
@@ -130,7 +130,7 @@ Java版启动器正在计划中
 (2021.5.4)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-20.zip">MCH_ah_0-0-1-20(111970100120)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-20.zip">MCH_ah_0-0-1-20(111970100120)</a>
 ```
 新增了更新功能,但是由于网络文件并未就绪,这个版本还不能使用这个功能
 新增了重启按钮
@@ -141,7 +141,7 @@ Java版启动器正在计划中
 (2021.5.3)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-19.zip">MCH_ah_0-0-1-19(112660100119)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-19.zip">MCH_ah_0-0-1-19(112660100119)</a>
 ```
 从此版本往后开始使用版本ID(112660100119),但不删除版本号(MCH_ah_0-0-1-19)
 新增三个按钮:
@@ -153,7 +153,7 @@ Java版启动器正在计划中
 (2021.5.2)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-18.zip">MCH_ah_0-0-1-18</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-18.zip">MCH_ah_0-0-1-18</a>
 ```
 小更新,将命令处理的整条处理改为了处理光标之前的命令
 将ver参数存储在了Community,之前是在language
@@ -161,14 +161,14 @@ Java版启动器正在计划中
 (2021.4.30)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-17.zip">MCH_ah_0-0-1-17</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-17.zip">MCH_ah_0-0-1-17</a>
 ```
 新增了tips,在输入框为空时会随机显示
 
 (2021.4.30)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-16.zip">MCH_ah_0-0-1-16</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-16.zip">MCH_ah_0-0-1-16</a>
 ```
 这个版本新增了颜色设置的彩蛋,提示:在输入框输入彩蛋的英文
 errors新增一个参数: er,这个参数是Error类型,目前可以使用的只有内存溢出
@@ -179,7 +179,7 @@ errors新增一个参数: er,这个参数是Error类型,目前可以使用的只
 (2021.4.29)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-15.zip">MCH_ah_0-0-1-15</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-15.zip">MCH_ah_0-0-1-15</a>
 ```
 将UI从resources移动到Community里
 新增删除数据按钮,此按钮会删除:
@@ -191,7 +191,7 @@ errors新增一个参数: er,这个参数是Error类型,目前可以使用的只
 (2021.4.27)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-14.zip">MCH_ah_0-0-1-14</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-14.zip">MCH_ah_0-0-1-14</a>
 ```
 新增Helps类
 历史记录读取新增文件长度缓存的判断
@@ -203,14 +203,14 @@ MenuUI新增OnTop(应用置顶)选项
 (2021.4.23)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-13.zip">MCH_ah_0-0-1-13</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-13.zip">MCH_ah_0-0-1-13</a>
 ```
 此版本主要更新命令解析部分
 
 (2021.4.22)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-12.zip">MCH_ah_0-0=1-12</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-12.zip">MCH_ah_0-0=1-12</a>
 ```
 MenuUI新增版本显示
 Errors的errors新增两个参数,分别是cannotHandle和exceptionSource
@@ -222,7 +222,7 @@ Errors的errors新增两个参数,分别是cannotHandle和exceptionSource
 (2021.4.22)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-11.zip">MCH_ah_0-0-1-11</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-11.zip">MCH_ah_0-0-1-11</a>
 ```
 新增LoadAssembly类,这个类用于将状态输出的输出存储在run.log
 新增Errors类,这个类用于处理错误,在需要时会退出程序
@@ -230,7 +230,7 @@ Errors的errors新增两个参数,分别是cannotHandle和exceptionSource
 (2021.4.20)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-10.zip">MCH_ah_0-0-1-10</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-10.zip">MCH_ah_0-0-1-10</a>
 ```
 新增历史记录功能,这个功能将会在输入框为空时显示曾经回车过的命令
 新增快速加载功能,此功能目前只用于历史记录,开启后会减少内存回收次数,以此加快加载速度,但是内存占用极高
@@ -238,7 +238,7 @@ Errors的errors新增两个参数,分别是cannotHandle和exceptionSource
 (2021.4.19)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-9.zip">MCH_ah_0-0-1-9</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-9.zip">MCH_ah_0-0-1-9</a>
 ```
 新增退出按钮事件切换,现在可以让用户决定按钮是退出还是缩小
 新增commandLibrary类,字典作用
@@ -250,7 +250,7 @@ Events新增switchExButtonWillExit方法,用于切换退出按钮事件
 (2021.4.17)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-8.zip">MCH_ah_0-0-1-8</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-8.zip">MCH_ah_0-0-1-8</a>
 ```
 Events新增switch系列方法:
     -switchColor    切换颜色
@@ -265,7 +265,7 @@ Parsing中大部分解析都被注释了,因为准备换处理方式
 (2021.4.17)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-7.zip">MCH_ah_0-0-7</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-7.zip">MCH_ah_0-0-7</a>
 ```
 删除HelpUI
 颜色切换按钮完成
@@ -280,7 +280,7 @@ EXI类更名为exit
 (2021.4.14)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-6.zip">MCH_ah_0-0-1-6</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-6.zip">MCH_ah_0-0-1-6</a>
 ```
 将退出事件监听更名为EXIT_Button.java
 新增EXI类,用于输入.exit退出时提示
@@ -289,7 +289,7 @@ EXI类更名为exit
 (2021.4.11)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-5.zip">MCH_ah_0-0-1-5</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-5.zip">MCH_ah_0-0-1-5</a>
 ```
 将复制方式改为按下回车复制
 将按下退出按钮事件改为缩小窗口
@@ -300,7 +300,7 @@ colors新增黑色
 (2021.4.10)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-4.zip">MCH_ah_0-0-1-4</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-4.zip">MCH_ah_0-0-1-4</a>
 ```
 在Parsing中将大写字母转为小写
 language新增英文
@@ -308,7 +308,7 @@ language新增英文
 (2021.4.10)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-3.zip">MCH_ah_0-0-1-3</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-3.zip">MCH_ah_0-0-1-3</a>
 ```
 新增language线程,用于设定UI语言
 新增Parsing线程,用于判断输入以及解析输入
@@ -320,7 +320,7 @@ language新增英文
 (2021.4.10)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-2.zip">MCH_ah_0-0-1-2</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-2.zip">MCH_ah_0-0-1-2</a>
 ```
 UI新增命令输入和复制按钮
 新增colors线程,用于设定UI颜色
@@ -331,14 +331,14 @@ Events新增Copy方法,用于复制输入框文本
 (2021.4.10)
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1-1.zip">MCH_ah_0-0-1-1</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-1.zip">MCH_ah_0-0-1-1</a>
 ```
 增加了一个基本窗口(无内容)
 增加按下退出按钮的事件监听
 
 (2021.4.9)
 ```
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah-0-0-1.zip">MCH_ah_0-0-1</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1.zip">MCH_ah_0-0-1</a>
 ```
 创建了一个空项目
 
