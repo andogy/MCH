@@ -20,6 +20,14 @@
 如0.0.1.1,在版本ID里即为0011,再如0.0.1.22,在版本ID里即为00122<br>
 
 ## 版本更新内容
+
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-31.zip">MCH_ah_0-0-1-31(115090100131)</a>
+```
+新增自动更新功能,在有更新的时候会自动进行更新操作
+
+(2021.5.12)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-30.zip">MCH_ah-0-0-1-30(114990100130)</a>
 ```
 现在除了settings.ini文件,其他都可以不保存了
