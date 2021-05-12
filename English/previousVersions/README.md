@@ -22,6 +22,13 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-31.zip">MCH_ah_0-0-1-31(115090100131)</a>
+```
+add auto UPD function,can auto update MCH after have new version
+
+(2021.5.12)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-30.zip">MCH_ah-0-0-1-30(114990100130)</a>
 ```
 now MCH can no save all file,except settings.ini
