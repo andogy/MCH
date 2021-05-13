@@ -22,6 +22,14 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-33.zip">MCH_ah_0-0-1-33(145010100133)</a>
+```
+CbNet stopped MCH update support,only can update from Github now
+in China if cannot updated new version, please wait a few minutes and try agai, or download update in qq
+
+(2021.5.13)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-32.zip">MCH_ah_0-0-1-32(115010100132)</a>
 ```
 add feedback button,click it can go feedback email
