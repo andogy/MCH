@@ -22,6 +22,13 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-32.zip">MCH_ah_0-0-1-32(115010100132)</a>
+```
+add feedback button,click it can go feedback email
+
+(2021.5.13)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-31.zip">MCH_ah_0-0-1-31(115090100131)</a>
 ```
 add auto UPD function,can auto update MCH after have new version
