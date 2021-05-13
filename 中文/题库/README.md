@@ -83,6 +83,8 @@ A
 Σ(∞,n=1)Σ(m,k=1) (((4^(n-k))((4^k)-1)((4^n)-(4^k))) / (2n-1)(2k)!(2n-2k)!)B(n)B(n-k)(2)F(1){1,2n-1/2;2n+1/2;-x^2}(x^2n-1)+C
 ```
 
+> <img src="https://latex.codecogs.com/svg.image?\bg_white&space;\sum_{n=1}^{\infty}\sum_{k=1}^{n}&space;\frac{4^{n-k}\left&space;(&space;4^{k}-1&space;\right&space;)\left&space;(&space;4^{n}&space;-&space;4^{k}&space;\right&space;)}{\left&space;(&space;2n&space;-&space;1&space;\right&space;)\left&space;(&space;2k&space;\right&space;)!&space;\left&space;(&space;2n&space;-&space;2k&space;\right&space;)!}&space;B_{n}B_{n-k}&space;{_{2}\textrm{F}_{1}}\left&space;(&space;1,\frac{2n-1}{2};\frac{2n&plus;1}{2};-x^{2}&space;\right&space;)x^{2n-1}&plus;C" title="\bg_white \sum_{n=1}^{\infty}\sum_{k=1}^{n} \frac{4^{n-k}\left ( 4^{k}-1 \right )\left ( 4^{n} - 4^{k} \right )}{\left ( 2n - 1 \right )\left ( 2k \right )! \left ( 2n - 2k \right )!} B_{n}B_{n-k} {_{2}\textrm{F}_{1}}\left ( 1,\frac{2n-1}{2};\frac{2n+1}{2};-x^{2} \right )x^{2n-1}+C" />
+
 ### 问题: 0和-∞谁是无穷小?
 
 ```
