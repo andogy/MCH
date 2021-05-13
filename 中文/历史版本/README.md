@@ -21,6 +21,13 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-32.zip">MCH_ah_0-0-1-32(115010100132)</a>
+```
+新增反馈按钮,点击后跳转到反馈邮箱
+
+(2021.5.13)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-31.zip">MCH_ah_0-0-1-31(115090100131)</a>
 ```
 新增自动更新功能,在有更新的时候会自动进行更新操作
