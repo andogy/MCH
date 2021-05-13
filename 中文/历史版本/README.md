@@ -21,6 +21,14 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-33.zip">MCH_ah_0-0-1-33(145010100133)</a>
+```
+CbNet更新源停止更新支持,现在只能从Github更新
+国内如果有新版本后无法更新,请等待数分钟后重试或在qq群下载更新
+
+(2021.5.13)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-32.zip">MCH_ah_0-0-1-32(115010100132)</a>
 ```
 新增反馈按钮,点击后跳转到反馈邮箱
