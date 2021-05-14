@@ -146,50 +146,8 @@ Alt + R&nbsp;&nbsp;&nbsp;&nbsp;(重启MCH)<br>
 例如Color@White或者Language@Chinese<br>
 前面一般是设置目标,后面是选项<br>
 <br>
-配置文件不建议手动修改,如果非要的话,看以下<br>
-<br>
-配置文件目前有几种目标<br>
-Color用于设定颜色<br>
-Language用于设定语言<br>
-Button用于设定按钮事件<br>
-Load用于设定加载方式<br>
-Display用于设定显示<br>
-Update用于设定更新时的下载源<br>
-<br>
--Color有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Black(黑色)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-White(白色)<br>
-<br>
--Language有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Chinese(中文)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-English(英文)<br>
-<br>
--Button有一个可用子项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Ex(Exit Button)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;[程序的默认关闭按钮]<br>
--Ex有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Exit(退出)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Smaller(变小)<br>
-此处的选项设置不再为@,而是使用点(.)<br>
-例如Button@Ex.Exit为Ex按钮执行退出程序的行为<br>
-又或者Button@Ex.Smaller则为Ex按钮执行缩小窗口的行为<br>
-<br>
--Load有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Fast(快速)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Safe(慢速)<br>
-<br>
--Display有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-OnTop(置顶)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Default(默认)<br>
-    <br>
--Update有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Github<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-CbNet<br>
- <br>
--Cache有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Save(保存)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Delete(删除)<br>
-<br>
+配置文件不建议手动修改<br>
+因此,我们不提供修改帮助,请自行探索
 
 ## == MCH支持 ==
 <br>
