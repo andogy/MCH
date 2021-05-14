@@ -11,16 +11,17 @@ this agreement is of user with MCH team(hereinafter referred to "we"),it is abou
 ## 1.rights statement
 ```
 all intellectual property rights of MCH,and all information content of MCH,include but no only:
-  information content and it combination
-  icons
-  images
-  figure
-  colors
-  UI design
-  Layout frame
-  MCH date
-  extra programs
-these all owned by the we,it protected by copyright law,international copyright treaties and other intellectual property laws and regulations
+    information content and it combination
+    icons
+    images
+    figure
+    colors
+    UI design
+    Layout frame
+    MCH date
+    extra programs
+these all owned by the we
+it protected by copyright law,international copyright treaties and other intellectual property laws and regulations
 ```
 ## 2.Scope of license
 ### 2.1
