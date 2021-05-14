@@ -21,6 +21,14 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-34.zip">MCH_ah_0-0-1-34(115020100134)</a>
+```
+微调了设置页面的布局和位置
+修复了更新的一些小bug
+
+(2021.5.14)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-33.zip">MCH_ah_0-0-1-33(145010100133)</a>
 ```
 CbNet更新源停止更新支持,现在只能从Github更新
