@@ -229,3 +229,8 @@ MCH plan used json to extend<br>
 <br>
 as for time,it is uncertain,maybe just one version,maybe after several<br>
 
+## - translation -
+
+"zhuaidadaya" translated all github page and MCH texts
+if have any error,please contack to (Wechat)zhuaidadaya or (QQ)1501917367
+thanks for you
