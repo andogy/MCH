@@ -43,44 +43,50 @@ component separate:
 MCH is use licensed as a single product,user can separate MCH component used to learn 
 but component cannot used to any other 
 ```
-### 3.2 
+### 3.2
 ```
-个别授权:如需进行商业性的销售、复制、分发，包括但不限于软件销售、预装、捆绑等，必须获得的团队授权和许可
+rights reserved:
+all authorization not indicated is belong we in this agreement
+user must get consent from we at need use these authorization
 ```
-### 3.3 
-```
-保留权利：本协议未明示授权的其他一切权利仍归团队所有，用户使用其他权利时必须获得团队的同意
-```
-## 4.法律及争议解决
+## 4.law and dispute resolution
 ### 4.1 
 ```
-本协议适用中华人民共和国法律
+this agreement shall be governed by the laws of the peoples Republic of China
 ```
 ### 4.2 
 ```
-因本协议引起的或与本协议有关的任何争议，各方应友好协商解决；协商不成的，任何一方均可将有关争议提交至被告住所地有管辖权的法院诉讼解决
+any dispute arising out of or in connection with this agreement shall be settled through friendly negotiation
+if the negotiation fails,either party may submit the dispute to the court with jurisdiction in the defendant domicile for settlement
 ```
 
-### 5.其他条款
+### 5.other 
 ### 5.1 
 ```
-如果本协议中的任何条款无论因何种原因完全或部分无效或不具有执行力，或违反任何适用的法律，则该条款被视为删除，但本协议的其余条款仍应有效并且有约束力
+if any provision of this agreement is invalid or unenforceable in whole or in part for all reason or violates any applicable law
+such provision then be deemed deleted
+but the remaining provisions of this agreement shall remain valid and binding
 ```
 ### 5.2 
 ```
-团队有权随时根据有关法律、法规的变化以及团队经营状况和经营策略的调整等修改本协议
-修改后的协议会在此页公布，并随附于新版本软件
-当发生有关争议时，以最新的协议文本为准
-如果不同意改动的内容，用户可以自行删除本软件
-如果用户继续使用本软件，则视为您接受本协议的变动
+we has the right to change with the relevant laws at any time
+this agreement shall be amended with the change of laws and regulations
+and the adjustment of team management status and business strategy
+revised agreement will be published on this page
+and attached newly version MCH并
+in case of any dispute,the latest agreement shall prevail
+if disagree changed content,user can delete MCH
+if user continue to use MCH,then mean user accept changed
 ```
 ### 5.3 
 ```
-团队在更新条款时，不会通过任何途径通知您，若对违反协议规定但不知此协议的变更有争议，请参考5.2条
+when the team update terms,you will not be notified in any way
+if there is any dispute about the change of the agreement is violation of the provisions of the agreement but user may not aware of
+then,please see 5.2
 ```
 ### 5.4
 ```
-团队在法律允许最大范围内对本协议拥有解释权与修改权
+we has the right to interpret and modify this agreement to the maximum extent permitted by law
 ```
 <hr>
 
