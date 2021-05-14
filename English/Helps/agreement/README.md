@@ -9,30 +9,47 @@ start with you get MCH,it mean you accept terms of this agreement,this express y
 if accept not any terms or constraints,then please do not use MCH<br>
 this agreement is of user with MCH team(hereinafter referred to "we"),it is about user download and used or copy for MCH<br>
 ## 1.rights statement
-all intellectual property rights of MCH,and all information content of MCH,include but no only:<br>
-  information content and it combination<br>
-  icons<br>
-  images<br>
-  figure<br>
-  colors<br>
-  UI design<br>
-  Layout frame<br>
-  MCH date<br>
-  extra programs<br>
-these all owned by the we,it protected by copyright law,international copyright treaties and other intellectual property laws and regulations<br>
+```
+all intellectual property rights of MCH,and all information content of MCH,include but no only:
+  information content and it combination
+  icons
+  images
+  figure
+  colors
+  UI design
+  Layout frame
+  MCH date
+  extra programs
+these all owned by the we,it protected by copyright law,international copyright treaties and other intellectual property laws and regulations
+```
 ## 2.Scope of license
 ### 2.1
-downlaod and use:<br>
-MCH is free program<br>
-user can unlimited amount of non commercial download and use MCH<br>
-### 2.2 
-copy and distribute and spread<br>
-user can unlimited amount of non commercial copy and spread MCH<br>
-but,must ensure any copied MCH is complete and true,includ all the copyright of the MCH,and include this agreement<br>
-### 3.权利限制
-3.1 组件分割:本软件是作为一个单一产品而被授予许可使用,用户不得将各个部分分开用于任何目的。<br>
-3.2 个别授权:如需进行商业性的销售、复制、分发，包括但不限于软件销售、预装、捆绑等，必须获得的团队授权和许可。<br>
-3.3 保留权利：本协议未明示授权的其他一切权利仍归团队所有，用户使用其他权利时必须获得团队的同意。<br>
+```
+downlaod and use:
+MCH is free program
+user can unlimited amount of non commercial download and use MCH
+```
+### 2.2
+```
+copy and distribute and spread
+user can unlimited amount of non commercial copy and spread MCH
+but,must ensure any copied MCH is complete and true,includ all the copyright of the MCH,and include this agreement
+```
+## 3.Limitation of rights
+### 3.1 
+```
+component separate:
+MCH is use licensed as a single product,user can separate MCH component used to learn 
+but component cannot used to any other 
+```
+### 3.2
+```
+个别授权:如需进行商业性的销售、复制、分发，包括但不限于软件销售、预装、捆绑等，必须获得的团队授权和许可
+```
+### 3.3
+```
+ 保留权利：本协议未明示授权的其他一切权利仍归团队所有，用户使用其他权利时必须获得团队的同意
+```
 ### 4.法律及争议解决
 4.1 本协议适用中华人民共和国法律。<br>
 4.2 因本协议引起的或与本协议有关的任何争议，各方应友好协商解决；协商不成的，任何一方均可将有关争议提交至被告住所地有管辖权的法院诉讼解决。<br>
