@@ -22,6 +22,13 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-35.zip">MCH_ah_0-0-1-35(145020100135)</a>
+```
+fixed infinite update bug of 115020100134 version
+
+(2021.5.14)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-34.zip">MCH_ah_0-0-1-34(115020100134)</a>
 ```
 changed position of settings page and layout
