@@ -148,64 +148,22 @@ unable to customize the config file path temporarily<br>
 (Waiting for translation)
 <br>
 <br>
-配置文件中记录的配置是按行来存储的<br>
-每行存储一个配置<br>
+config file is stored by line<br>
+a line only one config<br>
 <br>
-配置文件都以引用形式来存储<br>
-例如Color@White或者Language@Chinese<br>
-前面一般是设置目标,后面是选项<br>
+config file is stored by "@"<br>
+such as "Color@White" or "Language@Chinese"<br>
+before "@" is config target,after is option<br>
 <br>
-配置文件不建议手动修改,如果非要的话,看以下<br>
-<br>
-配置文件目前有几种目标<br>
-Color用于设定颜色<br>
-Language用于设定语言<br>
-Button用于设定按钮事件<br>
-Load用于设定加载方式<br>
-Display用于设定显示<br>
-Update用于设定更新时的下载源<br>
-<br>
--Color有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Black(黑色)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-White(白色)<br>
-<br>
--Language有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Chinese(中文)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-English(英文)<br>
-<br>
--Button有一个可用子项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Ex(Exit Button)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;[程序的默认关闭按钮]<br>
--Ex有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Exit(退出)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Smaller(变小)<br>
-此处的选项设置不再为@,而是使用点(.)<br>
-例如Button@Ex.Exit为Ex按钮执行退出程序的行为<br>
-又或者Button@Ex.Smaller则为Ex按钮执行缩小窗口的行为<br>
-<br>
--Load有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Fast(快速)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Safe(慢速)<br>
-<br>
--Display有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-OnTop(置顶)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Default(默认)<br>
-    <br>
--Update有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Github<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-CbNet<br>
- <br>
--Cache有两个可用选项<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Save(保存)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-Delete(删除)<br>
-<br>
+not recommended to modify config file by you self<br>
+so,we do not provide help for modification,please explore by yourself
 
 ## == MCH support ==
 <br>
-在使用时出现无法解决的问题,可以进入MCH反馈群反馈或者直接联系开发者<br>
-反馈群群号1026701078<br>
+if has unsolvable problem,you can go QQ group of MCH or direct contact to developers<br>
+number of QQ group:1026701078<br>
 <br>
-可以直接联系开发者:<br>
+developers:<br>
 QQ:<br>
 1501917367<br>
 2293332045<br>
@@ -213,39 +171,42 @@ QQ:<br>
 Wechat:<br>
 zhuaidadaya<br>
 <br>
-电话联系暂不提供<br>
+not available for the time being call to we<br>
 <br>
-平常时间建议联系1501917367或zhuaidadaya,另一人不一定能及时给予回复<br>
-节假日随意<br>
+normally,you can contack to "1501917367" or "zhuaidadaya",another person may not be able to respond in time<br>
+at will on holidays<br>
 <br>
-如果只是想提供问题和想法,不想交流的话,可以将内容编辑好发送到以下邮箱<br>
+if you only provide ideas,not want talk to we<br>
+then you can send the edited message to following email<br>
 1501917367@qq.com<br>
 3477124880@qq.com<br>
 zhuaidadaya@163.com<br>
 <br>
-在收到邮件后会在一星期内对问题和建议进行讨论并给予回复<br>
+we will reply after discussion within a week<br>
 <br>
 
-## == 人员 ==
+## == members ==
 <br>
-从此往下的内容不再为一般用户需要的帮助<br>
+following helps is not is normal user needs<br>
 <br>
-MCH的开发人员至今只有2名开发人员,一名测试人员<br>
-目前有邀请测试人员的想法,不太打算再增加开发人员,但并不全部拒绝,具体视情况而定<br>
+developer of MCH is have two,and have a tester<br>
+we wanna invite testers<br>
+wanna not add developers,but not reject all,it need members discussion<br>
 <br>
-事先声明:<br>
-加入我们作为测试人员不能获得任何广义上的回报(如工资等)<br>
-加入是以友情帮助名义进行,可以获得MCH最新程序以及源码等,除此之外别无好处(貌似这也不算多好的好处)<br>
-总之可以当成是交个朋友互帮互助<br>
+before join:<br>
+join to we cannot obtain any benefit(like wage ETC.))<br>
+addition to get the newly MCH programs and source code<br>
+there are no other benefits (it seems that this is not a pretty good benefit)<br>
+join is in the name of friendship and help,in short, it can be regarded as making friends  then helping each other<br>
 <br>
-要加入,请编辑一封邮件发送到1501917367@qq.com<br>
-不提供邮件模板参照,大致内容如下:<br>
+wanna join,please edited a email send to 1501917367@qq.com<br>
+approximately contents are as follows:<br>
 <br>
-(希望加入的部分,例如开发或者测试,亦或运营)<br>
+(wanna departments,such as developer or tester ETC.)<br>
 <br>
-(擅长部分,使用体验测试、bug测试等方面描述)<br>
+(good at what,good at tester or bug found ETC.)<br>
 <br>
-(经验部分,曾测试过什么程序之类的,可以不写)<br>
+(experiences,What kind of development experience have you had,can have not)<br>
 <br>
 (sign name)<br>
 <br>
