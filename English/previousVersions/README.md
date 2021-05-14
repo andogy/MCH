@@ -22,6 +22,14 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-34.zip">MCH_ah_0-0-1-34(115020100134)</a>
+```
+微调了设置页面的布局和位置
+修复了更新的一些小bug
+
+(2021.5.14)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-33.zip">MCH_ah_0-0-1-33(145010100133)</a>
 ```
 CbNet stopped MCH update support,only can update from Github now
