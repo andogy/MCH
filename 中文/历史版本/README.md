@@ -21,6 +21,13 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-35.zip">MCH_ah_0-0-1-35(145020100135)</a>
+```
+修复了115020100134版本无限更新的bug
+
+(2021.5.14)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-34.zip">MCH_ah_0-0-1-34(115020100134)</a>
 ```
 微调了设置页面的布局和位置
