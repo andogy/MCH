@@ -2,7 +2,7 @@
 
 MCH is a Minecraft Command Helper<br>
 <br>
-<a href = "http://caibiwangluo.eu5.org/mch/yhxy.php">User agreement</a><br>
+<a href = "https://github.com/andogy/MCH/tree/main/English/Helps/agreement">User agreement</a><br>
 
 ## == minimum requirement ==
 <br>
