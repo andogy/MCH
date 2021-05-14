@@ -8,10 +8,21 @@ unless you accept the terms of this agreement,otherwise you cannot download and 
 start with you get MCH,it mean you accept terms of this agreement,this express you accept terms and constraints<br>
 if accept not any terms or constraints,then please do not use MCH<br>
 this agreement is of user with MCH team(hereinafter referred to "we"),it is about user download and used or copy for MCH<br>
-### 1.rights statement
-的一切知识产权，以及与本软件相关的所有信息内容，包括但不限于：文字表述及其组合、图标、图饰、图像、图表、色彩、界面设计、版面框架、有关数据、附加程序等均为团队所有，受著作权法和国际著作权条约以及其他知识产权法律法规的保护。<br>
-### 2.许可范围
-2.1 下载、安装和使用：本软件为免费软件，用户可以非商业性、无限制数量地下载、安装及使用本软件。<br>
+## 1.rights statement
+all intellectual property rights of MCH,and all information content of MCH,include but no only:<br>
+  information content and it combination<br>
+  icons<br>
+  images<br>
+  figure<br>
+  colors<br>
+  UI design<br>
+  Layout frame<br>
+  MCH date<br>
+  extra programs<br>
+  等均为团队所有，受著作权法和国际著作权条约以及其他知识产权法律法规的保护。<br>
+## 2.Scope of license
+### 2.1
+downlaod and use:本软件为免费软件，用户可以非商业性、无限制数量地下载、安装及使用本软件。<br>
 2.2 复制、分发和传播：用户可以非商业性、无限制数量地复制、分发和传播本软件产品。但必须保证每一份复制、分发和传播都是完整和真实的,包括所有有关本软件产品的版权等，亦包括本协议。<br>
 ### 3.权利限制
 3.1 组件分割:本软件是作为一个单一产品而被授予许可使用,用户不得将各个部分分开用于任何目的。<br>
