@@ -25,7 +25,13 @@ changed by MCH developers<br>
 5.4 团队在法律允许最大范围内对本协议拥有解释权与修改权。
 <hr>
 
-下载地址:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)、[菜比网络](http://caibiwangluo.eu5.org/mch/MCH.jar")<br>
-反馈群:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr)
+download MCH from:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)
+feedback from:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr) or [mail](mailto:1501917367@qq.com)
 <hr>
 协议版本: 1.2
+
+## - translation -
+
+"zhuaidadaya" translated all github page and MCH texts
+if have any error,please contack to (Wechat)zhuaidadaya or (QQ)1501917367
+thanks for you
