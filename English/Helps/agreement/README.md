@@ -2,8 +2,10 @@
 
 changed by MCH developers<br>
 
-## 欢迎使用MCH!
-请务必阅读并理解本协议中规定的所有权利与限制。除非您接受本协议条款，否则您无权下载、安装与使用MCH（以下简称"本软件"）及其相关服务。您一旦安装、复制、下载、访问或以其它方式使用本软件产品，将视为对本协议的接受，即表示您同意接受本协议各项条款的约束。如果您不同意本协议中的条款，请不要安装、复制或使用本软件。<br>
+## welcome to use MCH!
+please read and understand all rules and all right and restrict in this page <br>
+unless you accept the terms of this agreement,otherwise you cannot download and used MCH and servise of MCH<br>
+您一旦安装、复制、下载、访问或以其它方式使用本软件产品，将视为对本协议的接受，即表示您同意接受本协议各项条款的约束。如果您不同意本协议中的条款，请不要安装、复制或使用本软件。<br>
 本协议是用户与MCH制作团队（下称"团队"）之间关于用户下载、安装、使用、复制本软件的法律协议。<br>
 ### 1.权利声明
 本软件的一切知识产权，以及与本软件相关的所有信息内容，包括但不限于：文字表述及其组合、图标、图饰、图像、图表、色彩、界面设计、版面框架、有关数据、附加程序等均为团队所有，受著作权法和国际著作权条约以及其他知识产权法律法规的保护。<br>
@@ -28,10 +30,10 @@ changed by MCH developers<br>
 download MCH from:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)
 feedback from:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr) or [mail](mailto:1501917367@qq.com)
 <hr>
-协议版本: 1.2
+agreement version: 1.2
 
 ## - translation -
 
-"zhuaidadaya" translated all github page and MCH texts
-if have any error,please contack to (Wechat)zhuaidadaya or (QQ)1501917367
-thanks for you
+"zhuaidadaya" translated all github page and MCH texts<br>
+if have any error,please contack to (Wechat)zhuaidadaya or (QQ)1501917367<br>
+thanks for you<br>
