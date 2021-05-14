@@ -75,7 +75,7 @@
 ```
 <hr>
 
-下载地址:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)、[菜比网络](http://caibiwangluo.eu5.org/mch/MCH.jar")<br>
-反馈群:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr)
+下载地址:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)<br>
+反馈:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr)、[邮箱](mailto:1501917367@qq.com)
 <hr>
 协议版本: 1.2
