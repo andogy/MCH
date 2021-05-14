@@ -19,11 +19,16 @@ all intellectual property rights of MCH,and all information content of MCH,inclu
   Layout frame<br>
   MCH date<br>
   extra programs<br>
-  等均为团队所有，受著作权法和国际著作权条约以及其他知识产权法律法规的保护。<br>
+these all owned by the we,it protected by copyright law,international copyright treaties and other intellectual property laws and regulations<br>
 ## 2.Scope of license
 ### 2.1
-downlaod and use:本软件为免费软件，用户可以非商业性、无限制数量地下载、安装及使用本软件。<br>
-2.2 复制、分发和传播：用户可以非商业性、无限制数量地复制、分发和传播本软件产品。但必须保证每一份复制、分发和传播都是完整和真实的,包括所有有关本软件产品的版权等，亦包括本协议。<br>
+downlaod and use:<br>
+MCH is free program<br>
+user can unlimited amount of non commercial download and use MCH<br>
+### 2.2 
+copy and distribute and spread<br>
+user can unlimited amount of non commercial copy and spread MCH<br>
+but,must ensure any copied MCH is complete and true,includ all the copyright of the MCH,and include this agreement<br>
 ### 3.权利限制
 3.1 组件分割:本软件是作为一个单一产品而被授予许可使用,用户不得将各个部分分开用于任何目的。<br>
 3.2 个别授权:如需进行商业性的销售、复制、分发，包括但不限于软件销售、预装、捆绑等，必须获得的团队授权和许可。<br>
@@ -49,3 +54,5 @@ agreement version: 1.2
 "zhuaidadaya" translated all github page and MCH texts<br>
 if have any error,please contack to (Wechat)zhuaidadaya or (QQ)1501917367<br>
 thanks for you<br>
+
+(zhuaidadaya: this agreement is so strict)
