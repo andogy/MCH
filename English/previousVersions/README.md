@@ -22,6 +22,14 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-38.zip">MCH_debug_0-0-1-38(145130100138)</a>
+```
+fixed bug of save all history
+optimized some other codes,at main window closed,MCH will whole pause to saving performance
+
+(2021.5.16)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-36.zip">MCH_debug_0-0-1-37(145030100137)</a>
 ```
 fixed a bug of all the time in before versions,black style have not the cursor
