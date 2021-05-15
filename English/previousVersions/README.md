@@ -22,6 +22,14 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-36.zip">MCH_ah_0-0-1-36(115030100136)</a>
+```
+move launcher from menu>launcher to menu>function>launcher
+evermore,all function will in menu>functions
+
+(2021.5.15)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-35.zip">MCH_ah_0-0-1-35(145020100135)</a>
 ```
 fixed infinite update bug of 115020100134 version
