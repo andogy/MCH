@@ -45,7 +45,7 @@ Email format roughly as:
 ## Features
 ### Documentation
 [User-agreement](http://caibiwangluo.eu5.org/mch/yhxy.php)<br>
-Helps(Waiting for UPD)<br>
+[Helps](https://github.com/andogy/MCH/tree/main/English/Helps/Help)<br>
 [Developer-documentation](http://caibiwangluo.eu5.org/mch/code.php)<br>
 ## Rights statement
 ### Open Source
