@@ -21,8 +21,15 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-38.zip">MCH_debug_0-0-1-38(145130100138)</a>
+```
+修复了历史记录全保存的问题
+优化了一些其他东西,现在在主窗口最小化时会停用整个MCH的运行,以达到节省性能的目的
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-36.zip">MCH_debug_0-0-1-37(145030100137)</a>
+(2021.5.16)
+```
+
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-37.zip">MCH_debug_0-0-1-37(145030100137)</a>
 ```
 修复了一直以来都有的bug,黑色主题光标消失
 从此版本起,14代号的版本将不再归为ah系列,而是归为debug系列
