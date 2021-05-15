@@ -42,7 +42,7 @@ ake259193@gmail.com
 
 ## 功能
 ### 文档
-[用户协议](http://caibiwangluo.eu5.org/mch/yhxy.php)<br>
+[用户协议](https://github.com/andogy/MCH/tree/main/%E4%B8%AD%E6%96%87/%E5%B8%AE%E5%8A%A9/%E7%94%A8%E6%88%B7%E5%8D%8F%E8%AE%AE)<br>
 [帮助](https://github.com/andogy/MCH/tree/main/%E4%B8%AD%E6%96%87/%E5%B8%AE%E5%8A%A9/%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9)<br>
 [开发者文档](http://caibiwangluo.eu5.org/mch/code.php)<br>
 ## 权利声明
