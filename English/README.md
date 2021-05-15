@@ -44,9 +44,8 @@ Email format roughly as:
 
 ## Features
 ### Documentation
-[User-agreement](http://caibiwangluo.eu5.org/mch/yhxy.php)<br>
+[User-agreement](https://github.com/andogy/MCH/tree/main/English/Helps/agreement)<br>
 [Helps](https://github.com/andogy/MCH/tree/main/English/Helps/Help)<br>
-[Developer-documentation](http://caibiwangluo.eu5.org/mch/code.php)<br>
 ## Rights statement
 ### Open Source
 MCH is Fully Open Source,You can Revivew/Modify/Learn,But Never for Commercial Use !!!
