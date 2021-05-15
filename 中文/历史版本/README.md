@@ -21,6 +21,15 @@
 
 ## 版本更新内容
 
+
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-36.zip">MCH_debug_0-0-1-37(145030100137)</a>
+```
+修复了一直以来都有的bug,黑色主题光标消失
+从此版本起,14代号的版本将不再归为ah系列,而是归为debug系列
+
+(2021.5.15)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-36.zip">MCH_ah_0-0-1-36(115030100136)</a>
 ```
 修改了启动器的位置,从 菜单>启动器 中移动到了 菜单>功能>启动器
