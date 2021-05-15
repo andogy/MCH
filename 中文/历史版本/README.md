@@ -23,7 +23,7 @@
 
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-36.zip">MCH_ah_0-0-1-36(115030100136)</a>
 ```
-修改了启动器的位置,从 菜单>启动器 中移动到了 菜单>功能
+修改了启动器的位置,从 菜单>启动器 中移动到了 菜单>功能>启动器
 以后几乎所有功能都会在那里进入
 
 (2021.5.15)
