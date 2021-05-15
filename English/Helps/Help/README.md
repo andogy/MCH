@@ -10,7 +10,7 @@ before used MCH,please check your computer are the following requirements met<br
 &nbsp;&nbsp;&nbsp;&nbsp;*your computer is normal computer<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-has 2cores 1GHz or higer CPU<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-has 360x460 or higer Display screen<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*has Java8u201 or Java of higer version<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*has Java15 or Java of higer version<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*has keyboard and mouse<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-has 50M or higer storage<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-has 1GB or higer RAM<br>
