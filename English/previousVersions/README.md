@@ -22,6 +22,14 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-36.zip">MCH_debug_0-0-1-37(145030100137)</a>
+```
+fixed a bug of all the time in before versions,black style have not the cursor
+after this version,vresion of code 14 will not is "ah",it is "debug"
+
+(2021.5.15)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-36.zip">MCH_ah_0-0-1-36(115030100136)</a>
 ```
 move launcher from menu>launcher to menu>function>launcher
