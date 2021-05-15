@@ -1,5 +1,10 @@
 # MCH
-The full name of MCH is "Minecraft Command Helper".You can think of it as the computer version of CA.                                                                   
+The full name of MCH is "Minecraft Command Helper".You can think of it as the computer version of CA.    
+```
+project of MCH is start at 2021.4.6
+first version is upload at 2021.4.9
+first official version is have not now
+```
 ## ColorEgg
 
 ### !! - WARNIG - !!<br>
