@@ -11,7 +11,7 @@ MCH系Minecraft Command Helper缩写<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*是一台电脑<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-具有2核1GHz或更高的CPU<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-具有360x460或更高的显示<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*具有Java8u201或更高版本的Java<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*具有Java15或更高版本的Java<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*具有键鼠(键盘与鼠标)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-具有最少50M的存储空间<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-具有最少可用1GB的内存<br>
