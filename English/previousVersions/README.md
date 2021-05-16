@@ -22,6 +22,13 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-39.zip">MCH_ah_0-0-1-39(115040100139)</a>
+```
+add record function,now will save texts of input box,it will auto fill in input box at next start MCH
+
+(2021.5.16)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-38.zip">MCH_debug_0-0-1-38(145130100138)</a>
 ```
 fixed bug of save all history
