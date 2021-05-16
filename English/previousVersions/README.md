@@ -23,6 +23,14 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-40.zip">MCH_ah_0-0-1-40(115140100140)</a>
+```
+nmove update to settings
+add new version view(updateLogs)
+
+(2021.5.17)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-39.zip">MCH_ah_0-0-1-39(115040100139)</a>
 ```
 add record function,now will save texts of input box,it will auto fill in input box at next start MCH
