@@ -11,6 +11,7 @@ first two digits of ID represent the version type of this version<br>
 "12" is beta<br>
 "13" is Official release version<br>
 "14" is Debug version<br>
+"15" is test,only test new version,have not bugs fixed or new feature update<br>
 <br>
 3-5 digits is random number by MCH unique algorithm<br>
 <br>
