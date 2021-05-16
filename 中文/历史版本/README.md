@@ -22,6 +22,14 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-40.zip">MCH_ah_0-0-1-40(115140100140)</a>
+```
+将更新移动到了设置页面
+新增新版本改预览(版本更新内容)
+
+(2021.5.17)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-39.zip">MCH_ah_0-0-1-39(115040100139)</a>
 ```
 新增输入记录,现在会保存输入框的内容,下次启动MCH时会自动填入输入栏
