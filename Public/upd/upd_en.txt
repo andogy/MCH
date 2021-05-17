@@ -1,3 +1,2 @@
 115020100143(0-0-1-43)
-将MCH信息移动到了 设置>关于
-
+move MCH info to settings>about
