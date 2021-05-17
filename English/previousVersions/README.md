@@ -23,6 +23,13 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-40.zip">MCH_ah_0-0-1-41(145050100141)</a>
+```
+some optimizations have been made for new version view
+
+(2021.5.17)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-40.zip">MCH_ah_0-0-1-40(115140100140)</a>
 ```
 nmove update to settings
