@@ -22,6 +22,13 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-44.zip">MCH_ah_0-0-1-44(155140100144)</a>
+```
+更改了版本的显示方式
+
+(2021.5.17)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-43.zip">MCH_ah_0-0-1-43(115020100143)</a>
 ```
 将MCH信息移动到了 设置>关于
