@@ -23,6 +23,14 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-45.zip">MCH_ah_0-0-1-45(115050100145)</a>
+```
+fixed error of language
+add developer contact ways
+
+(2021.5.17)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-44.zip">MCH_ah_0-0-1-44(155140100144)</a>
 ```
 changed display mode of version
