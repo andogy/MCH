@@ -23,6 +23,14 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-43.zip">MCH_ah_0-0-1-43(115020100143)</a>
+```
+move MCH info to settings>about
+
+(2021.5.17)
+```
+
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-42.zip">MCH_debug_0-0-1-42(145140100142)</a>
 ```
 对新版本视图和错误处理的文本做了一些优化
