@@ -22,14 +22,14 @@
 
 ## 版本更新内容
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-41.zip">MCH_ah_0-0-1-42(145140100142)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-41.zip">MCH_debug_0-0-1-42(145140100142)</a>
 ```
 对新版本视图和错误处理的文本做了一些优化
 将一些之前忘记的线程增加暂停程序,现在在MCH主窗口隐藏时可以做到最接近完全停止了
 对部分UI的尺寸进行了微调
 ```
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-40.zip">MCH_ah_0-0-1-41(145050100141)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-40.zip">MCH_debug_0-0-1-41(145050100141)</a>
 ```
 对新版本视图做了一些优化
 
