@@ -1,2 +1,4 @@
-145050100141(0-0-1-41(debug-41))
-some optimizations have been made for new version view
+145140100142(0-0-1-42(debug-42))
+some optimizations have been made for new version view texts
+before ignored some thread,so it cannot stop,after this version it can stop,now MCH is can near absolutely stop
+change size of some UI
