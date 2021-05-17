@@ -22,6 +22,14 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-45.zip">MCH_ah_0-0-1-45(115050100145)</a>
+```
+修复了一些语言上的问题
+新增开发者联系方式显示
+
+(2021.5.17)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-44.zip">MCH_ah_0-0-1-44(155140100144)</a>
 ```
 更改了版本的显示方式
