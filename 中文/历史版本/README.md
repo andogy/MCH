@@ -22,6 +22,13 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-43.zip">MCH_ah_0-0-1-43(115020100143)</a>
+```
+将MCH信息移动到了 设置>关于
+
+(2021.5.17)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-42.zip">MCH_debug_0-0-1-42(145140100142)</a>
 ```
 对新版本视图和错误处理的文本做了一些优化
