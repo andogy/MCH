@@ -1,2 +1,2 @@
-115020100143(0-0-1-43)
-move MCH info to settings>about
+155140100144(0-0-1-44)
+changed display mode of version
