@@ -1,2 +1,3 @@
-155140100144(0-0-1-44)
-changed display mode of version
+115050100145(0-0-1-45)
+fixed error of language
+add developer contact ways
