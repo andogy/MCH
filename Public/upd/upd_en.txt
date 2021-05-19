@@ -1,3 +1,2 @@
-115050100145(0-0-1-45)
-fixed error of language
-add developer contact ways
+155170100146(0-0-1-46)
+deleted all code of command parsing
