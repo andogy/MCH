@@ -22,6 +22,13 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_test_0-0-1-46.zip">MCH_test_0-0-1-46(155170100146)</a>
+```
+删除了命令解析代码(正在准备换用json解析)
+
+(2021.5.20)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-45.zip">MCH_ah_0-0-1-45(115050100145)</a>
 ```
 修复了一些语言上的问题
