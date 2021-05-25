@@ -22,11 +22,20 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-48.zip">MCH_debug_0-0-1-48(145220100148)</a>
+```
+修复了部分按钮和文本没有颜色的问题
+
+(2021.5.25)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-47.zip">MCH_debug_0-0-1-47(145130100147)</a>
 ```
 将设定颜色的代码优化,现在可以有更低的占用了
 设定初始化配置文件时不再是双语显示,现在使用自动配置
 初始化配置新增置顶设置
+
+(2021.5.25)
 ```
 
 
