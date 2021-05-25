@@ -23,11 +23,20 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-48.zip">MCH_debug_0-0-1-48(145220100148)</a>
+```
+fixed problem of some buttons and text have not color
+
+(2021.5.25)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-47.zip">MCH_debug_0-0-1-47(145130100147)</a>
 ```
 optimized for UI color code,now is lower CPU consumption
 language is no longer bilingual when initializing the configuration file,now can auto change
 Initialization configuration add ontop setting
+
+(2021.5.25)
 ```
 
 
@@ -54,14 +63,6 @@ changed display mode of version
 ```
 
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-44.zip">MCH_ah_0-0-1-44(155140100144)</a>
-```
-更改了版本的显示方式
-
-(2021.5.17)
-```
-
-
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-43.zip">MCH_ah_0-0-1-43(115020100143)</a>
 ```
 move MCH info to settings>about
@@ -72,9 +73,9 @@ move MCH info to settings>about
 
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-42.zip">MCH_debug_0-0-1-42(145140100142)</a>
 ```
-对新版本视图和错误处理的文本做了一些优化
-将一些之前忘记的线程增加暂停程序,现在在MCH主窗口隐藏时可以做到最接近完全停止了
-对部分UI的尺寸进行了微调
+optimized view and text at new version
+add pause code to some previously ignored threads,now MCH can newr stop completely on MCH window closed
+change size of some UI
 ```
 
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-41.zip">MCH_debug_0-0-1-41(145050100141)</a>
