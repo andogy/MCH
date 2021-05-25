@@ -23,6 +23,14 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-47.zip">MCH_debug_0-0-1-47(145130100147)</a>
+```
+optimized for UI color code,now is lower CPU consumption
+language is no longer bilingual when initializing the configuration file,now can auto change
+Initialization configuration add ontop setting
+```
+
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_test_0-0-1-46.zip">MCH_test_0-0-1-46(155170100146)</a>
 ```
 deleted all code of command parsing(we is plan changed to json parsing)
