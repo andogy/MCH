@@ -151,10 +151,6 @@ unable to customize the config file path temporarily<br>
 config file is stored by line<br>
 a line only one config<br>
 <br>
-config file is stored by "@"<br>
-such as "Color@White" or "Language@Chinese"<br>
-before "@" is config target,after is option<br>
-<br>
 not recommended to modify config file by you self<br>
 so,we do not provide help for modification,please explore by yourself
 
