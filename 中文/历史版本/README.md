@@ -22,6 +22,14 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-47.zip">MCH_debug_0-0-1-47(145130100147)</a>
+```
+将设定颜色的代码优化,现在可以有更低的占用了
+设定初始化配置文件时不再是双语显示,现在使用自动配置
+初始化配置新增置顶设置
+```
+
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_test_0-0-1-46.zip">MCH_test_0-0-1-46(155170100146)</a>
 ```
 删除了命令解析代码(正在准备换用json解析)
