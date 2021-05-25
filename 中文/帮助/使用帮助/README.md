@@ -142,10 +142,6 @@ Alt + R&nbsp;&nbsp;&nbsp;&nbsp;(重启MCH)<br>
 配置文件中记录的配置是按行来存储的<br>
 每行存储一个配置<br>
 <br>
-配置文件都以引用形式来存储<br>
-例如Color@White或者Language@Chinese<br>
-前面一般是设置目标,后面是选项<br>
-<br>
 配置文件不建议手动修改<br>
 因此,我们不提供修改帮助,请自行探索
 
