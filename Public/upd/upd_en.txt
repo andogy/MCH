@@ -1,2 +1,4 @@
-155170100146(0-0-1-46)
-deleted all code of command parsing
+145130100147(0-0-1-47)
+optimized for UI color code,now is lower CPU consumption
+language is no longer bilingual when initializing the configuration file,now can auto change
+Initialization configuration add ontop setting
