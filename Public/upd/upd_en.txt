@@ -1,4 +1,2 @@
-145130100147(0-0-1-47)
-optimized for UI color code,now is lower CPU consumption
-language is no longer bilingual when initializing the configuration file,now can auto change
-Initialization configuration add ontop setting
+145220100148(0-0-1-48)
+fixed problem of some buttons and text have not color
