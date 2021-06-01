@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: project.Community.Community
+Class-Path: lib/src.zip
+
