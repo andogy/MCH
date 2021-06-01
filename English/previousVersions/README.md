@@ -452,7 +452,7 @@ language add english
 add language thread,used set UI language
 add Parsing thread,used parsing the input texts
 add easy command and test at Parsing
-deleta copy button
+delete copy button
 add HelpUI,But this is Menu,not is Helps
 
 
