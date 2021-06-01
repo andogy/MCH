@@ -1,2 +1,0 @@
-145220100148(0-0-1-48)
-fixed problem of some buttons and text have not color
