@@ -7,10 +7,28 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.UUID;
 
 public class minecraftStart extends Thread {
+    public static HashMap<Integer, String> pid = new HashMap<>();
+    public static int minecraft = 0;
+
+    public minecraftStart() {
+    }
 
     public static void startMc(String LIB_PATH) {
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try {
+                //                Runtime.getRuntime().exec("cmd.exe /k taskkill /pid " + pid.get(pid));
+                System.out.println("exit:" + pid);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }));
 
         filesOperator.ReadFiles(new File(LIB_PATH).listFiles(), "", true);
 
@@ -92,8 +110,9 @@ public class minecraftStart extends Thread {
             String gameDir = "G:\\Code-Java\\MCH\\MCH\\src\\project\\resources\\mc_testDir";
             String assetsDir = "C:\\normal\\Minecraft\\.minecraft\\assets";
             String asset = "1.16";
-            String uuid = "00000000000000B7CCBB111C683F0DD";
-            String accessToken = "000000000000000B7CCBB111C683F0DD";
+            String uuid = String.valueOf(new UUID(new Random().nextLong(), new Random().nextLong()));
+            System.out.println(uuid.replace("-", ""));
+            String accessToken = uuid;
             String userType = "Legacy";
             int width = 500;
             int height = 300;
@@ -106,12 +125,59 @@ public class minecraftStart extends Thread {
 
             try {
                 Runtime r = Runtime.getRuntime();
-                InputStream inputStream = r.exec(start).getInputStream();
+                Process p = r.exec(start);
+                InputStream inputStream = p.getInputStream();
+                pid.put(Math.toIntExact(p.pid()), "minecraft:" + p.pid());
+                pid.put(new Random().nextInt(), "mineTest");
+                pid.put(new Random().nextInt(), "minecraft2");
+                minecraft += 1;
                 String s;
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
+                new Thread(() -> {
+                    while (true) {
+                        try {
+
+                            Runtime r1 = Runtime.getRuntime();
+                            Process p1 = r1.exec("tasklist");
+                            InputStreamReader inputStreamReader = new InputStreamReader(p1.getInputStream());
+                            BufferedReader br1 = new BufferedReader(inputStreamReader);
+
+                            var all = "";
+                            String str;
+                            while ((str = br1.readLine()) != null) {
+                                //                        System.out.println(str);
+                                all += str + ";";
+                            }
+
+                            String strs = Arrays.toString(HashMapToSTRS.toSTRS(pid, 2)).replace("[", "").replace("]", ",").replace(" ", "");
+                            do {
+                                String s1 = strs.substring(0, strs.indexOf(","));
+                                if (!s1.equals("null")) {
+                                    if (!all.contains(s1)) {
+                                        pid.remove(Integer.parseInt(s1));
+                                        System.out.println("\033[33removed:" + s1);
+                                    }
+                                } else {
+                                    break;
+                                }
+
+                                strs = strs.substring(strs.indexOf(",") + 1);
+                            } while (strs.contains(","));
+
+
+                            Thread.sleep(100);
+
+                            br1.close();
+                            inputStreamReader.close();
+                        } catch (Exception e) {
+                            //                    e.printStackTrace();
+                        }
+                    }
+                }).start();
+
                 while ((s = br.readLine()) != null) {
-                    System.out.println(s);
+                    //                    System.out.println(s);
                     ExtraUI.McJeStatus.setText(s + "\n" + ExtraUI.McJeStatus.getText());
                 }
 

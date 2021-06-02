@@ -27,4 +27,5 @@ it can help you used or study command of Minecraft
 > you need join to a qq chats<br>
 > but before this, you need send a mail to us<br> 
 > you can go <a href="https://github.com/andogy/MCH">main repository</a> to got email address<br>
-> <a href="https://github.com/andogy/MCH/blob/main/%E4%B8%AD%E6%96%87/README.md#%E5%88%B6%E4%BD%9C%E5%9B%A2%E9%98%9F">chinese-page</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a herf="https://github.com/andogy/MCH/tree/main/English#production">english-page</a>
+> <a href="https://github.com/andogy/MCH/blob/main/%E4%B8%AD%E6%96%87/README.md#%E5%88%B6%E4%BD%9C%E5%9B%A2%E9%98%9F">chinese-page</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/andogy/MCH/tree/main/English#production">english-page</a>
+
