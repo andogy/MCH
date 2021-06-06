@@ -13,6 +13,7 @@ import project.Community.UI.MchUI;
 import project.Community.UI.MenuUI2;
 import project.Community.UI.exit;
 import project.Community.lib.filesOperator;
+import project.Community.UI.Lang.initLanguage;
 
 import java.io.File;
 
@@ -93,6 +94,8 @@ public class Community {
         System.out.println("[" + times.format + "]\n" + "colors:色彩就绪中");
         LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: color\n");
         new displaySets().start();
+
+        new initLanguage();
 
         //        判断一些文件是否存在的线程
         new filesHas().start();

@@ -29,18 +29,18 @@ public class ini {
 
     public static boolean iniHas = false;
 
-    public static String colorSet = "";
-    public static String languageSet = "";
-    public static String exButtonSet = "";
-    public static String fastLoadSet = "";
-    public static String onTopSet = "";
-    public static String saveCache = "";
-    public static String saveErrorLog = "";
-    public static String saveRunLog = "";
-    public static String autoPUDSet = "";
-    public static String saveHistorySet = "";
-    public static String input_command = "";
-    public static String minecraftListenFlushSpeedLevel = "";
+    public static String colorSet = "Color@White";
+    public static String languageSet = "Language@Auto";
+    public static String exButtonSet = "Button@Ex.exit";
+    public static String fastLoadSet = "Load@Fast";
+    public static String onTopSet = "Display@OnTop";
+    public static String saveCache = "Cache@Delete";
+    public static String saveErrorLog = "ErrLog@Delete";
+    public static String saveRunLog = "RunLog@Delete";
+    public static String autoPUDSet = "UPD@Self";
+    public static String saveHistorySet = "History@SaveAll";
+    public static String input_command = "Input@";
+    public static String minecraftListenFlushSpeedLevel = "MinecraftListenFlushSpeedLevel@0";
 
     public static boolean canStartUI = true;
 
@@ -460,7 +460,7 @@ public class ini {
 
     public static void WriteIni() throws Exception {
         FileWriter fl = new FileWriter(path + sets, false);
-        fl.write(colorSet + "\n" + languageSet + "\n" + exButtonSet + "\n" + fastLoadSet + "\n" + onTopSet + "\n" + saveCache + "\n" + saveRunLog + "\n" + saveErrorLog + "\n" + autoPUDSet + "\n" + saveHistorySet + "\n" + input_command + "\n" + minecraftListenFlushSpeedLevel);
+        fl.write(colorSet + "\n" + languageSet + "\n" + exButtonSet + "\n" + fastLoadSet + "\n" + onTopSet + "\n" + saveCache + "\n" + saveRunLog + "\n" + saveErrorLog + "\n" + autoPUDSet + "\n" + saveHistorySet + "\n" + minecraftListenFlushSpeedLevel + "\n"  + input_command);
         fl.close();
     }
 

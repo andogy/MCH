@@ -6,6 +6,7 @@ import project.Community.Events.UPD.URLs;
 import project.Community.Events.UPD.countTime;
 import project.Community.Times.times;
 import project.Community.UI.ExtraUI;
+import project.Community.UI.Lang.initLanguage;
 import project.Community.UI.MchUI;
 import project.Community.UI.MenuUI;
 import project.Community.UI.MenuUI2;
@@ -106,6 +107,8 @@ public class Events {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            initLanguage.init();
         }
     }
 

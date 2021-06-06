@@ -1,0 +1,72 @@
+{
+  "languages": [
+    {
+      "chinese": [
+        {
+          "menuButton": "菜单"
+        },
+        {
+          "mch": "Minecraft命令助手"
+        },
+        {
+          "menu": "菜单页"
+        },
+        {
+          ".exit": "\".exit\"是一个在此程序中用于退出的命令,并非游戏内指令\n是否要继续退出?"
+        },
+        {
+          "exit": "退出"
+        },
+        {
+          "exitNot": "不退出"
+        },
+        {
+          "configPath": "配置路径:  "
+        },
+        {
+          "exButton": "退出按钮:"
+        },
+        {
+          "exitMCH": "退出MCH"
+        },
+        {
+          "smallerMCH": "缩小UI"
+        }
+      ]
+    },
+    {
+      "english": [
+        {
+          "menuButton": "menus"
+        },
+        {
+          "mch": "Minecraft Command Helper"
+        },
+        {
+          "menu": "menu page"
+        },
+        {
+          ".exit": "\".exit\" is a command used by this program to exit,This not an in-game command \nDo you want to continue to exit"
+        },
+        {
+          "exit": "exit"
+        },
+        {
+          "exitNot": "exit not"
+        },
+        {
+          "configPath": "config path:  "
+        },
+        {
+          "exButton": "exit button:"
+        },
+        {
+          "exitMCH": "Exit MCH"
+        },
+        {
+          "smallerMCH": "Reduce UI"
+        }
+      ]
+    }
+  ]
+}

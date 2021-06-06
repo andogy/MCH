@@ -3,7 +3,7 @@ package project.Community.UI;
 import project.Community.Command.Parsing;
 import project.Community.Events.LoadAssembly;
 import project.Community.Times.times;
-import project.Community.UI.Lang.language;
+import project.Community.UI.Lang.languageSet;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +22,7 @@ public class MchUI {
         //        加载语言
         System.out.println("[" + times.format + "]\n" + "language:语言就绪中");
         LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: language\n");
-        new language().start();
+        new languageSet().start();
 
         //        解析输入
         new Parsing().start();

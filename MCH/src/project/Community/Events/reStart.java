@@ -2,6 +2,7 @@ package project.Community.Events;
 
 import project.Community.Command.ini;
 import project.Community.Events.UPD.getJar;
+import project.Community.Exits;
 import project.Community.UI.exit;
 
 import java.io.File;
@@ -53,20 +54,30 @@ public class reStart extends Thread{
 
             System.out.println(str);
 
-            //        重启
+            //       重启
 
             long startRestart = System.currentTimeMillis();
 
             do {
                 FileReader fr = new FileReader(ini.path + "res.cache");
                 fr.close();
+                Thread.sleep(1);
             } while (System.currentTimeMillis() - startRestart <= 2000);
 
-            new File(ini.path + "res.cache").delete();
+            boolean restart = new File(ini.path + "res.cache").delete();
 
-            System.out.println("restart failed");
+//            exit.Ex();
+            if (restart) {
+                System.out.println("restart failed");
 
-            Errors.tips(500,320,"This a test info");
+                Errors.tips(Errors.jFrame.getWidth(), Errors.jFrame.getHeight(), "restart failed");
+
+                Thread.sleep(10000);
+
+                exit.Ex();
+            } else {
+                throw new Exception();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             exit.Ex();

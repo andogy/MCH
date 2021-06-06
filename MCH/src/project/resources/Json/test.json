@@ -744,6 +744,20 @@
                 }
             },
             {
+                "function": {
+                    "description": "*运行一个加载了的功能",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "function @String"
+                        }
+                    ]
+                }
+            },
+            {
                 "gamemode": {
                     "description": "*设置玩家模式",
                     "limited": [
@@ -761,6 +775,413 @@
                 }
             },
             {
+                "gamerule": {
+                    "description": "*更改或查询游戏的规则",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "gamerule @gamerules=groups1) @int"
+                        },
+                        {
+                            "tree": "gamerule @gamerules=groups2) @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "getchunkdata": {
+                    "description": "*获取特定区块的数据(无法使用)",
+                    "limited": [
+                        "@bedrock",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "getchunkdata @dimension @xyz=x) @xyz=z) @int"
+                        }
+                    ]
+                }
+            },
+            {
+                "getchunks": {
+                    "description": "*获得已加载区块列表(无法使用)",
+                    "limited": [
+                        "@bedrock",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "getchunks @dimension"
+                        }
+                    ]
+                }
+            },
+            {
+                "geteduclientinfo": {
+                    "description": "*显示edu客户端的数据",
+                    "limited": [
+                        "@education",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "geteduclientinfo"
+                        }
+                    ]
+                }
+            },
+            {
+                "geteduserverinfo": {
+                    "description": "*显示服务端的数据(无法使用)",
+                    "limited": [
+                        "@bedrock",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "getlocalplayername": {
+                    "description": "*显示本地玩家名称(已失效)",
+                    "limited": [
+                        "@bedrock",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "getspawnpoint": {
+                    "description": "*获得特定玩家的出生点(无法使用)",
+                    "limited": [
+                        "@bedrock",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "getspawnpoint @String"
+                        },
+                        {
+                            "tree": "getspawnpoint @sel"
+                        }
+                    ]
+                }
+            },
+            {
+                "gettopsolidblock": {
+                    "description": "*获得特定位置以下最高的非空气方块(已失效)",
+                    "limited": [
+                        "@bedrock",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "give": {
+                    "description": "*给予玩家物品",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "give @sel @items @int"
+                        },
+                        {
+                            "tree": "give @sel @items @int @int",
+                            "edit": "@bedrock"
+                        },
+                        {
+                            "tree": "give @sel @items @int @int @json",
+                            "edit": "@bedrock"
+                        }
+                    ]
+                }
+            },
+            {
+                "globalpause": {
+                    "description": "*查询或设置所有玩家的世界暂停状态(无法使用)",
+                    "limited": [
+                        "@bedrock",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tre": "globalpause @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "help": {
+                    "description": "*提供命令使用帮助",
+                    "limited": [
+                        "@normal",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "immutableworld": {
+                    "description": "*设置世界是否可发生变化",
+                    "limited": [
+                        "@education",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "immutableworld @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "item": {
+                    "description": "*修改方块或实体的物品栏(1.17)",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "item modifier @item=groups1) @xyz @slot @String"
+                        },
+                        {
+                            "tree": "item replace @item=groups1=block) @xyz @slot from @item=groups1=block) @xyz @slot @String"
+                        },
+                        {
+                            "tree": "item replace @item=groups1=block) @xyz @slot from @item=groups1=entity) @sel @slot @String"
+                        },
+                        {
+                            "tree": "item replace @item=groups1=entity) @sel @slot from @item=groups1=block) @xyz @slot @String"
+                        },
+                        {
+                            "tree": "item replace @item=groups1=entity) @sel @slot from @item=groups1=entity) @sel @slot @String"
+                        }
+                    ]
+                }
+            },
+            {
+                "kick": {
+                    "description": "*踢出玩家",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "kick @sel"
+                        },
+                        {
+                            "tree": "kick @sel @String"
+                        }
+                    ]
+                }
+            },
+            {
+                "kill": {
+                    "description": "*清除实体",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "kill @sel"
+                        }
+                    ]
+                }
+            },
+            {
+                "lesson": {
+                    "description": "*处理教育版课程报告(已失效)",
+                    "limited": [
+                        "@education",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "list": {
+                    "description": "*列出服务器上的玩家",
+                    "limited": [
+                        "@normal",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "list"
+                        },
+                        {
+                            "tree": "list uuids",
+                            "edit": "@java"
+                        }
+                    ]
+                }
+            },
+            {
+                "listd": {
+                    "description": "*以JSON形式列出服务器中的玩家及信息",
+                    "limited": [
+                        "@wsserver",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "lietd"
+                        }
+                    ]
+                }
+            },
+            {
+                "locate": {
+                    "description": "*显示最近的指定结构坐标",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "locate @locates"
+                        }
+                    ]
+                }
+            },
+            {
+                "locatebiome": {
+                    "description": "*显示最近的指定群系坐标",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "locatebiome @biomes"
+                        }
+                    ]
+                }
+            },
+            {
+                "loot": {
+                    "description": "*从一个物品栏中掉落物品到地面上",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "@null"
+                        }
+                    ]
+                }
+            },
+            {
+                "me": {
+                    "description": "*显示一条关于自己的信息",
+                    "limited": [
+                        "@normal",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "me @String"
+                        }
+                    ]
+                }
+            },
+            {
+                "mixer": {
+                    "description": "*Mixer交互性控制(已失效)",
+                    "limited": [
+                        "@bedrock",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "mobevent": {
+                    "description": "*控制或查询允许运行的生物事件",
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "mobevent @mobenvent @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "msg|tell|w": {
+                    "description": "*向一名玩家发送私信",
+                    "limited": [
+                        "@normal",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "msg|tell|w @sel @String"
+                        }
+                    ]
+                }
+            },
+            {
+                "music": {
+                    "description": "*设置玩家是否能控制当前播放的音乐",
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "music @music_operator=play) @float @float @music_play_mode"
+                        },
+                        {
+                            "tree": "music @music_operator=queue) @float @float @music_play_mode"
+                        },
+                        {
+                            "tree": "music @music_operator=stop) @float"
+                        },
+                        {
+                            "tree": "music @music_operator=voume) @float"
+                        }
+                    ]
+                }
+            },
+            {
+                "op": {
+                    "description":"*给予玩家管理员权限",
+                    "limited": [
+                        "@normal",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "op @sel"
+                        }
+                    ]
+                }
+            },
+            {
+                "ops|permission": {
+                    "description": "*重载并应用权限",
+                    "limited": [
+                        "@bds",
+                        "@level4"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "ops|permission @ops_operator"
+                        }
+                    ]
+                }
+            },
+            {
+
+            },
+            {
                 "wsserver": {
                     "description": "*",
                     "limited": [
@@ -776,7 +1197,7 @@
             }
         ]
     },
-    "enums": [
+    "enums": [ 
         {
             "name_space": [
                 {
@@ -1239,6 +1660,96 @@
                             "outline": "*填充外围方块,内部不被处理"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "gamerules": [
+                {
+                    "groups1": [
+                        {}
+                    ]
+                },
+                {
+                    "groups2": [
+                        {}
+                    ]
+                }
+            ]
+        },
+        {
+            "item": [
+                {
+                    "groups1": [
+                        {
+                            "block": "*从方块"
+                        },
+                        {
+                            "entity": "*从实体"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "locates": [
+                {}
+            ]
+        },
+        {
+            "biomes": [
+                {}
+            ]
+        },
+        {
+            "mobevents": [
+                {
+                    "minecraft:ender_dragon_event": "*初次进入末地是否生成末影龙"
+                },
+                {
+                    "minecraft:pillager_patrols_event": "*是否生成灾厄巡逻队"
+                },
+                {
+                    "minecraft:wandering_trader_event": "*是否生成流浪商人"
+                },
+                {
+                    "events_enabled": "*是否启用mobevent"
+                }
+            ]
+        },
+        {
+            "music_operator": [
+                {
+                    "play": "*播放音乐"
+                },
+                {
+                    "queue": "*将音乐加入队列"
+                },
+                {
+                    "stop": "*停止播放音乐"
+                },
+                {
+                    "volune": "*调整音乐音量"
+                }
+            ]
+        },
+        {
+            "music_play_mode": [
+                {
+                    "loop": "*循环播放"
+                },
+                {
+                    "play_once": "*播放一次"
+                }
+            ]
+        },
+        {
+            "ops_operator": [
+                {
+                    "list": "*列出列表"
+                },
+                {
+                    "reload": "*重载op列表"
                 }
             ]
         }
