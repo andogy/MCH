@@ -9,10 +9,8 @@ import java.util.Arrays;
 
 public class getServers {
     public static void main(String[] args) {
-        String hostName = "157f2e607fa2a757.natapp.cc";
-        int port = 19132;
-//        String hostName = "127.0.0.1";
-//        int port = 25565;
+        String hostName = "127.0.0.1";
+        int port = 25565;
 
         try {
             //getSource

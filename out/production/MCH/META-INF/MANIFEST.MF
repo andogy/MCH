@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Main-Class: project.Community.Community
+Class-Path: log4j-1.2.17.jar ezmorph-1.0.3.jar json-20210307.jar commons
+ -logging.jar zip4j-2.7.0 (1).jar annotations-20.1.0.jar json-lib-2.1-jd
+ k15.jar commons-lang-2.5(1).jar Java-WebSocket-1.5.2.jar slf4j-api-2.0.
+ 0-alpha1.jar commons-beanutils-1.7.0.jar commons-collections-3.1.jar ja
+ vax.websocket-api-1.1.jar slf4j-log4j12-2.0.0-alpha1.jar
+

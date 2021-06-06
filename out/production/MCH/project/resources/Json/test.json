@@ -1,0 +1,1847 @@
+{
+    "title": "test2",
+    "author": "tester_grass",
+    "description": "this is test2",
+    "ver": "0.0.1",
+    "item": {
+        "commands": [
+            {
+                "?": {
+                    "description": "*查找命令用法",
+                    "limited": [
+                        "@normal",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "? @command"
+                        },
+                        {
+                            "tree": "? @int;limit=21)"
+                        }
+                    ]
+                }
+            },
+            {
+                "ability": {
+                    "description": "*给予或清除玩家能力",
+                    "limited": [
+                        "@education",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "ability @sel @ability"
+                        },
+                        {
+                            "tree": "ability @sel @ability @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "achievement": {
+                    "description": "*给予或清除玩家的成就(已失效)",
+                    "limited": [
+                        "@null",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "achievement @achievements @advancement_lists @sel"
+                        },
+                        {
+                            "tree": "achievement @achievements * @sel"
+                        }
+                    ]
+                }
+            },
+            {
+                "advancement": {
+                    "description": "*添加、清除、查询玩家的进度",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "advancement @advancements @sel @advancement_operator=everything)"
+                        },
+                        {
+                            "tree": "advancement @advancements @sel @advancement_operator=only) @advancement_lists"
+                        },
+                        {
+                            "tree": "advancement @advancements @sel @advancement_operator=only) @advancement_lists @advancement_condition"
+                        },
+                        {
+                            "tree": "advancement @advancements @sel @advancement_operator=groups1) @advancement_lists"
+                        }
+                    ]
+                }
+            },
+            {
+                "agent": {
+                    "description": "*操作吉祥物",
+                    "limited": [
+                        "@wsserver",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "agent @agents"
+                        }
+                    ]
+                }
+            },
+            {
+                "alwaysday": {
+                    "description": "*是否启用昼夜更替",
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "alwaysday @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "attribute": {
+                    "description": "修改、查询玩家和生物的属性",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "attribute @sel;limit=1) @attributes base set @int"
+                        },
+                        {
+                            "tree": "attribute @sel;limit=1) @attributes base get"
+                        },
+                        {
+                            "tree": "attribute @sel;limit=1) @attributes base get @value"
+                        },
+                        {
+                            "tree": "attribute @sel;limit=1) @attributes modifier add @uuid @string @int @attribute_operators"
+                        },
+                        {
+                            "tree": "attribute @sel;limit=1) @attributes modifier remove @uuid"
+                        },
+                        {
+                            "tree": "attribute @sel;limit=1) @attributes modifier value get @uuid @int"
+                        }
+                    ]
+                }
+            },
+            {
+                "ban": {
+                    "description": "*封禁玩家(已失效)",
+                    "limited": [
+                        "@java",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "ban @sel"
+                        },
+                        {
+                            "tree": "ban @sel @string"
+                        }
+                    ]
+                }
+            },
+            {
+                "ban-ip": {
+                    "description": "*封禁ip(已失效)",
+                    "limited": [
+                        "@java",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "ban-ip @sel"
+                        },
+                        {
+                            "tree": "ban-ip @sel @string"
+                        },
+                        {
+                            "tree": "ban @ip"
+                        },
+                        {
+                            "tree": "ban @ip @string"
+                        }
+                    ]
+                }
+            },
+            {
+                "banip": {
+                    "description": "*等价于ban-ip",
+                    "limited": [
+                        "@java",
+                        "@null"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "banip @ip"
+                        },
+                        {
+                            "tree": "banip @sel"
+                        }
+                    ]
+                }
+            },
+            {
+                "banlist": {
+                    "description": "*封禁列表",
+                    "limited": [
+                        "@java",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "banlist ips"
+                        },
+                        {
+                            "tree": "banlist players"
+                        }
+                    ]
+                }
+            },
+            {
+                "bossbar": {
+                    "description": "*修改、查询boss栏",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "bossbar add @name_space:@string {'text':'@string'}"
+                        },
+                        {
+                            "tree": "bossbar get @name_space:@string @bossbar_get"
+                        },
+                        {
+                            "tree": "bossbar list"
+                        },
+                        {
+                            "tree": "bossbar remove @name_space:@string"
+                        },
+                        {
+                            "tree": "bossbar set @name_space:@string  "
+                        },
+                        {}
+                    ]
+                }
+            },
+            {
+                "camerashake": {
+                    "description": "*设置镜头抖动效果",
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "camerashake add @sel @float;limit=4) @float @camerashake_type"
+                        },
+                        {
+                            "tree": "camerashake stop @sel"
+                        }
+                    ]
+                }
+            },
+            {
+                "changesetting": {
+                    "description": "在bds运行时更改设置",
+                    "limited": [
+                        "@bds",
+                        "@level4"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "changesetting allow-cheats @boolean"
+                        },
+                        {
+                            "tree": "changesetting difficulty @difficulty"
+                        }
+                    ]
+                }
+            },
+            {
+                "classroommode": {
+                    "description": "@null",
+                    "limited": [
+                        "@education",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "classroommode @null"
+                        }
+                    ]
+                }
+            },
+            {
+                "clear": {
+                    "description": "*从玩家物品栏清除物品",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "clear"
+                        },
+                        {
+                            "tree": "clear @sel"
+                        },
+                        {
+                            "tree": "clear @sel @items"
+                        },
+                        {
+                            "tree": "clear @sel @items @int",
+                            "edit": "@java"
+                        },
+                        {
+                            "tree": "clear @sel @items @item-data @int",
+                            "edit": "@bedrock"
+                        }
+                    ]
+                }
+            },
+            {
+                "clearspwnpoint": {
+                    "description": "*清除玩家出生点",
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "clearspwnpoint"
+                        },
+                        {
+                            "tree": "clearspwnpoint @sel"
+                        }
+                    ]
+                }
+            },
+            {
+                "clone": {
+                    "description": "*在指定区域之间复制方块结构",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "clone @xyz @xyz @xyz"
+                        },
+                        {
+                            "tree": "clone @xyz @xyz @xyz @clone_type=groups1) @clone_type=groups2)"
+                        },
+                        {
+                            "tree": "clone @xyz @xyz @xyz @clone_type=filtered) @blocks @clone_type=groups2)",
+                            "edit": "@java"
+                        },
+                        {
+                            "tree": "clone @xyz @xyz @xyz @clone_type=filtered) @clone_type=groups2) @blocks @int",
+                            "edit": "@bedrock"
+                        },
+                        {
+                            "tree": "clone @xyz @xyz @xyz @clone_type=filtered) @clone_type=groups2) @blocks @json",
+                            "edit": "@bedrock"
+                        }
+                    ]
+                }
+            },
+            {
+                "closechat": {
+                    "description": "*关闭聊天框(已失效)",
+                    "limited": [
+                        "@bedrock",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "@null"
+                        }
+                    ]
+                }
+            },
+            {
+                "closewebsocket": {
+                    "description": "*断开wsserver的连接",
+                    "limited": [
+                        "@wsserver",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "closewebsocket"
+                        }
+                    ]
+                }
+            },
+            {
+                "code": {
+                    "description": "*启用代码编辑器",
+                    "limited": [
+                        "@education",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "code"
+                        }
+                    ]
+                }
+            },
+            {
+                "codebulider": {
+                    "description": "*设置玩家的代码编辑状态",
+                    "limited": [
+                        "@education",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "@null"
+                        }
+                    ]
+                }
+            },
+            {
+                "connect": {
+                    "description": "*连接到wsserver",
+                    "limited": [
+                        "@bedrock",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "connect @URL"
+                        },
+                        {
+                            "tree": "connect out"
+                        }
+                    ]
+                }
+            },
+            {
+                "data": {
+                    "description": "*获取、合并、移除实体或方块的数据标签",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "@null"
+                        }
+                    ]
+                }
+            },
+            {
+                "datepack": {
+                    "description": "*控制加载的数据包",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "datapack disable @string"
+                        },
+                        {
+                            "tree": "datapack enable @string @datapack_level=groups1)"
+                        },
+                        {
+                            "tree": "datapack enable @string @datapack_level=groups2) @string"
+                        },
+                        {
+                            "tree": "datapack list"
+                        },
+                        {
+                            "tree": "datapack list @datapack_status"
+                        }
+                    ]
+                }
+            },
+            {
+                "daylock": {
+                    "description": "*是否锁定时间(等价于alwaysday)",
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "daylock @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "debug": {
+                    "description": "*开始或结束调试会话",
+                    "limited": [
+                        "@java",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "debug @debugs"
+                        }
+                    ]
+                }
+            },
+            {
+                "defaultgamemode": {
+                    "description": "*更改默认游戏模式",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "defaultgamemode @modes"
+                        }
+                    ]
+                }
+            },
+            {
+                "deop": {
+                    "description": "*去除玩家的操作员权限 ",
+                    "limited": [
+                        "@normal",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "deop @sel"
+                        }
+                    ]
+                }
+            },
+            {
+                "dialogue": {
+                    "description": "*打开一个玩家的NPC对话框",
+                    "limited": [
+                        "@education",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "@null"
+                        }
+                    ]
+                }
+            },
+            {
+                "difficulty": {
+                    "description": "*设置游戏难度",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "difficulty @difficulty"
+                        }
+                    ]
+                }
+            },
+            {
+                "effect": {
+                    "description": "*添加或清除状态效果",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "effect clear",
+                            "edit": "@java"
+                        },
+                        {
+                            "tree": "effect clear @sel @effects",
+                            "edit": "@java"
+                        },
+                        {
+                            "tree": "effect give @sel @effects @int @int;limit=255) @boolean",
+                            "edit": "@java"
+                        },
+                        {
+                            "tree": "efffect @sel clear",
+                            "edit": "@bedrock"
+                        },
+                        {
+                            "tree": "efffect @sel @effects @int @int;limit=255) @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "enableencryption": {
+                    "description": "*为wsserver连接进行加密",
+                    "limited": [
+                        "@wsserver",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "enableencryption @key @value"
+                        }
+                    ]
+                }
+            },
+            {
+                "enchant": {
+                    "description": "*附魔玩家的物品",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "enchant @sel @enchants @int"
+                        },
+                        {
+                            "tree": "enchant @sel @enchants_id @int",
+                            "edit": "@bedrock"
+                        }
+                    ]
+                }
+            },
+            {
+                "event": {
+                    "description": "*用于触发实体事件",
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "event entity @sel @events"
+                        }
+                    ]
+                }
+            },
+            {
+                "execute": {
+                    "description": "*代表实体执行一个命令",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "execute @sel @xyz @commands",
+                            "edit": "@bedrock"
+                        },
+                        {
+                            "tree": "@null"
+                        }
+                    ]
+                }
+            },
+            {
+                "experience": {
+                    "description": "*给予、设置、查询玩家的经验等级",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "experience @experiences=groups1) @sel @int @experiences=groups2)"
+                        },
+                        {
+                            "tree": "experience @experiences=query) @sel @experiences=groups2)"
+                        }
+                    ]
+                }
+            },
+            {
+                "fill": {
+                    "description": "*再指定区域填充方块",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "fill @xyz @xyz @blocks"
+                        },
+                        {
+                            "tree": "fill @xyz @xyz @blocks @fill_types=groups1)",
+                            "edit": "@java"
+                        },
+                        {
+                            "tree": "fill @xyz @xyz @blocks @fill_types=replace) @block",
+                            "edit": "@java"
+                        },
+                        {
+                            "tree": "fill @xyz @xyz @blocks @int",
+                            "edit": "@bedrock"
+                        },
+                        {
+                            "tree": "fill @xyz @xyz @blocks @fill_types=groups1)",
+                            "edit": "@bedrock"
+                        },
+                        {
+                            "tree": "fill @xyz @xyz @blocks @int @fill_types=groups1)",
+                            "edit": "@bedrock"
+                        },
+                        {
+                            "tree": "fill @xyz @xyz @blocks @int @fill_types=replace) @blocks",
+                            "edit": "@java"
+                        },
+                        {
+                            "tree": "fill @xyz @xyz @blocks @int @fill_types=replace) @blocks @int",
+                            "edit": "@bedrock"
+                        }
+                    ]
+                }
+            },
+            {
+                "fog": {
+                    "description": "*设置玩家画面上的雾",
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "fog @sel push @fog_ids @string"
+                        },
+                        {
+                            "tree": "fog @sel pop @string"
+                        },
+                        {
+                            "tree": "fog @sel remove @string"
+                        }
+                    ]
+                }
+            },
+            {
+                "forceload": {
+                    "description": "*强制加载区块",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "forceload add @xyz=xz) "
+                        }
+                    ]
+                }
+            },
+            {
+                "function": {
+                    "description": "*运行一个加载了的功能",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "function @String"
+                        }
+                    ]
+                }
+            },
+            {
+                "gamemode": {
+                    "description": "*设置玩家模式",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "gamemdoe @modes"
+                        },
+                        {
+                            "tree": "gamemdoe @sel @modes"
+                        }
+                    ]
+                }
+            },
+            {
+                "gamerule": {
+                    "description": "*更改或查询游戏的规则",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "gamerule @gamerules=groups1) @int"
+                        },
+                        {
+                            "tree": "gamerule @gamerules=groups2) @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "getchunkdata": {
+                    "description": "*获取特定区块的数据(无法使用)",
+                    "limited": [
+                        "@bedrock",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "getchunkdata @dimension @xyz=x) @xyz=z) @int"
+                        }
+                    ]
+                }
+            },
+            {
+                "getchunks": {
+                    "description": "*获得已加载区块列表(无法使用)",
+                    "limited": [
+                        "@bedrock",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "getchunks @dimension"
+                        }
+                    ]
+                }
+            },
+            {
+                "geteduclientinfo": {
+                    "description": "*显示edu客户端的数据",
+                    "limited": [
+                        "@education",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "geteduclientinfo"
+                        }
+                    ]
+                }
+            },
+            {
+                "geteduserverinfo": {
+                    "description": "*显示服务端的数据(无法使用)",
+                    "limited": [
+                        "@bedrock",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "getlocalplayername": {
+                    "description": "*显示本地玩家名称(已失效)",
+                    "limited": [
+                        "@bedrock",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "getspawnpoint": {
+                    "description": "*获得特定玩家的出生点(无法使用)",
+                    "limited": [
+                        "@bedrock",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "getspawnpoint @String"
+                        },
+                        {
+                            "tree": "getspawnpoint @sel"
+                        }
+                    ]
+                }
+            },
+            {
+                "gettopsolidblock": {
+                    "description": "*获得特定位置以下最高的非空气方块(已失效)",
+                    "limited": [
+                        "@bedrock",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "give": {
+                    "description": "*给予玩家物品",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "give @sel @items @int"
+                        },
+                        {
+                            "tree": "give @sel @items @int @int",
+                            "edit": "@bedrock"
+                        },
+                        {
+                            "tree": "give @sel @items @int @int @json",
+                            "edit": "@bedrock"
+                        }
+                    ]
+                }
+            },
+            {
+                "globalpause": {
+                    "description": "*查询或设置所有玩家的世界暂停状态(无法使用)",
+                    "limited": [
+                        "@bedrock",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tre": "globalpause @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "help": {
+                    "description": "*提供命令使用帮助",
+                    "limited": [
+                        "@normal",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "immutableworld": {
+                    "description": "*设置世界是否可发生变化",
+                    "limited": [
+                        "@education",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "immutableworld @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "item": {
+                    "description": "*修改方块或实体的物品栏(1.17)",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "item modifier @item=groups1) @xyz @slot @String"
+                        },
+                        {
+                            "tree": "item replace @item=groups1=block) @xyz @slot from @item=groups1=block) @xyz @slot @String"
+                        },
+                        {
+                            "tree": "item replace @item=groups1=block) @xyz @slot from @item=groups1=entity) @sel @slot @String"
+                        },
+                        {
+                            "tree": "item replace @item=groups1=entity) @sel @slot from @item=groups1=block) @xyz @slot @String"
+                        },
+                        {
+                            "tree": "item replace @item=groups1=entity) @sel @slot from @item=groups1=entity) @sel @slot @String"
+                        }
+                    ]
+                }
+            },
+            {
+                "kick": {
+                    "description": "*踢出玩家",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "kick @sel"
+                        },
+                        {
+                            "tree": "kick @sel @String"
+                        }
+                    ]
+                }
+            },
+            {
+                "kill": {
+                    "description": "*清除实体",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "kill @sel"
+                        }
+                    ]
+                }
+            },
+            {
+                "lesson": {
+                    "description": "*处理教育版课程报告(已失效)",
+                    "limited": [
+                        "@education",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "list": {
+                    "description": "*列出服务器上的玩家",
+                    "limited": [
+                        "@normal",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "list"
+                        },
+                        {
+                            "tree": "list uuids",
+                            "edit": "@java"
+                        }
+                    ]
+                }
+            },
+            {
+                "listd": {
+                    "description": "*以JSON形式列出服务器中的玩家及信息",
+                    "limited": [
+                        "@wsserver",
+                        "@level3"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "lietd"
+                        }
+                    ]
+                }
+            },
+            {
+                "locate": {
+                    "description": "*显示最近的指定结构坐标",
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "locate @locates"
+                        }
+                    ]
+                }
+            },
+            {
+                "locatebiome": {
+                    "description": "*显示最近的指定群系坐标",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "locatebiome @biomes"
+                        }
+                    ]
+                }
+            },
+            {
+                "loot": {
+                    "description": "*从一个物品栏中掉落物品到地面上",
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "@null"
+                        }
+                    ]
+                }
+            },
+            {
+                "me": {
+                    "description": "*显示一条关于自己的信息",
+                    "limited": [
+                        "@normal",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "me @String"
+                        }
+                    ]
+                }
+            },
+            {
+                "mixer": {
+                    "description": "*Mixer交互性控制(已失效)",
+                    "limited": [
+                        "@bedrock",
+                        "@level0"
+                    ]
+                }
+            },
+            {
+                "mobevent": {
+                    "description": "*控制或查询允许运行的生物事件",
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "mobevent @mobenvent @boolean"
+                        }
+                    ]
+                }
+            },
+            {
+                "msg|tell|w": {
+                    "description": "*向一名玩家发送私信",
+                    "limited": [
+                        "@normal",
+                        "@level0"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "msg|tell|w @sel @String"
+                        }
+                    ]
+                }
+            },
+            {
+                "music": {
+                    "description": "*设置玩家是否能控制当前播放的音乐",
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "music @music_operator=play) @float @float @music_play_mode"
+                        },
+                        {
+                            "tree": "music @music_operator=queue) @float @float @music_play_mode"
+                        },
+                        {
+                            "tree": "music @music_operator=stop) @float"
+                        },
+                        {
+                            "tree": "music @music_operator=voume) @float"
+                        }
+                    ]
+                }
+            },
+            {
+                "op": {
+                    "description":"*给予玩家管理员权限",
+                    "limited": [
+                        "@normal",
+                        "@level2"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "op @sel"
+                        }
+                    ]
+                }
+            },
+            {
+                "ops|permission": {
+                    "description": "*重载并应用权限",
+                    "limited": [
+                        "@bds",
+                        "@level4"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "ops|permission @ops_operator"
+                        }
+                    ]
+                }
+            },
+            {
+
+            },
+            {
+                "wsserver": {
+                    "description": "*",
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "wsserver @string;limited=isIP)"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "enums": [ 
+        {
+            "name_space": [
+                {
+                    "minecraft": "*原版命名空间"
+                }
+            ]
+        },
+        {
+            "difficulty": [
+                {
+                    "groups1": [
+                        {
+                            "peaceful": "*和平难度"
+                        },
+                        {
+                            "easy": "*简单难度"
+                        },
+                        {
+                            "normal": "*普通难度"
+                        },
+                        {
+                            "hard": "*困难难度"
+                        }
+                    ],
+                    "groups2": [
+                        {
+                            "p": "*和平难度"
+                        },
+                        {
+                            "e": "*简单难度"
+                        },
+                        {
+                            "n": "*普通难度"
+                        },
+                        {
+                            "h": "*困难难度"
+                        }
+                    ],
+                    "groups3": [
+                        {
+                            "0": "*和平难度"
+                        },
+                        {
+                            "1": "*简单难度"
+                        },
+                        {
+                            "2": "*普通难度"
+                        },
+                        {
+                            "3": "*困难难度"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "modes": [
+                {
+                    "advanture|2|a": "*冒险模式"
+                },
+                {
+                    "creative|1|c": "*创造模式"
+                },
+                {
+                    "default|5|d": "*默认模式"
+                },
+                {
+                    "survival|0|s": "*生存模式"
+                },
+                {
+                    "spectator": "*旁观者模式(仅java版)"
+                }
+            ]
+        },
+        {
+            "sel": [
+                {
+                    "@a": "*全部玩家"
+                },
+                {
+                    "@e": "*全部实体"
+                },
+                {
+                    "@p": "*最近玩家"
+                },
+                {
+                    "@r": "*随机玩家"
+                },
+                {
+                    "@s": "*执行者(含实体,不含命令块)"
+                },
+                {
+                    "strings": "*玩家名称"
+                }
+            ]
+        },
+        {
+            "ability": [
+                {
+                    "worldbuilder": "*给予玩家成为世界建造者的能力"
+                },
+                {
+                    "mayfly": "*给予飞行的能力"
+                },
+                {
+                    "mute": "*禁言玩家"
+                }
+            ]
+        },
+        {
+            "achievement": [
+                {
+                    "give": "*给予指定成就"
+                },
+                {
+                    "take": "*清除指定成就"
+                }
+            ]
+        },
+        {
+            "advancements": [
+                {
+                    "grant": "*添加指定的进度"
+                },
+                {
+                    "revoke": "*清除指定的进度 "
+                }
+            ]
+        },
+        {
+            "advancements_operator": [
+                {
+                    "everything": "*所有进度"
+                },
+                {
+                    "groups1": [
+                        {
+                            "from": "*从指定进度开始,深搜下游进度"
+                        },
+                        {
+                            "until": "*从指定进度开始,深搜上下游进度"
+                        },
+                        {
+                            "through": "*从指定进度开始,执行from和until"
+                        }
+                    ]
+                },
+                {
+                    "only": "*指定的进度"
+                }
+            ]
+        },
+        {
+            "advancement_condition": [
+                {
+                    "@null": "@null"
+                }
+            ]
+        },
+        {
+            "advancement_lists": [
+                "@null"
+            ]
+        },
+        {
+            "agents": [
+                {
+                    "move": "@null"
+                },
+                {
+                    "turn": "@null"
+                },
+                {
+                    "attack": "@null"
+                },
+                {
+                    "destroy": "@null"
+                },
+                {
+                    "drop": "@null"
+                },
+                {
+                    "dropall": "@null"
+                },
+                {
+                    "inspect": "@null"
+                },
+                {
+                    "inspectdata": "@null"
+                },
+                {
+                    "detect": "@null"
+                },
+                {
+                    "detectredstone": "@null"
+                },
+                {
+                    "transfer": "@null"
+                },
+                {
+                    "create": "@null"
+                },
+                {
+                    "tp": "@null"
+                },
+                {
+                    "collect": "@null"
+                },
+                {
+                    "till": "@null"
+                },
+                {
+                    "place": "@null"
+                },
+                {
+                    "getitemcount": "@null"
+                },
+                {
+                    "getitemspace": "@null"
+                },
+                {
+                    "getitemdetail": "@null"
+                }
+            ]
+        },
+        {
+            "attributes": [
+                {
+                    "@null": "@null"
+                }
+            ]
+        },
+        {
+            "attribute_operators": [
+                {
+                    "add": "@null"
+                },
+                {
+                    "multiply": "@null"
+                },
+                {
+                    "multiply_base": "@null"
+                }
+            ]
+        },
+        {
+            "bossbar_get": [
+                {
+                    "max": "*获取最大值"
+                },
+                {
+                    "player": "*获取玩家"
+                },
+                {
+                    "value": "*获取当前值"
+                },
+                {
+                    "visible": "*获取显示状态"
+                }
+            ]
+        },
+        {
+            "bossbar_set": [
+                {
+                    "groups1": [
+                        {
+                            "color": "*设置选定bossbar的颜色"
+                        },
+                        {
+                            "max": "*设置选定bossbar的最大值"
+                        },
+                        {
+                            "name": "*设置选定bossbar的显示名称"
+                        },
+                        {
+                            "players": "*设置加入选定bossbar的玩家"
+                        },
+                        {
+                            "style": "*设置选定bossbar的样式"
+                        },
+                        {
+                            "value": "*设置选定bossbar的值"
+                        },
+                        {
+                            "visible": "*设置是否显示"
+                        }
+                    ]
+                },
+                {
+                    "groups2": [
+                        {
+                            "blue": "*蓝色"
+                        },
+                        {
+                            "green": "*绿色"
+                        },
+                        {
+                            "pink": " *粉色"
+                        },
+                        {
+                            "purple": "*紫色"
+                        },
+                        {
+                            "red": "*红色"
+                        },
+                        {
+                            "white": "*白色"
+                        },
+                        {
+                            "yellow": "*黄色"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "camerashake_type": [
+                {
+                    "positional": "*按位置摇晃"
+                },
+                {
+                    "rotational": "*按视觉摇晃"
+                }
+            ]
+        },
+        {
+            "clone_type": [
+                {
+                    "groups1": [
+                        {
+                            "masked": "*只复制非空气"
+                        },
+                        {
+                            "replace": "*替换掉"
+                        }
+                    ]
+                },
+                {
+                    "groups2": [
+                        {
+                            "force": "*强制复制"
+                        },
+                        {
+                            "move": "*复制后清除源位置的方块"
+                        },
+                        {
+                            "normal": "*等价于不填"
+                        }
+                    ]
+                },
+                {
+                    "filtered": "*过滤掉"
+                }
+            ]
+        },
+        {
+            "datapack_level": [
+                {
+                    "groups1": [
+                        {
+                            "first": "*设置最低优先级"
+                        },
+                        {
+                            "last": "*设置最高优先级"
+                        }
+                    ]
+                },
+                {
+                    "groups2": [
+                        {
+                            "before": "*设置指定数据包优先级低于指定数据包优先级"
+                        },
+                        {
+                            "after": "*设置指定数据包优先级高于指定数据包优先级"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "datapack_status": [
+                {
+                    "available": "*启用的数据包"
+                },
+                {
+                    "enable": "*禁用的数据包"
+                }
+            ]
+        },
+        {
+            "debugs": [
+                {
+                    "start": "*开始新的调试分析会话"
+                },
+                {
+                    "stop": "*结束现有的调试分析会话"
+                },
+                {
+                    "report": "在调试性能时获得更多细节信息"
+                }
+            ]
+        },
+        {
+            "execute_tests": [
+                {
+                    "align": "把执行位置转换为执行坐标"
+                },
+                {
+                    "anchored": "@null"
+                },
+                {
+                    "as": "改变命令的执行者为目标"
+                }
+            ]
+        },
+        {
+            "experiences": [
+                {
+                    "query": "*查询经验"
+                },
+                {
+                    "groups1": [
+                        {
+                            "add": "*给予经验"
+                        },
+                        {
+                            "set": "*设定经验"
+                        }
+                    ]
+                },
+                {
+                    "groups2": [
+                        {
+                            "levels": "*经验等级数"
+                        },
+                        {
+                            "points": "*经验点数"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "fill_types": [
+                {
+                    "replace": "*替换目标方块为"
+                },
+                {
+                    "groups1": [
+                        {
+                            "destroy": "*填充后将旧方块转为凋落物"
+                        },
+                        {
+                            "hollow": "*填充后将内部变为空气"
+                        },
+                        {
+                            "keep": "*填充空气方块为指定方块"
+                        },
+                        {
+                            "outline": "*填充外围方块,内部不被处理"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "gamerules": [
+                {
+                    "groups1": [
+                        {}
+                    ]
+                },
+                {
+                    "groups2": [
+                        {}
+                    ]
+                }
+            ]
+        },
+        {
+            "item": [
+                {
+                    "groups1": [
+                        {
+                            "block": "*从方块"
+                        },
+                        {
+                            "entity": "*从实体"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "locates": [
+                {}
+            ]
+        },
+        {
+            "biomes": [
+                {}
+            ]
+        },
+        {
+            "mobevents": [
+                {
+                    "minecraft:ender_dragon_event": "*初次进入末地是否生成末影龙"
+                },
+                {
+                    "minecraft:pillager_patrols_event": "*是否生成灾厄巡逻队"
+                },
+                {
+                    "minecraft:wandering_trader_event": "*是否生成流浪商人"
+                },
+                {
+                    "events_enabled": "*是否启用mobevent"
+                }
+            ]
+        },
+        {
+            "music_operator": [
+                {
+                    "play": "*播放音乐"
+                },
+                {
+                    "queue": "*将音乐加入队列"
+                },
+                {
+                    "stop": "*停止播放音乐"
+                },
+                {
+                    "volune": "*调整音乐音量"
+                }
+            ]
+        },
+        {
+            "music_play_mode": [
+                {
+                    "loop": "*循环播放"
+                },
+                {
+                    "play_once": "*播放一次"
+                }
+            ]
+        },
+        {
+            "ops_operator": [
+                {
+                    "list": "*列出列表"
+                },
+                {
+                    "reload": "*重载op列表"
+                }
+            ]
+        }
+    ],
+    "lists": {
+        "commands": [
+            {
+                "?": {
+                    "limited": [
+                        "@normal",
+                        "@level0"
+                    ],
+                    "trees": 2
+                }
+            },
+            {
+                "ability": {
+                    "limited": [
+                        "@education",
+                        "@level1"
+                    ],
+                    "trees": 2
+                }
+            },
+            {
+                "advancement": {
+                    "limited": [
+                        "@java",
+                        "@level2"
+                    ],
+                    "trees": false
+                }
+            },
+            {
+                "agent": {
+                    "limited": [
+                        "@wsserver",
+                        "@level0"
+                    ],
+                    "trees": false
+                }
+            },
+            {
+                "alwaysday": {
+                    "limited": [
+                        "@bedrock",
+                        "@level1"
+                    ],
+                    "trees": 1
+                }
+            },
+            {
+                "gamemode": {
+                    "limited": [
+                        "@normal",
+                        "@level1"
+                    ],
+                    "trees": 2
+                }
+            }
+        ],
+        "enums": [
+            {
+                "mode": {
+                    "keys": 5
+                }
+            },
+            {
+                "sel": {
+                    "keys": 5
+                }
+            },
+            {
+                "advancements": {
+                    "keys": 2
+                }
+            },
+            {
+                "advancement_operator": {
+                    "keys": 5
+                }
+            },
+            {
+                "advancement_lists": {
+                    "keys": false
+                }
+            },
+            {
+                "agents": {
+                    "keys": 19
+                }
+            }
+        ]
+    }
+}
