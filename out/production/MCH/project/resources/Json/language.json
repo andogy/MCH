@@ -28,6 +28,27 @@
         },
         {
           "exitMCH": "退出MCH"
+        },
+        {
+          "smallerMCH": "缩小UI"
+        },
+        {
+          "colorSet": "颜色:"
+        },
+        {
+          "black": "黑色"
+        },
+        {
+          "white": "白色"
+        },
+        {
+          "languageSet": "语言:"
+        },
+        {
+          "chinese": "中文"
+        },
+        {
+          "english": "英文"
         }
       ]
     },
@@ -59,6 +80,27 @@
         },
         {
           "exitMCH": "Exit MCH"
+        },
+        {
+          "smallerMCH": "Reduce UI"
+        },
+        {
+          "colorSet": "Color:"
+        },
+        {
+          "black": "black"
+        },
+        {
+          "white": "white"
+        },
+        {
+          "languageSet": "language:"
+        },
+        {
+          "chinese": "Chinese"
+        },
+        {
+          "english": "english"
         }
       ]
     }

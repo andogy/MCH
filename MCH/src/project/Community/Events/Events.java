@@ -87,6 +87,9 @@ public class Events {
 
     public static void switchLanguage(int LangID) {
         if (!Community.isDaemons) {
+
+            int oldLangID = Community.LangID;
+
             switch (LangID) {
                 case 0 -> {
                     Community.LangID = 0;
@@ -104,11 +107,14 @@ public class Events {
 
             try {
                 ini.WriteIni();
+                ini.parsing();
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            initLanguage.init();
+            if (LangID != oldLangID) {
+                initLanguage.init();
+            }
         }
     }
 

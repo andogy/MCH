@@ -32,14 +32,14 @@ public class languageSet extends Thread {
             MenuUI2.exButton.setText(languageMap.get("exButton"));
             MenuUI2.exButtonExit.setText(languageMap.get("exitMCH"));
             MenuUI2.exButtonNarrow.setText(languageMap.get("smallerMCH"));
-            MenuUI2.Color.setText("颜色:");
-            MenuUI2.Black.setText("黑色");
-            MenuUI2.White.setText("白色");
-            MenuUI2.Language.setText("语言:");
-            MenuUI2.Chinese.setText("中文");
-            MenuUI2.English.setText("英文");
-            MenuUI2.fastLoad.setText("快速加载:");
-            MenuUI2.fastLoadNo.setText("禁用");
+            MenuUI2.Color.setText(languageMap.get("colorSet"));
+            MenuUI2.Black.setText(languageMap.get("black"));
+            MenuUI2.White.setText(languageMap.get("white"));
+            MenuUI2.Language.setText(languageMap.get("languageSet"));
+            MenuUI2.Chinese.setText(languageMap.get("chinese"));
+            MenuUI2.English.setText(languageMap.get("english"));
+            MenuUI2.fastLoad.setText(languageMap.get("fastLoad"));
+            MenuUI2.fastLoadNo.setText(languageMap.get("disable"));
             MenuUI2.fastLoadYes.setText("启用");
             MenuUI2.versionInfo.setText("版本: " + ver + "\n" +
                     "版本ID:" + Community.verID + "\n");

@@ -9,8 +9,8 @@ import java.util.Arrays;
 
 public class getServers {
     public static void main(String[] args) {
-        String hostName = "127.0.0.1";
-        int port = 25565;
+        String hostName = "157f2e607fa2a757.natapp.cc";
+        int port = 19132;
 
         try {
             //getSource
@@ -27,7 +27,7 @@ public class getServers {
             System.out.println("延迟:");
             long latencyAvg = 0;
 
-            int count = 250;
+            int count = 2500;
             int finished = 0;
             int min = 0;
             int max = 0;
@@ -57,7 +57,7 @@ public class getServers {
                 System.out.println("延迟测试目标" + count + "Cts, 最终以" + finished + "Cts结束");
                 System.out.println("原因:" + e);
             } finally {
-                System.out.println("--------------------------------------------------");
+                System.out.println("-------------" + server.get("hostname") + ":" + server.get("port") + "-----------------------------");
                 System.out.println("测试延迟总和(sum):\n   =" + latencyAvg + "ms(" + finished + "Cts)");
                 System.out.println("平均延迟(Avg):\n   =" + latencyAvg / finished + "ms(" + count + "/" + finished + "Cts)");
                 System.out.println("最高(max):\n   =" + max + "ms(" + maxPoint + "Ct)");

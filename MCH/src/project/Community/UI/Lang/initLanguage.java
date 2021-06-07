@@ -20,7 +20,7 @@ public class initLanguage {
 
             BufferedReader br = new BufferedReader(new FileReader("G:\\Code-Java\\MCH\\MCH\\src\\project\\resources\\Json\\language.json"));
 
-            String brRead = "";
+            String brRead;
             StringBuilder json = new StringBuilder();
             while ((brRead = br.readLine()) != null) {
                 json.append(brRead);
@@ -31,7 +31,8 @@ public class initLanguage {
             //            获得语言列表
             JSONArray languages = new JSONArray(js.get("languages").toString());
 
-            JSONObject language = new JSONObject();
+            new JSONObject();
+            JSONObject language;
             String targetLanguage = "";
             if (Community.LangID == 0) {
                 targetLanguage = "chinese";
@@ -49,15 +50,21 @@ public class initLanguage {
             System.out.println(languageText);
 
             int i = languageText.length();
-            do {
+            i--;
+            JSONObject inMap = new JSONObject(languageText.get(i).toString());
+            String inMapKey = inMap.keys().next();
+            languageMap.put(inMapKey, inMap.getString(inMapKey));
+
+            System.out.println("init: " + inMap + "\n" + "init to:" + languageMap.get(inMapKey) + "\n" +
+                    "------------------------------------");
+            while (i != 0) {
                 i--;
-                JSONObject inMap = new JSONObject(languageText.get(i).toString());
-                String inMapKey = inMap.keys().next();
+                inMap = new JSONObject(languageText.get(i).toString());
+                inMapKey = inMap.keys().next();
                 languageMap.put(inMapKey, inMap.getString(inMapKey));
 
-                System.out.println("init: " + inMap + "\n" + "init to:" + languageMap.get(inMapKey) + "\n" +
-                        "------------------------------------");
-            } while (i != 0);
+                System.out.println("init: " + inMap + "\n" + "init to:" + languageMap.get(inMapKey) + "\n" + "------------------------------------");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
