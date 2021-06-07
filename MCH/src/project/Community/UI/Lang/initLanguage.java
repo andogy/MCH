@@ -9,7 +9,7 @@ import java.io.FileReader;
 import java.util.HashMap;
 
 public class initLanguage {
-    public static HashMap<String, String> languageMap = new HashMap<>();
+    public static HashMap<String, String> lang = new HashMap<>();
 
     public initLanguage() {
         init();
@@ -53,17 +53,17 @@ public class initLanguage {
             i--;
             JSONObject inMap = new JSONObject(languageText.get(i).toString());
             String inMapKey = inMap.keys().next();
-            languageMap.put(inMapKey, inMap.getString(inMapKey));
+            lang.put(inMapKey, inMap.getString(inMapKey));
 
-            System.out.println("init: " + inMap + "\n" + "init to:" + languageMap.get(inMapKey) + "\n" +
+            System.out.println("init: " + inMap + "\n" + "init to:" + lang.get(inMapKey) + "\n" +
                     "------------------------------------");
             while (i != 0) {
                 i--;
                 inMap = new JSONObject(languageText.get(i).toString());
                 inMapKey = inMap.keys().next();
-                languageMap.put(inMapKey, inMap.getString(inMapKey));
+                lang.put(inMapKey, inMap.getString(inMapKey));
 
-                System.out.println("init: " + inMap + "\n" + "init to:" + languageMap.get(inMapKey) + "\n" + "------------------------------------");
+                System.out.println("init: " + inMap + "\n" + "init to:" + lang.get(inMapKey) + "\n" + "------------------------------------");
             }
         } catch (Exception e) {
             e.printStackTrace();

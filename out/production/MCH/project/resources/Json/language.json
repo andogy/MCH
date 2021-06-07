@@ -49,6 +49,153 @@
         },
         {
           "english": "英文"
+        },
+        {
+          "fastLoad": "快速加载:"
+        },
+        {
+          "disable": "禁用"
+        },
+        {
+          "enable": "启用"
+        },
+        {
+          "version": "版本: "
+        },
+        {
+          "versionID": "版本ID:"
+        },
+        {
+          "onTop": "置于顶层:"
+        },
+        {
+          "deleteData": "删除数据"
+        },
+        {
+          "help": "帮助"
+        },
+        {
+          "agreement": "用户协议"
+        },
+        {
+          "restartMCH": "重启MCH"
+        },
+        {
+          "settings": "设置"
+        },
+        {
+          "run": "运行"
+        },
+        {
+          "display": "显示"
+        },
+        {
+          "run_title": "设置-运行"
+        },
+        {
+          "display-title": "设置-显示"
+        },
+        {
+          "upd_title": "设置-更新"
+        },
+        {
+          "info_title": "设置-MCH详情"
+        },
+        {
+          "functions": "功能"
+        },
+        {
+          "feedback": "反馈"
+        },
+        {
+          "save": "保留"
+        },
+        {
+          "delete": "删除"
+        },
+        {
+          "save_cache": "保留缓存:"
+        },
+        {
+          "save_err": "错误日志:"
+        },
+        {
+          "runLog": "运行日志"
+        },
+        {
+          "autoUPD": "自动更新"
+        },
+        {
+          "history": "历史纪录:"
+        },
+        {
+          "save_all": "保留全部"
+        },
+        {
+          "save_some": "保留最近"
+        },
+        {
+          "auto": "自动"
+        },
+        {
+          "UPD": "更新"
+        },
+        {
+          "about": "关于"
+        },
+        {
+          "aboutMCH": "关于MCH:"
+        },
+        {
+          "viewFile": "查看文件"
+        },
+        {
+          "developer": "关于开发者:"
+        },
+        {
+          "aboutDeveloper": "MCH有两位开发者,以下是他们的称呼以及联系方式:\n开发者andogy   可以称呼为翅膀\n通过qq与他联系:2293332045\n\n开发者zhuaidadaya   可以称呼为草\n通过qq或微信联系:\nqq:1501917367\nWeChat:zhuaidadaya"
+        },
+        {
+          "functions_launcher": "功能-启动器"
+        },
+        {
+          "functions_problems": "功能-随机问题"
+        },
+        {
+          "functions_FunctionEitor": "功能-Function编辑器"
+        },
+        {
+          "mcBedrock": "MC基岩版:"
+        },
+        {
+          "launcher": "启动器"
+        },
+        {
+          "off": "关闭"
+        },
+        {
+          "randomProblem": "随机问题"
+        },
+        {
+          "saveTo": "保存至"
+        },
+        {
+          "flushSpeed": "刷新速度:"
+        },
+        {
+          "slow": "稍慢"
+        },
+        {
+          "fast": "最快"
+        },
+        {
+          "checkUPD": "检查更新"
+        },
+        {
+          "disableFunctionEdit": "未启用Function编辑器"
+        },
+        {
+          "CannotHandleErr": "MCH遇到了一个无法自动处理的错误\n请将此错误反馈给开发人员,谢谢\n\n正在尝试重启MCH\n\n你可以去到MCH的目录查看错误信息"
         }
       ]
     },
@@ -101,6 +248,153 @@
         },
         {
           "english": "english"
+        },
+        {
+          "fastLoad": "fast load:"
+        },
+        {
+          "disable": "disable"
+        },
+        {
+          "enable": "enable"
+        },
+        {
+          "version": "version: "
+        },
+        {
+          "versionID": "version ID:"
+        },
+        {
+          "onTop": "on top:"
+        },
+        {
+          "deleteData": "delete data"
+        },
+        {
+          "help": "help"
+        },
+        {
+          "agreement": "agreement"
+        },
+        {
+          "restartMCH": "restart MCH"
+        },
+        {
+          "settings": "settings"
+        },
+        {
+          "run": "run"
+        },
+        {
+          "display": "display"
+        },
+        {
+          "run_title": "settings-run"
+        },
+        {
+          "display-title": "settings-display"
+        },
+        {
+          "upd_title": "settings-update"
+        },
+        {
+          "info_title": "settings-MCH info"
+        },
+        {
+          "functions": "functions"
+        },
+        {
+          "feedback": "feedback"
+        },
+        {
+          "save": "save"
+        },
+        {
+          "delete": "delete"
+        },
+        {
+          "save_cache": "save cache:"
+        },
+        {
+          "save_err": "error log:"
+        },
+        {
+          "runLog": "run log"
+        },
+        {
+          "autoUPD": "auto UPD"
+        },
+        {
+          "history": "history:"
+        },
+        {
+          "save_all": "save all"
+        },
+        {
+          "save_some": "save some"
+        },
+        {
+          "auto": "auto"
+        },
+        {
+          "UPD": "UPD"
+        },
+        {
+          "about": "about"
+        },
+        {
+          "aboutMCH": "about MCH:"
+        },
+        {
+          "viewFile": "view files"
+        },
+        {
+          "developer": "about developer:"
+        },
+        {
+          "aboutDeveloper": "MCH have two developers,here is their contact:\n\"andogy\"   can called \"翅膀\"(ChiBang)\ncontact at qq:2293332045\n\n\"zhuaidadaya\"   can called \"草\"(grass)\ncontact at qq or WeChat\nqq:1501917367\nWeChat:zhuaidadaya"
+        },
+        {
+          "functions_launcher": "functions-launcher"
+        },
+        {
+          "functions_problems": "functions-random problems"
+        },
+        {
+          "functions_FunctionEitor": "functions-Function editor"
+        },
+        {
+          "mcBedrock": "MC Bedrock:"
+        },
+        {
+          "launcher": "launcher"
+        },
+        {
+          "off": "off"
+        },
+        {
+          "randomProblem": "problems"
+        },
+        {
+          "saveTo": "save to"
+        },
+        {
+          "flushSpeed": "flush speed:"
+        },
+        {
+          "slow": "slow"
+        },
+        {
+          "fast": "fast"
+        },
+        {
+          "checkUPD": "check UPD"
+        },
+        {
+          "disableFunctionEdit": "Function edit is no enable"
+        },
+        {
+          "CannotHandleErr":"There are some unhandled errors in the MCH\nPlease send there error to feedback,thanks you\n\nTrying restart the MCH\n\nYou can go to the MCH directory to look the error info"
         }
       ]
     }

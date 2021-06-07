@@ -7,7 +7,8 @@ import project.Community.Events.LoadAssembly;
 import project.Community.Times.times;
 import project.Community.UI.*;
 
-import static project.Community.UI.Lang.initLanguage.languageMap;
+import static project.Community.UI.Lang.initLanguage.init;
+import static project.Community.UI.Lang.initLanguage.lang;
 
 import static project.Community.Community.ver;
 
@@ -16,117 +17,110 @@ public class languageSet extends Thread {
     public static String type = "";
 
     public static void Language() {
+//        init();
 
         //            ID=0为中文
 //        if (Community.LangID == 0) {
-            MchUI.menu.setText(languageMap.get("menuButton"));
-            MchUI.jFrame.setTitle(languageMap.get("mch"));
+            MchUI.menu.setText(lang.get("menuButton"));
+            MchUI.jFrame.setTitle(lang.get("mch"));
 
-            MenuUI.jFrame.setTitle(languageMap.get("menu"));
+            MenuUI.jFrame.setTitle(lang.get("menu"));
 
-            exit.jTextArea.setText(languageMap.get(".exit"));
-            exit.buttonEXIT.setText(languageMap.get("exit"));
-            exit.buttonEXITNot.setText(languageMap.get("exitNot"));
+            exit.jTextArea.setText(lang.get(".exit"));
+            exit.buttonEXIT.setText(lang.get("exit"));
+            exit.buttonEXITNot.setText(lang.get("exitNot"));
 
-            MenuUI2.PATH.setText(languageMap.get("configPath") + ini.path);
-            MenuUI2.exButton.setText(languageMap.get("exButton"));
-            MenuUI2.exButtonExit.setText(languageMap.get("exitMCH"));
-            MenuUI2.exButtonNarrow.setText(languageMap.get("smallerMCH"));
-            MenuUI2.Color.setText(languageMap.get("colorSet"));
-            MenuUI2.Black.setText(languageMap.get("black"));
-            MenuUI2.White.setText(languageMap.get("white"));
-            MenuUI2.Language.setText(languageMap.get("languageSet"));
-            MenuUI2.Chinese.setText(languageMap.get("chinese"));
-            MenuUI2.English.setText(languageMap.get("english"));
-            MenuUI2.fastLoad.setText(languageMap.get("fastLoad"));
-            MenuUI2.fastLoadNo.setText(languageMap.get("disable"));
-            MenuUI2.fastLoadYes.setText("启用");
-            MenuUI2.versionInfo.setText("版本: " + ver + "\n" +
-                    "版本ID:" + Community.verID + "\n");
-            MenuUI2.onTops.setText("置于顶层:");
-            MenuUI2.onTop.setText("启用");
-            MenuUI2.noOnTop.setText("禁用");
-            MenuUI2.deleteData.setText("删除数据");
-            MenuUI.helps.setText("帮助");
-            MenuUI2.Hades.setText("阴间");
-            MenuUI.user.setText("用户协议");
-            MenuUI.restart.setText("重启MCH");
-            MenuUI.settings.setText("设置");
+            MenuUI2.PATH.setText(lang.get("configPath") + ini.path);
+            MenuUI2.exButton.setText(lang.get("exButton"));
+            MenuUI2.exButtonExit.setText(lang.get("exitMCH"));
+            MenuUI2.exButtonNarrow.setText(lang.get("smallerMCH"));
+            MenuUI2.Color.setText(lang.get("colorSet"));
+            MenuUI2.Black.setText(lang.get("black"));
+            MenuUI2.White.setText(lang.get("white"));
+            MenuUI2.Language.setText(lang.get("languageSet"));
+            MenuUI2.Chinese.setText(lang.get("chinese"));
+            MenuUI2.English.setText(lang.get("english"));
+            MenuUI2.fastLoad.setText(lang.get("fastLoad"));
+            MenuUI2.fastLoadNo.setText(lang.get("disable"));
+            MenuUI2.fastLoadYes.setText(lang.get("enable"));
+            MenuUI2.versionInfo.setText(lang.get("version") + ver + "\n" +
+                    lang.get("versionID") + Community.verID + "\n");
+            MenuUI2.onTops.setText(lang.get("onTop"));
+            MenuUI2.onTop.setText(lang.get("enable"));
+            MenuUI2.noOnTop.setText(lang.get("disable"));
+            MenuUI2.deleteData.setText(lang.get("deleteData"));
+            MenuUI.helps.setText(lang.get("help"));
+//            MenuUI2.Hades.setText("阴间");
+            MenuUI.user.setText(lang.get("agreement"));
+            MenuUI.restart.setText(lang.get("restartMCH"));
+            MenuUI.settings.setText(lang.get("settings"));
 
-            MenuUI2.setting_run.setText("运行");
-            MenuUI2.setting_display.setText("显示");
+            MenuUI2.setting_run.setText(lang.get("run"));
+            MenuUI2.setting_display.setText(lang.get("display"));
 
             if (Community.setsDisplayID == 0) {
-                MenuUI2.jFrame.setTitle("设置-运行");
+                MenuUI2.jFrame.setTitle(lang.get("run_title"));
             } else if (Community.setsDisplayID == 1) {
-                MenuUI2.jFrame.setTitle("设置-显示");
+                MenuUI2.jFrame.setTitle(lang.get("display-title"));
             } else if (Community.setsDisplayID == 2) {
-                MenuUI2.jFrame.setTitle("设置-更新");
+                MenuUI2.jFrame.setTitle("upd-title");
             } else if (Community.setsDisplayID == 3) {
-                MenuUI2.jFrame.setTitle("设置-MCH详情");
+                MenuUI2.jFrame.setTitle("info_title");
             }
 
 
-            MenuUI.functions.setText("功能");
-            MenuUI.feedback.setText("反馈");
-            MenuUI2.saveCacheOrNot.setText("保留缓存:");
-            MenuUI2.saveCache.setText("保留");
-            MenuUI2.notSaveCache.setText("删除");
-            MenuUI2.saveErrorLogsOrNot.setText("错误日志:");
-            MenuUI2.saveErrorLogs.setText("保存");
-            MenuUI2.notSaveErrorLogs.setText("删除");
-            MenuUI2.saveRunLogsOrNot.setText("运行日志");
-            MenuUI2.saveRunLogs.setText("保存");
-            MenuUI2.notSaveRunLogs.setText("删除");
-            MenuUI2.autoUpdOrNot.setText("自动更新");
-            MenuUI2.autoUPD.setText("启用");
-            MenuUI2.noAutoUPD.setText("禁用");
-            MenuUI2.saveHistoryOrNot.setText("历史纪录:");
-            MenuUI2.saveHistory.setText("保存最近");
-            MenuUI2.saveAllHistory.setText("保存");
-            MenuUI2.notSaveHistory.setText("删除");
-            MenuUI2.LanguageAuto.setText("自动");
-            MenuUI2.setting_upd.setText("更新");
-            MenuUI2.setting_info.setText("关于");
-            MenuUI2.aboutMCH.setText("关于MCH:");
-            MenuUI2.showDir.setText("查看文件");
-            MenuUI2.aboutDevelopOfMCH.setText("关于开发者:");
-            MenuUI2.Developers.setText("""
-                    MCH有两位开发者,以下是他们的称呼以及联系方式:
-                    开发者andogy   可以称呼为翅膀
-                    通过qq与他联系:2293332045
-
-                    开发者zhuaidadaya   可以称呼为草
-                    通过qq或微信联系:
-                    qq:1501917367
-                    WeChat:zhuaidadaya""");
+            MenuUI.functions.setText(lang.get("functions"));
+            MenuUI.feedback.setText(lang.get("feedback"));
+            MenuUI2.saveCacheOrNot.setText(lang.get("save_cache"));
+            MenuUI2.saveCache.setText(lang.get("save"));
+            MenuUI2.notSaveCache.setText(lang.get("delete"));
+            MenuUI2.saveErrorLogsOrNot.setText(lang.get("save_err"));
+            MenuUI2.saveErrorLogs.setText(lang.get("save"));
+            MenuUI2.notSaveErrorLogs.setText(lang.get("delete"));
+            MenuUI2.saveRunLogsOrNot.setText(lang.get("runLog"));
+            MenuUI2.saveRunLogs.setText(lang.get("save"));
+            MenuUI2.notSaveRunLogs.setText(lang.get("delete"));
+            MenuUI2.autoUpdOrNot.setText(lang.get("autoUPD"));
+            MenuUI2.autoUPD.setText(lang.get("enable"));
+            MenuUI2.noAutoUPD.setText(lang.get("disable"));
+            MenuUI2.saveHistoryOrNot.setText(lang.get("history"));
+            MenuUI2.saveHistory.setText(lang.get("save_some"));
+            MenuUI2.saveAllHistory.setText(lang.get("save_all"));
+            MenuUI2.notSaveHistory.setText(lang.get("delete"));
+            MenuUI2.LanguageAuto.setText(lang.get("auto"));
+            MenuUI2.setting_upd.setText(lang.get("UPD"));
+            MenuUI2.setting_info.setText(lang.get("about"));
+            MenuUI2.aboutMCH.setText(lang.get("aboutMCH"));
+            MenuUI2.showDir.setText(lang.get("viewFile"));
+            MenuUI2.aboutDevelopOfMCH.setText(lang.get("developer"));
+            MenuUI2.Developers.setText(lang.get("aboutDeveloper"));
 
             if (Community.extraDisplayID == 0) {
-                ExtraUI.jFrame.setTitle("功能-启动器");
+                ExtraUI.jFrame.setTitle(lang.get("functions_launcher"));
             } else if (Community.extraDisplayID == 1) {
-                ExtraUI.jFrame.setTitle("功能-随机问题");
+                ExtraUI.jFrame.setTitle(lang.get("functions_problems"));
             } else if (Community.extraDisplayID == 2) {
-                ExtraUI.jFrame.setTitle("功能-Function编辑器");
+                ExtraUI.jFrame.setTitle("functions_FunctionEditor");
             }
-            ExtraUI.McBe.setText("MC基岩版:");
-            ExtraUI.turnOnMcBe.setText("启动");
-            ExtraUI.launchers.setText("启动器");
-            ExtraUI.turnOffMcBe.setText("关闭");
-            ExtraUI.randomProblem.setText("随机问题");
+            ExtraUI.McBe.setText(lang.get("mcBedrock"));
+            ExtraUI.turnOnMcBe.setText(lang.get("run"));
+            ExtraUI.launchers.setText(lang.get("launcher"));
+            ExtraUI.turnOffMcBe.setText(lang.get("off"));
+            ExtraUI.randomProblem.setText(lang.get("randomProblem"));
             ExtraUI.functions.setText("Function");
-            ExtraUI.saveFunc.setText("保存至");
-            ExtraUI.minecraftListenSpeedLevel.setText("刷新速度:");
-            ExtraUI.Level0OfMLSL.setText("稍慢");
-            ExtraUI.Level1OfMLSL.setText("最快");
+            ExtraUI.saveFunc.setText(lang.get("saveTo"));
+            ExtraUI.minecraftListenSpeedLevel.setText(lang.get("flushSpeed"));
+            ExtraUI.Level0OfMLSL.setText(lang.get("slow"));
+            ExtraUI.Level1OfMLSL.setText(lang.get("fast"));
 
             if (Community.canUPD) {
-                MenuUI2.checkUPD.setText("更新");
+                MenuUI2.checkUPD.setText(lang.get("UPD"));
             } else {
-                MenuUI2.checkUPD.setText("检查更新");
+                MenuUI2.checkUPD.setText(lang.get("checkUPD"));
             }
 
             if (!Community.functionEditing) {
-                ExtraUI.functionEdit.setText("未启用Function编辑器 ");
+                ExtraUI.functionEdit.setText(lang.get("disableFunctionEdit"));
             }
 
                         if (Errors.CannotHandle) {
@@ -188,7 +182,7 @@ public class languageSet extends Thread {
 //            MenuUI2.autoUPD.setText("Enable");
 //            MenuUI2.noAutoUPD.setText("Disable");
 //            MenuUI2.saveHistoryOrNot.setText("history:");
-//            MenuUI2.saveHistory.setText("save some");
+//            MenuUI2.saveHistory.setText();
 //            MenuUI2.saveAllHistory.setText("save all");
 //            MenuUI2.notSaveHistory.setText("delete");
 //            MenuUI2.LanguageAuto.setText("auto");
