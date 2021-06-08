@@ -7,7 +7,6 @@ import project.Community.Events.LoadAssembly;
 import project.Community.Times.times;
 import project.Community.UI.*;
 
-import static project.Community.UI.Lang.initLanguage.init;
 import static project.Community.UI.Lang.initLanguage.lang;
 
 import static project.Community.Community.ver;

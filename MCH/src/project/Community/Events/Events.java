@@ -113,7 +113,7 @@ public class Events {
             }
 
             if (LangID != oldLangID) {
-                initLanguage.init();
+                new initLanguage();
             }
         }
     }

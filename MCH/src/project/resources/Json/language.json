@@ -394,7 +394,7 @@
           "disableFunctionEdit": "Function edit is no enable"
         },
         {
-          "CannotHandleErr":"There are some unhandled errors in the MCH\nPlease send there error to feedback,thanks you\n\nTrying restart the MCH\n\nYou can go to the MCH directory to look the error info"
+          "CannotHandleErr": "There are some unhandled errors in the MCH\nPlease send there error to feedback,thanks you\n\nTrying restart the MCH\n\nYou can go to the MCH directory to look the error info"
         }
       ]
     }

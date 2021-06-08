@@ -388,9 +388,9 @@ public class URLs extends Thread {
                             }
                         } else {
                             if (Community.LangID == 0) {
-                                MenuUI2.updateInfo.setText("没有新的版本可以更新\n当前版本:" + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + "修复了部分按钮和文本没有颜色的问题");
+                                MenuUI2.updateInfo.setText("没有新的版本可以更新\n当前版本:" + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + "更改了文本显示方式");
                             } else if (Community.LangID == 1) {
-                                MenuUI2.updateInfo.setText("have not new version can update\nnow version:" + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + "Fixed problem of some buttons and text have not color");
+                                MenuUI2.updateInfo.setText("have not new version can update\nnow version:" + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + "changed text display ways");
                             }
                         }
                         //                输出提示

@@ -55,8 +55,8 @@ public class Community {
 
     public static boolean iniHas = false;
 
-    public static String UPD_ID = "150";
-    public static String verID = "145220100148/0-0-1-48";
+    public static String UPD_ID = "151";
+    public static String verID = "111550100149/0-0-1-49";
     public static String ver = "debug-48";
 
     public static void main(String[] args) {
