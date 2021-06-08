@@ -22,6 +22,13 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-49.zip">MCH_ah_0-0-1-49(111550100149)</a>
+```
+更改了文本显示方式
+
+(2021.6.8)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-48.zip">MCH_debug_0-0-1-48(145220100148)</a>
 ```
 修复了部分按钮和文本没有颜色的问题
