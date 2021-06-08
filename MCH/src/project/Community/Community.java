@@ -7,11 +7,8 @@ import project.Community.Events.UPD.URLs;
 import project.Community.Events.UPD.countTime;
 import project.Community.Events.mchDir.dirSize;
 import project.Community.Times.times;
+import project.Community.UI.*;
 import project.Community.UI.Color.displaySets;
-import project.Community.UI.ExtraUI;
-import project.Community.UI.MchUI;
-import project.Community.UI.MenuUI2;
-import project.Community.UI.exit;
 import project.Community.lib.filesOperator;
 import project.Community.UI.Lang.initLanguage;
 
@@ -60,6 +57,7 @@ public class Community {
     public static String ver = "debug-48";
 
     public static void main(String[] args) {
+        loadingWindow.ui();
 
         new File(ini.path + "res.cache").delete();
 
@@ -94,8 +92,6 @@ public class Community {
         System.out.println("[" + times.format + "]\n" + "colors:色彩就绪中");
         LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: color\n");
         new displaySets().start();
-
-        new initLanguage();
 
         //        判断一些文件是否存在的线程
         new filesHas().start();
@@ -164,6 +160,8 @@ public class Community {
             System.out.println("[" + times.format + "]\n" + "MchUI:UI无法就绪");
             LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadFail: MchUI\n");
         }
+
+        new initLanguage();
 
         started = true;
     }

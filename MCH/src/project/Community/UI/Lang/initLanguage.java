@@ -3,6 +3,8 @@ package project.Community.UI.Lang;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import project.Community.Community;
+import project.Community.Events.Errors;
+import project.Community.UI.MchUI;
 
 import java.io.*;
 import java.util.HashMap;
@@ -474,8 +476,9 @@ public class initLanguage {
             } catch (Exception ignored) {
 
             }
+            Errors.errors(null,e,false,"languageInit");
         } catch (IOException ignored) {
-
+            Errors.errors(null,ignored,false,"languageInit");
         }
     }
 }

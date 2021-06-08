@@ -13,6 +13,14 @@ import java.util.Random;
 
 public class displaySets extends Thread {
 
+    //        创建颜色
+    public static Color foregroundColor = new Color(214, 214, 214);
+    public static Color backgroundColor = new Color(43, 43, 43);
+    public static Color inputBoxColor = new Color(49, 51, 53);
+    public static Color buttonColor = new Color(60, 63, 65);
+    public static Color tipColor = new Color(58, 58, 58);
+    public static Color grayColor = tipColor;
+
     public static void Color() {
         //        使用线程休眠减少CPU负担,15ms时间可以减少相当大的CPU负载,且用户无法察觉延迟
         try {
@@ -144,7 +152,6 @@ public class displaySets extends Thread {
         ini.noOnTop.setBorderPainted(false);
         ini.noOnTop.setFocusPainted(false);
 
-        //        创建颜色
         Color foregroundColor = new Color(214, 214, 214);
         Color backgroundColor = new Color(43, 43, 43);
         Color inputBoxColor = new Color(49, 51, 53);
@@ -186,6 +193,11 @@ public class displaySets extends Thread {
         ini.GoMchUI.setBackground(buttonColor);
         ini.onTop.setBackground(buttonColor);
         ini.noOnTop.setBackground(buttonColor);
+
+        loadingWindow.
+        loadingWindow.loadingTip.setForeground(foregroundColor);
+        loadingWindow.loading.setBackground(backgroundColor);
+        loadingWindow.loading.setForeground(foregroundColor);
 
         //        以下为颜色设置
         //            ID=0为白色
