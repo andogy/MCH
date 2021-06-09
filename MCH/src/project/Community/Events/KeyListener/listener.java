@@ -429,7 +429,7 @@ class switchTip {
                             }
 
                             try {
-                                if (tips.contains("-")) {
+                                if (tips.contains("*")) {
                                     if (MchUI.input_Command.getText().contains(" ")) {
                                         if (MchUI.input_Command.getText().contains("[") & !MchUI.input_Command.getText().contains(",")) {
                                             MchUI.switchTip.setText(MchUI.input_Command.getText().substring(0, MchUI.input_Command.getText().replace("[", " [").replace(",", " ,").lastIndexOf(" ") + 1) + tips.substring(0, tips.indexOf(" ")));
@@ -439,7 +439,7 @@ class switchTip {
                                             MchUI.switchTip.setText(MchUI.input_Command.getText().substring(0, MchUI.input_Command.getText().replace("[", " [").replace(",", " ,").lastIndexOf(" ") + 1) + tips.substring(0, tips.indexOf(" ")));
                                         }
                                     } else {
-                                        MchUI.switchTip.setText(tips.substring(0, tips.indexOf("-")));
+                                        MchUI.switchTip.setText(tips.substring(0, tips.indexOf("*")));
                                     }
                                 }
                             } catch (Exception e1) {
@@ -469,7 +469,6 @@ class switchTip {
                             int points = MchUI.command1.getText().indexOf(tips);
                             doc.remove(points, tips.length());
                             doc.insertString(points, tips, aset);
-
                         }
                     }
 

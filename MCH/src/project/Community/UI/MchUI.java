@@ -17,6 +17,8 @@ public class MchUI {
     public static JTextArea tips = new JTextArea();
     public static JTextArea switchTip = new JTextArea();
 
+    public static JScrollPane jScrollPane = new JScrollPane(command1);
+
     public MchUI() {
 
         //        加载语言
@@ -28,7 +30,7 @@ public class MchUI {
         new Parsing().start();
 
         //设置窗口大小和颜色
-        jFrame.setSize(500, 300);
+        jFrame.setSize(800, 500);
         jFrame.getContentPane().setBackground(Color.white);
 
         //        窗口初始化设置
@@ -37,6 +39,12 @@ public class MchUI {
         Dimension screenSize = toolkit.getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;
+
+        jScrollPane.getVerticalScrollBar().setValue(0);
+        jScrollPane.setViewportView(command1);
+
+        command1.setFont(new Font(command1.getFont().getName(),Font.PLAIN,13));
+        input_Command.setFont(new Font(command1.getFont().getName(),Font.PLAIN,13));
 
         //设置窗口位置
         jFrame.setLocation(width / 2 - jFrame.getWidth() / 2, height / 2 - jFrame.getHeight() / 2);
@@ -73,7 +81,10 @@ public class MchUI {
                 int Height = jFrame.getHeight();
                 int Width = jFrame.getWidth();
 
-                command1.setBounds(0, 0, Width, Height - (20 + 60));
+                jScrollPane.setBounds(0, 0, Width, Height - (20 + 60));
+
+                jScrollPane.setBorder(null);
+//                jScrollPane.setBounds(0, 0, 35, 2000);
 
                 tips.setBounds(0, Height - 60 - 20, Width, 20);
                 input_Command.setBounds(0, Height - 60, Width - 110, 20);
@@ -86,9 +97,11 @@ public class MchUI {
 
         jFrame.add(input_Command);
         jFrame.add(menu);
-        jFrame.add(command1);
+//        jFrame.add(command1);
         jFrame.add(tips);
         jFrame.add(switchTip);
+
+        jFrame.add(jScrollPane);
 
         switchTip.setVisible(false);
 

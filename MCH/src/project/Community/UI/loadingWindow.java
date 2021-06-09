@@ -65,10 +65,9 @@ public class loadingWindow {
                 loadingTip.setBounds(0,5,350,20);
 
 //                loading.setBackground(displaySets.);
+                jFrame.setVisible(!MchUI.jFrame.isVisible());
 
             }
         });
-
-        jFrame.setVisible(true);
     }
 }

@@ -18,6 +18,7 @@ public class Parsing extends Thread {
     private static void parsing() {
         while (true) {
             if (!Community.isDaemons) {
+
                 try {
                     try {
                         Thread.sleep(20);
@@ -26,7 +27,7 @@ public class Parsing extends Thread {
                     }
 
                     if (MchUI.jFrame.getWidth() > 800) {
-                        System.out.println("jf>8");
+//                        System.out.println("jf>8");
                     }
 
                     if (!Exits.small) {

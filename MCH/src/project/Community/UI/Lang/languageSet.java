@@ -8,6 +8,7 @@ import project.Community.Times.times;
 import project.Community.UI.*;
 
 import static project.Community.Community.ver;
+import static project.Community.UI.Lang.initLanguage.commands;
 import static project.Community.UI.Lang.initLanguage.lang;
 
 public class languageSet extends Thread {
@@ -240,8 +241,8 @@ public class languageSet extends Thread {
         //        }
     }
 
-    public static String getWord(String word) {
-        return lang.get(word);
+    public static String getCommandWord(String word) {
+        return commands.get(word);
     }
 
     @Override
