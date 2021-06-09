@@ -196,6 +196,9 @@
         },
         {
           "CannotHandleErr": "MCH遇到了一个无法自动处理的错误\n请将此错误反馈给开发人员,谢谢\n\n正在尝试重启MCH\n\n你可以去到MCH的目录查看错误信息"
+        },
+        {
+          "commandEnd": "命令已经结束"
         }
       ]
     },
@@ -395,6 +398,9 @@
         },
         {
           "CannotHandleErr": "There are some unhandled errors in the MCH\nPlease send there error to feedback,thanks you\n\nTrying restart the MCH\n\nYou can go to the MCH directory to look the error info"
+        },
+        {
+          "commandEnd": "command end"
         }
       ]
     }

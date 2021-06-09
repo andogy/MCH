@@ -1,0 +1,85 @@
+{
+    "resources": {
+        "commands": {
+            "gamemode": {
+                "description": "-游戏模式",
+                "usage": [
+                    {
+                        "tree": [
+                            "@mode",
+                            "@sel",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "gamerule": {
+                "description": "-游戏规则",
+                "usage": [
+                    {
+                        "tree": [
+                            "@rule",
+                            "@boolean",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "defaultgamemode": {
+                "description": "-默认游戏模式"
+            }
+        },
+        "resource": {
+            "@mode": {
+                "adventure": {
+                    "description": "-冒险"
+                },
+                "defalut": {
+                    "description": "-默认"
+                },
+                "creative": {
+                    "description": "-创造"
+                },
+                "other": {
+                    "description": "-待会再写"
+                }
+            },
+            "@rule": {
+                "rules1": {
+                    "description": "-第一条游戏规则"
+                },
+                "rules2": {
+                    "description": "-第二条游戏规则"
+                }
+            },
+            "@sel": {
+                "@a": {
+                    "description": "-所有玩家"
+                },
+                "@e": {
+                    "description": "-所有实体"
+                },
+                "@p": {
+                    "description": "-最近的玩家"
+                },
+                "@r": {
+                    "description": "-随机玩家"
+                },
+                "@s": {
+                    "description": "-执行命令的实体"
+                },
+                "@String": {
+                    "description": "-指定名称"
+                }
+            },
+            "@boolean": {
+                "true": {
+                    "description": "-启用"
+                },
+                "false": {
+                    "description": "-禁用"
+                }
+            }
+        }
+    }
+}

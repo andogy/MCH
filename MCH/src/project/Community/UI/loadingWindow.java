@@ -13,6 +13,7 @@ public class loadingWindow {
     public static JFrame jFrame = new JFrame("MCH Loading...");
 
     public static void ui() {
+        loading.setEditable(false);
 
         //设置窗口大小和颜色
         jFrame.setSize(350, 500);
@@ -60,7 +61,7 @@ public class loadingWindow {
 
                 jFrame.add(loadingTip);
 
-                loading.setBounds(0,50,300,500);
+                loading.setBounds(0,50,350,450);
                 loadingTip.setBounds(0,5,350,20);
 
 //                loading.setBackground(displaySets.);

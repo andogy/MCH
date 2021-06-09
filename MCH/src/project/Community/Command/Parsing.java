@@ -197,32 +197,6 @@ public class Parsing extends Thread {
 
                         ini.input_command = "Input@" + allStr;
                         ini.WriteIni();
-                        //            在有输入的情况下才进行提示
-                        if (!allStr.equals("")) {
-                            MchUI.tips.setText("");
-
-                            if (allStr.lastIndexOf("/") == 0 || !allStr.contains("/")) {
-                                MchUI.command1.setText("@null");
-                                historyReader.BreakRead = true;
-                                flushHistory = true;
-                            }
-                            if (!MchUI.switchTip.isFocusOwner()) {
-                                MchUI.command1.setText(display);
-                            }
-                            if (MchUI.input_Command.getText().contains("//")) {
-                                MchUI.input_Command.setText(MchUI.input_Command.getText().replace("//", "/"));
-                            }
-                        } else {
-                            if (flushHistory) {
-                                historyReader.BreakRead = false;
-                                flushHistory = false;
-                            }
-                            try {
-                                Thread.sleep(20);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
                     }
                 } catch (Exception ex) {
                     //                ex.printStackTrace();
@@ -241,6 +215,8 @@ public class Parsing extends Thread {
 
     @Override
     public void run() {
+        new CommandParsing().start();
+
         parsing();
     }
 }

@@ -1165,7 +1165,7 @@
                 }
             },
             {
-                "ops|permission": {
+                "permission": {
                     "description": "*重载并应用权限",
                     "limited": [
                         "@bds",
@@ -1173,7 +1173,21 @@
                     ],
                     "usage": [
                         {
-                            "tree": "ops|permission @ops_operator"
+                            "tree": "permission @ops_operator"
+                        }
+                    ]
+                }
+            },
+            {
+                "ops": {
+                    "description": "*重载并应用权限",
+                    "limited": [
+                        "@bds",
+                        "@level4"
+                    ],
+                    "usage": [
+                        {
+                            "tree": "ops @ops_operator"
                         }
                     ]
                 }

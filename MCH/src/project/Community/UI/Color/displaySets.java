@@ -194,9 +194,9 @@ public class displaySets extends Thread {
         ini.onTop.setBackground(buttonColor);
         ini.noOnTop.setBackground(buttonColor);
 
-        loadingWindow.
+        loadingWindow.jFrame.getContentPane().setBackground(backgroundColor);
         loadingWindow.loadingTip.setForeground(foregroundColor);
-        loadingWindow.loading.setBackground(backgroundColor);
+        loadingWindow.loading.setBackground(inputBoxColor);
         loadingWindow.loading.setForeground(foregroundColor);
 
         //        以下为颜色设置

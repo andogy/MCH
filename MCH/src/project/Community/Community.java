@@ -1,5 +1,6 @@
 package project.Community;
 
+import project.Community.Command.CommandParsing;
 import project.Community.Command.ini;
 import project.Community.Events.*;
 import project.Community.Events.KeyListener.listener;
@@ -58,6 +59,8 @@ public class Community {
 
     public static void main(String[] args) {
         loadingWindow.ui();
+
+        new initLanguage();
 
         new File(ini.path + "res.cache").delete();
 
@@ -150,7 +153,6 @@ public class Community {
 
         System.gc();
 
-
         //        显示UI
         System.out.println("[" + times.format + "]\n" + "MchUI:UI就绪中");
         LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: MchUI\n");
@@ -160,8 +162,6 @@ public class Community {
             System.out.println("[" + times.format + "]\n" + "MchUI:UI无法就绪");
             LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadFail: MchUI\n");
         }
-
-        new initLanguage();
 
         started = true;
     }
