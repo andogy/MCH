@@ -6,6 +6,8 @@ import project.Community.Times.times;
 import project.Community.UI.Lang.languageSet;
 
 import javax.swing.*;
+import javax.swing.text.Document;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 
 public class MchUI {
@@ -45,6 +47,7 @@ public class MchUI {
 
         command1.setFont(new Font(command1.getFont().getName(),Font.PLAIN,13));
         input_Command.setFont(new Font(command1.getFont().getName(),Font.PLAIN,13));
+        switchTip.setFont(new Font(command1.getFont().getName(),Font.PLAIN,12));
 
         //设置窗口位置
         jFrame.setLocation(width / 2 - jFrame.getWidth() / 2, height / 2 - jFrame.getHeight() / 2);
@@ -87,9 +90,9 @@ public class MchUI {
 //                jScrollPane.setBounds(0, 0, 35, 2000);
 
                 tips.setBounds(0, Height - 60 - 20, Width, 20);
-                input_Command.setBounds(0, Height - 60, Width - 110, 20);
-                switchTip.setBounds(0, Height - 60, Width - 110, 20);
-                menu.setBounds(Width - 100, Height - 60, 80, 20);
+                input_Command.setBounds(0, Height - 65, Width - 110, 25);
+                switchTip.setBounds(0, Height - 65, Width - 110, 27);
+                menu.setBounds(Width - 100, Height - 65, 80, 27);
             }
         };
 

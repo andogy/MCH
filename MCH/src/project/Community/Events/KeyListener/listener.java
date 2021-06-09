@@ -318,14 +318,15 @@ class switchTip {
                         int point = MchUI.switchTip.getCaretPosition();
 
                         MchUI.input_Command.setVisible(true);
-                        MchUI.input_Command.requestFocus();
                         if (!s.contains("|8|")) {
                             MchUI.input_Command.setText(MchUI.switchTip.getText().replace("\n", "").replace("\r", "").replace("\t", ""));
                             MchUI.input_Command.setCaretPosition(point);
                         }
                         MchUI.switchTip.setText("");
                         MchUI.switchTip.setVisible(false);
+                        setLight("");
                         tipLine = 0;
+                        MchUI.input_Command.requestFocus();
                     } else if (!MchUI.switchTip.isFocusOwner()) {
                         tipLine = 0;
                     } else {
@@ -446,29 +447,7 @@ class switchTip {
                                 e1.printStackTrace();
                             }
 
-
-                            Document doc = MchUI.command1.getDocument();
-                            StyleContext sc = StyleContext.getDefaultStyleContext();
-                            StyleContext sc_normal = StyleContext.getDefaultStyleContext();
-                            AttributeSet aset = null;
-                            if (Community.ColorID == 0) {
-                                aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(239, 126, 32));
-                            } else if (Community.ColorID == 1) {
-                                aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(203, 119, 49));
-                            }
-                            AttributeSet aset_normal = null;
-                            if (Community.ColorID == 0) {
-                                aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
-                            } else if (Community.ColorID == 1) {
-                                aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
-                            }
-                            String command_text = MchUI.command1.getText();
-                            doc.remove(0, command_text.length());
-                            MchUI.command1.setText("");
-                            doc.insertString(0, command_text, aset_normal);
-                            int points = MchUI.command1.getText().indexOf(tips);
-                            doc.remove(points, tips.length());
-                            doc.insertString(points, tips, aset);
+                            setLight(tips);
                         }
                     }
 
@@ -492,5 +471,41 @@ class switchTip {
 
     public static void setC(Set<Integer> c) {
         switchTip.c = c;
+    }
+
+    public static void setLight(String tips) {
+        Document doc = MchUI.command1.getDocument();
+        StyleContext sc = StyleContext.getDefaultStyleContext();
+        StyleContext sc_normal = StyleContext.getDefaultStyleContext();
+        AttributeSet aset = null;
+        if (Community.ColorID == 0) {
+            aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(239, 126, 32));
+        } else if (Community.ColorID == 1) {
+            aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(203, 119, 49));
+        }
+
+        AttributeSet aset_normal = null;
+
+        if (Community.ColorID == 0) {
+            aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
+        } else if (Community.ColorID == 1) {
+            aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
+        }
+
+        try {
+            String command_text = MchUI.command1.getText();
+            doc.remove(0, command_text.length());
+            MchUI.command1.setText("");
+            doc.insertString(0, command_text, aset_normal);
+
+            int points = MchUI.command1.getText().indexOf(tips);
+
+            doc.remove(points, tips.length());
+            doc.insertString(points, tips, aset);
+
+            MchUI.command1.setCaretPosition(points);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

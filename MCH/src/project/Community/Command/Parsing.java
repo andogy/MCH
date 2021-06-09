@@ -10,6 +10,9 @@ import project.Community.Times.times;
 import project.Community.UI.Color.displaySets;
 import project.Community.UI.*;
 
+import javax.swing.text.*;
+import java.awt.*;
+
 public class Parsing extends Thread {
     public static String display = "";
 
@@ -154,7 +157,6 @@ public class Parsing extends Thread {
                             }
                             MchUI.switchTip.setCaretPosition(poi);
                         }
-
                         display = "";
 
                         //            空输入时键入tab快捷输入斜杠
