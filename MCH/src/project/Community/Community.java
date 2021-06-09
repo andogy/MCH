@@ -53,12 +53,18 @@ public class Community {
 
     public static boolean iniHas = false;
 
-    public static String UPD_ID = "151";
-    public static String verID = "111550100149/0-0-1-49";
-    public static String ver = "debug-48";
+    public static boolean displayInvalidCommand = false;
+
+    public static String UPD_ID = "152";
+    public static String verID = "11166010150/0-0-1-50";
+    public static String ver = "ah-50";
 
     public static void main(String[] args) {
         loadingWindow.ui();
+
+        System.out.println("[" + times.format + "]\n" + "ini:配置文件就绪中");
+        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: ini\n");
+        new ini();
 
         new initLanguage();
 
@@ -77,10 +83,6 @@ public class Community {
         f.mkdirs();
 
         System.gc();
-
-        System.out.println("[" + times.format + "]\n" + "ini:配置文件就绪中");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: ini\n");
-        new ini();
 
         System.out.println("[" + times.format + "]\n" + "exit:exit事件就绪中");
         LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: exit\n");

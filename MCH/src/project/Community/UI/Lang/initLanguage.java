@@ -40,6 +40,9 @@ public class initLanguage {
             } else if (Community.LangID == 1) {
                 targetLanguage = "english";
             }
+
+            System.out.println("init language:" + targetLanguage);
+
             for (int i = 0; ; i++) {
                 language = new JSONObject(languages.get(i).toString());
                 if (language.keys().next().equals(targetLanguage)) {
@@ -47,8 +50,6 @@ public class initLanguage {
                 }
             }
             JSONArray languageText = new JSONArray(language.get(language.keys().next()).toString());
-
-            System.out.println(languageText);
 
             int i = languageText.length();
             i--;
@@ -267,6 +268,108 @@ public class initLanguage {
                                 },
                                 {
                                   "CannotHandleErr": "MCH遇到了一个无法自动处理的错误\\n请将此错误反馈给开发人员,谢谢\\n\\n正在尝试重启MCH\\n\\n你可以去到MCH的目录查看错误信息"
+                                },
+                                {
+                                  "commandsNotFound": "未安装命令解析库\\n(pre版本暂未内置)\\n下载地址:\\n https://raw.githubusercontent.com/zhuaidadaya/MCH/main/MCH/src/project/resources/Json/test.json"
+                                },
+                                {
+                                  "commandEnd": "无法找到此命令的这种用法"
+                                },
+                                {
+                                  "pageOut": "页码超出限制"
+                                },
+                                {
+                                  "@page": "-页码"
+                                },
+                                {
+                                  "@boolean_true": "-启用"
+                                },
+                                {
+                                  "@boolean_false": "-禁用"
+                                },
+                                {
+                                  "@appointName": "-指定名称"
+                                },
+                                {
+                                  "@sel_s": "-执行命令的实体"
+                                },
+                                {
+                                  "@sel_r": "-随机玩家"
+                                },
+                                {
+                                  "@sel_p": "-最近的玩家"
+                                },
+                                {
+                                  "@sel_e": "-所有实体"
+                                },
+                                {
+                                  "@sel_a": "-所有玩家"
+                                },
+                                {
+                                  "@command_help": "-查找命令用法"
+                                },
+                                {
+                                  "@command_gamemode": "-设定游戏模式"
+                                },
+                                {
+                                  "@command_gamerule": "-设定或查询游戏规则"
+                                },
+                                {
+                                  "@adventure": "-冒险"
+                                },
+                                {
+                                  "@default": "-默认"
+                                },
+                                {
+                                  "@creative": "-创造"
+                                },
+                                {
+                                  "@survival": "-生存"
+                                },
+                                {
+                                  "@spectator": "-旁观 (仅java版可用)"
+                                },
+                                {
+                                  "@comamnd_ability": "-给予或清除玩家能力"
+                                },
+                                {
+                                  "@ability_worldbuilder": "-给予玩家成为世界建造者的能力"
+                                },
+                                {
+                                  "@ability_mayfly": "-给予玩家飞行能力"
+                                },
+                                {
+                                  "@ability_mute": "-禁言玩家"
+                                },
+                                {
+                                  "@command_achievenment": "-给予或清除玩家的成就(已失效)"
+                                },
+                                {
+                                  "@command_advancement": "-添加、清除、查询玩家的进度"
+                                },
+                                {
+                                  "@grant": "-给予成就"
+                                },
+                                {
+                                  "@revoke": "-清除成就"
+                                },
+                                {
+                                  "@advancement_only": "-指定一个成就"
+                                },
+                                {
+                                  "@advancement_everything": "-所有成就"
+                                },
+                                {
+                                  "@advancement_condition": "-条件"
+                                },
+                                {
+                                  "@advancement_through": "-指定进度及其全部上游和下游进度"
+                                },
+                                {
+                                  "@advancement_from": "-指定进度及其下游进度"
+                                },
+                                {
+                                  "@advancement_until": "-指定进度及其上游进度"
                                 }
                               ]
                             },
@@ -466,19 +569,117 @@ public class initLanguage {
                                 },
                                 {
                                   "CannotHandleErr": "There are some unhandled errors in the MCH\\nPlease send there error to feedback,thanks you\\n\\nTrying restart the MCH\\n\\nYou can go to the MCH directory to look the error info"
+                                },
+                                {
+                                  "commandsNotFound": "command resolution library is not installed\\n(pre version no built in)\\ndownload:\\nhttps://raw.githubusercontent.com/zhuaidadaya/MCH/main/MCH/src/project/resources/Json/test.json"
+                                },
+                                {
+                                  "commandEnd": "This usage of this command cannot be found"
+                                },
+                                {
+                                  "pageOut": "page out of max"
+                                },
+                                {
+                                  "@page": "-page"
+                                },
+                                {
+                                  "@boolean_true": "-enable"
+                                },
+                                {
+                                  "@boolean_false": "-disable"
+                                },
+                                {
+                                  "appointName": "-specify name"
+                                },
+                                {
+                                  "@sel_s": "-entity that execute command"
+                                },
+                                {
+                                  "@sel_r": "-random player"
+                                },
+                                {
+                                  "@sel_p": "-nearly player"
+                                },
+                                {
+                                  "@sel_e": "-all entities"
+                                },
+                                {
+                                  "@sel_a": "-all players"
+                                },
+                                {
+                                  "@command_help": "-find usage of command"
+                                },
+                                {
+                                  "@command_gamemode": "-set gamemode"
+                                },
+                                {
+                                  "@command_gamerule": "-set or query gamerule"
+                                },
+                                {
+                                  "@adventure": "-adventure mode"
+                                },
+                                {
+                                  "@default": "-default mode"
+                                },
+                                {
+                                  "@creative": "-creative mode"
+                                },
+                                {
+                                  "@survival": "-survival mode"
+                                },
+                                {
+                                  "@spectator": "-spectator mode (only java edition)"
+                                },
+                                {
+                                  "@ability_worldbuilder": "-give player builder world ability"
+                                },
+                                {
+                                  "@ability_mayfly": "-give player fly ability"
+                                },
+                                {
+                                  "@ability_mute": "-mute for player"
+                                },
+                                {
+                                  "@command_achievenment": "-give or clear player's achievement(invalid)"
+                                },
+                                {
+                                  "@command_advancement": "-add、clear、query player's advancement"
+                                },
+                                {
+                                  "@grant": "-give advancement"
+                                },
+                                {
+                                  "@revoke": "-clear advancement"
+                                },
+                                {
+                                  "@advancement_only": "-specify advancement"
+                                },
+                                {
+                                  "@advancement_everything": "-all advancement"
+                                },
+                                {
+                                  "@advancement_through": "-advancement and its upstream and downstream"
+                                },
+                                {
+                                  "@advancement_from": "-advancement and its downstream"
+                                },
+                                {
+                                  "@advancement_until": "-advancement and its upstream"
                                 }
                               ]
                             }
                           ]
-                        }""");
+                        }
+                        """);
                 fr.close();
                 init();
             } catch (Exception ignored) {
 
             }
             Errors.errors(null,e,false,"languageInit");
-        } catch (IOException ignored) {
-            Errors.errors(null,ignored,false,"languageInit");
+        } catch (Exception e) {
+            System.out.println("语言文件损坏");
+            Errors.errors(null,e,false,"languageInit");
         }
     }
 }

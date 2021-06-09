@@ -1,8 +1,50 @@
 {
     "resources": {
         "commands": {
+            "?": {
+                "description": "@command_help",
+                "usage": [
+                    {
+                        "tree": [
+                            "@?",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "ability": {
+                "description": "@comamnd_ability",
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@ability",
+                            "@boolean"
+                        ]
+                    }
+                ]
+            },
+            "achievement": {
+                "description": "@command_achievenment",
+                "$invalid": true
+            },
+            "advancement": {
+                "description": "@command_advancement",
+                "usage": [
+                    {
+                        "tree": [
+                            "@advancement_operator",
+                            "@sel",
+                            "@advancement_type",
+                            "@advancements",
+                            "@advancement_condition",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
             "gamemode": {
-                "description": "-游戏模式",
+                "description": "@command_gamemode",
                 "usage": [
                     {
                         "tree": [
@@ -14,7 +56,7 @@
                 ]
             },
             "gamerule": {
-                "description": "-游戏规则",
+                "description": "@command_gamerule",
                 "usage": [
                     {
                         "tree": [
@@ -24,24 +66,92 @@
                         ]
                     }
                 ]
-            },
-            "defaultgamemode": {
-                "description": "-默认游戏模式"
             }
         },
         "resource": {
+            "@?": {
+                "?": {
+                    "description": "@command_help"
+                },
+                "gamemode": {
+                    "description": "@command_gamemode"
+                },
+                "gamerule": {
+                    "description": "@command_gamerule"
+                },
+                "@Int": {
+                    "description": "@page",
+                    "limited": 21
+                }
+            },
+            "@ability": {
+                "worldbuilder": {
+                    "description": "@ability_worldbuilder"
+                },
+                "mayfly": {
+                    "description": "@ability_mayfly"
+                },
+                "mute": {
+                    "description": "@ability_mute"
+                }
+            },
+            "@advancement_operator": {
+                "grant": {
+                    "description": "@grant"
+                },
+                "revoke": {
+                    "description": "@revoke"
+                }
+            },
+            "@advancement_type": {
+                "until": {
+                    "description": "@advancement_until",
+                    "will_over": 1
+                },
+                "from": {
+                    "description": "@advancement_from",
+                    "will_over": 1
+                },
+                "through": {
+                    "description": "@advancement_through",
+                    "will_over": 1
+                },
+                "only": {
+                    "description": "@advancement_only"
+                },
+                "everything": {
+                    "description": "@advancement_everything",
+                    "over": true
+                }
+            },
+            "@advancement_condition": {
+                "eaa": {
+                    "description": "@appointName"
+                },
+                "@String": {
+                    "description": "@advancement_condition"
+                }
+            },
+            "@advancements": {
+                "advancements1": {
+                    "description": "@revoke"
+                }
+            },
             "@mode": {
                 "adventure": {
-                    "description": "-冒险"
+                    "description": "@adventure"
                 },
-                "defalut": {
-                    "description": "-默认"
+                "default": {
+                    "description": "@default"
                 },
                 "creative": {
-                    "description": "-创造"
+                    "description": "@creative"
                 },
-                "other": {
-                    "description": "-待会再写"
+                "spectator": {
+                    "description": "@spectator"
+                },
+                "survival": {
+                    "description": "@survival"
                 }
             },
             "@rule": {
@@ -54,30 +164,30 @@
             },
             "@sel": {
                 "@a": {
-                    "description": "-所有玩家"
+                    "description": "@sel_a"
                 },
                 "@e": {
-                    "description": "-所有实体"
+                    "description": "@sel_e"
                 },
                 "@p": {
-                    "description": "-最近的玩家"
+                    "description": "@sel_p"
                 },
                 "@r": {
-                    "description": "-随机玩家"
+                    "description": "@sel_r"
                 },
                 "@s": {
-                    "description": "-执行命令的实体"
+                    "description": "@sel_s"
                 },
                 "@String": {
-                    "description": "-指定名称"
+                    "description": "@appointName"
                 }
             },
             "@boolean": {
                 "true": {
-                    "description": "-启用"
+                    "description": "@boolean_true"
                 },
                 "false": {
-                    "description": "-禁用"
+                    "description": "@boolean_false"
                 }
             }
         }

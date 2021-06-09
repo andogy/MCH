@@ -13,7 +13,7 @@ public class filesOperator {
         try {
             for (File f : path) {
                 if (f.isFile()) {
-                    if (!f.getName().equals("settings.ini") & !f.getName().equals("run.log")) {
+                    if (!f.getName().equals("settings.ini") & !f.getName().equals("run.log") & !f.getName().equals("languages.json") & !f.getName().equals("commands.json")) {
                         LoadAssembly.loadAssembly("delete: " + f.getName() + "\n");
                         f.delete();
                     }
@@ -28,14 +28,14 @@ public class filesOperator {
         }
     }
 
-    public static long ReadFiles(File[] path, String slow,boolean out) {
-        fileSize = READ(path, slow,out);
+    public static long ReadFiles(File[] path, String slow, boolean out) {
+        fileSize = READ(path, slow, out);
         long size = fileSize;
         fileSize = 0;
         return size;
     }
 
-    public static long READ(File[] path, String slow,boolean out) {
+    public static long READ(File[] path, String slow, boolean out) {
         try {
             for (File f : path) {
                 if (!Community.isDaemons) {
@@ -51,7 +51,7 @@ public class filesOperator {
                             System.out.println(f.getPath() + ";");
                         }
                     } else if (f.isDirectory()) {
-                        READ(f.listFiles(), slow,out);
+                        READ(f.listFiles(), slow, out);
                     }
                 } else {
                     break;
