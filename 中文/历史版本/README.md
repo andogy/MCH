@@ -22,6 +22,14 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-45.zip">MCH_ah_0-0-1-50(11166010150)</a>
+```
+指令处理部分开始测试
+正式版本将在命令库完成后发布
+
+(2021.6.9)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-49.zip">MCH_ah_0-0-1-49(111550100149)</a>
 ```
 更改了文本显示方式
