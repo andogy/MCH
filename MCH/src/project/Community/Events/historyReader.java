@@ -118,7 +118,6 @@ public class historyReader extends Thread {
             fileReader.close();
             fr.close();
         } catch (Exception e) {
-            e.printStackTrace();
             if (MchUI.input_Command.getText().equals("")) {
                 historyLength = -1;
                 if (Community.LangID == 0) {

@@ -113,6 +113,12 @@ public class displaySets extends Thread {
         MenuUI2.showDir.setFocusPainted(false);
         MenuUI2.setting_info.setBorderPainted(false);
         MenuUI2.setting_info.setFocusPainted(false);
+        MenuUI2.setting_command.setBorderPainted(false);
+        MenuUI2.setting_command.setFocusPainted(false);
+        MenuUI2.showInvalidCommand.setBorderPainted(false);
+        MenuUI2.showInvalidCommand.setFocusPainted(false);
+        MenuUI2.noShowInvalidCommand.setBorderPainted(false);
+        MenuUI2.noShowInvalidCommand.setFocusPainted(false);
 
         ExtraUI.turnOnMcBe.setBorderPainted(false);
         ExtraUI.turnOnMcBe.setFocusPainted(false);
@@ -264,6 +270,14 @@ public class displaySets extends Thread {
             }
         }
 
+        if (Community.showInvalidCommand) {
+            MenuUI2.showInvalidCommand.setBackground(backgroundColor);
+            MenuUI2.noShowInvalidCommand.setBackground(buttonColor);
+        } else {
+            MenuUI2.showInvalidCommand.setBackground(buttonColor);
+            MenuUI2.noShowInvalidCommand.setBackground(backgroundColor);
+        }
+
         if (Community.ColorID == 0) {
             MenuUI2.Black.setBackground(buttonColor);
             MenuUI2.White.setBackground(backgroundColor);
@@ -358,21 +372,31 @@ public class displaySets extends Thread {
             MenuUI2.setting_display.setBackground(buttonColor);
             MenuUI2.setting_upd.setBackground(buttonColor);
             MenuUI2.setting_info.setBackground(buttonColor);
+            MenuUI2.setting_command.setBackground(buttonColor);
         } else if (Community.setsDisplayID == 1) {
             MenuUI2.setting_run.setBackground(buttonColor);
             MenuUI2.setting_display.setBackground(backgroundColor);
             MenuUI2.setting_upd.setBackground(buttonColor);
             MenuUI2.setting_info.setBackground(buttonColor);
+            MenuUI2.setting_command.setBackground(buttonColor);
         } else if (Community.setsDisplayID == 2) {
             MenuUI2.setting_run.setBackground(buttonColor);
             MenuUI2.setting_display.setBackground(buttonColor);
             MenuUI2.setting_upd.setBackground(backgroundColor);
             MenuUI2.setting_info.setBackground(buttonColor);
+            MenuUI2.setting_command.setBackground(buttonColor);
         } else if (Community.setsDisplayID == 3) {
             MenuUI2.setting_run.setBackground(buttonColor);
             MenuUI2.setting_display.setBackground(buttonColor);
             MenuUI2.setting_upd.setBackground(buttonColor);
             MenuUI2.setting_info.setBackground(backgroundColor);
+            MenuUI2.setting_command.setBackground(buttonColor);
+        } else if (Community.setsDisplayID == 4) {
+            MenuUI2.setting_run.setBackground(buttonColor);
+            MenuUI2.setting_display.setBackground(buttonColor);
+            MenuUI2.setting_upd.setBackground(buttonColor);
+            MenuUI2.setting_info.setBackground(buttonColor);
+            MenuUI2.setting_command.setBackground(backgroundColor);
         }
 
         if (Community.extraDisplayID == 0) {
@@ -440,6 +464,9 @@ public class displaySets extends Thread {
         MenuUI.functions.setForeground(foregroundColor);
         MenuUI.feedback.setForeground(foregroundColor);
         MenuUI.announcement.setForeground(foregroundColor);
+        MenuUI2.invalidCommand.setForeground(foregroundColor);
+        MenuUI2.showInvalidCommand.setForeground(foregroundColor);
+        MenuUI2.noShowInvalidCommand.setForeground(foregroundColor);
 
         MenuUI2.saveCacheOrNot.setForeground(foregroundColor);
         MenuUI2.saveCache.setForeground(foregroundColor);
@@ -843,6 +870,9 @@ public class displaySets extends Thread {
         MenuUI2.aboutDevelopOfMCH.setVisible(false);
         MenuUI2.Developers.setVisible(false);
         MenuUI2.deleteData.setVisible(false);
+        MenuUI2.invalidCommand.setVisible(false);
+        MenuUI2.showInvalidCommand.setVisible(false);
+        MenuUI2.noShowInvalidCommand.setVisible(false);
         switch (Community.setsDisplayID) {
             case 0 -> {
                 MenuUI2.saveCacheOrNot.setVisible(true);
@@ -897,6 +927,11 @@ public class displaySets extends Thread {
                 MenuUI2.aboutDevelopOfMCH.setVisible(true);
                 MenuUI2.Developers.setVisible(true);
                 MenuUI2.deleteData.setVisible(true);
+            }
+            case 4 -> {
+                MenuUI2.invalidCommand.setVisible(true);
+                MenuUI2.showInvalidCommand.setVisible(true);
+                MenuUI2.noShowInvalidCommand.setVisible(true);
             }
         }
     }

@@ -10,6 +10,7 @@ import project.Community.Times.times;
 import project.Community.UI.Color.displaySets;
 import project.Community.UI.*;
 
+import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
 
@@ -17,6 +18,8 @@ public class Parsing extends Thread {
     public static String display = "";
 
     public static boolean flushHistory = true;
+
+    public static boolean canSetLight = false;
 
     private static void parsing() {
         while (true) {
@@ -30,7 +33,7 @@ public class Parsing extends Thread {
                     }
 
                     if (MchUI.jFrame.getWidth() > 800) {
-//                        System.out.println("jf>8");
+                        //                        System.out.println("jf>8");
                     }
 
                     if (!Exits.small) {
@@ -54,6 +57,7 @@ public class Parsing extends Thread {
                     String allStr = MchUI.input_Command.getText();
                     //            如果tip文本框失去焦点,则让文本框回归正常input
                     if (!MchUI.switchTip.isFocusOwner()) {
+
                         //                关闭tip显示
                         MchUI.switchTip.setVisible(false);
                         //                让input显示
@@ -66,6 +70,7 @@ public class Parsing extends Thread {
 
                         listener.setSwitchTipLine(0);
                     } else {
+                        canSetLight = true;
                         MchUI.input_Command.setVisible(false);
                     }
 
@@ -219,6 +224,44 @@ public class Parsing extends Thread {
     @Override
     public void run() {
         new CommandParsing().start();
+
+        new Thread(() -> {
+            while (true) {
+                if (!Community.isDaemons) {
+                    try {
+                        if (!MchUI.switchTip.isFocusOwner()) {
+                            Thread.sleep(1);
+                            if (listener.commandDoc.equals(MchUI.command1.getCharacterAttributes())) {
+                                System.out.println("??");
+                                Document doc = MchUI.command1.getDocument();
+                                AttributeSet aset = null;
+                                StyleContext sc = StyleContext.getDefaultStyleContext();
+                                if (Community.ColorID == 0) {
+                                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(0,0,1));
+                                } else if (Community.ColorID == 1) {
+                                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255,255,254));
+                                }
+                                String command_text = MchUI.command1.getText();
+                                doc.remove(0, command_text.length());
+                                MchUI.command1.setText("");
+                                doc.insertString(0, command_text, aset);
+
+                                MchUI.command1.setCharacterAttributes(aset,true);
+                            }
+                            MchUI.command1.setCaretPosition(0);
+                        }
+                    } catch (Exception e) {
+
+                    }
+                } else {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
 
         parsing();
     }

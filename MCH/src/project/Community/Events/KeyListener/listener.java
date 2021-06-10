@@ -9,17 +9,23 @@ import project.Community.Events.reStart;
 import project.Community.Help.Helps;
 import project.Community.UI.*;
 
+import javax.print.Doc;
 import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.StringReader;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class listener extends Thread {
+    public static int point = 0;
+
+    public static AttributeSet commandDoc = null;
+
     public static void setSwitchTipLine(int lines) {
         switchTip.tipLine = lines;
     }
@@ -30,6 +36,239 @@ public class listener extends Thread {
         new mainFrame();
         new switchTip();
         new functionEditor();
+    }
+
+    public static class switchTip {
+        static int tipLine = 0;
+        private static Set<Integer> c = new HashSet<>();
+
+        public switchTip() {
+            MchUI.switchTip.addKeyListener(new KeyListener() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+
+                }
+
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    c.add(e.getKeyCode());
+                    try {
+                        String s = Arrays.toString(getC().toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
+
+                        if (s.equals("|32|")) {
+                            MchUI.switchTip.setText(MchUI.switchTip.getText() + " ");
+                        }
+
+                        if (!(s.equals("|38|") | s.equals("|40|") | s.equals("|9|"))) {
+                            int point = MchUI.switchTip.getCaretPosition();
+
+                            MchUI.input_Command.setVisible(true);
+                            MchUI.input_Command.requestFocus();
+
+                            if (!s.contains("|8|")) {
+                                MchUI.input_Command.setText(MchUI.switchTip.getText().replace("\n", "").replace("\r", "").replace("\t", ""));
+                                MchUI.input_Command.setCaretPosition(point);
+                            }
+                            setLight("", true);
+                            MchUI.switchTip.setText("");
+                            MchUI.switchTip.setVisible(false);
+                            tipLine = 0;
+                        } else if (!MchUI.switchTip.isFocusOwner()) {
+                            tipLine = 0;
+                        } else {
+                            String String = MchUI.command1.getText();
+                            int allLine = 0;
+                            do {
+                                allLine += 1;
+                                String = String.substring(String.indexOf("\n") + 1);
+                            } while (String.contains("\n"));
+
+                            if (MchUI.input_Command.getText().equals("")) {
+                                if (s.equals("|38|")) {
+                                    tipLine++;
+
+                                    if (tipLine > allLine) {
+                                        tipLine = 1;
+                                    }
+                                }
+
+                                if (s.equals("|40|")) {
+                                    if (tipLine >= 1) {
+                                        tipLine--;
+                                    }
+
+                                    if (tipLine == 0) {
+                                        tipLine = allLine;
+                                    }
+                                }
+
+                                if (s.contains("|9|") || MchUI.switchTip.getText().contains("\t")) {
+                                    MchUI.switchTip.setText(MchUI.switchTip.getText().replace("\t", ""));
+
+                                    tipLine++;
+
+                                    if (tipLine > allLine) {
+                                        tipLine = 1;
+                                    }
+                                }
+                            } else {
+                                if (s.equals("|40|")) {
+                                    tipLine++;
+
+                                    if (tipLine > allLine) {
+                                        tipLine = 1;
+                                    }
+                                }
+
+                                if (s.contains("|9|") || MchUI.switchTip.getText().contains("\t")) {
+                                    MchUI.switchTip.setText(MchUI.switchTip.getText().replace("\t", ""));
+
+                                    tipLine++;
+
+                                    if (tipLine > allLine) {
+                                        tipLine = 1;
+                                    }
+                                }
+
+                                if (s.equals("|38|")) {
+                                    if (tipLine >= 1) {
+                                        tipLine--;
+                                    }
+
+                                    if (tipLine == 0) {
+                                        tipLine = allLine;
+                                    }
+                                }
+                            }
+
+                            String command = MchUI.command1.getText();
+                            String tips = "";
+                            int useLine = tipLine;
+
+
+                            if (MchUI.input_Command.getText().equals("")) {
+                                try {
+                                    BufferedReader br = new BufferedReader(new StringReader(MchUI.command1.getText()));
+
+                                    while ((tips = br.readLine()) != null) {
+                                        useLine--;
+                                        if (useLine == 0) {
+                                            break;
+                                        }
+                                    }
+
+                                    MchUI.switchTip.setText(tips);
+                                    setLight(tips, false);
+                                } catch (Exception ignored) {
+
+                                }
+                            } else {
+
+                                while (useLine > 0) {
+                                    useLine--;
+                                    tips = command.substring(0, command.indexOf("\n") + 1);
+
+                                    command = command.substring(tips.length());
+
+                                    if (command.equals("")) {
+                                        command = MchUI.command1.getText();
+                                        //                            tipLine = 1;
+                                    }
+                                }
+
+                                try {
+                                    if (tips.contains("'")) {
+                                        if (MchUI.input_Command.getText().contains(" ")) {
+                                            if (MchUI.input_Command.getText().contains("[") & !MchUI.input_Command.getText().contains(",")) {
+                                                MchUI.switchTip.setText(MchUI.input_Command.getText().substring(0, MchUI.input_Command.getText().replace("[", " [").replace(",", " ,").lastIndexOf(" ") + 1) + tips.substring(0, tips.indexOf(" ")));
+                                            } else if (MchUI.input_Command.getText().contains(",")) {
+                                                MchUI.switchTip.setText(MchUI.input_Command.getText().substring(0, MchUI.input_Command.getText().replace("[", " [").replace(",", " ,").lastIndexOf(" ")) + tips.substring(0, tips.indexOf(" ")));
+                                            } else {
+                                                MchUI.switchTip.setText(MchUI.input_Command.getText().substring(0, MchUI.input_Command.getText().replace("[", " [").replace(",", " ,").lastIndexOf(" ") + 1) + tips.substring(0, tips.indexOf(" ")));
+                                            }
+                                        } else {
+                                            MchUI.switchTip.setText(tips.substring(0, tips.indexOf("'")));
+                                        }
+                                    }
+                                } catch (Exception e1) {
+                                    e1.printStackTrace();
+                                }
+
+                                setLight(tips, false);
+                            }
+                        }
+
+                    } catch (Exception ignored) {
+
+                    }
+
+                    c.clear();
+                }
+
+                @Override
+                public void keyReleased(KeyEvent e) {
+
+                }
+            });
+        }
+
+        public static Set<Integer> getC() {
+            return c;
+        }
+
+        public static void setC(Set<Integer> c) {
+            switchTip.c = c;
+        }
+
+        public static void setLight(String tips, boolean onlyDefault) {
+            Document doc = MchUI.command1.getDocument();
+            AttributeSet aset = null;
+            StyleContext sc = StyleContext.getDefaultStyleContext();
+
+            if (!onlyDefault) {
+                if (Community.ColorID == 0) {
+                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(239, 126, 32));
+                } else if (Community.ColorID == 1) {
+                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(203, 119, 49));
+                }
+            } else {
+                if (Community.ColorID == 0) {
+                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
+                } else if (Community.ColorID == 1) {
+                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
+                }
+            }
+
+            AttributeSet aset_normal = null;
+            StyleContext sc_normal = StyleContext.getDefaultStyleContext();
+
+            if (Community.ColorID == 0) {
+                aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
+            } else if (Community.ColorID == 1) {
+                aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
+            }
+
+            try {
+                String command_text = MchUI.command1.getText();
+                doc.remove(0, command_text.length());
+                MchUI.command1.setText("");
+                doc.insertString(0, command_text, aset_normal);
+
+                int points;
+                if (!onlyDefault) {
+                    points = command_text.indexOf(tips);
+                } else {
+                    points = 0;
+                }
+                doc.remove(points, tips.length());
+                doc.insertString(points, tips, aset);
+                MchUI.command1.setCaretPosition(points);
+
+               commandDoc = aset;
+            } catch (Exception e) {
+
+            }
+        }
     }
 }
 
@@ -107,11 +346,11 @@ class inputs {
                                 MchUI.switchTip.setText(MchUI.input_Command.getText());
                                 MchUI.switchTip.setVisible(true);
                                 MchUI.switchTip.requestFocus();
-                                MchUI.switchTip.setCaretPosition(point);
                                 MchUI.input_Command.setVisible(false);
                             }
                         }
                     } catch (Exception ignored) {
+
                     }
                 }
 
@@ -185,18 +424,18 @@ class functionEditor {
 
                     String s = Arrays.toString(c.toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
 
-//                    if (s.contains("|17|")  & s.contains("|47|")) {
-//                        System.out.println("???");
-//                        int poi = ExtraUI.functionEdit.getCaretPosition();
-//                        String functions = ExtraUI.functionEdit.getText();
-//                        functions = functions.substring(functions.indexOf(""));
-//                        ExtraUI.functionEdit.setFocusable(true);
-//                        System.out.println(functions);
-//                    }
+                    //                    if (s.contains("|17|")  & s.contains("|47|")) {
+                    //                        System.out.println("???");
+                    //                        int poi = ExtraUI.functionEdit.getCaretPosition();
+                    //                        String functions = ExtraUI.functionEdit.getText();
+                    //                        functions = functions.substring(functions.indexOf(""));
+                    //                        ExtraUI.functionEdit.setFocusable(true);
+                    //                        System.out.println(functions);
+                    //                    }
 
-//                    if (s.contains("|8|")) {
-//                        exit.jFrame.setVisible(false);
-//                    }
+                    //                    if (s.contains("|8|")) {
+                    //                        exit.jFrame.setVisible(false);
+                    //                    }
 
                     c.clear();
                 }
@@ -290,222 +529,5 @@ class mainFrame {
                 c.clear();
             }
         });
-    }
-}
-
-class switchTip {
-    static int tipLine = 0;
-    private static Set<Integer> c = new HashSet<>();
-
-    public switchTip() {
-        MchUI.switchTip.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                c.add(e.getKeyCode());
-                try {
-                    String s = Arrays.toString(getC().toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
-
-                    if (s.equals("|32|")) {
-                        MchUI.switchTip.setText(MchUI.switchTip.getText() + " ");
-                    }
-
-                    if (!(s.equals("|38|") | s.equals("|40|") | s.equals("|9|"))) {
-                        int point = MchUI.switchTip.getCaretPosition();
-
-                        MchUI.input_Command.setVisible(true);
-                        if (!s.contains("|8|")) {
-                            MchUI.input_Command.setText(MchUI.switchTip.getText().replace("\n", "").replace("\r", "").replace("\t", ""));
-                            MchUI.input_Command.setCaretPosition(point);
-                        }
-                        MchUI.switchTip.setText("");
-                        MchUI.switchTip.setVisible(false);
-                        setLight("");
-                        tipLine = 0;
-                        MchUI.input_Command.requestFocus();
-                    } else if (!MchUI.switchTip.isFocusOwner()) {
-                        tipLine = 0;
-                    } else {
-                        String String = MchUI.command1.getText();
-                        int allLine = 0;
-                        do {
-                            allLine += 1;
-                            String = String.substring(String.indexOf("\n") + 1);
-                        } while (String.contains("\n"));
-
-                        if (MchUI.input_Command.getText().equals("")) {
-                            if (s.equals("|38|")) {
-                                tipLine++;
-
-                                if (tipLine > allLine) {
-                                    tipLine = 1;
-                                }
-                            }
-
-                            if (s.equals("|40|")) {
-                                if (tipLine >= 1) {
-                                    tipLine--;
-                                }
-
-                                if (tipLine == 0) {
-                                    tipLine = allLine;
-                                }
-                            }
-
-                            if (s.contains("|9|") || MchUI.switchTip.getText().contains("\t")) {
-                                MchUI.switchTip.setText(MchUI.switchTip.getText().replace("\t", ""));
-
-                                tipLine++;
-
-                                if (tipLine > allLine) {
-                                    tipLine = 1;
-                                }
-                            }
-                        } else {
-                            if (s.equals("|40|")) {
-                                tipLine++;
-
-                                if (tipLine > allLine) {
-                                    tipLine = 1;
-                                }
-                            }
-
-                            if (s.contains("|9|") || MchUI.switchTip.getText().contains("\t")) {
-                                MchUI.switchTip.setText(MchUI.switchTip.getText().replace("\t", ""));
-
-                                tipLine++;
-
-                                if (tipLine > allLine) {
-                                    tipLine = 1;
-                                }
-                            }
-
-                            if (s.equals("|38|")) {
-                                if (tipLine >= 1) {
-                                    tipLine--;
-                                }
-
-                                if (tipLine == 0) {
-                                    tipLine = allLine;
-                                }
-                            }
-                        }
-
-                        String command = MchUI.command1.getText();
-                        String tips = "";
-                        int useLine = tipLine;
-
-
-                        if (MchUI.input_Command.getText().equals("")) {
-                            try {
-                                BufferedReader br = new BufferedReader(new FileReader(ini.path + "history.txt"));
-
-                                while ((tips = br.readLine()) != null) {
-                                    useLine--;
-                                    if (useLine == 0) {
-                                        break;
-                                    }
-                                }
-
-                                MchUI.switchTip.setText(tips);
-                            } catch (Exception ignored) {
-
-                            }
-                        } else {
-
-                            while (useLine > 0) {
-                                useLine--;
-                                tips = command.substring(0, command.indexOf("\n") + 1);
-
-                                command = command.substring(tips.length());
-
-                                if (command.equals("")) {
-                                    command = MchUI.command1.getText();
-                                    //                            tipLine = 1;
-                                }
-                            }
-
-                            try {
-                                if (tips.contains("*")) {
-                                    if (MchUI.input_Command.getText().contains(" ")) {
-                                        if (MchUI.input_Command.getText().contains("[") & !MchUI.input_Command.getText().contains(",")) {
-                                            MchUI.switchTip.setText(MchUI.input_Command.getText().substring(0, MchUI.input_Command.getText().replace("[", " [").replace(",", " ,").lastIndexOf(" ") + 1) + tips.substring(0, tips.indexOf(" ")));
-                                        } else if (MchUI.input_Command.getText().contains(",")) {
-                                            MchUI.switchTip.setText(MchUI.input_Command.getText().substring(0, MchUI.input_Command.getText().replace("[", " [").replace(",", " ,").lastIndexOf(" ")) + tips.substring(0, tips.indexOf(" ")));
-                                        } else {
-                                            MchUI.switchTip.setText(MchUI.input_Command.getText().substring(0, MchUI.input_Command.getText().replace("[", " [").replace(",", " ,").lastIndexOf(" ") + 1) + tips.substring(0, tips.indexOf(" ")));
-                                        }
-                                    } else {
-                                        MchUI.switchTip.setText(tips.substring(0, tips.indexOf("*")));
-                                    }
-                                }
-                            } catch (Exception e1) {
-                                e1.printStackTrace();
-                            }
-
-                            setLight(tips);
-                        }
-                    }
-
-                } catch (Exception ignored) {
-
-                }
-
-                c.clear();
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-
-            }
-        });
-    }
-
-    public static Set<Integer> getC() {
-        return c;
-    }
-
-    public static void setC(Set<Integer> c) {
-        switchTip.c = c;
-    }
-
-    public static void setLight(String tips) {
-        Document doc = MchUI.command1.getDocument();
-        StyleContext sc = StyleContext.getDefaultStyleContext();
-        StyleContext sc_normal = StyleContext.getDefaultStyleContext();
-        AttributeSet aset = null;
-        if (Community.ColorID == 0) {
-            aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(239, 126, 32));
-        } else if (Community.ColorID == 1) {
-            aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(203, 119, 49));
-        }
-
-        AttributeSet aset_normal = null;
-
-        if (Community.ColorID == 0) {
-            aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
-        } else if (Community.ColorID == 1) {
-            aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
-        }
-
-        try {
-            String command_text = MchUI.command1.getText();
-            doc.remove(0, command_text.length());
-            MchUI.command1.setText("");
-            doc.insertString(0, command_text, aset_normal);
-
-            int points = MchUI.command1.getText().indexOf(tips);
-
-            doc.remove(points, tips.length());
-            doc.insertString(points, tips, aset);
-
-            MchUI.command1.setCaretPosition(points);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

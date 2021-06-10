@@ -53,7 +53,7 @@ public class Community {
 
     public static boolean iniHas = false;
 
-    public static boolean displayInvalidCommand = false;
+    public static boolean showInvalidCommand = false;
 
     public static String UPD_ID = "152";
     public static String verID = "11166010150/0-0-1-50";

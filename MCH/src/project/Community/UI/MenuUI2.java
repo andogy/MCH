@@ -76,6 +76,11 @@ public class MenuUI2 {
     public static JTextArea Developers = new JTextArea();
     public static JButton deleteData = new JButton();
 
+    public static JButton setting_command = new JButton();
+    public static JLabel invalidCommand = new JLabel();
+    public static JButton showInvalidCommand = new JButton();
+    public static JButton noShowInvalidCommand = new JButton();
+
     public MenuUI2() {
         UI();
     }
@@ -171,6 +176,11 @@ public class MenuUI2 {
             jFrame.add(Developers);
             jFrame.add(deleteData);
 
+            jFrame.add(setting_command);
+            jFrame.add(invalidCommand);
+            jFrame.add(showInvalidCommand);
+            jFrame.add(noShowInvalidCommand);
+
             jFrame.setLayout(new LayoutManager() {
                 @Override
                 public void addLayoutComponent(String name, Component comp) {
@@ -227,7 +237,8 @@ public class MenuUI2 {
                     setting_run.setBounds(0, 280, 80, 34);
                     setting_display.setBounds(80, 280, 80, 34);
                     setting_upd.setBounds(160, 280, 80, 34);
-                    setting_info.setBounds(240,280,80,34);
+                    setting_info.setBounds(240, 280, 80, 34);
+                    setting_command.setBounds(320, 280, 100, 34);
 
                     Language.setBounds(0, 5, 80, 30);
                     Chinese.setBounds(80, 5, 80, 30);
@@ -247,15 +258,20 @@ public class MenuUI2 {
                     checkReturn.setBounds(0, 45, 220, 135);
                     updateInfo.setBounds(230, 0, 300, 195);
 
-                    aboutMCH.setBounds(0,5,100,30);
-                    PATH.setBounds(0,35,200,30);
-                    mchDirSize.setBounds(0,65,350,30);
-                    showDir.setBounds(0,95,100,30);
-                    deleteData.setBounds(105,95,100,30);
-                    versionInfo.setBounds(0,145,200,40);
+                    aboutMCH.setBounds(0, 5, 100, 30);
+                    PATH.setBounds(0, 35, 200, 30);
+                    mchDirSize.setBounds(0, 65, 350, 30);
+                    showDir.setBounds(0, 95, 100, 30);
+                    deleteData.setBounds(105, 95, 100, 30);
+                    versionInfo.setBounds(0, 145, 200, 40);
 
-                    aboutDevelopOfMCH.setBounds(350,5,100,30);
-                    Developers.setBounds(350,40,300,150);
+                    aboutDevelopOfMCH.setBounds(350, 5, 100, 30);
+                    Developers.setBounds(350, 40, 300, 150);
+
+                    //                    Command
+                    invalidCommand.setBounds(5,5,110,30);
+                    showInvalidCommand.setBounds(110,5,80,30);
+                    noShowInvalidCommand.setBounds(200,5,80,30);
                 }
             });
         }
@@ -300,6 +316,9 @@ public class MenuUI2 {
         saveHistory.addActionListener(e -> Events.switchHistorySaveID(1));
         notSaveHistory.addActionListener(e -> Events.switchHistorySaveID(2));
 
+        showInvalidCommand.addActionListener(e -> Events.switchInvalidCommandShow(true));
+        noShowInvalidCommand.addActionListener(e -> Events.switchInvalidCommandShow(false));
+
         showDir.addActionListener(e -> {
             if (!Community.isDaemons) {
                 try {
@@ -331,6 +350,12 @@ public class MenuUI2 {
         setting_info.addActionListener(e -> {
             if (!Community.isDaemons) {
                 Community.setsDisplayID = 3;
+                displaySets.settingsDisplay();
+            }
+        });
+        setting_command.addActionListener(e -> {
+            if (!Community.isDaemons) {
+                Community.setsDisplayID = 4;
                 displaySets.settingsDisplay();
             }
         });

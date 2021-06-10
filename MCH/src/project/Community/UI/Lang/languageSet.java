@@ -61,9 +61,11 @@ public class languageSet extends Thread {
         } else if (Community.setsDisplayID == 1) {
             MenuUI2.jFrame.setTitle(lang.get("display-title"));
         } else if (Community.setsDisplayID == 2) {
-            MenuUI2.jFrame.setTitle("upd-title");
+            MenuUI2.jFrame.setTitle(lang.get("upd_title"));
         } else if (Community.setsDisplayID == 3) {
-            MenuUI2.jFrame.setTitle("info_title");
+            MenuUI2.jFrame.setTitle(lang.get("info_title"));
+        } else if (Community.setsDisplayID == 4) {
+            MenuUI2.jFrame.setTitle(lang.get("command_title"));
         }
 
 
@@ -92,6 +94,10 @@ public class languageSet extends Thread {
         MenuUI2.showDir.setText(lang.get("viewFile"));
         MenuUI2.aboutDevelopOfMCH.setText(lang.get("developer"));
         MenuUI2.Developers.setText(lang.get("aboutDeveloper"));
+        MenuUI2.setting_command.setText(lang.get("setting_command"));
+        MenuUI2.invalidCommand.setText(lang.get("invalidCommand"));
+        MenuUI2.showInvalidCommand.setText(lang.get("showInvalidCommand"));
+        MenuUI2.noShowInvalidCommand.setText(lang.get("hideInvalidCommand"));
 
         if (Community.extraDisplayID == 0) {
             ExtraUI.jFrame.setTitle(lang.get("functions_launcher"));
@@ -122,123 +128,8 @@ public class languageSet extends Thread {
         }
 
         if (Errors.CannotHandle) {
-            Errors.jTextArea.setText("""
-                    MCH遇到了一个无法自动处理的错误
-                    请将此错误反馈给开发人员,谢谢
-                                        
-                    正在尝试重启MCH
-                                        
-                    你可以去到MCH的目录查看错误信息""");
+            Errors.jTextArea.setText(lang.get("CannotHandleErr"));
         }
-        //            MenuUI2.Color.setText("Color:");
-        //            MenuUI2.Black.setText("Black");
-        //            MenuUI2.White.setText("White");
-        //            MenuUI2.Language.setText("Language:");
-        //            MenuUI2.Chinese.setText("Chinese");
-        //            MenuUI2.English.setText("English");
-        //            MenuUI2.fastLoad.setText("Fast Load:");
-        //            MenuUI2.fastLoadNo.setText("Disable");
-        //            MenuUI2.fastLoadYes.setText("Enable");
-        //            MenuUI2.versionInfo.setText("Version: " + ver + "\n" +
-        //                    "Version ID:" + Community.verID);
-        //            MenuUI2.onTops.setText("onTop:");
-        //            MenuUI2.onTop.setText("Enable");
-        //            MenuUI2.noOnTop.setText("Disable");
-        //            MenuUI2.deleteData.setText("Delete Data");
-        //            MenuUI.helps.setText("Helps");
-        //            MenuUI2.Hades.setText("Hades");
-        //            MenuUI.user.setText("agreement");
-        //            MenuUI.restart.setText("restart MCH");
-        //            MenuUI.settings.setText("settings");
-        //            MenuUI.functions.setText("functions");
-        //            MenuUI.feedback.setText("feedback");
-        //
-        //
-        //            MenuUI2.setting_run.setText("run");
-        //            MenuUI2.setting_display.setText("display");
-        //
-        //            if (Community.setsDisplayID == 0) {
-        //                MenuUI2.jFrame.setTitle("settings-run");
-        //            } else if (Community.setsDisplayID == 1) {
-        //                MenuUI2.jFrame.setTitle("settings-display");
-        //            } else if (Community.setsDisplayID == 2) {
-        //                MenuUI2.jFrame.setTitle("settings-update");
-        //            } else if (Community.setsDisplayID == 3) {
-        //                MenuUI2.jFrame.setTitle("settings-MCH info");
-        //            }
-        //
-        //            MenuUI2.saveCacheOrNot.setText("save cache:");
-        //            MenuUI2.saveCache.setText("save");
-        //            MenuUI2.notSaveCache.setText("delete");
-        //            MenuUI2.saveErrorLogsOrNot.setText("error log:");
-        //            MenuUI2.saveErrorLogs.setText("save");
-        //            MenuUI2.notSaveErrorLogs.setText("delete");
-        //            MenuUI2.saveRunLogsOrNot.setText("run log:");
-        //            MenuUI2.saveRunLogs.setText("save");
-        //            MenuUI2.notSaveRunLogs.setText("delete");
-        //            MenuUI2.autoUpdOrNot.setText("auto UPD");
-        //            MenuUI2.autoUPD.setText("Enable");
-        //            MenuUI2.noAutoUPD.setText("Disable");
-        //            MenuUI2.saveHistoryOrNot.setText("history:");
-        //            MenuUI2.saveHistory.setText();
-        //            MenuUI2.saveAllHistory.setText("save all");
-        //            MenuUI2.notSaveHistory.setText("delete");
-        //            MenuUI2.LanguageAuto.setText("auto");
-        //            MenuUI2.setting_upd.setText("update");
-        //            MenuUI2.setting_info.setText("about");
-        //            MenuUI2.aboutMCH.setText("about MCH:");
-        //            MenuUI2.showDir.setText("show files");
-        //            MenuUI2.aboutDevelopOfMCH.setText("about developer:");
-        //            MenuUI2.Developers.setText("""
-        //                    MCH have two developers,here is their contact:
-        //                    "andogy"   can called "翅膀"(ChiBang)
-        //                    contact at qq:2293332045
-        //
-        //                    "zhuaidadaya"   can called "草"(grass)
-        //                    contact at qq or WeChat:
-        //                    qq:1501917367
-        //                    WeChat:zhuaidadaya""");
-        //
-        //            if (Community.extraDisplayID == 0) {
-        //                ExtraUI.jFrame.setTitle("functions-launcher");
-        //            } else if (Community.extraDisplayID == 1) {
-        //                ExtraUI.jFrame.setTitle("functions-random problem");
-        //            } else if (Community.extraDisplayID == 2) {
-        //                ExtraUI.jFrame.setTitle("functions-function editor");
-        //            }
-        //
-        //            ExtraUI.McBe.setText("MC bedrock:");
-        //            ExtraUI.turnOnMcBe.setText("run");
-        //            ExtraUI.turnOffMcBe.setText("off");
-        //            ExtraUI.saveFunc.setText("save");
-        //            ExtraUI.launchers.setText("launcher");
-        //            ExtraUI.randomProblem.setText("problems");
-        //            ExtraUI.functions.setText("Function");
-        //            ExtraUI.saveFunc.setText("save to");
-        //            ExtraUI.minecraftListenSpeedLevel.setText("flush speed:");
-        //            ExtraUI.Level0OfMLSL.setText("slow");
-        //            ExtraUI.Level1OfMLSL.setText("fast");
-        //
-        //            if (Community.canUPD) {
-        //                MenuUI2.checkUPD.setText("UPD now");
-        //            } else {
-        //                MenuUI2.checkUPD.setText("Check UPD");
-        //            }
-        //
-        //            if (!Community.functionEditing) {
-        //                ExtraUI.functionEdit.setText("Function edit is no enable");
-        //            }
-        //
-        //                        if (Errors.CannotHandle) {
-        //            Errors.jTextArea.setText("""
-        //                    There are some unhandled errors in the MCH
-        //                    Please send there error to feedback,thanks you
-        //
-        //                    Trying restart the MCH
-        //
-        //                    You can go to the MCH directory to look the error info""");
-        //                        }
-        //        }
     }
 
     public static String getCommandWord(String word) {

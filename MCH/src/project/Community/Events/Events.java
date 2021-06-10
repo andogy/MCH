@@ -279,6 +279,30 @@ public class Events {
                 ini.minecraftListenFlushSpeedLevel = "MinecraftListenFlushSpeedLevel@1";
             }
         }
+
+        try {
+            ini.WriteIni();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void switchInvalidCommandShow(boolean show) {
+        if (!Community.isDaemons) {
+            if (!show) {
+                Community.showInvalidCommand = false;
+                ini.showInvalidCommand = "InvalidCommand@Hide";
+            } else {
+                Community.showInvalidCommand = true;
+                ini.showInvalidCommand = "InvalidCommand@Show";
+            }
+        }
+
+        try {
+            ini.WriteIni();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void checkUPD() {

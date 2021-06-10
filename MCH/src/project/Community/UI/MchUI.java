@@ -6,8 +6,6 @@ import project.Community.Times.times;
 import project.Community.UI.Lang.languageSet;
 
 import javax.swing.*;
-import javax.swing.text.Document;
-import javax.swing.text.StyledDocument;
 import java.awt.*;
 
 public class MchUI {
@@ -84,14 +82,14 @@ public class MchUI {
                 int Height = jFrame.getHeight();
                 int Width = jFrame.getWidth();
 
-                jScrollPane.setBounds(0, 0, Width, Height - (20 + 60));
+                jScrollPane.setBounds(5, 0, Width, Height - (20 + 65));
 
                 jScrollPane.setBorder(null);
 //                jScrollPane.setBounds(0, 0, 35, 2000);
 
-                tips.setBounds(0, Height - 60 - 20, Width, 20);
+                tips.setBounds(0, Height - 65 - 20, Width, 20);
                 input_Command.setBounds(0, Height - 65, Width - 110, 25);
-                switchTip.setBounds(0, Height - 65, Width - 110, 27);
+                switchTip.setBounds(0, Height - 65, Width - 110, 25);
                 menu.setBounds(Width - 100, Height - 65, 80, 27);
             }
         };

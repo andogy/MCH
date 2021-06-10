@@ -41,6 +41,7 @@ public class ini {
     public static String saveHistorySet = "History@SaveAll";
     public static String input_command = "Input@";
     public static String minecraftListenFlushSpeedLevel = "MinecraftListenFlushSpeedLevel@0";
+    public static String showInvalidCommand = "InvalidCommand@hide";
 
     public static boolean canStartUI = true;
 
@@ -460,7 +461,7 @@ public class ini {
 
     public static void WriteIni() throws Exception {
         FileWriter fl = new FileWriter(path + sets, false);
-        fl.write(colorSet + "\n" + languageSet + "\n" + exButtonSet + "\n" + fastLoadSet + "\n" + onTopSet + "\n" + saveCache + "\n" + saveRunLog + "\n" + saveErrorLog + "\n" + autoPUDSet + "\n" + saveHistorySet + "\n" + minecraftListenFlushSpeedLevel + "\n"  + input_command);
+        fl.write("---------------MCH Settings---------------" + "\n" + colorSet + "\n" + languageSet + "\n" + exButtonSet + "\n" + fastLoadSet + "\n" + onTopSet + "\n" + saveCache + "\n" + saveRunLog + "\n" + saveErrorLog + "\n" + autoPUDSet + "\n" + saveHistorySet + "\n" + minecraftListenFlushSpeedLevel + "\n" + input_command + "\n" + "---------------Command Settings---------------" + "\n" + showInvalidCommand);
         fl.close();
     }
 
@@ -723,6 +724,23 @@ public class ini {
                 if (levels1 != -1) {
                     Community.minecraftListenFlushSpeedLevels = 1;
                     minecraftListenFlushSpeedLevel = "MinecraftListenFlushSpeedLevel@1";
+                }
+            }
+        }
+
+        {
+            int hide = s.indexOf("invalidcommand@hide");
+            int show = s.indexOf("invalidcommand@show");
+
+            if (!(hide != -1 & show != -1)) {
+                if (show != -1) {
+                    Community.showInvalidCommand = true;
+                    showInvalidCommand = "InvalidCommand@Show";
+                }
+
+                if (hide != -1) {
+                    Community.showInvalidCommand = false;
+                    showInvalidCommand = "InvalidCommand@Hide";
                 }
             }
         }
