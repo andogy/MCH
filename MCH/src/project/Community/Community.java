@@ -2,6 +2,7 @@ package project.Community;
 
 import project.Community.Command.CommandParsing;
 import project.Community.Command.ini;
+import project.Community.Command.limitedTypes;
 import project.Community.Events.*;
 import project.Community.Events.KeyListener.listener;
 import project.Community.Events.UPD.URLs;
@@ -54,6 +55,9 @@ public class Community {
     public static boolean iniHas = false;
 
     public static boolean showInvalidCommand = false;
+
+    public static limitedTypes showCommands = limitedTypes.BEDROCK;
+    public static limitedTypes showCommandMethod = limitedTypes.BEDROCK;
 
     public static String UPD_ID = "152";
     public static String verID = "11166010150/0-0-1-50";

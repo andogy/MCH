@@ -98,6 +98,9 @@ public class languageSet extends Thread {
         MenuUI2.invalidCommand.setText(lang.get("invalidCommand"));
         MenuUI2.showInvalidCommand.setText(lang.get("showInvalidCommand"));
         MenuUI2.noShowInvalidCommand.setText(lang.get("hideInvalidCommand"));
+        MenuUI2.showCommandsMethod.setText(lang.get("priority_display"));
+        MenuUI2.firstBedrock.setText(lang.get("bedrock"));
+        MenuUI2.firstJava.setText(lang.get("java"));
 
         if (Community.extraDisplayID == 0) {
             ExtraUI.jFrame.setTitle(lang.get("functions_launcher"));

@@ -64,14 +64,62 @@ public class CommandParsing extends Thread {
                 willOver -= 1;
             }
 
+            limitedTypes limited = limitedTypes.NULL;
+
             try {
                 //                分支解析引导，对于分支超多的命令非常重要
                 steps = new JSONObject(displayJson.get(target).toString()).getInt("fork") - 1;
             } catch (Exception ignored) {
 
             }
+            try {
+                JSONArray forks = new JSONArray(new JSONObject(commandJson.get(commandTarget).toString()).get("forks").toString());
+                int i = forks.length() - 1;
+                while (i >= 0) {
 
+//                    判断分支是否java版独有
+                    if (new JSONObject(forks.get(i).toString()).get("fork").equals("java")) {
+                        limited = limitedTypes.JAVA;
+                    }
+
+//                    判断分支是否基岩版独有
+                    if (new JSONObject(forks.get(i).toString()).get("fork").equals("bedrock")) {
+                        limited = limitedTypes.BEDROCK;
+                    }
+
+//                    判断分支是否通用
+                    if (new JSONObject(forks.get(i).toString()).get("fork").equals("normal")) {
+                        limited = limitedTypes.ALL_EDITION;
+                    }
+
+                    if (!(limited.equals(limitedTypes.ALL_EDITION))) {
+
+                        if (limited.equals(limitedTypes.JAVA)) {
+                            if (false) {
+                                if (!(i == steps)) {
+                                    steps = i;
+                                    System.out.println(i + "??");
+                                }
+                            }
+                        }
+
+                        if (limited.equals(limitedTypes.BEDROCK)) {
+                            if (true) {
+                                if (!(i == steps)) {
+                                    steps = i;
+                                    System.out.println(i + "AZ");
+                                }
+                            }
+                        }
+                    }
+
+                    i--;
+                }
+            } catch (Exception e) {
+
+            }
             String lists = "";
+
             try {
                 if (commandTarget.equals("?") | commandTarget.contains("help")) {
                     lists = containsTarget(commandJson, target);
@@ -103,6 +151,8 @@ public class CommandParsing extends Thread {
                 //                commandNotFound(target);
                 commandNotFound();
             }
+
+
             if (lists.equals("")) {
                 steps += 1;
             } else if (targetSource.contains(" ") & !lists.contains("\t\n")) {
@@ -114,7 +164,6 @@ public class CommandParsing extends Thread {
             } else if (targetSource.contains(" ") & lists.contains("\t\n")) {
 
                 try {
-
 
                     if (!jsa.get(commandSteps).toString().equals("@end")) {
 
@@ -227,6 +276,7 @@ public class CommandParsing extends Thread {
         String next;
         try {
             while ((next = br.readLine()) != null) {
+
                 all += next + "\n";
 
                 invalid = false;

@@ -42,6 +42,8 @@ public class ini {
     public static String input_command = "Input@";
     public static String minecraftListenFlushSpeedLevel = "MinecraftListenFlushSpeedLevel@0";
     public static String showInvalidCommand = "InvalidCommand@hide";
+    public static String showCommands = "Commands@Bedrock";
+    public static String priorityDisplay = "PriorityDisplay@Bedrock";
 
     public static boolean canStartUI = true;
 
@@ -461,7 +463,7 @@ public class ini {
 
     public static void WriteIni() throws Exception {
         FileWriter fl = new FileWriter(path + sets, false);
-        fl.write("---------------MCH Settings---------------" + "\n" + colorSet + "\n" + languageSet + "\n" + exButtonSet + "\n" + fastLoadSet + "\n" + onTopSet + "\n" + saveCache + "\n" + saveRunLog + "\n" + saveErrorLog + "\n" + autoPUDSet + "\n" + saveHistorySet + "\n" + minecraftListenFlushSpeedLevel + "\n" + input_command + "\n" + "---------------Command Settings---------------" + "\n" + showInvalidCommand);
+        fl.write("---------------MCH Settings---------------" + "\n" + colorSet + "\n" + languageSet + "\n" + exButtonSet + "\n" + fastLoadSet + "\n" + onTopSet + "\n" + saveCache + "\n" + saveRunLog + "\n" + saveErrorLog + "\n" + autoPUDSet + "\n" + saveHistorySet + "\n" + minecraftListenFlushSpeedLevel + "\n" + input_command + "\n" + "---------------Command Settings---------------" + "\n" + showInvalidCommand + "\n" + showCommands + "\n" + priorityDisplay);
         fl.close();
     }
 
@@ -741,6 +743,58 @@ public class ini {
                 if (hide != -1) {
                     Community.showInvalidCommand = false;
                     showInvalidCommand = "InvalidCommand@Hide";
+                }
+            }
+        }
+
+        {
+            int bedrock = s.indexOf("commands@bedrock");
+            int java = s.indexOf("commands@java");
+            int edu = s.indexOf("commands@edu");
+            int bds = s.indexOf("commands@bds");
+            int wss = s.indexOf("commands@wss");
+
+            if (!(bedrock != -1 & java != -1 & edu != -1 & bds != -1 & wss != -1)) {
+                if (bedrock != -1) {
+                    Community.showCommands = limitedTypes.BEDROCK;
+                    showCommands = "Commands@Bedrock";
+                }
+
+                if (java != -1) {
+                    Community.showCommands = limitedTypes.JAVA;
+                    showCommands = "Commands@Java";
+                }
+
+                if (edu != -1) {
+                    Community.showCommands = limitedTypes.EDU;
+                    showCommands = "Commands@EDU";
+                }
+
+                if (bds != -1) {
+                    Community.showCommands = limitedTypes.BDS;
+                    showCommands = "commands@BDS";
+                }
+
+                if (wss != -1) {
+                    Community.showCommands = limitedTypes.WS_SERVER;
+                    showCommands = "commands@WSS";
+                }
+            }
+        }
+
+        {
+            int bedrock = s.indexOf("prioritydisplay@bedrock");
+            int java = s.indexOf("prioritydisplay@java");
+
+            if (!(bedrock != -1 & java != -1)) {
+                if (bedrock != -1) {
+                    Community.showCommandMethod = limitedTypes.BEDROCK;
+                    priorityDisplay = "PriorityDisplay@Bedrock";
+                }
+
+                if (java!=-1) {
+                    Community.showCommandMethod = limitedTypes.JAVA;
+                    priorityDisplay = "PriorityDisplay@java";
                 }
             }
         }

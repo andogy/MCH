@@ -1,6 +1,7 @@
 package project.Community.Events;
 
 import project.Community.Command.ini;
+import project.Community.Command.limitedTypes;
 import project.Community.Community;
 import project.Community.Events.UPD.URLs;
 import project.Community.Events.UPD.countTime;
@@ -296,6 +297,57 @@ public class Events {
                 Community.showInvalidCommand = true;
                 ini.showInvalidCommand = "InvalidCommand@Show";
             }
+        }
+
+        try {
+            ini.WriteIni();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void switchShowCommands(limitedTypes limitedType) {
+        if (limitedType.equals(limitedTypes.BEDROCK)) {
+            Community.showCommands = limitedTypes.BEDROCK;
+            ini.showCommands = "Commands@Bedrock";
+        }
+
+        if (limitedType.equals(limitedTypes.JAVA)) {
+            Community.showCommands = limitedTypes.JAVA;
+            ini.showCommands = "Commands@Java";
+        }
+
+        if (limitedType.equals(limitedTypes.EDU)) {
+            Community.showCommands = limitedTypes.EDU;
+            ini.showCommands = "Commands@EDU";
+        }
+
+        if (limitedType.equals(limitedTypes.BDS)) {
+            Community.showCommands = limitedTypes.BDS;
+            ini.showCommands = "Commands@BDS";
+        }
+
+        if (limitedType.equals(limitedTypes.WS_SERVER)) {
+            Community.showCommands = limitedTypes.WS_SERVER;
+            ini.showCommands = "Commands@WSS";
+        }
+
+        try {
+            ini.WriteIni();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void switchCommandMethod(limitedTypes limitedType) {
+        if (limitedType.equals(limitedTypes.BEDROCK)) {
+            Community.showCommandMethod = limitedTypes.BEDROCK;
+            ini.priorityDisplay = "PriorityDisplay@Bedrock";
+        }
+
+        if (limitedType.equals(limitedTypes.JAVA)) {
+            Community.showCommandMethod = limitedTypes.JAVA;
+            ini.priorityDisplay = "PriorityDisplay@java";
         }
 
         try {

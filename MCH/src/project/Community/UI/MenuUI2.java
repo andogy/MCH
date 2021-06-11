@@ -1,6 +1,7 @@
 package project.Community.UI;
 
 import project.Community.Command.ini;
+import project.Community.Command.limitedTypes;
 import project.Community.Community;
 import project.Community.Events.Events;
 import project.Community.Events.UPD.URLs;
@@ -80,6 +81,10 @@ public class MenuUI2 {
     public static JLabel invalidCommand = new JLabel();
     public static JButton showInvalidCommand = new JButton();
     public static JButton noShowInvalidCommand = new JButton();
+
+    public static JLabel showCommandsMethod = new JLabel();
+    public static JButton firstBedrock = new JButton();
+    public static JButton firstJava = new JButton();
 
     public MenuUI2() {
         UI();
@@ -180,6 +185,9 @@ public class MenuUI2 {
             jFrame.add(invalidCommand);
             jFrame.add(showInvalidCommand);
             jFrame.add(noShowInvalidCommand);
+            jFrame.add(showCommandsMethod);
+            jFrame.add(firstBedrock);
+            jFrame.add(firstJava);
 
             jFrame.setLayout(new LayoutManager() {
                 @Override
@@ -269,9 +277,14 @@ public class MenuUI2 {
                     Developers.setBounds(350, 40, 300, 150);
 
                     //                    Command
-                    invalidCommand.setBounds(5,5,110,30);
-                    showInvalidCommand.setBounds(110,5,80,30);
-                    noShowInvalidCommand.setBounds(200,5,80,30);
+                    invalidCommand.setBounds(5, 5, 110, 30);
+                    showInvalidCommand.setBounds(110, 5, 80, 30);
+                    noShowInvalidCommand.setBounds(200, 5, 80, 30);
+
+                    showCommandsMethod.setBounds(5, 50, 110, 30);
+                    firstBedrock.setBounds(110, 50, 80, 30);
+                    firstBedrock.setFont(new Font(firstBedrock.getFont().getName(), firstBedrock.getFont().getStyle(), 11));
+                    firstJava.setBounds(200, 50, 80, 30);
                 }
             });
         }
@@ -318,6 +331,9 @@ public class MenuUI2 {
 
         showInvalidCommand.addActionListener(e -> Events.switchInvalidCommandShow(true));
         noShowInvalidCommand.addActionListener(e -> Events.switchInvalidCommandShow(false));
+
+        firstBedrock.addActionListener(e -> Events.switchCommandMethod(limitedTypes.BEDROCK));
+        firstJava.addActionListener(e -> Events.switchCommandMethod(limitedTypes.JAVA));
 
         showDir.addActionListener(e -> {
             if (!Community.isDaemons) {

@@ -497,6 +497,10 @@ public class displaySets extends Thread {
         MenuUI2.setting_info.setForeground(foregroundColor);
         MenuUI2.aboutDevelopOfMCH.setForeground(foregroundColor);
         MenuUI2.Developers.setForeground(foregroundColor);
+        MenuUI2.setting_command.setForeground(foregroundColor);
+        MenuUI2.showCommandsMethod.setForeground(foregroundColor);
+        MenuUI2.firstBedrock.setForeground(foregroundColor);
+        MenuUI2.firstJava.setForeground(foregroundColor);
 
         ExtraUI.functionEdit.setForeground(foregroundColor);
 
@@ -576,6 +580,12 @@ public class displaySets extends Thread {
         MenuUI2.LanguageAuto.setBackground(randomColor.getColor());
         MenuUI2.colorAuto.setBackground(randomColor.getColor());
         MenuUI2.Developers.setBackground(randomColor.getColor());
+        MenuUI2.setting_info.setBackground(randomColor.getColor());
+        MenuUI2.setting_command.setBackground(randomColor.getColor());
+        MenuUI2.showInvalidCommand.setBackground(randomColor.getColor());
+        MenuUI2.noShowInvalidCommand.setBackground(randomColor.getColor());
+        MenuUI2.firstBedrock.setBackground(randomColor.getColor());
+        MenuUI2.firstJava.setBackground(randomColor.getColor());
 
         ExtraUI.launchers.setBackground(randomColor.getColor());
         ExtraUI.randomProblem.setBackground(randomColor.getColor());
@@ -662,6 +672,13 @@ public class displaySets extends Thread {
         MenuUI2.setting_info.setForeground(randomColor.getColor());
         MenuUI2.aboutDevelopOfMCH.setForeground(randomColor.getColor());
         MenuUI2.Developers.setForeground(randomColor.getColor());
+        MenuUI2.setting_command.setForeground(randomColor.getColor());
+        MenuUI2.invalidCommand.setForeground(randomColor.getColor());
+        MenuUI2.showCommandsMethod.setForeground(randomColor.getColor());
+        MenuUI2.showInvalidCommand.setForeground(randomColor.getColor());
+        MenuUI2.noShowInvalidCommand.setForeground(randomColor.getColor());
+        MenuUI2.firstBedrock.setForeground(randomColor.getColor());
+        MenuUI2.firstJava.setForeground(randomColor.getColor());
 
         ExtraUI.functionEdit.setBackground(randomColor.getColor());
 
@@ -873,6 +890,9 @@ public class displaySets extends Thread {
         MenuUI2.invalidCommand.setVisible(false);
         MenuUI2.showInvalidCommand.setVisible(false);
         MenuUI2.noShowInvalidCommand.setVisible(false);
+        MenuUI2.showCommandsMethod.setVisible(false);
+        MenuUI2.firstBedrock.setVisible(false);
+        MenuUI2.firstJava.setVisible(false);
         switch (Community.setsDisplayID) {
             case 0 -> {
                 MenuUI2.saveCacheOrNot.setVisible(true);
@@ -932,6 +952,9 @@ public class displaySets extends Thread {
                 MenuUI2.invalidCommand.setVisible(true);
                 MenuUI2.showInvalidCommand.setVisible(true);
                 MenuUI2.noShowInvalidCommand.setVisible(true);
+                MenuUI2.showCommandsMethod.setVisible(true);
+                MenuUI2.firstBedrock.setVisible(true);
+                MenuUI2.firstJava.setVisible(true);
             }
         }
     }
