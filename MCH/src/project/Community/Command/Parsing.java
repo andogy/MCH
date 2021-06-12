@@ -10,7 +10,6 @@ import project.Community.Times.times;
 import project.Community.UI.Color.displaySets;
 import project.Community.UI.*;
 
-import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
 
@@ -57,11 +56,15 @@ public class Parsing extends Thread {
                     String allStr = MchUI.input_Command.getText();
                     //            如果tip文本框失去焦点,则让文本框回归正常input
                     if (!MchUI.switchTip.isFocusOwner()) {
-
                         //                关闭tip显示
                         MchUI.switchTip.setVisible(false);
+                        MchUI.tip_scrollPane.setVisible(false);
+
                         //                让input显示
                         MchUI.input_Command.setVisible(true);
+                        MchUI.input_scrollPane.setVisible(true);
+
+                        MchUI.input_scrollPane.setFocusable(true);
 
                         //                同步文本
                         //                    if (!MchUI.switchTip.getText().equals("")) {
@@ -176,16 +179,6 @@ public class Parsing extends Thread {
                             MchUI.input_Command.setCaretPosition(poi);
                         }
 
-                        if (allStr.contains("/")) {
-                            if (allStr.lastIndexOf("/") != 0) {
-                                if (Community.LangID == 0) {
-                                    Parsing.display = "第" + (allStr.lastIndexOf("/") + 1) + "位字符的斜杠是非法存在的,请删除它";
-                                } else {
-                                    Parsing.display = "The slash of the " + ((allStr.lastIndexOf("/")) + 1) + " character is illegal. Please delete it";
-                                }
-                            }
-                        }
-
                         if (allStr.contains("\n")) {
                             if (!allStr.replace("\n", "").contains("\n")) {
                                 try {
@@ -226,27 +219,27 @@ public class Parsing extends Thread {
         new CommandParsing().start();
 
         new Thread(() -> {
-            while (true) {
+            while (!Errors.CannotHandle) {
                 if (!Community.isDaemons) {
                     try {
                         if (!MchUI.switchTip.isFocusOwner()) {
-                            Thread.sleep(1);
+                            Thread.sleep(20);
                             if (listener.commandDoc.equals(MchUI.command1.getCharacterAttributes())) {
                                 System.out.println("??");
                                 Document doc = MchUI.command1.getDocument();
                                 AttributeSet aset = null;
                                 StyleContext sc = StyleContext.getDefaultStyleContext();
                                 if (Community.ColorID == 0) {
-                                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(0,0,1));
+                                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(0, 0, 1));
                                 } else if (Community.ColorID == 1) {
-                                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255,255,254));
+                                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 255, 254));
                                 }
                                 String command_text = MchUI.command1.getText();
                                 doc.remove(0, command_text.length());
                                 MchUI.command1.setText("");
                                 doc.insertString(0, command_text, aset);
 
-                                MchUI.command1.setCharacterAttributes(aset,true);
+                                MchUI.command1.setCharacterAttributes(aset, true);
                             }
                             MchUI.command1.setCaretPosition(0);
                         }
@@ -262,6 +255,34 @@ public class Parsing extends Thread {
                 }
             }
         }).start();
+
+        new Thread(() -> {
+            while (!Errors.CannotHandle) {
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    MchUI.switchTip.setText(MchUI.switchTip.getText().replace("\t", ""));
+
+
+                    if (MchUI.input_Command.getText().contains("//")) {
+                        int point = MchUI.input_Command.getCaretPosition();
+                        MchUI.input_Command.setText(MchUI.input_Command.getText().replace("//", "/"));
+                        MchUI.input_Command.setCaretPosition(point - 1);
+                    }
+                    if (MchUI.input_Command.getText().contains("\t")) {
+                        int point = MchUI.input_Command.getCaretPosition();
+                    MchUI.input_Command.setText(MchUI.input_Command.getText().replace("\t", ""));
+                                            MchUI.input_Command.setCaretPosition(point);
+                    }
+                } catch (Exception e) {
+
+                }
+            }
+        }).start();
+        ;
 
         parsing();
     }

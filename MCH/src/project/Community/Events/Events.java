@@ -3,6 +3,7 @@ package project.Community.Events;
 import project.Community.Command.ini;
 import project.Community.Command.limitedTypes;
 import project.Community.Community;
+import project.Community.Events.KeyListener.listener;
 import project.Community.Events.UPD.URLs;
 import project.Community.Events.UPD.countTime;
 import project.Community.Times.times;
@@ -83,6 +84,8 @@ public class Events {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            listener.switchTip.setLight("",true);
         }
     }
 

@@ -1,6 +1,7 @@
 package project.Community.UI.Color;
 
 import project.Community.Command.ini;
+import project.Community.Command.limitedTypes;
 import project.Community.Community;
 import project.Community.Events.Errors;
 import project.Community.Events.LoadAssembly;
@@ -119,6 +120,10 @@ public class displaySets extends Thread {
         MenuUI2.showInvalidCommand.setFocusPainted(false);
         MenuUI2.noShowInvalidCommand.setBorderPainted(false);
         MenuUI2.noShowInvalidCommand.setFocusPainted(false);
+        MenuUI2.firstBedrock.setBorderPainted(false);
+        MenuUI2.firstBedrock.setFocusPainted(false);
+        MenuUI2.firstJava.setBorderPainted(false);
+        MenuUI2.firstJava.setFocusPainted(false);
 
         ExtraUI.turnOnMcBe.setBorderPainted(false);
         ExtraUI.turnOnMcBe.setFocusPainted(false);
@@ -164,6 +169,7 @@ public class displaySets extends Thread {
         Color buttonColor = new Color(60, 63, 65);
         Color tipColor = new Color(58, 58, 58);
         Color grayColor = tipColor;
+        Color caretColor = new Color(88, 195, 84);
 
         if (Community.ColorID == 0) {
             foregroundColor = new Color(0, 0, 0);
@@ -222,6 +228,8 @@ public class displaySets extends Thread {
         MchUI.menu.setBackground(buttonColor);
         MchUI.command1.setBackground(backgroundColor);
         MchUI.switchTip.setBackground(backgroundColor);
+        MchUI.input_Command.setCaretColor(caretColor);
+        MchUI.input_Command.setSelectionColor(caretColor);
 
         exit.buttonEXIT.setBackground(buttonColor);
         exit.buttonEXITNot.setBackground(buttonColor);
@@ -268,6 +276,14 @@ public class displaySets extends Thread {
                 MenuUI2.English.setBackground(buttonColor);
                 MenuUI2.LanguageAuto.setBackground(backgroundColor);
             }
+        }
+
+        if (Community.showCommandMethod.equals(limitedTypes.BEDROCK)) {
+            MenuUI2.firstBedrock.setBackground(backgroundColor);
+            MenuUI2.firstJava.setBackground(buttonColor);
+        } else if (Community.showCommandMethod.equals(limitedTypes.JAVA)) {
+            MenuUI2.firstBedrock.setBackground(buttonColor);
+            MenuUI2.firstJava.setBackground(backgroundColor);
         }
 
         if (Community.showInvalidCommand) {

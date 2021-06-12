@@ -1,10 +1,20 @@
 package test;
 
-public class az {
-    public static void main(String[] args) {
-        int i = 2147483647;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.java_websocket.WebSocket;
+import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.handshake.ServerHandshake;
 
-        boolean b = true;
-        boolean a = !!!!!!b;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.*;
+import java.rmi.server.UID;
+import java.util.UUID;
+
+public class az {
+    public static void main(String[] args) throws MalformedURLException {
+
     }
 }

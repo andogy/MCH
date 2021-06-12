@@ -55,11 +55,12 @@ public class listener extends Thread {
                     try {
                         String s = Arrays.toString(getC().toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
 
+//                        System.out.println(s);
                         if (s.equals("|32|")) {
                             MchUI.switchTip.setText(MchUI.switchTip.getText() + " ");
                         }
 
-                        if (!(s.equals("|38|") | s.equals("|40|") | s.equals("|9|"))) {
+                        if (!(s.equals("|38|") | s.equals("|40|"))) {
                             int point = MchUI.switchTip.getCaretPosition();
 
                             MchUI.input_Command.setVisible(true);
@@ -101,28 +102,8 @@ public class listener extends Thread {
                                         tipLine = allLine;
                                     }
                                 }
-
-                                if (s.contains("|9|") || MchUI.switchTip.getText().contains("\t")) {
-                                    MchUI.switchTip.setText(MchUI.switchTip.getText().replace("\t", ""));
-
-                                    tipLine++;
-
-                                    if (tipLine > allLine) {
-                                        tipLine = 1;
-                                    }
-                                }
                             } else {
                                 if (s.equals("|40|")) {
-                                    tipLine++;
-
-                                    if (tipLine > allLine) {
-                                        tipLine = 1;
-                                    }
-                                }
-
-                                if (s.contains("|9|") || MchUI.switchTip.getText().contains("\t")) {
-                                    MchUI.switchTip.setText(MchUI.switchTip.getText().replace("\t", ""));
-
                                     tipLine++;
 
                                     if (tipLine > allLine) {
@@ -158,7 +139,7 @@ public class listener extends Thread {
                                     }
 
                                     MchUI.switchTip.setText(tips);
-                                    setLight(tips, false);
+//                                    setLight(tips, false);
                                 } catch (Exception ignored) {
 
                                 }
@@ -227,7 +208,9 @@ public class listener extends Thread {
 
             if (!onlyDefault) {
                 if (Community.ColorID == 0) {
-                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(239, 126, 32));
+                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 125, 50));
+//                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 255, 255));
+                    aset = sc.addAttribute(aset,StyleConstants.Background,new Color(210,210,210));
                 } else if (Community.ColorID == 1) {
                     aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(203, 119, 49));
                 }
@@ -250,16 +233,16 @@ public class listener extends Thread {
 
             try {
                 String command_text = MchUI.command1.getText();
-                doc.remove(0, command_text.length());
-                MchUI.command1.setText("");
-                doc.insertString(0, command_text, aset_normal);
-
                 int points;
                 if (!onlyDefault) {
                     points = command_text.indexOf(tips);
                 } else {
                     points = 0;
                 }
+                doc.remove(0, command_text.length());
+                MchUI.command1.setText("");
+                doc.insertString(0, command_text, aset_normal);
+
                 doc.remove(points, tips.length());
                 doc.insertString(points, tips, aset);
                 MchUI.command1.setCaretPosition(points);
@@ -340,13 +323,17 @@ class inputs {
                         } else if (getC().size() == 1) {
                             String s = Arrays.toString(getC().toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
 
-                            if (s.equals("|38|") || s.equals("|40|") || (s.contains("|9|") & MchUI.input_Command.getCaretPosition() >= 1)) {
+                            if ((s.equals("|38|") || s.equals("|40|")) & MchUI.input_Command.getCaretPosition() >= 1) {
                                 int point = MchUI.input_Command.getCaretPosition();
 
-                                MchUI.switchTip.setText(MchUI.input_Command.getText());
-                                MchUI.switchTip.setVisible(true);
-                                MchUI.switchTip.requestFocus();
                                 MchUI.input_Command.setVisible(false);
+                                MchUI.input_scrollPane.setVisible(false);
+
+                                MchUI.tip_scrollPane.setVisible(true);
+                                MchUI.switchTip.setVisible(true);
+                                MchUI.switchTip.setText(MchUI.input_Command.getText());
+                                MchUI.switchTip.requestFocus();
+                                MchUI.switchTip.setCaretPosition(point);
                             }
                         }
                     } catch (Exception ignored) {
