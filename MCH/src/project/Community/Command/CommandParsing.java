@@ -4,7 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import project.Community.Community;
-import project.Community.Events.KeyListener.listener;
 import project.Community.Events.historyReader;
 import project.Community.UI.Lang.initLanguage;
 import project.Community.UI.Lang.languageSet;
@@ -60,13 +59,13 @@ public class CommandParsing extends Thread {
 
             willOver = 150;
 
-            display(json, target, targetSource, jsonResources, json, target,json,jsonResources,targetSource);
+            display(json, target, targetSource, jsonResources, json, target, json, jsonResources, targetSource);
         } catch (IOException e) {
             MchUI.command1.setText(languageSet.getCommandWord("commandsNotFound"));
         }
     }
 
-    public static void display(JSONObject commandJson, String target, String targetSource, JSONObject resources, JSONObject displayJson, String commandTarget,JSONObject sourceJson,JSONObject sourceResource,String targetSourceStatic) {
+    public static void display(JSONObject commandJson, String target, String targetSource, JSONObject resources, JSONObject displayJson, String commandTarget, JSONObject sourceJson, JSONObject sourceResource, String targetSourceStatic) {
         try {
             if (willOver > 0) {
                 willOver -= 1;
@@ -229,10 +228,30 @@ public class CommandParsing extends Thread {
                             }
 
                             if (jsa.get(commandSteps).toString().equals("@commands")) {
+
+                                /*
+                                here have a bug
+                                command must start with "/"
+                                otherwise cannot parse command after "execute"
+                                这有个bug,命令如果不以"/"开头则无法解析"execute"后面的命令
+                                if you understand my source code, and have some idea
+                                i hope you can help me precess this bug, Thanks!
+                                如果你看懂了源码,并及有了一些想法
+                                我希望你能够帮助我，谢谢!
+                                 */
+                                if (MchUI.input_Command.getText().charAt(0) != '/') {
+                                    int point = MchUI.input_Command.getCaretPosition();
+                                    MchUI.input_Command.setText("/" + MchUI.input_Command.getText());
+                                    MchUI.input_Command.setCaretPosition(point + 1);
+                                }
+                                /*
+                                bug resolvent over here ↑
+                                 */
+
                                 try {
                                     String cache = MchUI.input_Command.getText();
-                                    for (int i = commandSteps;i > 0;i--) {
-                                        cache = cache.replaceFirst(" ","");
+                                    for (int i = commandSteps; i > 0; i--) {
+                                        cache = cache.replaceFirst(" ", "");
                                     }
 
                                     if (cache.contains(" ")) {
@@ -244,10 +263,11 @@ public class CommandParsing extends Thread {
                                     steps = 0;
                                     commandSteps = 0;
 
-                                    String commandText = targetSourceStatic.substring(execute);
-                                    display(sourceJson,target,commandText,sourceResource,sourceJson,target,sourceJson,sourceResource,commandText);
+                                    String commandText = targetSourceStatic.substring(execute).replace("/","");
+
+                                    display(sourceJson, target, commandText, sourceResource, sourceJson, target, sourceJson, sourceResource, commandText);
                                     throw new IllegalStateException();
-                                } catch(StackOverflowError error) {
+                                } catch (StackOverflowError error) {
                                     error.printStackTrace();
                                 }
                             }
@@ -278,7 +298,7 @@ public class CommandParsing extends Thread {
 
                         if (!over) {
                             try {
-                                display(commandJson, target, targetSource, resources, displayJson, commandTarget,sourceJson,sourceResource,targetSourceStatic);
+                                display(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, targetSourceStatic);
                             } catch (StackOverflowError error) {
 
                             }
@@ -297,7 +317,7 @@ public class CommandParsing extends Thread {
                         } else if (steps + 1 < new JSONArray(new JSONObject(commandJson.get(commandTarget).toString()).get("usage").toString()).length()) {
                             steps += 1;
                             try {
-                                display(commandJson, target, targetSource, resources, displayJson, commandTarget,sourceJson,sourceResource,targetSourceStatic);
+                                display(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, targetSourceStatic);
                             } catch (StackOverflowError error) {
 
                             }
