@@ -57,15 +57,15 @@ public class CommandParsing extends Thread {
 
             commandSteps = 0;
 
-            willOver = 150;
+            willOver = 1500;
 
-            display(json, target, targetSource, jsonResources, json, target, json, jsonResources, targetSource);
+            display(json, target, targetSource, jsonResources, json, target, json, jsonResources, targetSource,targetSource.length());
         } catch (IOException e) {
             MchUI.command1.setText(languageSet.getCommandWord("commandsNotFound"));
         }
     }
 
-    public static void display(JSONObject commandJson, String target, String targetSource, JSONObject resources, JSONObject displayJson, String commandTarget, JSONObject sourceJson, JSONObject sourceResource, String targetSourceStatic) {
+    public static void display(JSONObject commandJson, String target, String targetSource, JSONObject resources, JSONObject displayJson, String commandTarget, JSONObject sourceJson, JSONObject sourceResource, String targetSourceStatic,int sourceLength) {
         try {
             if (willOver > 0) {
                 willOver -= 1;
@@ -239,7 +239,7 @@ public class CommandParsing extends Thread {
                                 如果你看懂了源码,并及有了一些想法
                                 我希望你能够帮助我，谢谢!
                                  */
-                                if (MchUI.input_Command.getText().charAt(0) != '/') {
+                                if (targetSourceStatic.charAt(0) != '/') {
                                     int point = MchUI.input_Command.getCaretPosition();
                                     MchUI.input_Command.setText("/" + MchUI.input_Command.getText());
                                     MchUI.input_Command.setCaretPosition(point + 1);
@@ -265,7 +265,7 @@ public class CommandParsing extends Thread {
 
                                     String commandText = targetSourceStatic.substring(execute).replace("/","");
 
-                                    display(sourceJson, target, commandText, sourceResource, sourceJson, target, sourceJson, sourceResource, commandText);
+                                    display(sourceJson, target, commandText, sourceResource, sourceJson, target, sourceJson, sourceResource, commandText,commandText.length());
                                     throw new IllegalStateException();
                                 } catch (StackOverflowError error) {
                                     error.printStackTrace();
@@ -298,7 +298,7 @@ public class CommandParsing extends Thread {
 
                         if (!over) {
                             try {
-                                display(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, targetSourceStatic);
+                                display(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, targetSourceStatic,targetSourceStatic.length());
                             } catch (StackOverflowError error) {
 
                             }
@@ -317,7 +317,7 @@ public class CommandParsing extends Thread {
                         } else if (steps + 1 < new JSONArray(new JSONObject(commandJson.get(commandTarget).toString()).get("usage").toString()).length()) {
                             steps += 1;
                             try {
-                                display(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, targetSourceStatic);
+                                display(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, targetSourceStatic,targetSourceStatic.length());
                             } catch (StackOverflowError error) {
 
                             }
@@ -396,6 +396,22 @@ public class CommandParsing extends Thread {
                 try {
                     //            判断$invalid (是否失效)
                     invalid = new JSONObject(displayJson.get(next).toString()).getBoolean("$invalid");
+                } catch (Exception ignored) {
+
+                }
+
+                try {
+                    String exe = "";
+                    if (MchUI.input_Command.getText().contains(" ")) {
+                        exe = MchUI.input_Command.getText().substring(0,MchUI.input_Command.getText().indexOf(" "));
+                    } else {
+                        exe = MchUI.input_Command.getText();
+                    }
+                    if (!exe.equals("/execute")) {
+                        if (new JSONObject(displayJson.get(next).toString()).getBoolean("$execute")) {
+                            next = "";
+                        }
+                    }
                 } catch (Exception ignored) {
 
                 }
