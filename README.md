@@ -18,10 +18,8 @@ it here -> <a href="https://github.com/andogy/MCH">main repository</a>
 <hr>
 
 # if you are user
- you can download newly MCH at "release"<br>
+you can download newly MCH at "release"<br>
 if you don't know what is "release", then <a href="https://github.com/zhuaidadaya/MCH/releases">click here</a><br>
-> MCH project start with April 9, 2021<br>
-> at present we have not a first official release version<br>
 ## about developers
 > MCH develop just by two developer<br>
 > (two beginner)<br>
@@ -39,3 +37,5 @@ if you don't know what is "release", then <a href="https://github.com/zhuaidaday
 > you can go <a href="https://github.com/andogy/MCH">main repository</a> to got email address<br>
 > <a href="https://github.com/andogy/MCH/blob/main/%E4%B8%AD%E6%96%87/README.md#%E5%88%B6%E4%BD%9C%E5%9B%A2%E9%98%9F">chinese-page</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/andogy/MCH/tree/main/English#production">english-page</a>
 
+> MCH project start with April 9, 2021<br>
+> at present we have not a first official release version<br>
