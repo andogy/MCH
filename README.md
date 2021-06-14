@@ -5,8 +5,9 @@ let we got some about MCH
 ## first
 this project is make by a few beginner<br>
 and you can join to this project<br>
->if you can, i want you join!<br>
-
+```
+if you can, i hope you join!<br>
+```
 <br>
 MCH usage to help command of Minecraft<br>
 it can help you used or study command of Minecraft<br>
