@@ -15,6 +15,7 @@ MCH项目起始于2021.4.6
 
 ## 制作团队
 我们的制作团队是开放的，你随时可以加入该团队，但我们团队使用[QQ](https://play.google.com/store/apps/details?id=com.tencent.mobileqq&hl=zh&gl=US&referrer=utm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_term%3D%E4%B8%8B%E8%BD%BDqq&pcampaignid=APPU_1_J92HYPrwHu3EmAXinaOYBA)来进行沟通，并且使用中文沟通，这可能对海外的使用者有些障碍。
+(不过如果此页码都能看懂估计问题不大)
 
 这时，你可能问一句
 ```
