@@ -1,15 +1,24 @@
 # MCH
-MCH is a testing program<br>
-it can help you used or study command of Minecraft
+hi welcome MCH project<br>
+let we got some about MCH
 
-<a href="https://github.com/andogy/MCH">main repository</a>
+## first
+this project is make by a few beginner<br>
+and you can join to this project<br>
+>if you can, i want you join!<br>
+
+<br>
+MCH usage to help command of Minecraft<br>
+it can help you used or study command of Minecraft<br>
+<br>
+here is work repository, we have a repository only used to storage <br>
+it here -> <a href="https://github.com/andogy/MCH">main repository</a>
 
 <hr>
 
-## about MCH
-> you can download MCH at release<br>
-> if you don't know what is "release", <a href="https://github.com/zhuaidadaya/MCH/releases">click here</a><br>
-> <br>
+# if you are user
+ you can download newly MCH at "release"<br>
+if you don't know what is "release", then <a href="https://github.com/zhuaidadaya/MCH/releases">click here</a><br>
 > MCH project start with April 9, 2021<br>
 > at present we have not a first official release version<br>
 ## about developers
