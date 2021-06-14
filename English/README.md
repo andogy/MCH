@@ -23,24 +23,9 @@ So,maybe you wanna ask
 HOW CAN I JOIN THIS TEAM!?
 ```
 
-If u want to join us,you can send email to:<br>
-1501917367@qq.com<br>
-zhuaidadaya@163.com<br>
-ake259193@gmail.com
+if you wanna join<br>
+you just need send request to we qq(124319875) and waiting for
 
-Email format roughly as:
-
-(Departments you want to join)
-
-(What You're good at)
-
-(What of Developer Experience of You had)
-
-(Contact ways)
-
-(Signature)
-
-<a href="mailto:1501917367@qq.com;zhuaidadaya@163.com;3477124880@qq.com;ake259193@gmail.com">Go to email</a>
 
 ## Features
 ### Documentation
