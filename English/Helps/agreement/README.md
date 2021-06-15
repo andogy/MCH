@@ -73,7 +73,6 @@ we has the right to change with the relevant laws at any time
 this agreement shall be amended with the change of laws and regulations
 and the adjustment of team management status and business strategy
 revised agreement will be published on this page
-and attached newly version MCH并
 in case of any dispute,the latest agreement shall prevail
 if disagree changed content,user can delete MCH
 if user continue to use MCH,then mean user accept changed
