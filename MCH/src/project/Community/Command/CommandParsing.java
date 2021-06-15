@@ -278,14 +278,8 @@ public class CommandParsing extends Thread {
                                         cache = cache.substring(0, cache.indexOf(" ") + 1);
                                     }
 
-                                    if (sourceLength == 9) {
-                                        offset += 1;
-                                    }
-
                                     lastExecute = execute;
                                     execute = cache.length() + allSteps + sourceLength - offset;
-
-                                    offset = 0;
 
                                     System.out.println(lastExecute + ":" + execute);
 

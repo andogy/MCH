@@ -1,6 +1,10 @@
 # MCH
 hi welcome MCH project<br>
 let we got some about MCH
+> this project is suspended<br>
+> because developers need go to exam<br>
+> will resume development in August
+
 
 ## first
 this project is make by a few beginner<br>
@@ -20,10 +24,14 @@ it here -> <a href="https://github.com/andogy/MCH">main repository</a>
 # if you are user
 you can download newly MCH at "release"<br>
 if you don't know what is "release", then <a href="https://github.com/zhuaidadaya/MCH/releases">click here</a><br>
-## about developers
+
+only these
+# other
+if you 
+## developers
 > MCH develop just by two developer<br>
 > (two beginner)<br>
-> this cause inefficiency extraordinary, and we can gotta two tired developer  
+> this cause inefficiency extraordinary, and we can get two tired developer  
 > so, we wanna more developers can join to ours develop<br>
 > but we know this is almost impossible to achieve
 
