@@ -97,7 +97,7 @@ agreement version: 1.2
 
 ## - translation -
 
-"zhuaidadaya" translated all github page and MCH texts<br>
+"zhuaidadaya" translated all about MCH texts<br>
 if have any error,please contack to (Wechat)zhuaidadaya or (QQ)1501917367<br>
 thanks for you<br>
 
