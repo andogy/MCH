@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import project.Community.Community;
+import project.Community.Events.Errors;
 import project.Community.Events.historyReader;
 import project.Community.UI.Lang.initLanguage;
 import project.Community.UI.Lang.languageSet;
@@ -610,7 +611,7 @@ public class CommandParsing extends Thread {
             e.printStackTrace();
         }
 
-        while (true) {
+        while (!Errors.CannotHandle) {
             if (!Community.isDaemons) {
                 try {
                     Thread.sleep(50);
@@ -618,7 +619,8 @@ public class CommandParsing extends Thread {
                     e.printStackTrace();
                 }
 
-                if (!MchUI.input_Command.getText().equals("") & !MchUI.input_Command.getText().contains("\n")) {
+                var input = MchUI.input_Command.getText();
+                if (!input.equals("") & !input.contains("\n")) {
 
                     //                    if (MchUI.input_Command.getText().lastIndexOf("/") == 0 | !MchUI.input_Command.getText().contains("/")) {
                     if (!MchUI.switchTip.isFocusOwner()) {
