@@ -73,7 +73,7 @@ now actions
 > <b>if you can, i hope you can help we do that</b>
 
 > completing "README.md"
-> local "README.mc"
+> local "README.md"
 
 > fix other bug
 
