@@ -51,13 +51,12 @@ only these
 
 ### if you can join to we
 
-> you need use Tencent qq communicate with us<br>
-> we communicate in chinese<br>
-> if you cannot speak chinese, don't worry, we also can speak english<br>
-
-### join
-
-> you just need send request to we qq(124319875) and waiting for
+you need use Tencent qq communicate with us<br>
+we communicate in chinese<br>
+if you cannot speak chinese, don't worry, we also can speak english<br>
+<b>
+you just need send request to we qq(124319875) and waiting for
+</b>
 
 ## MCH history
 
@@ -66,7 +65,7 @@ only these
 
 ## actions
 
-now actions
+now actions 
 > fix bug of "execute" command<br>
 > local "src/project/Community/Command/CommandParsing" at lines 243<br>
 > Here have lots problems<br>
