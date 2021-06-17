@@ -85,8 +85,7 @@ i hope you can fork work repository and use pull requests to changed code
 ### CommandParsing.java
 
 ``` java
- local "src/project/Community/Command/CommandParsing" at run()
- 
+ local "src/project/Community/Command/CommandParsing" at run() 
 
  //if have error, then stop process
  while(!Errors.CannotHandle) {
