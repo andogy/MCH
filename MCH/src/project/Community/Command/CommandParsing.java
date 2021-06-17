@@ -23,6 +23,8 @@ public class CommandParsing extends Thread {
     public static int lastExecute = 0;
     public static int allSteps = 0;
 
+    public static int commandPoint = 0;
+
     public static int offset = 0;
 
     public static String buffered;

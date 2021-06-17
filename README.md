@@ -68,7 +68,9 @@ only these
 
 now actions
 > fix bug of "execute" command<br>
-> local "src/project/Community/Command/CommandParsing" at lines 239
+> local "src/project/Community/Command/CommandParsing" at lines 243<br>
+> Here have lots problems<br>
+> <b>if you can, i hope you can help we do that</b>
 
 > completing "README.md"
 > local "README.mc"
@@ -85,16 +87,16 @@ i hope you can fork work repository and use pull requests to changed code
 ### CommandParsing.java
 
 ``` java
- local "src/project/Community/Command/CommandParsing" at run() 
+local "src/project/Community/Command/CommandParsing" at run() 
 
- //if have error, then stop process
- while(!Errors.CannotHandle) {
- 
+
+//if have error, then stop process
+while(!Errors.CannotHandle) {
     var input = MchUI.input_Command.getText();
     
     //command text must not null and not wrap line
     if(!input.equals("") & !input.equals("\n")) {
-        
+    
         //process command at not switching command, if switching then waiting for
         if (!MchUI.switchTip.isFocusOwner()) {
             CommandParsing.commands();
@@ -102,9 +104,15 @@ i hope you can fork work repository and use pull requests to changed code
         
     }
     
- }
+}
  
- ----------------------------------------------------
- local "src/project/Community/Command/CommandParsing" at commands()
+----------------------------------------------------
+local "src/project/Community/Command/CommandParsing" at commands()
 
+ 
+public static void commands() {
+     
+}
 ```
+
+### 
