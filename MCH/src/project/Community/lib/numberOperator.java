@@ -66,13 +66,13 @@ public class numberOperator {
         int i = 0;
 
         while (true) {
-            Long multiple = 1L;
+            long multiple = 1L;
 
             for (int counts = length - 1; counts > 0; counts--) {
                 multiple *= 10;
             }
 
-            Long value = 0L;
+            long value = 0L;
             try {
                 subStr = String.valueOf(str.charAt(i));
                 switch (subStr) {

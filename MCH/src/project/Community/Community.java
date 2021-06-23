@@ -13,8 +13,13 @@ import project.Community.UI.*;
 import project.Community.UI.Color.displaySets;
 import project.Community.lib.filesOperator;
 import project.Community.UI.Lang.initLanguage;
+import test.ResourceTest.test1;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.net.URL;
+import java.util.Arrays;
 
 
 public class Community {
@@ -64,6 +69,8 @@ public class Community {
     public static String ver = "ah-50";
 
     public static void main(String[] args) {
+        System.out.println(Arrays.toString(args));
+
         loadingWindow.ui();
 
         System.out.println("[" + times.format + "]\n" + "ini:配置文件就绪中");

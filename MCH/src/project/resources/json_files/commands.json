@@ -1,0 +1,2762 @@
+{
+    "languages": [
+        {
+            "chinese": [
+                {
+                    "noComplete": "未完成的命令:"
+                },
+                {
+                    "@gugul": "'咕咕了，以后做这个"
+                },
+                {
+                    "@command_help": "'查找命令用法"
+                },
+                {
+                    "@command_gamemode": "'设定游戏模式"
+                },
+                {
+                    "@command_gamerule": "'设定或查询游戏规则"
+                },
+                {
+                    "@comamnd_ability": "'给予或清除玩家能力"
+                },
+                {
+                    "@command_achievenment": "'给予或清除玩家的成就(已失效)"
+                },
+                {
+                    "@command_advancement": "'添加、清除、查询玩家的进度"
+                },
+                {
+                    "@command_agent": "'操作吉祥物"
+                },
+                {
+                    "@command_bossbar": "'操作boss栏"
+                },
+                {
+                    "commandNotFound": "无法找到此命令的这种用法?"
+                },
+                {
+                    "pageOut": "页码超出限制"
+                },
+                {
+                    "@page": "'页码"
+                },
+                {
+                    "@boolean_true": "'启用"
+                },
+                {
+                    "@boolean_false": "'禁用"
+                },
+                {
+                    "@appointName": "'指定名称"
+                },
+                {
+                    "@sel_s": "'执行命令的实体"
+                },
+                {
+                    "@sel_r": "'随机玩家"
+                },
+                {
+                    "@sel_p": "'最近的玩家"
+                },
+                {
+                    "@sel_e": "'所有实体"
+                },
+                {
+                    "@sel_a": "'所有玩家"
+                },
+                {
+                    "@adventure": "'冒险"
+                },
+                {
+                    "@default": "'默认"
+                },
+                {
+                    "@creative": "'创造"
+                },
+                {
+                    "@survival": "'生存"
+                },
+                {
+                    "@spectator": "'旁观 (仅java版可用)"
+                },
+                {
+                    "@ability_worldbuilder": "'给予玩家成为世界建造者的能力"
+                },
+                {
+                    "@ability_mayfly": "'给予玩家飞行能力"
+                },
+                {
+                    "@ability_mute": "'禁言玩家"
+                },
+                {
+                    "@grant": "'给予成就"
+                },
+                {
+                    "@revoke": "'清除成就"
+                },
+                {
+                    "@advancement_only": "'指定一个成就"
+                },
+                {
+                    "@advancement_everything": "'所有成就"
+                },
+                {
+                    "@advancement_condition": "'条件"
+                },
+                {
+                    "@advancement_through": "'指定进度及其全部上游和下游进度"
+                },
+                {
+                    "@advancement_from": "'指定进度及其下游进度"
+                },
+                {
+                    "@advancement_until": "'指定进度及其上游进度"
+                },
+                {
+                    "@alwaysday": "'是否启用昼夜更替"
+                },
+                {
+                    "@attribute": "'修改、查询玩家和生物的属性"
+                },
+                {
+                    "@ban_player": "'封禁一个玩家"
+                },
+                {
+                    "@ban_ip": "'封禁一个IP"
+                },
+                {
+                    "@ban_reason": "'原因"
+                },
+                {
+                    "@ban_reason_text": "<封禁原因 : 字符串>"
+                },
+                {
+                    "@ban_ip_reason_text": "<IP : 字符串>"
+                },
+                {
+                    "@null": ""
+                },
+                {
+                    "@ban_strings": "'字符串"
+                },
+                {
+                    "@ban_list": "'封禁列表"
+                },
+                {
+                    "@ban_ip_list": "'IP列表"
+                },
+                {
+                    "@ban_players_list": "'玩家列表"
+                },
+                {
+                    "@bossbar_add": "'创建一个新boss栏"
+                },
+                {
+                    "@bossbar_list": "'显示已有的bossbar"
+                },
+                {
+                    "@bossbar_remove": "'清除一个已有的bossbar"
+                },
+                {
+                    "@bossbar_set": "'设置一个bossbar的属性"
+                },
+                {
+                    "@bossbar_get": "'获取一个bossbar的属性"
+                },
+                {
+                    "@namespace": "<命名空间 : 字符串>"
+                },
+                {
+                    "@name_space": "'命名空间"
+                },
+                {
+                    "@json": "<json : String>"
+                },
+                {
+                    "@bossbar_get_max": "'获得boosbar的最大值"
+                },
+                {
+                    "@bossbar_get_players": "'获得可以看到此bossbar的玩家"
+                },
+                {
+                    "@bossbar_get_value": "'获得bossbar的值"
+                },
+                {
+                    "@bossbar_get_visible": "'获得bossbar的显示状态"
+                },
+                {
+                    "@color": "'设置颜色"
+                },
+                {
+                    "@blue": "'蓝色"
+                },
+                {
+                    "@green": "'绿色"
+                },
+                {
+                    "@pink": "'粉色"
+                },
+                {
+                    "@purple": "'紫色"
+                },
+                {
+                    "@red": "'红色"
+                },
+                {
+                    "@white": "'白色"
+                },
+                {
+                    "@yellow": "'黄色"
+                },
+                {
+                    "@bossbar_max_set": "<最大值 : 整数>"
+                },
+                {
+                    "@valueErr": "是一个错误的数"
+                },
+                {
+                    "@help_valueOutLimited": "页数超出限制"
+                },
+                {
+                    "@int_valueOutLimited": "值超出限制"
+                },
+                {
+                    "@bossbar_max_set_value": "'最大值"
+                },
+                {
+                    "bossbar_set_max": "'设置最大值"
+                },
+                {
+                    "@bossbar_set_name": "'设置bossbar名称"
+                },
+                {
+                    "@bossbar_set_players": "'设置可以看见bossbar的玩家"
+                },
+                {
+                    "@bossbar_set_style": "'设置bossbar的样式"
+                },
+                {
+                    "@bossbar_style_progress": "'默认样式"
+                },
+                {
+                    "@bossbar_style_notched_6": "'分为六截显示"
+                },
+                {
+                    "@bossbar_style_notched_10": "'分为十截显示"
+                },
+                {
+                    "@bossbar_style_notched_12": "'分为十二截显示"
+                },
+                {
+                    "@bossbar_style_notched_20": "'分为二十截显示"
+                },
+                {
+                    "@bossbar_set_value": "'设置bossbar的值"
+                },
+                {
+                    "@bossbar_value_set": "<值 : 整数>"
+                },
+                {
+                    "@bossbar_value_sey_value": "'值"
+                },
+                {
+                    "@bossbar_set_visible": "'设置bossbar显示状态"
+                },
+                {
+                    "@command_camerashake": "'设置镜头抖动效果"
+                },
+                {
+                    "@camerashake_add": "'添加一个镜头摇晃"
+                },
+                {
+                    "@camerashake_stop": "'停止镜头摇晃"
+                },
+                {
+                    "@banip": "'封禁一个IP(已失效)"
+                },
+                {
+                    "@advancement_conditions": "<条件 : 字符串>"
+                },
+                {
+                    "@all": "所有"
+                },
+                {
+                    "@command_changesettin": "'在bds运行时更改设置"
+                },
+                {
+                    "@allow-cheats": "'允许玩家作弊"
+                },
+                {
+                    "@difficulty": "'更改游戏难度"
+                },
+                {
+                    "@peaceful": "'和平模式"
+                },
+                {
+                    "@easy": "'简单模式"
+                },
+                {
+                    "@normal": "'一般模式"
+                },
+                {
+                    "@hard": "'困难模式"
+                },
+                {
+                    "@peaceful_be": "'和平模式(仅基岩版)"
+                },
+                {
+                    "@easy_be": "'简单模式(仅基岩版)"
+                },
+                {
+                    "@normal_be": "'一般模式(仅基岩版)"
+                },
+                {
+                    "@hard_be": "'困难模式(仅基岩版)"
+                },
+                {
+                    "@lost_command": "'未证实命令"
+                },
+                {
+                    "@clear_data": "<物品特殊值 : 整数>"
+                },
+                {
+                    "@item_count": "<数量 : 整数>"
+                },
+                {
+                    "@count": "'数量"
+                },
+                {
+                    "@command_clear": "'清除玩家物品栏的的物品"
+                },
+                {
+                    "@command_clone": "'将一个区域克隆到另一个区域"
+                },
+                {
+                    "@command_clearspawnpoint": "'清除玩家的重生点"
+                },
+                {
+                    "@x_position_integer": "<X轴坐标 : 整数>"
+                },
+                {
+                    "@x": "'x轴坐标"
+                },
+                {
+                    "@y_position_integer": "<y轴坐标 : 整数>"
+                },
+                {
+                    "@y": "'y轴坐标"
+                },
+                {
+                    "@z_position_integer": "<z轴坐标 : 整数>"
+                },
+                {
+                    "@z": "'z轴坐标"
+                },
+                {
+                    "@current_position": "'当前位置"
+                },
+                {
+                    "@clone_x_start_position_integer": "<区域起始坐标(X轴): 整数>"
+                },
+                {
+                    "@clone_y_start_position_integer": "<区域起始坐标(Y轴) : 整数>"
+                },
+                {
+                    "@clone_z_start_position_integer": "<区域起始坐标(Z轴) : 整数>"
+                },
+                {
+                    "@clone_x_diagonally_position_integer": "<区域对角坐标(X轴) : 整数>"
+                },
+                {
+                    "@clone_y_diagonally_position_integer": "<区域对角坐标(Y轴) : 整数>"
+                },
+                {
+                    "@clone_z_diagonally_position_integer": "<区域对角坐标(Z轴) : 整数>"
+                },
+                {
+                    "@clone_x_position_target": "<目标坐标(X轴) : 整数>"
+                },
+                {
+                    "@clone_y_position_target": "<目标坐标(Y轴) : 整数>"
+                },
+                {
+                    "@clone_z_position_target": "<目标坐标(Z轴) : 整数>"
+                },
+                {
+                    "@clone_replace": "'直接替换方块"
+                },
+                {
+                    "@clone_replace_normal": "'默认替换方式"
+                },
+                {
+                    "@clone_replace_force": "'强制替换"
+                },
+                {
+                    "@clone_replace_move": "'替换后清除源区域的方块"
+                },
+                {
+                    "@clone_masked": "'克隆非空气方块"
+                },
+                {
+                    "@clone_filtered": "'克隆选定的方块"
+                },
+                {
+                    "mayErrNamespace": "是一个不正确的命名空间"
+                },
+                {
+                    "@command_closechat": "'关闭聊天框(已失效)"
+                },
+                {
+                    "@command_closewebsocket": "'断开wsserver的连接"
+                },
+                {
+                    "@command_closewebsocket_description": "此命令用于断开游戏与websocket的连接，仅限websocket服务器主动发送"
+                },
+                {
+                    "@command_code": "'启用代码编辑器"
+                },
+                {
+                    "@command_lost": "这个命令来自于Minecraft Wiki，上面没用给出任何有关此命令的其他信息\n并且此命令暂时无法被我们确认是否属实"
+                },
+                {
+                    "@command_codebuilder": "'设置玩家的代码编辑状态"
+                },
+                {
+                    "@command_connect": "'连接到websocket服务器"
+                },
+                {
+                    "@connect_out": "'断开websocket服务器的连接"
+                },
+                {
+                    "@connect_URL": "<URL : 字符串>"
+                },
+                {
+                    "@URL": "'URL"
+                },
+                {
+                    "@command_data": "'获取、合并、移除实体或方块的数据标签"
+                },
+                {
+                    "@command_datapack": "'控制加载的数据包"
+                },
+                {
+                    "@disable_datapack": "'禁用指定数据包"
+                },
+                {
+                    "@enable_datapack": "'启用指定数据包"
+                },
+                {
+                    "@list_datapack": "'显示数据包列表"
+                },
+                {
+                    "@datapack_list_available": "'显示可用数据包列表"
+                },
+                {
+                    "@datapack_list_enable": "'显示启用数据包列表"
+                },
+                {
+                    "@datapack_name": "<数据包名称 : 字符串>"
+                },
+                {
+                    "@dataapckname": "'数据包名称"
+                },
+                {
+                    "@vanilla_datapack": "'原版数据包"
+                },
+                {
+                    "@datapack_first": "'最低优先级"
+                },
+                {
+                    "@datapack_last": "'最高优先级"
+                },
+                {
+                    "@datapack_after": "'优先级高于指定数据包"
+                },
+                {
+                    "@datapack_before": "'优先级低于指定数据包"
+                },
+                {
+                    "@command_daylock": "'是否锁定时间"
+                },
+                {
+                    "@command_debug": "'设置调试状态"
+                },
+                {
+                    "@start_debug": "'开始调试"
+                },
+                {
+                    "@stop_debug": "'停止调试"
+                },
+                {
+                    "@adventure_bedrock": "'冒险(仅基岩版)"
+                },
+                {
+                    "@creative_bedrock": "'创造(基岩版)"
+                },
+                {
+                    "@survival_bedrock": "'生存(仅基岩版)"
+                },
+                {
+                    "@default_bedrock": "'默认(仅基岩版)"
+                },
+                {
+                    "@command_defaultgamemode": "'设置默认游戏模式"
+                },
+                {
+                    "@command_deop": "'去除玩家的操作员权限"
+                },
+                {
+                    "@command_dialogue": "'打开一个玩家的NPC对话框"
+                },
+                {
+                    "@command_difficulty": "'设置游戏难度"
+                },
+                {
+                    "@command_effect": "'添加或清除状态效果"
+                },
+                {
+                    "@command_enableencryption": "'为wsserver连接进行加密"
+                },
+                {
+                    "@command_enchant": "'附魔玩家的物品"
+                },
+                {
+                    "@effect_clear_je": "'为目清除指定或全部效果"
+                },
+                {
+                    "@effect_clear": "'为目标清除所有效果"
+                },
+                {
+                    "@effect_give": "'给予目标一个效果"
+                },
+                {
+                    "@effect_time": "<有效时间 : 整数>"
+                },
+                {
+                    "@effect_times": "'持续时间(秒)"
+                },
+                {
+                    "@effect_amplifier": "<效果等级 : 整数>"
+                },
+                {
+                    "@effect_amplifiers": "'效果等级"
+                },
+                {
+                    "@effect_no_particle": "'隐藏粒子"
+                },
+                {
+                    "@effect_have_particle": "'显示粒子"
+                },
+                {
+                    "@websocketserver_public_key": "<公钥 : 字符串>"
+                },
+                {
+                    "@public_key": "'公钥"
+                },
+                {
+                    "@salt_value": "<盐值 : 整数>"
+                },
+                {
+                    "@salt": "'盐值"
+                },
+                {
+                    "@enchant_level": "<附魔等级 : 整数>"
+                },
+                {
+                    "@enchant_levels": "'附魔等级"
+                },
+                {
+                    "@command_event": "'触发实体事件"
+                },
+                {
+                    "@event_entity": "'实体目标"
+                },
+                {
+                    "@command_execute": "'代表实体执行一个命令"
+                },
+                {
+                    "@execute_detect": "'判断指定位置的方块,与目标方块一致才执行命令"
+                },
+                {
+                    "@blockdata": "<特殊值 : 整数>"
+                },
+                {
+                    "@block_datas": "'特殊值"
+                }
+            ]
+        },
+        {
+            "english": [
+                {
+                    "noComplete": "there command not complete:"
+                },
+                {
+                    "@gugul": "'this will complete, but not now"
+                },
+                {
+                    "@command_help": "'find usage of command"
+                },
+                {
+                    "@command_gamemode": "'set gamemode"
+                },
+                {
+                    "@command_gamerule": "'set or query gamerule"
+                },
+                {
+                    "@comamnd_ability": "'give or clear player's ability"
+                },
+                {
+                    "@command_achievenment": "'give or clear player's achievement(invalid)"
+                },
+                {
+                    "@command_advancement": "'add、clear、query player's advancement"
+                },
+                {
+                    "@command_agent": "'operation agent"
+                },
+                {
+                    "@command_bossbar": "'operation boss bar"
+                },
+                {
+                    "commandNotFound": "This usage of this command cannot be found"
+                },
+                {
+                    "pageOut": "page out of max"
+                },
+                {
+                    "@page": "'page"
+                },
+                {
+                    "@boolean_true": "'enable"
+                },
+                {
+                    "@boolean_false": "'disable"
+                },
+                {
+                    "appointName": "'specify name"
+                },
+                {
+                    "@sel_s": "'entity that execute command"
+                },
+                {
+                    "@sel_r": "'random player"
+                },
+                {
+                    "@sel_p": "'nearly player"
+                },
+                {
+                    "@sel_e": "'all entities"
+                },
+                {
+                    "@sel_a": "'all players"
+                },
+                {
+                    "@adventure": "'adventure mode"
+                },
+                {
+                    "@default": "'default mode"
+                },
+                {
+                    "@creative": "'creative mode"
+                },
+                {
+                    "@survival": "'survival mode"
+                },
+                {
+                    "@spectator": "'spectator mode (only java edition)"
+                },
+                {
+                    "@ability_worldbuilder": "'give player builder world ability"
+                },
+                {
+                    "@ability_mayfly": "'give player fly ability"
+                },
+                {
+                    "@ability_mute": "'mute for player"
+                },
+                {
+                    "@grant": "'give advancement"
+                },
+                {
+                    "@revoke": "'clear advancement"
+                },
+                {
+                    "@advancement_only": "'specify advancement"
+                },
+                {
+                    "@advancement_everything": "'all advancement"
+                },
+                {
+                    "@advancement_through": "'advancement and its upstream and downstream"
+                },
+                {
+                    "@advancement_from": "'advancement and its downstream"
+                },
+                {
+                    "@advancement_until": "'advancement and its upstream"
+                },
+                {
+                    "@alwaysday": "'enable day night alternation or not"
+                },
+                {
+                    "@attribute": "'modify and query attribute of player and biology"
+                },
+                {
+                    "@ban_player": "'ban a player"
+                },
+                {
+                    "@ban_ip": "'ban a IP"
+                },
+                {
+                    "@ban_reason": "'reason"
+                },
+                {
+                    "@ban_reason_text": "<reason : Staring>"
+                },
+                {
+                    "@ban_ip_reason_text": "<IP : String>"
+                },
+                {
+                    "@null": ""
+                },
+                {
+                    "@ban_strings": "'a string"
+                },
+                {
+                    "@ban_list": "'list of ban"
+                },
+                {
+                    "@ban_ip_list": "'list of ip"
+                },
+                {
+                    "@ban_players_list": "'list of players"
+                },
+                {
+                    "@bossbar_add": "'create new boss bar"
+                },
+                {
+                    "@bossbar_list": "'show existing bossbar"
+                },
+                {
+                    "@bossbar_remove": "'remove a exitsing bossbar"
+                },
+                {
+                    "@bossbar_set": "'set attribute of a bossbar"
+                },
+                {
+                    "@bossbar_get": "'get attributeof a bossbar"
+                },
+                {
+                    "@namespace": "<name space : String>"
+                },
+                {
+                    "@aname_space": "'name space"
+                },
+                {
+                    "@json": "<json : String>"
+                },
+                {
+                    "@bossbar_get_max": "'get max value of boosbar"
+                },
+                {
+                    "@bossbar_get_value": "'get value of bossbar"
+                },
+                {
+                    "@bossbar_get_visible": "'get visible status of bossbar"
+                },
+                {
+                    "@color": "'set color"
+                },
+                {
+                    "@blue": "'blue"
+                },
+                {
+                    "@green": "'green"
+                },
+                {
+                    "@pink": "'pink"
+                },
+                {
+                    "@purple": "'purple"
+                },
+                {
+                    "@red": "'red"
+                },
+                {
+                    "@white": "'white"
+                },
+                {
+                    "@yellow": "'yellow"
+                },
+                {
+                    "@bossbar_max_set": "<max : Integer>"
+                },
+                {
+                    "@valueErr": "is a error value"
+                },
+                {
+                    "@help_valueOutLimited": "the page is out of limited"
+                },
+                {
+                    "@int_valueOutLimited": "the number is out of limited"
+                },
+                {
+                    "@bossbar_max_set_value": "'max value"
+                },
+                {
+                    "bossbar_set_max": "'set max value"
+                },
+                {
+                    "@bossbar_set_name": "'set bossbar name"
+                },
+                {
+                    "@bossbar_set_players": "'set who can see bossbar"
+                },
+                {
+                    "@bossbar_set_style": "'set style of bossbar"
+                },
+                {
+                    "@bossbar_style_progress": "'default style"
+                },
+                {
+                    "@bossbar_style_notched_6": "'shown as six sections"
+                },
+                {
+                    "@bossbar_style_notched_10": "'shown as ten sections"
+                },
+                {
+                    "@bossbar_style_notched_12": "'shown as twelve sections"
+                },
+                {
+                    "@bossbar_style_notched_20": "'shown as twenty sections"
+                },
+                {
+                    "@bossbar_set_value": "'set value of bossbar"
+                },
+                {
+                    "@bossbar_value_set": "<value : Integer>"
+                },
+                {
+                    "@bossbar_value_sey_value": "'value"
+                },
+                {
+                    "@bossbar_set_visible": "'set visible status of bossbar"
+                },
+                {
+                    "@command_camerashake": "'set shake of camera"
+                },
+                {
+                    "@camerashake_add": "'add a camera shake effect"
+                },
+                {
+                    "@camerashake_stop": "'stop a camera shake effect"
+                },
+                {
+                    "@banip": "'ban a IP(invalid)"
+                },
+                {
+                    "@achievenment_give": "'give achievement"
+                },
+                {
+                    "@achievenment_take": "'remove achievenment"
+                },
+                {
+                    "@advancement_conditions": "<condition : String>"
+                },
+                {
+                    "@all": "'all"
+                },
+                {
+                    "@command_changesettin": "'change settings at bds running"
+                },
+                {
+                    "@allow-cheats": "'allow player cheats"
+                },
+                {
+                    "@difficulty": "'changed game difficulty"
+                },
+                {
+                    "@peaceful": "'peaceful mode"
+                },
+                {
+                    "@easy": "'easy mdoe"
+                },
+                {
+                    "@normal": "'normal mode"
+                },
+                {
+                    "@hard": "'hard mode"
+                },
+                {
+                    "@lost_command": "'unconfirmed command"
+                },
+                {
+                    "@clear_data": "<item data : Integer>"
+                },
+                {
+                    "@item_data": "<count : Integer>"
+                },
+                {
+                    "@count": "'count"
+                },
+                {
+                    "@command_clear": "'clear items in player's item list"
+                },
+                {
+                    "@command_clearspawnpoint": "'clear spawn point of player"
+                },
+                {
+                    "@command_clone": "'clone the area from position to other position"
+                },
+                {
+                    "@x_position_integer": "<X-axis : Integer>"
+                },
+                {
+                    "@x": "'X-axis"
+                },
+                {
+                    "@y_position_integer": "<Z-axis : Integer>"
+                },
+                {
+                    "@y": "'Y-axis"
+                },
+                {
+                    "@z_position_integer": "<Z-axis : Integer>"
+                },
+                {
+                    "@z": "'Z-axis"
+                },
+                {
+                    "@current_position": "'current position"
+                },
+                {
+                    "@clone_x_start_position_integer": "<area start position(X-axis): Integer>"
+                },
+                {
+                    "@clone_y_start_position_integer": "<area start position(Y-axis) : Integer>"
+                },
+                {
+                    "@clone_z_start_position_integer": "<area start position(Z-axis) : Integer>"
+                },
+                {
+                    "@clone_x_diagonally_position_integer": "<area diagonally position(X-axis): Integer>"
+                },
+                {
+                    "@clone_y_diagonally_position_integer": "<area diagonally position(Y-axis): Integer>"
+                },
+                {
+                    "@clone_z_diagonally_position_integer": "<area diagonally position(Z-axis): Integer>"
+                },
+                {
+                    "@clone_x_position_target": "<target position(X-axis> : Integer"
+                },
+                {
+                    "@clone_y_position_target": "<target position(Y-axis> : Integer"
+                },
+                {
+                    "@clone_z_position_target": "<target position(Z-axis> : Integer"
+                },
+                {
+                    "@clone_replace": "'direct replace the blocks"
+                },
+                {
+                    "@clone_replace_normal": "'default replace type"
+                },
+                {
+                    "@clone_replace_force": "'force replace"
+                },
+                {
+                    "@clone_replace_move": "'clear blocks in source area after replace"
+                },
+                {
+                    "@clone_masked": "'clone non air blocks"
+                },
+                {
+                    "@clone_filtered": "'clone filtered block"
+                },
+                {
+                    "mayErrNamespace": "not is a correct namespace"
+                },
+                {
+                    "@command_closechat": "'close chat box(invalid)"
+                },
+                {
+                    "@command_closewebsocket": "'close connect of wsserver"
+                },
+                {
+                    "@command_closewebsocket_description": "this command usage close connect of websocket，only can execute on websocket"
+                },
+                {
+                    "@command_code": "'enable code editor"
+                },
+                {
+                    "@command_lost": "this command from Minecraft Wiki,it not give any info about this command\nand this command temporary can not be confirmed is true have by us"
+                },
+                {
+                    "@command_codebuilder": "'set code builder status of player"
+                },
+                {
+                    "@command_connect": "'connect to websocket server"
+                },
+                {
+                    "@connect_out": "'close connect of websocket server"
+                },
+                {
+                    "@connect_URL": "<URL : String>"
+                },
+                {
+                    "@URL": "'URL"
+                },
+                {
+                    "@command_data": "'get、merge、remove tag data of entity or block"
+                },
+                {
+                    "@command_datapack": "'control loaded data packs"
+                },
+                {
+                    "@disable_datapack": "'disable appoint datapack"
+                },
+                {
+                    "@enable_datapack": "'enable appoint datapack"
+                },
+                {
+                    "@list_datapack": "'show list of datapacks"
+                },
+                {
+                    "@datapack_list_available": "'show list of available datapacks"
+                },
+                {
+                    "@datapack_list_enable": "'show list of enable datapacks"
+                },
+                {
+                    "@datapack_name": "<pack name : String>"
+                },
+                {
+                    "@dataapckname": "'pack name"
+                },
+                {
+                    "@vanilla_datapack": "'minecraft datapack"
+                },
+                {
+                    "@datapack_first": "'lowest priority"
+                },
+                {
+                    "@datapack_last": "'highest priority"
+                },
+                {
+                    "@datapack_after": "'priority higher than appoint packet"
+                },
+                {
+                    "@datapack_before": "'priority lower than appoint packet"
+                },
+                {
+                    "@command_daylock": "'lock the time"
+                },
+                {
+                    "@command_debug": "'set debug status"
+                },
+                {
+                    "@start_debug": "'start debug"
+                },
+                {
+                    "@stop_debug": "'stop debug"
+                },
+                {
+                    "@adventure_bedrock": "'adventure mode(only bedrock edition)"
+                },
+                {
+                    "@creative_bedrock": "'creative mode(only bedrock edition)"
+                },
+                {
+                    "@survival_bedrock": "'survival mode(only bedrock edition)"
+                },
+                {
+                    "@default_bedrock": "'default mdoe(only bedrock edition)"
+                },
+                {
+                    "@command_defaultgamemode": "'set default game mode"
+                },
+                {
+                    "@command_deop": "'remove operator authority of player"
+                },
+                {
+                    "@command_dialogue": "'open NCP dialogue box of player"
+                },
+                {
+                    "@command_difficulty": "'set difficulty of game"
+                },
+                {
+                    "@command_effect": "'add or clear effect"
+                },
+                {
+                    "@command_enableencryption": "'encryption connect for wsserver"
+                },
+                {
+                    "@command_enchant": "'enchant item for player"
+                },
+                {
+                    "@effect_clear_je": "'clear one or all effect for target"
+                },
+                {
+                    "@effect_clear": "'clear all effect for target"
+                },
+                {
+                    "@effect_give": "'give a effect for target"
+                },
+                {
+                    "@effect_time": "<effect time : Integer>"
+                },
+                {
+                    "@effect_times": "'effect time(second5)"
+                },
+                {
+                    "@effect_amplifier": "<effect level : Inteer>"
+                },
+                {
+                    "@effect_amplifiers": "'effect level"
+                },
+                {
+                    "@effect_no_particle": "'hide particle"
+                },
+                {
+                    "@effect_have_particle": "'show particle"
+                },
+                {
+                    "@websocketserver_public_key": "<public key : String>"
+                },
+                {
+                    "@public_key": "'public key"
+                },
+                {
+                    "@salt_value": "<salt value : Integer>"
+                },
+                {
+                    "@salt": "'salt value"
+                },
+                {
+                    "@enchant_level": "<enchant level : Integer>"
+                },
+                {
+                    "@enchant_levels": "'enchant level"
+                },
+                {
+                    "@command_event": "'trigger entity event"
+                },
+                {
+                    "@event_entity": "'entity target"
+                },
+                {
+                    "@command_execute": "'run command behalf of entity"
+                },
+                {
+                    "@execute_detect": "'Judge block in specified position, and execute the command only when it is consistent with the target block"
+                },
+                {
+                    "@blockdata": "<block data : Integer>"
+                },
+                {
+                    "@block_datas": "'block data"
+                }
+            ]
+        }
+    ],
+    "resources": {
+        "commands": {
+            "detect": {
+                "description": "@execute_detect",
+                "tips": "This is not a command, it is in /execute",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "$execute": true,
+                "noshow": "detect",
+                "usage": [
+                    {
+                        "tree": [
+                            "@x",
+                            "@y",
+                            "@z",
+                            "@blocks",
+                            "@block_data",
+                            "@commands"
+                        ]
+                    }
+                ]
+            },
+            "?": {
+                "description": "@command_help",
+                "limited": [
+                    "normal",
+                    "player"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@?",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "ability": {
+                "description": "@comamnd_ability",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@ability",
+                            "@boolean"
+                        ]
+                    }
+                ]
+            },
+            "achievement": {
+                "description": "@command_achievenment",
+                "$invalid": true,
+                "usage": [
+                    {
+                        "tree": [
+                            "@achievement_operator",
+                            "@advancements",
+                            "@sel"
+                        ]
+                    }
+                ]
+            },
+            "advancement": {
+                "description": "@command_advancement",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@advancement_operator",
+                            "@sel",
+                            "@advancement_type",
+                            "@advancements",
+                            "@advancement_condition",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "agent": {
+                "description": "@command_agent",
+                "limited": [
+                    "bedrock",
+                    "wsserver"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@gugu"
+                        ]
+                    }
+                ]
+            },
+            "alwaysday": {
+                "description": "@alwaysday",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@boolean"
+                        ]
+                    }
+                ]
+            },
+            "attribute": {
+                "description": "@attribute",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel_one",
+                            "@gugu"
+                        ]
+                    }
+                ]
+            },
+            "ban": {
+                "description": "@ban_player",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@ban_reason"
+                        ]
+                    }
+                ]
+            },
+            "ban-ip": {
+                "description": "@ban_ip",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@ip",
+                            "@ban_reason"
+                        ]
+                    }
+                ]
+            },
+            "banip": {
+                "description": "@banip",
+                "$invalid": true,
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@ip",
+                            "@ban_reason"
+                        ]
+                    }
+                ]
+            },
+            "banlist": {
+                "description": "@ban_list",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@banlist_lists"
+                        ]
+                    }
+                ]
+            },
+            "bossbar": {
+                "description": "@command_bossbar",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@boolean"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@json"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_gets"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@bossbar_colors"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@bossbar_set_max"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@json"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@sel"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@bossbar_styles"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@bossbar_value"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@boolean"
+                        ]
+                    }
+                ]
+            },
+            "camerashake": {
+                "description": "@command_camerashake",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@camerashake_operation",
+                            "@sel"
+                        ]
+                    },
+                    {
+                        "tree": "camerashake add @sel @float;limit=4) @float @camerashake_type"
+                    },
+                    {
+                        "tree": "camerashake stop @sel"
+                    }
+                ]
+            },
+            "changesetting": {
+                "description": "@command_changesettin",
+                "limited": [
+                    "bds",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@settings_bds",
+                            "@boolean"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@settings_bds",
+                            "@difficultys"
+                        ]
+                    },
+                    {
+                        "tree": "changesetting allow-cheats @boolean"
+                    },
+                    {
+                        "tree": "changesetting difficulty @difficulty"
+                    }
+                ]
+            },
+            "classroommode": {
+                "description": "@lost_command",
+                "limited": [
+                    "edu",
+                    "player"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@calssroommode"
+                        ]
+                    }
+                ]
+            },
+            "clear": {
+                "description": "@command_clear",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "forks": [
+                    {
+                        "fork": "bedrock"
+                    },
+                    {
+                        "fork": "java"
+                    }
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@all_items",
+                            "@clear_data",
+                            "@clear_count"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@sel",
+                            "@all_items",
+                            "@clear_count"
+                        ]
+                    }
+                ]
+            },
+            "clearspawnpoint": {
+                "description": "@command_clearspawnpoint",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel"
+                        ]
+                    }
+                ]
+            },
+            "clone": {
+                "description": "@command_clone",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "forks": [
+                    {
+                        "fork": "bedrock"
+                    },
+                    {
+                        "fork": "java"
+                    }
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@clone_x_start",
+                            "@clone_y_start",
+                            "@clone_z_start",
+                            "@clone_x_diagonally",
+                            "@clone_y_diagonally",
+                            "@clone_z_diagonally",
+                            "@clone_x_target",
+                            "@clone_y_target",
+                            "@clone_z_target",
+                            "@clone_type",
+                            "@clone_replace_type",
+                            "@blocks"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@clone_x_start",
+                            "@clone_y_start",
+                            "@clone_z_start",
+                            "@clone_x_diagonally",
+                            "@clone_y_diagonally",
+                            "@clone_z_diagonally",
+                            "@clone_x_target",
+                            "@clone_y_target",
+                            "@clone_z_target",
+                            "@clone_type",
+                            "@blocks",
+                            "@clone_replace_type"
+                        ]
+                    }
+                ]
+            },
+            "closechat": {
+                "description": "@command_closechat",
+                "limited": [
+                    "bedrock",
+                    "player"
+                ],
+                "$invalid": true
+            },
+            "closewebsocket": {
+                "description": "@command_closewebsocket",
+                "limited": [
+                    "wsserver",
+                    "player"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@over_/closewebsocket",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "code": {
+                "description": "@command_code",
+                "limited": [
+                    "edu",
+                    "player"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@lost_command"
+                        ]
+                    }
+                ]
+            },
+            "codebuilder": {
+                "description": "@command_codebuilder",
+                "limited": [
+                    "edu",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@lost_command"
+                        ]
+                    }
+                ]
+            },
+            "connect": {
+                "description": "@command_connect",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@connect"
+                        ]
+                    }
+                ]
+            },
+            "data": {
+                "description": "@command_data",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@gugu"
+                        ]
+                    }
+                ]
+            },
+            "datapack": {
+                "description": "@command_datapack",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@datapacks",
+                            "@datapacks_operator"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@datapacks",
+                            "@datapacks_list"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@datapacks",
+                            "@datapacks_operator_enable",
+                            "@datapack_priority",
+                            "@datapacks_operator"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@datapacks",
+                            "@datapacks_operator_enable",
+                            "@datapack_priority"
+                        ]
+                    }
+                ]
+            },
+            "daylock": {
+                "description": "@command_daylock",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@boolean"
+                        ]
+                    }
+                ]
+            },
+            "debug": {
+                "description": "@command_debug",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@debug_operators"
+                        ]
+                    }
+                ]
+            },
+            "defaultgamemode": {
+                "description": "@command_defaultgamemode",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@mode"
+                        ]
+                    }
+                ]
+            },
+            "deop": {
+                "description": "@command_deop",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel"
+                        ]
+                    }
+                ]
+            },
+            "dialogue": {
+                "description": "@command_dialogue",
+                "limited": [
+                    "@duc",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@lost_command"
+                        ]
+                    }
+                ]
+            },
+            "difficulty": {
+                "description": "@command_difficulty",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@difficultys"
+                        ]
+                    }
+                ]
+            },
+            "effect": {
+                "description": "@command_effect",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "forks": [
+                    {
+                        "fork": "bedrock"
+                    },
+                    {
+                        "fork": "java"
+                    }
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@effects",
+                            "@effect_second",
+                            "@effect_amplifier",
+                            "@effect_particle",
+                            "@end"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@effect_operator",
+                            "@sel",
+                            "@effects",
+                            "@effect_second",
+                            "@effect_amplifier",
+                            "@effect_particle",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "enableencryption": {
+                "description": "@command_enableencryption",
+                "limited": [
+                    "wsserver",
+                    "player"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@wsserver_pulic_key",
+                            "@salt_value"
+                        ]
+                    }
+                ]
+            },
+            "enchant": {
+                "description": "@command_enchant",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@enchants",
+                            "@enchants_level"
+                        ]
+                    }
+                ]
+            },
+            "event": {
+                "description": "@command_event",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@event_target",
+                            "@sel",
+                            "@events"
+                        ]
+                    }
+                ]
+            },
+            "execute": {
+                "description": "@command_execute",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "forks": [
+                    {
+                        "fork": "bedrock"
+                    },
+                    {
+                        "fork": "java"
+                    }
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@x",
+                            "@y",
+                            "@z",
+                            "@commands"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@execute_operator"
+                        ]
+                    },
+                    {
+                        "tree": "execute @sel @xyz @commands",
+                        "edit": "@bedrock"
+                    },
+                    {
+                        "tree": "@null"
+                    }
+                ]
+            },
+            "gamemode": {
+                "description": "@command_gamemode",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@mode",
+                            "@sel",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "gamerule": {
+                "description": "@command_gamerule",
+                "usage": [
+                    {
+                        "tree": [
+                            "@rule",
+                            "@boolean",
+                            "@end"
+                        ]
+                    }
+                ]
+            }
+        },
+        "resource": {
+            "@all_items": {
+                "items": {
+                    "description": "@null"
+                }
+            },
+            "@blocks": {
+                "blocks1": {
+                    "description": ""
+                }
+            },
+            "@effects": {
+                "clear": {
+                    "description": "@effect_clear",
+                    "catchLimited": "bedrock",
+                    "over": true
+                },
+                "effect1": {
+                    "description": "@effect_clear"
+                }
+            },
+            "@enchants": {},
+            "@events": {},
+            "event_target": {
+                "entity": {
+                    "description": "@event_entity"
+                }
+            },
+            "@enchants_level": {
+                " ": {
+                    "description": "@enchant_level"
+                },
+                "@Number": {
+                    "description": "@enchant_levels",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 256
+                }
+            },
+            "@effect_operator": {
+                "clear": {
+                    "description": "@effect_clear_je",
+                    "over": true
+                },
+                "give": {
+                    "description": "@effect_give"
+                }
+            },
+            "@effect_second": {
+                " ": {
+                    "description": "@effect_time"
+                },
+                "@Number": {
+                    "description": "@effect_times",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@effect_amplifier": {
+                " ": {
+                    "description": "@effect_amplifier"
+                },
+                "@Number": {
+                    "description": "@effect_amplifiers",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 256
+                }
+            },
+            "@effect_particle": {
+                "true": {
+                    "description": "@effect_no_particle"
+                },
+                "false": {
+                    "description": "@effect_have_particle"
+                }
+            },
+            "@wsserver_pulic_key": {
+                " ": {
+                    "description": "@websocketserver_public_key"
+                },
+                "@String": {
+                    "description": "@public_key"
+                }
+            },
+            "@salt_value": {
+                " ": {
+                    "description": "@salt_value"
+                },
+                "@Number": {
+                    "description": "@salt",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@x": {
+                " ": {
+                    "description": "@x_position_integer"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@x",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@y": {
+                " ": {
+                    "description": "@y_position_integer"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@y",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@z": {
+                " ": {
+                    "description": "@z_position_integer"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@z",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_x_start": {
+                " ": {
+                    "description": "@clone_x_start_position_integer"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@x",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_y_start": {
+                " ": {
+                    "description": "@clone_y_start_position_integer"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@y",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_z_start": {
+                " ": {
+                    "description": "@clone_z_start_position_integer"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@z",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_x_diagonally": {
+                " ": {
+                    "description": "@clone_x_diagonally_position_integer"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@x",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_y_diagonally": {
+                " ": {
+                    "description": "@clone_y_diagonally_position_integer"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@y",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_z_diagonally": {
+                " ": {
+                    "description": "@clone_z_diagonally_position_integer"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@z",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_x_target": {
+                " ": {
+                    "description": "@clone_x_position_target"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@x",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_y_target": {
+                " ": {
+                    "description": "@clone_y_position_target"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@y",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_z_target": {
+                " ": {
+                    "description": "@clone_z_position_target"
+                },
+                "~": {
+                    "description": "@current_position"
+                },
+                "@Number": {
+                    "description": "@z",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_type": {
+                "replace": {
+                    "description": "@clone_replace"
+                },
+                "masked": {
+                    "description": "@clone_masked"
+                },
+                "filtered": {
+                    "description": "@clone_filtered"
+                }
+            },
+            "@clone_replace_type": {
+                "normal": {
+                    "description": "@clone_replace_normal"
+                },
+                "force": {
+                    "description": "@clone_replace_force"
+                },
+                "move": {
+                    "description": "@clone_replace_move"
+                }
+            },
+            "@ip": {
+                " ": {
+                    "description": "@ban_ip_reason_text"
+                },
+                "@String": {
+                    "description": "@ban_strings"
+                }
+            },
+            "@ban_reason": {
+                " ": {
+                    "description": "@ban_reason_text"
+                },
+                "@String": {
+                    "description": "@ban_reason"
+                }
+            },
+            "@strings": {
+                "<String>": {
+                    "description": "@null"
+                },
+                "@String": {
+                    "description": "@ban_strings"
+                }
+            },
+            "@gugu": {
+                "gugu": {
+                    "description": "@gugul"
+                }
+            },
+            "@?": {
+                "?": {
+                    "description": "@command_help"
+                },
+                "@Number": {
+                    "description": "@page",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@help_valueOutLimited",
+                    "limited": 21
+                }
+            },
+            "@ability": {
+                "worldbuilder": {
+                    "description": "@ability_worldbuilder"
+                },
+                "mayfly": {
+                    "description": "@ability_mayfly"
+                },
+                "mute": {
+                    "description": "@ability_mute"
+                }
+            },
+            "@advancement_operator": {
+                "grant": {
+                    "description": "@grant"
+                },
+                "revoke": {
+                    "description": "@revoke"
+                }
+            },
+            "@advancement_type": {
+                "until": {
+                    "description": "@advancement_until",
+                    "will_over": 1
+                },
+                "from": {
+                    "description": "@advancement_from",
+                    "will_over": 1
+                },
+                "through": {
+                    "description": "@advancement_through",
+                    "will_over": 1
+                },
+                "only": {
+                    "description": "@advancement_only"
+                },
+                "everything": {
+                    "description": "@advancement_everything",
+                    "over": true
+                }
+            },
+            "@advancement_condition": {
+                " ": {
+                    "description": "@advancement_conditions"
+                },
+                "@String": {
+                    "description": "@advancement_condition"
+                }
+            },
+            "@banlist_lists": {
+                "ips": {
+                    "description": "@ban_ip_list"
+                },
+                "players": {
+                    "description": "@ban_players_list"
+                }
+            },
+            "@achievement_operator": {
+                "give": {
+                    "description": "@grant"
+                },
+                "take": {
+                    "description": "@revoke"
+                }
+            },
+            "@advancements": {
+                "advancements1": {
+                    "description": "@revoke"
+                }
+            },
+            "@settings_bds": {
+                "allow-cheats": {
+                    "description": "@allow-cheats",
+                    "fork": 1
+                },
+                "difficulty": {
+                    "description": "@difficulty",
+                    "fork": 2
+                }
+            },
+            "@difficultys": {
+                "peaceful": {
+                    "description": "@peaceful"
+                },
+                "easy": {
+                    "description": "@easy"
+                },
+                "normal": {
+                    "description": "@normal"
+                },
+                "hard": {
+                    "description": "@hard"
+                },
+                "p": {
+                    "description": "@peaceful_be"
+                },
+                "e": {
+                    "description": "@easy_be"
+                },
+                "n": {
+                    "description": "@normal_be"
+                },
+                "h": {
+                    "description": "@hard_be"
+                },
+                "0": {
+                    "description": "@peaceful_be"
+                },
+                "1": {
+                    "description": "@easy_be"
+                },
+                "2": {
+                    "description": "@normal_be"
+                },
+                "3": {
+                    "description": "@hard_be"
+                }
+            },
+            "@clear_data": {
+                " ": {
+                    "description": "@clear_data"
+                },
+                "@Number": {
+                    "description": "@null",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clear_count": {
+                " ": {
+                    "description": "@item_count"
+                },
+                "@Number": {
+                    "description": "@count",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@mode": {
+                "adventure": {
+                    "description": "@adventure"
+                },
+                "default": {
+                    "description": "@default"
+                },
+                "creative": {
+                    "description": "@creative"
+                },
+                "spectator": {
+                    "description": "@spectator"
+                },
+                "survival": {
+                    "description": "@survival"
+                },
+                "a": {
+                    "description": "@adventure_bedrock"
+                },
+                "c": {
+                    "description": "@creative_bedrock"
+                },
+                "d": {
+                    "description": "@default_bedrock"
+                },
+                "s": {
+                    "description": "@survival_bedrock"
+                },
+                "5": {
+                    "description": "@default_bedrock"
+                },
+                "0": {
+                    "description": "@survival_bedrock"
+                },
+                "1": {
+                    "description": "@creative_bedrock"
+                },
+                "2": {
+                    "description": "@adventure_bedrock"
+                }
+            },
+            "@rule": {
+                "rules1": {
+                    "description": "'第一条游戏规则"
+                },
+                "rules2": {
+                    "description": "'第二条游戏规则"
+                }
+            },
+            "@sel": {
+                "@a": {
+                    "description": "@sel_a"
+                },
+                "@e": {
+                    "description": "@sel_e"
+                },
+                "@p": {
+                    "description": "@sel_p"
+                },
+                "@r": {
+                    "description": "@sel_r"
+                },
+                "@s": {
+                    "description": "@sel_s"
+                },
+                "@String": {
+                    "description": "@appointName"
+                }
+            },
+            "@sel_one": {
+                "@s": {
+                    "description": "@sel_s"
+                },
+                "@p": {
+                    "description": "@sel_p"
+                },
+                "@r": {
+                    "description": "@sel_r"
+                },
+                "@String": {
+                    "description": "@appointName"
+                }
+            },
+            "@boolean": {
+                "true": {
+                    "description": "@boolean_true"
+                },
+                "false": {
+                    "description": "@boolean_false"
+                }
+            },
+            "@bossbars": {
+                "add": {
+                    "description": "@bossbar_add",
+                    "fork": 2
+                },
+                "get": {
+                    "description": "@bossbar_get",
+                    "fork": 4
+                },
+                "list": {
+                    "description": "@bossbar_list",
+                    "over": true
+                },
+                "remove": {
+                    "description": "@bossbar_remove",
+                    "will_over": 1
+                },
+                "set": {
+                    "description": "@bossbar_set",
+                    "fork": 3
+                }
+            },
+            "@bossbar_sets": {
+                "color": {
+                    "description": "@color",
+                    "fork": 5
+                },
+                "max": {
+                    "description": "bossbar_set_max",
+                    "fork": 6
+                },
+                "name": {
+                    "description": "@bossbar_set_name",
+                    "fork": 7
+                },
+                "players": {
+                    "description": "@bossbar_set_players",
+                    "fork": 8
+                },
+                "style": {
+                    "description": "@bossbar_set_style",
+                    "fork": 9
+                },
+                "value": {
+                    "description": "@bossbar_set_value",
+                    "fork": 10
+                },
+                "visible": {
+                    "description": "@bossbar_set_visible",
+                    "fork": 11
+                }
+            },
+            "@bossbar_value": {
+                " ": {
+                    "description": "@bossbar_value_set"
+                },
+                "@Number": {
+                    "description": "@bossbar_value_sey_value",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@bossbar_styles": {
+                "progress": {
+                    "description": "@bossbar_style_progress"
+                },
+                "notched_6": {
+                    "description": "@bossbar_style_notched_6"
+                },
+                "notched_10": {
+                    "description": "@bossbar_style_notched_10"
+                },
+                "notched_12": {
+                    "description": "@bossbar_style_notched_12"
+                },
+                "notched_20": {
+                    "description": "@bossbar_style_notched_20"
+                }
+            },
+            "@bossbar_set_max": {
+                " ": {
+                    "description": "@bossbar_max_set"
+                },
+                "@Number": {
+                    "description": "@bossbar_max_set_value",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@bossbar_colors": {
+                "blue": {
+                    "description": "@blue"
+                },
+                "green": {
+                    "description": "@green"
+                },
+                "pink": {
+                    "description": "@pink"
+                },
+                "purple": {
+                    "description": "@purple"
+                },
+                "red": {
+                    "description": "@red"
+                },
+                "white": {
+                    "description": "@white"
+                },
+                "yellow": {
+                    "description": "@yellow"
+                }
+            },
+            "@bossbar_gets": {
+                "max": {
+                    "description": "@bossbar_get_max"
+                },
+                "players": {
+                    "description": "@bossbar_get_players"
+                },
+                "value": {
+                    "description": "@bossbar_get_value"
+                },
+                "visible": {
+                    "description": "@bossbar_get_visible"
+                }
+            },
+            "@camerashake_operation": {
+                "add": {
+                    "description": "@camerashake_add",
+                    "fork": 2
+                },
+                "stop": {
+                    "description": "@camerashake_stop"
+                }
+            },
+            "@connect": {
+                " ": {
+                    "description": "@connect_URL"
+                },
+                "out": {
+                    "description": "@connect_out"
+                },
+                "@String": {
+                    "description": "@URL"
+                }
+            },
+            "@datapacks": {
+                "disable": {
+                    "description": "@disable_datapack",
+                    "fork": 1
+                },
+                "enable": {
+                    "description": "@enable_datapack",
+                    "fork": 3
+                },
+                "list": {
+                    "description": "@list_datapack",
+                    "fork": 2
+                }
+            },
+            "@datapacks_list": {
+                "available": {
+                    "description": "@datapack_list_available"
+                },
+                "enable": {
+                    "description": "@datapack_list_enable"
+                }
+            },
+            "@datapack_priority": {
+                "first": {
+                    "description": "@datapack_first",
+                    "over": true
+                },
+                "last": {
+                    "description": "@datapack_last",
+                    "over": true
+                },
+                "after": {
+                    "description": "@datapack_after"
+                },
+                "before": {
+                    "description": "@datapack_before"
+                }
+            },
+            "@datapacks_operator": {
+                " ": {
+                    "description": "@datapack_name"
+                },
+                "vanilla": {
+                    "description": "@vanilla_datapack"
+                },
+                "@String": {
+                    "description": "@dataapckname"
+                }
+            },
+            "@datapacks_operator_enable": {
+                " ": {
+                    "description": "@datapack_name"
+                },
+                "@String": {
+                    "description": "@dataapckname"
+                }
+            },
+            "@debug_operators": {
+                "start": {
+                    "description": "@start_debug"
+                }
+            },
+            "@json": {
+                " ": {
+                    "description": "@json"
+                },
+                "@String": {
+                    "description": "@null"
+                }
+            },
+            "@namespace": {
+                " ": {
+                    "description": "@namespace"
+                },
+                "@String": {
+                    "description": "@name_space"
+                }
+            },
+            "@over_/closewebsocket": {
+                " ": {
+                    "description": "@command_closewebsocket_description"
+                }
+            },
+            "@lost_command": {
+                " ": {
+                    "description": "@command_lost"
+                }
+            },
+            "@execute_operator": {},
+            "@block_data": {
+                " ": {
+                    "description": "@blockdata"
+                },
+                "@Number": {
+                    "description": "@block_datas",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@int_valueOutLimited",
+                    "limited": 255
+                }
+            }
+        }
+    }
+}

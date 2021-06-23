@@ -228,9 +228,7 @@ public class ini {
             jFrame.add(GoHelp);
             jFrame.add(GoMchUI);
 
-            continues.addActionListener(e1 -> {
-                setDefaultColor();
-            });
+            continues.addActionListener(e1 -> setDefaultColor());
             autoSet.addActionListener(e1 -> {
                 continues.setVisible(false);
                 autoSet.setVisible(false);
@@ -285,9 +283,7 @@ public class ini {
                 Helps.Helps();
                 defaultIniSetOver();
             });
-            GoMchUI.addActionListener(e1 -> {
-                defaultIniSetOver();
-            });
+            GoMchUI.addActionListener(e1 -> defaultIniSetOver());
 
         }
     }

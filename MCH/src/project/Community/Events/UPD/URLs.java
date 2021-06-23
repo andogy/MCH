@@ -335,16 +335,16 @@ public class URLs extends Thread {
                         if (UPD) {
                             BufferedReader br = new BufferedReader(new FileReader(ini.path + "UPD.cache"));
                             String string;
-                            String newly = "";
+                            StringBuilder newly = new StringBuilder();
                             int line = 0;
                             while ((string = br.readLine()) != null) {
-                                newly = newly + string + "\n";
+                                newly.append(string).append("\n");
 
                                 if (line == 0) {
                                     if (Community.LangID == 0) {
-                                        newly = "新版本:" + newly;
+                                        newly.insert(0, "新版本:");
                                     } else if (Community.LangID == 1) {
-                                        newly = "new version:" + newly;
+                                        newly.insert(0, "new version:");
                                     }
                                 }
 
@@ -354,16 +354,16 @@ public class URLs extends Thread {
 
                                 if (line == 1) {
                                     if (Community.LangID == 0) {
-                                        newly = newly + "当前版本:" + Community.verID + "(" + Community.ver + ")\n\n";
+                                        newly.append("当前版本:").append(Community.verID).append("(").append(Community.ver).append(")\n\n");
                                     } else if (Community.LangID == 1) {
-                                        newly = newly + "now version:" + Community.verID + "(" + Community.ver + ")\n\n";
+                                        newly.append("now version:").append(Community.verID).append("(").append(Community.ver).append(")\n\n");
                                     }
                                 }
                             }
 
                             br.close();
 
-                            MenuUI2.updateInfo.setText(newly);
+                            MenuUI2.updateInfo.setText(newly.toString());
 
                             if (Community.saveCache) {
                                 filesOperator.saveCache(new File(ini.path + "UPD.cache"), new File(ini.path + "save\\cache\\"), "UPD_View");

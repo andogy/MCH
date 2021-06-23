@@ -21,13 +21,9 @@ public class test1 {
             }
         });
 
-        new Thread(() -> {
-            minecraftStart.startMc("C:\\normal\\Minecraft\\.minecraft\\libraries\\");
-        }).start();
+        new Thread(() -> minecraftStart.startMc("C:\\normal\\Minecraft\\.minecraft\\libraries\\")).start();
 
-        new Thread(() -> {
-            minecraftStart.startMc("C:\\normal\\Minecraft\\.minecraft\\libraries\\");
-        }).start();
+        new Thread(() -> minecraftStart.startMc("C:\\normal\\Minecraft\\.minecraft\\libraries\\")).start();
 
         while (minecraftStart.pid.isEmpty()) {
             try {

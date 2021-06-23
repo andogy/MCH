@@ -10,6 +10,10 @@ public class CommandOverException extends Exception{
         super(message);
     }
 
+    public CommandOverException() {
+        super();
+    }
+
     public CommandOverException(String message, Throwable cause) {
         super(message, cause);
     }

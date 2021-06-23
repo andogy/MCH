@@ -45,7 +45,7 @@ public enum PacketType {
 	private final int id;
 	private final boolean clientside;
 
-	private PacketType(int id, boolean clientside) {
+	PacketType(int id, boolean clientside) {
 		this.id = id;
 		this.clientside = clientside;
 	}

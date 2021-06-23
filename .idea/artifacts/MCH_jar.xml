@@ -8,7 +8,6 @@
         </element>
         <element id="module-output" name="MCH" />
       </element>
-      <element id="library" level="project" name="libs" />
     </root>
   </artifact>
 </component>

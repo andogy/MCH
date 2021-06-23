@@ -6,8 +6,8 @@ import java.util.HashMap;
 public class HashMapToSTRS {
     public static String[] toSTRS(HashMap hashMap,int getNum) {
         String source = hashMap.toString().replace("{","").replace("}",",").replace(" ","");
-        String str[] = new String[255];
-        String str2[] = new String[255];
+        String[] str = new String[255];
+        String[] str2 = new String[255];
 
         int i = 0;
         do {

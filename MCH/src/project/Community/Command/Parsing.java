@@ -282,7 +282,6 @@ public class Parsing extends Thread {
                 }
             }
         }).start();
-        ;
 
         parsing();
     }
