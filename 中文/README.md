@@ -6,7 +6,7 @@ MCH项目起始于2021.4.6
 目前还没有第一个正式版本
 ```
 
-## [注意事项](https://github.com/andogy/MCH/blob/main/English/Helps/attentions/README.md)
+## [注意事项](https://github.com/andogy/MCH/blob/main/%E4%B8%AD%E6%96%87/%E5%B8%AE%E5%8A%A9/%E6%B3%A8%E6%84%8F/README.md)
 
 ## 彩蛋
 ### !! -  注意 - !!
