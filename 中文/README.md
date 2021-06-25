@@ -5,6 +5,9 @@ MCH项目起始于2021.4.6
 第一个版本上传时间是2021.4.9
 目前还没有第一个正式版本
 ```
+
+## [注意事项](https://github.com/andogy/MCH/blob/main/English/Helps/attentions/README.md)
+
 ## 彩蛋
 ### !! -  注意 - !!
 目前MCH有一个彩蛋,此彩蛋内容包含有一些可能造成特定人群癫痫的图像/色彩<br>
