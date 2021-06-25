@@ -5,7 +5,7 @@ we impossible charge any about we project from you<br>
 and we will not open any sponsorship channels<br>
 if we programs have any charge, please delete it, and re download from [correct github repository](https://github.com/zhuaidadaya/MCH/releases)<br>
 do not believe the claim to pay us anywhere<br>
-attention：<b>and we will not open any sponsorship channels, we will give up directly when we cannot continue do it, do not be cheated into paying</b>
+attention：<b>and we will not open any sponsorship channels, we will give up directly when we cannot continue do it, do not be cheated into paying</b><br>
 (because we have free repository and server from github, so usually we will not give up, unless there are too many and strong competitors)
 ## contact
 although we is not have many people, but we will try our best to solve the problem<br>
