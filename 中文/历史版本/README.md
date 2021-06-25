@@ -22,7 +22,15 @@
 
 ## 版本更新内容
 
-### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-45.zip">MCH_ah_0-0-1-50(11166010150)</a>
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-51.zip">MCH_ah_0-0-1-51(116130100151)</a>
+```
+更改了初始化的界面
+增加修复资源功能(只有自动,没手动)
+
+(20021.6.25)
+```
+
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-50.zip">MCH_ah_0-0-1-50(11166010150)</a>
 ```
 指令处理部分开始测试
 正式版本将在命令库完成后发布
