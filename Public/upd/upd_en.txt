@@ -1,2 +1,3 @@
-111550100149(0-0-1-49)
-changed text display ways
+116130100151(0-0-1-51)
+changed UI for initialization interface
+add function of fix resources(only auto)
