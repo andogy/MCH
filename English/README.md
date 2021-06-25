@@ -5,6 +5,9 @@ project of MCH is start at 2021.4.6
 first version is upload at 2021.4.9
 first official version is have not now
 ```
+
+## [注意事项](https://github.com/andogy/MCH/tree/main/English/Helps/attentions)
+
 ## ColorEgg
 
 ### !! - WARNIG - !!<br>
