@@ -40,3 +40,6 @@ MCH is Fully Open Source,You can Revivew/Modify/Learn,But Never for Commercial U
 
 ### u can do
 ### u can't do
+do not fork this repository, this repository not work repository
+do not fork, push, issue etcetera
+these should do in [work repository](https://github.com/zhuaidadaya/MCH)
