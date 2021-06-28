@@ -6,7 +6,7 @@ first version is upload at 2021.4.9
 first official version is have not now
 ```
 
-## [注意事项](https://github.com/andogy/MCH/tree/main/English/Helps/attentions)
+## [Attentions](https://github.com/andogy/MCH/tree/main/English/Helps/attentions)
 
 ## ColorEgg
 
