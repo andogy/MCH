@@ -4,12 +4,15 @@ import project.Community.Command.ini;
 import project.Community.Events.LoadAssembly;
 import project.Community.Times.times;
 import project.Community.UI.MchUI;
+import project.Community.UI.MenuUI2;
 import project.Community.UI.exit;
 
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import static project.Community.Exits.*;
+import static project.Community.UI.Lang.initLanguage.lang;
 
 public class Exits {
     public static boolean small = false;
@@ -18,8 +21,7 @@ public class Exits {
     public static int w;
 
     public Exits() {
-        System.out.println("[" + times.format + "]\n" + "Exits:退出按钮事件就绪");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadSucceed: Exits\n");
+        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadSucceed: Exits\n",lang.get("loading_exButtons_succeed"), new Color(99,128,87));
         Exit_Button();
     }
 
@@ -27,6 +29,8 @@ public class Exits {
         new MchUiEx();
 
         new iniEx();
+
+        new MenuUi2();
     }
 }
 
@@ -63,6 +67,21 @@ class MchUiEx {
                         small = true;
                     }
 
+                }
+            }
+        });
+    }
+}
+
+class MenuUi2 {
+    public MenuUi2() {
+        MenuUI2.jFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if (ini.settingIni) {
+                    exit.Ex();
+                } else {
+                    MenuUI2.jFrame.setVisible(false);
                 }
             }
         });

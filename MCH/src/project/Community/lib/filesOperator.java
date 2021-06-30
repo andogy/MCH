@@ -14,7 +14,7 @@ public class filesOperator {
             for (File f : path) {
                 if (f.isFile()) {
                     if (!f.getName().equals("settings.ini") & !f.getName().equals("run.log") & !f.getName().equals("languages.json") & !f.getName().equals("commands.json")) {
-                        LoadAssembly.loadAssembly("delete: " + f.getName() + "\n");
+                        LoadAssembly.loadAssembly("delete: " + f.getName() + "\n","");
                         f.delete();
                     }
                 }

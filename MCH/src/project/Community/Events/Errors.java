@@ -98,7 +98,7 @@ public class Errors {
 
                 System.out.println("[" + times.format + "]\n" + "Errors:出现错误");
                 if (CannotHandle) {
-                    LoadAssembly.loadAssembly("[" + times.format + "]\n" + "Errors: try restart the MCH\n");
+                    LoadAssembly.loadAssembly("[" + times.format + "]\n" + "Errors: try restart the MCH\n","");
                 }
 
                 if (exception != null) {

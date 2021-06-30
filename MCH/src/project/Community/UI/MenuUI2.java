@@ -5,6 +5,7 @@ import project.Community.Command.limitedTypes;
 import project.Community.Community;
 import project.Community.Events.Events;
 import project.Community.Events.UPD.URLs;
+import project.Community.Help.Helps;
 import project.Community.UI.Color.displaySets;
 import project.Community.lib.filesOperator;
 
@@ -85,6 +86,9 @@ public class MenuUI2 {
     public static JLabel showCommandsMethod = new JLabel();
     public static JButton firstBedrock = new JButton();
     public static JButton firstJava = new JButton();
+
+    public static JButton iniFinished = new JButton();
+    public static JButton iniHelper = new JButton();
 
     public MenuUI2() {
         UI();
@@ -189,6 +193,9 @@ public class MenuUI2 {
             jFrame.add(firstBedrock);
             jFrame.add(firstJava);
 
+            jFrame.add(iniFinished);
+            jFrame.add(iniHelper);
+
             jFrame.setLayout(new LayoutManager() {
                 @Override
                 public void addLayoutComponent(String name, Component comp) {
@@ -246,7 +253,11 @@ public class MenuUI2 {
                     setting_display.setBounds(80, 280, 80, 34);
                     setting_upd.setBounds(160, 280, 80, 34);
                     setting_info.setBounds(240, 280, 80, 34);
-                    setting_command.setBounds(320, 280, 100, 34);
+                    if(!ini.settingIni) {
+                        setting_command.setBounds(320, 280, 100, 34);
+                    } else {
+                        setting_command.setBounds(160, 280, 80, 34);
+                    }
 
                     Language.setBounds(0, 5, 80, 30);
                     Chinese.setBounds(80, 5, 80, 30);
@@ -285,17 +296,40 @@ public class MenuUI2 {
                     firstBedrock.setBounds(110, 50, 80, 30);
                     firstBedrock.setFont(new Font(firstBedrock.getFont().getName(), firstBedrock.getFont().getStyle(), 11));
                     firstJava.setBounds(200, 50, 80, 30);
+
+                    iniFinished.setBounds(535,280,100,34);
+                    iniHelper.setBounds(430,280,100,34);
+
+                    if(ini.settingIni) {
+                        setting_upd.setVisible(false);
+                        setting_info.setVisible(false);
+                        iniFinished.setVisible(true);
+                        iniHelper.setVisible(true);
+                    } else {
+                        setting_upd.setVisible(true);
+                        setting_info.setVisible(true);
+                        iniFinished.setVisible(false);
+                        iniHelper.setVisible(false);
+                    }
                 }
             });
         }
 
         displaySets.settingsDisplay();
 
-        MenuUI2.Hades.addActionListener(e -> {
+        Hades.addActionListener(e -> {
             Events.switchColor(2);
             displaySets.hadesColor();
         });
 
+        iniFinished.addActionListener(e -> {
+            jFrame.setVisible(false);
+            ini.settingIni = false;
+            ini.defaultIniSetOver();
+        });
+        iniHelper.addActionListener(e -> {
+            Helps.iniHelps();
+        });
 
         Black.addActionListener(e -> Events.switchColor(1));
         White.addActionListener(e -> Events.switchColor(0));

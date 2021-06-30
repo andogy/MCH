@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class test1 {
 
     public static void main(String[] args) {
-        final JList list = new JList();
+        JList list = new JList();
 
         new Thread(() -> {
             while (true) {
@@ -20,8 +20,6 @@ public class test1 {
                 }
             }
         });
-
-        new Thread(() -> minecraftStart.startMc("C:\\normal\\Minecraft\\.minecraft\\libraries\\")).start();
 
         new Thread(() -> minecraftStart.startMc("C:\\normal\\Minecraft\\.minecraft\\libraries\\")).start();
 

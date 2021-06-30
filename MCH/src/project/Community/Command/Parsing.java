@@ -16,13 +16,11 @@ import java.awt.*;
 public class Parsing extends Thread {
     public static String display = "";
 
-    public static boolean flushHistory = true;
-
     public static boolean canSetLight = false;
 
     private static void parsing() {
-        while (true) {
-            if (!Community.isDaemons) {
+        while(! Errors.CannotHandle) {
+            if(! Community.isDaemons) {
 
                 try {
                     try {
@@ -31,21 +29,21 @@ public class Parsing extends Thread {
                         e.printStackTrace();
                     }
 
-                    if (MchUI.jFrame.getWidth() > 800) {
+                    if(MchUI.jFrame.getWidth() > 800) {
                         //                        System.out.println("jf>8");
                     }
 
-                    if (!Exits.small) {
-                        if (MchUI.jFrame.getWidth() < 500) {
+                    if(! Exits.small) {
+                        if(MchUI.jFrame.getWidth() < 500) {
                             MchUI.jFrame.setSize(500, MchUI.jFrame.getHeight());
                         }
-                        if (MchUI.jFrame.getHeight() < 300) {
+                        if(MchUI.jFrame.getHeight() < 300) {
                             MchUI.jFrame.setSize(MchUI.jFrame.getWidth(), 300);
                         }
                     }
 
-                    if (Exits.small) {
-                        if (MchUI.jFrame.getHeight() > 50) {
+                    if(Exits.small) {
+                        if(MchUI.jFrame.getHeight() > 50) {
                             Exits.small = false;
                         }
                     }
@@ -55,7 +53,7 @@ public class Parsing extends Thread {
                     //                str = MchUI.input_Command.getText().substring(0, MchUI.input_Command.getCaretPosition());
                     String allStr = MchUI.input_Command.getText();
                     //            如果tip文本框失去焦点,则让文本框回归正常input
-                    if (!MchUI.switchTip.isFocusOwner()) {
+                    if(! MchUI.switchTip.isFocusOwner()) {
                         //                关闭tip显示
                         MchUI.switchTip.setVisible(false);
                         MchUI.tip_scrollPane.setVisible(false);
@@ -77,27 +75,27 @@ public class Parsing extends Thread {
                         MchUI.input_Command.setVisible(false);
                     }
 
-                    if (allStr.equals("coloregg")) {
+                    if(allStr.equals("coloregg")) {
                         displaySets.hadesColor();
                     }
 
                     //            愚人节彩蛋
-                    if (times._monthAndDay.equals("04-01")) {
-                        if (allStr.equals("coloreggs")) {
+                    if(times._monthAndDay.equals("04-01")) {
+                        if(allStr.equals("coloreggs")) {
                             Events.switchColor(2);
                             displaySets.hadesColor();
                         }
                     }
-                    if (allStr.length() > 511) {
-                        if (allStr.length() > 512) {
+                    if(allStr.length() > 511) {
+                        if(allStr.length() > 512) {
                             allStr = allStr.substring(0, 512);
                             int poi = MchUI.input_Command.getCaretPosition();
                             MchUI.input_Command.setText(allStr);
                             MchUI.input_Command.setCaretPosition(poi);
                         }
-                        if (Community.LangID == 0) {
+                        if(Community.LangID == 0) {
                             MchUI.tips.setText("到达长度上限了,无法再进行输入");
-                        } else if (Community.LangID == 1) {
+                        } else if(Community.LangID == 1) {
                             MchUI.tips.setText("This Command is the Maximum Length,You Cannot input Any More\n");
                         }
                     } else {
@@ -111,30 +109,30 @@ public class Parsing extends Thread {
                         MenuUI2.jFrame.setAlwaysOnTop(Community.onTop);
                         ExtraUI.jFrame.setAlwaysOnTop(Community.onTop);
 
-                        if (Errors.CannotHandle) {
+                        if(Errors.CannotHandle) {
                             break;
                         }
 
-                        if (allStr.equals(".exit\n") || allStr.equals(".exit\r")) {
+                        if(allStr.equals(".exit\n") || allStr.equals(".exit\r")) {
                             exit.jFrame.setSize(500, 300);
                             exit.jFrame.setVisible(true);
                             MchUI.input_Command.setText("");
                         }
 
-                        if (allStr.equals(".function on\n") || allStr.equals(".function\r")) {
+                        if(allStr.equals(".function on\n") || allStr.equals(".function\r")) {
                             Community.functionEditing = true;
                             displaySets.extraDisplay();
                             MchUI.input_Command.setText("");
                             ExtraUI.functionEdit.setText("");
                         }
 
-                        if (allStr.equals(".function off\n") || allStr.equals(".function off\r")) {
+                        if(allStr.equals(".function off\n") || allStr.equals(".function off\r")) {
                             Community.functionEditing = false;
                             displaySets.extraDisplay();
                             MchUI.input_Command.setText("");
                         }
 
-                        if (allStr.equals(".new exception\n") || allStr.equals(".new exception\r")) {
+                        if(allStr.equals(".new exception\n") || allStr.equals(".new exception\r")) {
                             try {
                                 throw new IllegalStateException();
                             } catch (Exception ex) {
@@ -142,25 +140,25 @@ public class Parsing extends Thread {
                             }
                         }
 
-                        if (allStr.contains("  ")) {
+                        if(allStr.contains("  ")) {
                             int poi = MchUI.input_Command.getCaretPosition();
                             allStr = allStr.replace("  ", " ");
                             MchUI.input_Command.setText(allStr);
-                            if (MchUI.input_Command.getText().length() < poi) {
+                            if(MchUI.input_Command.getText().length() < poi) {
                                 poi = MchUI.input_Command.getText().length() - 1;
                             }
                             MchUI.input_Command.setCaretPosition(poi);
                         }
-                        if (allStr.indexOf(" ") == 0) {
+                        if(allStr.indexOf(" ") == 0) {
                             allStr = allStr.substring(1);
                             MchUI.input_Command.setText(allStr);
                         }
 
-                        if (MchUI.switchTip.getText().contains("  ")) {
+                        if(MchUI.switchTip.getText().contains("  ")) {
                             int poi = MchUI.switchTip.getCaretPosition();
                             String str1 = MchUI.switchTip.getText().replace("  ", " ");
                             MchUI.switchTip.setText(str1);
-                            if (MchUI.switchTip.getText().length() < poi) {
+                            if(MchUI.switchTip.getText().length() < poi) {
                                 poi = MchUI.switchTip.getText().length() - 1;
                             }
                             MchUI.switchTip.setCaretPosition(poi);
@@ -168,10 +166,10 @@ public class Parsing extends Thread {
                         display = "";
 
                         //            空输入时键入tab快捷输入斜杠
-                        if (allStr.equals("\t")) {
+                        if(allStr.equals("\t")) {
                             MchUI.input_Command.setText("/");
                             MchUI.input_Command.setCaretPosition(1);
-                        } else if (allStr.contains("\t")) {
+                        } else if(allStr.contains("\t")) {
                             allStr = allStr.replace("\t", "");
                             int poi = MchUI.input_Command.getCaretPosition();
                             MchUI.input_Command.setText(allStr);
@@ -179,12 +177,12 @@ public class Parsing extends Thread {
                             MchUI.input_Command.setCaretPosition(poi);
                         }
 
-                        if (allStr.contains("\n")) {
-                            if (!allStr.replace("\n", "").contains("\n")) {
+                        if(allStr.contains("\n")) {
+                            if(! allStr.replace("\n", "").contains("\n")) {
                                 try {
                                     Events.Copy();
                                     MchUI.input_Command.setText("");
-                                    if (Community.historySaveID != 2) {
+                                    if(Community.historySaveID != 2) {
                                         historyReader.flush();
                                     }
                                 } catch (IllegalStateException e) {
@@ -219,19 +217,19 @@ public class Parsing extends Thread {
         new CommandParsing().start();
 
         new Thread(() -> {
-            while (!Errors.CannotHandle) {
-                if (!Community.isDaemons) {
+            while(! Errors.CannotHandle) {
+                if(! Community.isDaemons) {
                     try {
-                        if (!MchUI.switchTip.isFocusOwner()) {
+                        if(! MchUI.switchTip.isFocusOwner()) {
                             Thread.sleep(20);
-                            if (listener.commandDoc.equals(MchUI.command1.getCharacterAttributes())) {
+                            if(listener.commandDoc.equals(MchUI.command1.getCharacterAttributes())) {
                                 System.out.println("??");
                                 Document doc = MchUI.command1.getDocument();
                                 AttributeSet aset = null;
                                 StyleContext sc = StyleContext.getDefaultStyleContext();
-                                if (Community.ColorID == 0) {
+                                if(Community.ColorID == 0) {
                                     aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(0, 0, 1));
-                                } else if (Community.ColorID == 1) {
+                                } else if(Community.ColorID == 1) {
                                     aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 255, 254));
                                 }
                                 String command_text = MchUI.command1.getText();
@@ -257,28 +255,36 @@ public class Parsing extends Thread {
         }).start();
 
         new Thread(() -> {
-            while (!Errors.CannotHandle) {
-                try {
-                    Thread.sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    MchUI.switchTip.setText(MchUI.switchTip.getText().replace("\t", ""));
-
-
-                    if (MchUI.input_Command.getText().contains("//")) {
-                        int point = MchUI.input_Command.getCaretPosition();
-                        MchUI.input_Command.setText(MchUI.input_Command.getText().replace("//", "/"));
-                        MchUI.input_Command.setCaretPosition(point - 1);
+            while(! Errors.CannotHandle) {
+                if(! Community.isDaemons) {
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                    if (MchUI.input_Command.getText().contains("\t")) {
-                        int point = MchUI.input_Command.getCaretPosition();
-                    MchUI.input_Command.setText(MchUI.input_Command.getText().replace("\t", ""));
-                                            MchUI.input_Command.setCaretPosition(point);
-                    }
-                } catch (Exception e) {
+                    try {
+                        MchUI.switchTip.setText(MchUI.switchTip.getText().replace("\t", ""));
 
+
+                        if(MchUI.input_Command.getText().contains("//")) {
+                            int point = MchUI.input_Command.getCaretPosition();
+                            MchUI.input_Command.setText(MchUI.input_Command.getText().replace("//", "/"));
+                            MchUI.input_Command.setCaretPosition(point - 1);
+                        }
+                        if(MchUI.input_Command.getText().contains("\t")) {
+                            int point = MchUI.input_Command.getCaretPosition();
+                            MchUI.input_Command.setText(MchUI.input_Command.getText().replace("\t", ""));
+                            MchUI.input_Command.setCaretPosition(point);
+                        }
+                    } catch (Exception e) {
+
+                    }
+                } else {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }).start();

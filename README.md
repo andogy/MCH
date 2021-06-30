@@ -33,10 +33,11 @@ it here -> <a href="https://github.com/andogy/MCH">main repository</a>
 you can download newly MCH at "release"<br>
 if you don't know what is "release", then <a href="https://github.com/zhuaidadaya/MCH/releases">click here</a><br>
 
-please read user agreement before used MCH<br>
+please read user agreement and attentions before used MCH<br>
 <a href="https://github.com/andogy/MCH/tree/main/%E4%B8%AD%E6%96%87/%E5%B8%AE%E5%8A%A9/%E7%94%A8%E6%88%B7%E5%8D%8F%E8%AE%AE">
-中文页面</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/andogy/MCH/tree/main/English/Helps/agreement">
-english-page</a>
+用户协议</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/andogy/MCH/tree/main/English/Helps/agreement">
+agreement</a><br>
+<a>注意事项</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>attentions</a><br>
 
 only these
 

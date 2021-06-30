@@ -388,9 +388,9 @@ public class URLs extends Thread {
                             }
                         } else {
                             if (Community.LangID == 0) {
-                                MenuUI2.updateInfo.setText("没有新的版本可以更新\n当前版本:" + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + "指令处理部分开始测试\n" + "正式版本将在命令库完成后发布\n");
+                                MenuUI2.updateInfo.setText("没有新的版本可以更新\n当前版本:" + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + "更改了初始化的界面\n" + "增加修复资源功能(只有自动,没手动)");
                             } else if (Community.LangID == 1) {
-                                MenuUI2.updateInfo.setText("have not new version can update\nnow version:" + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + "testing commands parsing\n" + "first official version will release in commands lib complete");
+                                MenuUI2.updateInfo.setText("have not new version can update\nnow version:" + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + "changed UI for initialization interface\n" + "add function of fix resources(only auto)");
                             }
                         }
                         //                输出提示

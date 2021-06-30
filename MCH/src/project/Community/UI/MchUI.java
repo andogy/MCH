@@ -8,6 +8,8 @@ import project.Community.UI.Lang.languageSet;
 import javax.swing.*;
 import java.awt.*;
 
+import static project.Community.UI.Lang.initLanguage.lang;
+
 public class MchUI {
 
     public static JFrame jFrame = new JFrame();
@@ -23,10 +25,6 @@ public class MchUI {
     public static JScrollPane tip_scrollPane = new JScrollPane(switchTip);
 
     public MchUI() {
-        //        加载语言
-        System.out.println("[" + times.format + "]\n" + "language:语言就绪中");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: language\n");
-        new languageSet().start();
 
         //        解析输入
         new Parsing().start();
@@ -67,8 +65,7 @@ public class MchUI {
 
         //显示窗口
         jFrame.setVisible(true);
-        System.out.println("[" + times.format + "]\n" + "MchUI:显示UI");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "MchUI: Display UI\n");
+        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "MchUI: Display UI\n",lang.get("show_UI"));
 
         LayoutManager layoutManager = new LayoutManager() {
             @Override
@@ -130,8 +127,7 @@ public class MchUI {
 
         menu.addActionListener(e -> MenuUI.jFrame.setVisible(true));
 
-        System.out.println("[" + times.format + "]\n" + "MchUI:UI就绪");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadSucceed: MchUI\n");
+        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadSucceed: MchUI\n",lang.get("loading_UI_succeed"), new Color(99,128,87));
 
     }
 }

@@ -19,8 +19,7 @@ public class exit extends JFrame {
 
     public exit() {
         EXITs();
-        System.out.println("[" + times.format + "]\n" + "exit:exit事件就绪");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadSucceed: exit\n");
+        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadSucceed: exit\n","Load Exit Event Succeed",new Color(99,128,87));
     }
 
     public static void EXITs() {
@@ -90,8 +89,7 @@ public class exit extends JFrame {
     }
 
     public static void Ex() {
-        System.out.println("[" + times.format + "]\n" + "exit:退出程序");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "exit: exit now\n");
+        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "exit: exit now\n","");
 
         try {
             Events.closeStreamOfUPD();

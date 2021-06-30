@@ -5,9 +5,12 @@ import org.json.JSONObject;
 import project.Community.Community;
 import project.Community.Events.Errors;
 import project.Community.UI.loadingWindow;
+import project.Community.lib.Resources;
 
-import java.io.*;
-import java.net.URL;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -23,10 +26,18 @@ public class initLanguage {
 
     public static void init() {
         String languagesPath = "C:\\.MCH\\languages.json";
+
+        File f;
+        if(new File("C:\\.MCH\\languages.json").isFile()) {
+            f = new File("C:\\.MCH\\languages.json");
+        } else {
+            f = Resources.getResource("/project/resources/resource_files/languages.json");
+        }
+
         StringBuilder json = new StringBuilder();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader(languagesPath, StandardCharsets.UTF_8));
+            BufferedReader br = new BufferedReader(new FileReader(f, StandardCharsets.UTF_8));
             String brRead;
 
             while((brRead = br.readLine()) != null) {
@@ -74,50 +85,36 @@ public class initLanguage {
         } catch (FileNotFoundException e) {
 
             //修复语言文件
-            fixResource("/project/resources/json_files/languages.json", languagesPath);
+            Resources.fixResource("/project/resources/resource_files/languages.json", languagesPath, false);
 
             Errors.errors(null, e, false, "languageInit");
 
             init();
         } catch (Exception e) {
-            System.out.println("语言文件损坏");
-
             //修复语言文件
-            fixResource("/project/resources/json_files/languages.json", languagesPath);
+            Resources.fixResource("/project/resources/resource_files/languages.json", languagesPath, false);
 
-            e.printStackTrace();
-
-            loadingWindow.loading.setText(Arrays.toString(e.getStackTrace()));
+            loadingWindow.loading.append(Arrays.toString(e.getStackTrace()) + "\n");
             Errors.errors(null, e, false, json.toString());
 
             init();
         }
-    }
 
-    public static void fixResource(String resource, String fixTarget) {
-        try {
-            URL res = initLanguage.class.getResource(resource);
-            BufferedReader br = new BufferedReader(new FileReader(new File(res.toURI()), StandardCharsets.UTF_8));
-            String out = "";
-
-            FileWriter writer = new FileWriter(fixTarget);
-
-            while((out = br.readLine()) != null) {
-                writer.write(out);
-            }
-
-            br.close();
-            writer.close();
-        } catch (Exception ignored) {
-
-        }
+        languageSet.Language();
     }
 
     public static void initCommand() {
         String commandPath = "C:\\.MCH\\commands.json";
 
+        File f;
+        if(new File("C:\\.MCH\\commands.json").isFile()) {
+            f = new File("C:\\.MCH\\commands.json");
+        } else {
+            f = Resources.getResource("/project/resources/resource_files/commands.json");
+        }
+
         try {
-            BufferedReader br = new BufferedReader(new FileReader(commandPath, StandardCharsets.UTF_8));
+            BufferedReader br = new BufferedReader(new FileReader(f, StandardCharsets.UTF_8));
             String brRead;
             StringBuilder json = new StringBuilder();
 
@@ -162,7 +159,7 @@ public class initLanguage {
                 commands.put(inMapKey, inMap.getString(inMapKey));
             }
         } catch (Exception e) {
-            fixResource("/project/resources/json_files/commands.json", commandPath);
+            Resources.fixResource("/project/resources/resource_files/commands.json", commandPath, false);
         }
     }
 }

@@ -7,19 +7,16 @@ import project.Community.Events.LoadAssembly;
 import project.Community.Times.times;
 import project.Community.UI.*;
 
+import java.awt.*;
+
 import static project.Community.Community.ver;
-import static project.Community.UI.Lang.initLanguage.commands;
-import static project.Community.UI.Lang.initLanguage.lang;
+import static project.Community.UI.Lang.initLanguage.*;
 
 public class languageSet extends Thread {
     public static String c = "";
     public static String type = "";
 
     public static void Language() {
-        //        init();
-
-        //            ID=0为中文
-        //        if (Community.LangID == 0) {
         MchUI.menu.setText(lang.get("menuButton"));
         MchUI.jFrame.setTitle(lang.get("mch"));
 
@@ -101,6 +98,8 @@ public class languageSet extends Thread {
         MenuUI2.showCommandsMethod.setText(lang.get("priority_display"));
         MenuUI2.firstBedrock.setText(lang.get("bedrock"));
         MenuUI2.firstJava.setText(lang.get("java"));
+        MenuUI2.iniFinished.setText(lang.get("finish"));
+        MenuUI2.iniHelper.setText(lang.get("ini_help"));
 
         if (Community.extraDisplayID == 0) {
             ExtraUI.jFrame.setTitle(lang.get("functions_launcher"));
@@ -119,6 +118,9 @@ public class languageSet extends Thread {
         ExtraUI.minecraftListenSpeedLevel.setText(lang.get("flushSpeed"));
         ExtraUI.Level0OfMLSL.setText(lang.get("slow"));
         ExtraUI.Level1OfMLSL.setText(lang.get("fast"));
+
+        loadingWindow.loadingTip.setText(lang.get("resource_loading"));
+        loadingWindow.loadStatus.setText(lang.get("load_status"));
 
         if (Community.canUPD) {
             MenuUI2.checkUPD.setText(lang.get("UPD"));
@@ -141,15 +143,16 @@ public class languageSet extends Thread {
 
     @Override
     public void run() {
-        System.out.println("[" + times.format + "]\n" + "language:语言就绪");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadSucceed: language\n");
+        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadSucceed: language\n",lang.get("loading_lang_succeed"), new Color(99,128,87));
         while (!Errors.CannotHandle) {
             if (!Community.isDaemons) {
                 try {
-                    Thread.sleep(15);
+                    Thread.sleep(20);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+//                initLanguage.init();
+//                initCommand();
                 Language();
             } else {
                 try {

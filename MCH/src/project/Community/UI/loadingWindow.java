@@ -12,11 +12,16 @@ public class loadingWindow {
 
     public static JFrame jFrame = new JFrame("MCH Loading...");
 
+    public static JLabel loadStatus = new JLabel();
+    public static JLabel status = new JLabel();
+
+    public static JLabel percentage = new JLabel();
+
     public static void ui() {
         loading.setEditable(false);
 
         //设置窗口大小和颜色
-        jFrame.setSize(350, 500);
+        jFrame.setSize(350, 520);
         jFrame.getContentPane().setBackground(Color.white);
 
         //        窗口初始化设置
@@ -33,6 +38,15 @@ public class loadingWindow {
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         jFrame.setResizable(false);
+
+        jFrame.add(loading);
+
+        jFrame.add(loadingTip);
+
+        jFrame.add(loadStatus);
+        jFrame.add(status);
+
+        jFrame.add(percentage);
 
         jFrame.setLayout(new LayoutManager() {
             @Override
@@ -57,17 +71,18 @@ public class loadingWindow {
 
             @Override
             public void layoutContainer(Container parent) {
-                jFrame.add(loading);
 
-                jFrame.add(loadingTip);
+                loading.setBounds(0,70,350,450);
+                loadingTip.setBounds(0,50,350,20);
 
-                loading.setBounds(0,50,350,450);
-                loadingTip.setBounds(0,5,350,20);
+                percentage.setBounds(0,30,350,20);
 
-//                loading.setBackground(displaySets.);
-                jFrame.setVisible(!MchUI.jFrame.isVisible());
+                loadStatus.setBounds(0,5,50,20);
+                status.setBounds(50,5,200,20);
 
             }
         });
+
+        jFrame.setVisible(true);
     }
 }

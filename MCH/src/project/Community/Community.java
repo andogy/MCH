@@ -11,23 +11,28 @@ import project.Community.Events.mchDir.dirSize;
 import project.Community.Times.times;
 import project.Community.UI.*;
 import project.Community.UI.Color.displaySets;
+import project.Community.UI.Lang.languageSet;
 import project.Community.lib.filesOperator;
 import project.Community.UI.Lang.initLanguage;
 import test.ResourceTest.test1;
 
+import static project.Community.UI.Lang.initLanguage.lang;
+
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Locale;
 
 
 public class Community {
 
     public static int ColorID = 0;
     public static int ColorSetID = 0;
-    public static int LangID = 0;
-    public static int LangSetID = 0;
+    public static int LangID = 1;
+    public static int LangSetID = 2;
     public static boolean exitButtonWillExit = true;
     public static boolean fastLoad = true;
     public static boolean onTop = false;
@@ -40,11 +45,10 @@ public class Community {
     public static boolean functionEditing = false;
 
     public static boolean saveCache = false;
+    public static boolean saveErrorLog = false;
+    public static boolean saveRunLog = false;
 
-    public static boolean saveErrorLog = true;
-    public static boolean saveRunLog = true;
-
-    public static boolean isDaemons = false;
+    public static boolean isDaemons = true;
 
     public static int historySaveID = 1;
 
@@ -57,125 +61,139 @@ public class Community {
 
     public static boolean autoUPD = false;
 
-    public static boolean iniHas = false;
-
-    public static boolean showInvalidCommand = false;
+    public static boolean showInvalidCommand = true;
 
     public static limitedTypes showCommands = limitedTypes.BEDROCK;
     public static limitedTypes showCommandMethod = limitedTypes.BEDROCK;
 
-    public static String UPD_ID = "152";
-    public static String verID = "11166010150/0-0-1-50";
-    public static String ver = "ah-50";
+    public static String UPD_ID = "153";
+    public static String verID = "116130100151/0-0-1-51";
+    public static String ver = "ah-51";
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(args));
 
-        loadingWindow.ui();
+        try {
 
-        System.out.println("[" + times.format + "]\n" + "ini:配置文件就绪中");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: ini\n");
-        new ini();
+            //        格式化时间
+            times.Times();
+            new times().start();
 
-        new initLanguage();
+            Locale locale = Locale.getDefault();
+            if(locale.getLanguage().equals("zh")) {
+                Community.LangID = 0;
+            } else if(locale.getLanguage().equals("en")) {
+                Community.LangID = 1;
+            }
 
-        new File(ini.path + "res.cache").delete();
+            displaySets.Color();
+
+            loadingWindow.ui();
+
+            new initLanguage();
+            languageSet.Language();
+
+            //        加载颜色
+            LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: color\n", lang.get("loading_color"));
+            displaySets.Color();
+            new displaySets().start();
+
+
+            //        加载语言
+            LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: language\n", lang.get("loading_lang"));
+            new initLanguage();
+            new languageSet().start();
+
+            //        引入退出类
+            LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: Exits\n", lang.get("loading_exit"));
+            new Exits();
+
+            LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: ini\n", lang.get("loading_ini"));
+            new ini();
+
+            new initLanguage();
+
+            new File(ini.path + "res.cache").delete();
 
         /*
         预加载部分
          */
 
-        //        格式化时间
-        times.Times();
-        new times().start();
+            //        创建文件夹
+            File f = new File(ini.path);
+            f.mkdirs();
 
-        //        创建文件夹
-        File f = new File(ini.path);
-        f.mkdirs();
+            System.gc();
 
-        System.gc();
+            LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: exit\n", lang.get("loading_exButtons"));
+            new exit();
 
-        System.out.println("[" + times.format + "]\n" + "exit:exit事件就绪中");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: exit\n");
-        new exit();
+            //        读取历史记录的线程
+            new historyReader().start();
 
-        //        引入退出类
-        System.out.println("[" + times.format + "]\n" + "Exits:退出按钮事件就绪中");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: Exits\n");
-        new Exits();
+            //        处理URL请求的线程
+            new URLs().start();
 
-        //        加载颜色
-        System.out.println("[" + times.format + "]\n" + "colors:色彩就绪中");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: color\n");
-        new displaySets().start();
+            //        计时线程,这是在UPD时用于计算连接服务器的时间的
+            new countTime().start();
 
-        //        判断一些文件是否存在的线程
-        new filesHas().start();
+            //        keyboard监听线程
+            new listener().start();
 
-        //        读取历史记录的线程
-        new historyReader().start();
+            //        开启minecraft监听线程,给启动器使用预留准备
+            new ExtraUI.minecraftListener().start();
 
-        //        处理URL请求的线程
-        new URLs().start();
+            //        开启websocket监听线程,给wsServer使用预留准备
+            //        new webSocket.webSocketListener().start();
 
-        //        计时线程,这是在UPD时用于计算连接服务器的时间的
-        new countTime().start();
+            //        这个线程用于计算MCH文件夹大小
+            new dirSize().start();
 
-        //        keyboard监听线程
-        new listener().start();
+            new daemons().start();
 
-        //        开启minecraft监听线程,给启动器使用预留准备
-        new ExtraUI.minecraftListener().start();
+            if(Community.LangID == 0) {
+                MenuUI2.mchDirSize.setText("MCH文件占用: 计算中      UPD缓存: 计算中");
+            } else if(Community.LangID == 1) {
+                MenuUI2.mchDirSize.setText("MCH File Size: counting      UPD cache: counting");
+            }
 
-        //        开启websocket监听线程,给wsServer使用预留准备
-        //        new webSocket.webSocketListener().start();
-
-        //        这个线程用于计算MCH文件夹大小
-        new dirSize().start();
-
-        new daemons().start();
-
-        System.gc();
-
-        if (Community.LangID == 0) {
-            MenuUI2.mchDirSize.setText("MCH文件占用: 计算中      UPD缓存: 计算中");
-        } else if (Community.LangID == 1) {
-            MenuUI2.mchDirSize.setText("MCH File Size: counting      UPD cache: counting");
-        }
-
-        URLs.checkUPD = true;
+            URLs.checkUPD = true;
 
         /*
         封装文件部分
          */
 
-        if (saveRunLog) {
-            File run = new File(ini.path + "run.log");
-            File runTo = new File(ini.path + "save\\run\\");
-            filesOperator.saveCache(run, runTo, "run");
-            run.delete();
+            if(saveRunLog) {
+                File run = new File(ini.path + "run.log");
+                File runTo = new File(ini.path + "save\\run\\");
+                filesOperator.saveCache(run, runTo, "run");
+                run.delete();
+            }
+            if(saveErrorLog) {
+                File err = new File(ini.path + "errors.log");
+                File errTo = new File(ini.path + "save\\errors\\");
+                filesOperator.saveCache(err, errTo, "error");
+                err.delete();
+            }
+
+            Events.menu();
+
+            System.gc();
+
+            //        显示UI
+            LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: MchUI\n", lang.get("loading_MchUI"));
+            if(ini.canStartUI) {
+                new MchUI();
+//                loadingWindow.jFrame.setVisible(false);
+            } else {
+                LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadFail: MchUI\n", lang.get("loading_MchUI_fail"), Color.RED);
+            }
+
+            started = true;
+
+            isDaemons = false;
+        } catch (Exception e) {
+
         }
-        if (saveErrorLog) {
-            File err = new File(ini.path + "errors.log");
-            File errTo = new File(ini.path + "save\\errors\\");
-            filesOperator.saveCache(err, errTo, "error");
-            err.delete();
-        }
-
-        Events.menu();
-
-        System.gc();
-
-        //        显示UI
-        System.out.println("[" + times.format + "]\n" + "MchUI:UI就绪中");
-        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: MchUI\n");
-        if (ini.canStartUI) {
-            new MchUI();
-        } else {
-            System.out.println("[" + times.format + "]\n" + "MchUI:UI无法就绪");
-            LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadFail: MchUI\n");
-        }
-
-        started = true;
     }
 }

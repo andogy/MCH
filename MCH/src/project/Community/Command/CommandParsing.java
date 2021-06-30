@@ -9,10 +9,12 @@ import project.Community.Events.historyReader;
 import project.Community.UI.Lang.initLanguage;
 import project.Community.UI.Lang.languageSet;
 import project.Community.UI.MchUI;
+import project.Community.lib.Resources;
 
 import java.io.*;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.UUID;
 
 public class CommandParsing extends Thread {
@@ -30,7 +32,13 @@ public class CommandParsing extends Thread {
     public static void commands() {
         StringBuilder jsonText = new StringBuilder();
 
-        File f = new File("C:\\.MCH\\commands.json");
+        File f;
+        if(new File("C:\\.MCH\\commands.json").isFile()) {
+            f = new File("C:\\.MCH\\commands.json");
+        } else {
+            f = Resources.getResource("/project/resources/resource_files/commands.json");
+        }
+
         try {
             BufferedReader br = new BufferedReader(new FileReader(f));
             while((buffered = br.readLine()) != null) {
@@ -49,6 +57,10 @@ public class CommandParsing extends Thread {
             } else {
                 target = completeCommand;
             }
+
+            completeCommand = completeCommand.toLowerCase();
+            target = target.toLowerCase();
+
             String out = "";
             int i = 0;
 
@@ -70,13 +82,13 @@ public class CommandParsing extends Thread {
 
             lastExecute = 0;
 
-            display(json, target, completeCommand, jsonResources, json, target, json, jsonResources, completeCommand, 0);
+            display(json, target, completeCommand, jsonResources, json, target, json, jsonResources);
         } catch (IOException e) {
             MchUI.command1.setText(languageSet.getCommandWord("commandsNotFound"));
         }
     }
 
-    public static void display(JSONObject commandJson, String target, String targetSource, JSONObject resources, JSONObject displayJson, String commandTarget, JSONObject sourceJson, JSONObject sourceResource, String targetSourceStatic, int sourceLength) {
+    public static void display(JSONObject commandJson, String target, String targetSource, JSONObject resources, JSONObject displayJson, String commandTarget, JSONObject sourceJson, JSONObject sourceResource) {
         try {
             if(willOver > 0) {
                 willOver -= 1;
@@ -241,18 +253,38 @@ public class CommandParsing extends Thread {
                             if(jsa.get(commandSteps).toString().equals("@commands")) {
                                 allSteps += commandSteps;
 
-                                String commandText = MchUI.input_Command.getText();
+                                String commandText = MchUI.input_Command.getText().toLowerCase(Locale.ROOT);
 
                                 buffered = commandText;
                                 int space = allSteps;
-                                while(space != 0) {
+                                while(space > 0) {
                                     space -= 1;
 
                                     buffered = buffered.replaceFirst(" ", "");
+
+                                    System.out.println(buffered);
                                 }
-                                buffered = buffered.substring(buffered.indexOf(" ") + 1);
+
+                                try {
+                                    buffered = buffered.substring(buffered.indexOf(" ") + 1 + offset);
+                                } catch (Exception e) {
+                                    buffered = buffered.substring(buffered.indexOf(" ") + 1);
+                                }
 
                                 commandText = buffered;
+
+                                try {
+
+                                    if(commandText.charAt(0) == ' ') {
+                                        commandText = commandText.substring(1);
+
+                                        offset += 1;
+                                        allSteps += 1;
+                                    }
+
+                                } catch (Exception ignored) {
+
+                                }
 
                                 if(commandText.contains(" ")) {
                                     commandTarget = commandText.substring(0, commandText.indexOf(" "));
@@ -263,11 +295,13 @@ public class CommandParsing extends Thread {
                                 commandSteps = 0;
                                 steps = 0;
 
-                                System.out.println("command text:" + commandText + "\n" + "target:" + target + "\n" + "command target:" + commandTarget);
+                                offset += 2;
 
-                                display(sourceJson, target, commandText, sourceResource, sourceJson, target, sourceJson, sourceResource, commandText, commandText.length());
+                                allSteps += 1;
 
-//                                throw new CommandOverException()
+                                display(sourceJson, target, commandText, sourceResource, sourceJson, target, sourceJson, sourceResource);
+
+                                throw new IllegalStateException();
                             }
 
                             //                        displayNotOk.clear();
@@ -296,7 +330,7 @@ public class CommandParsing extends Thread {
 
                         if(! over) {
                             try {
-                                display(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, targetSourceStatic, allSteps);
+                                display(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource);
                             } catch (StackOverflowError error) {
 
                             }
@@ -315,7 +349,7 @@ public class CommandParsing extends Thread {
                         } else if(steps + 1 < new JSONArray(new JSONObject(commandJson.get(commandTarget).toString()).get("usage").toString()).length()) {
                             steps += 1;
                             try {
-                                display(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, targetSourceStatic, 0);
+                                display(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource);
                             } catch (StackOverflowError error) {
 
                             }

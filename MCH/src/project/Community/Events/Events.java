@@ -22,7 +22,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class Events {
-    public static void menu() {
+    public static void menu() throws InterruptedException {
         new MenuUI();
         new MenuUI2();
         new ExtraUI();
@@ -44,9 +44,9 @@ public class Events {
                         System.out.println("[" + times.format + "]\n" + "Events/Copy: 复制字符 = " + Arrays.toString(write.getBytes(StandardCharsets.UTF_8)));
                         System.out.println("Events/Copy: 复制结果 = [" + write.replace("\n", "") + "]");
                         System.out.println("Events/Copy: 复制" + write.length() + "个字符");
-                        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "Events/Copy: copy chars = " + Arrays.toString(write.getBytes(StandardCharsets.UTF_8)) + "\n");
-                        LoadAssembly.loadAssembly("Events/Copy: copy result = [" + write.replace("\n", "") + "]\n");
-                        LoadAssembly.loadAssembly("Events/Copy: copy " + write.length() + " chars");
+                        LoadAssembly.loadAssembly("[" + times.format + "]\n" + "Events/Copy: copy chars = " + Arrays.toString(write.getBytes(StandardCharsets.UTF_8)) + "\n","");
+                        LoadAssembly.loadAssembly("Events/Copy: copy result = [" + write.replace("\n", "") + "]\n","");
+                        LoadAssembly.loadAssembly("Events/Copy: copy " + write.length() + " chars","");
                         fileWriter.write(write);
                     } else {
                         ExtraUI.functionEdit.setText(ExtraUI.functionEdit.getText() + write);
