@@ -25,13 +25,6 @@ public class displaySets extends Thread {
     public static Color grayColor = tipColor;
 
     public static void Color() {
-        //        使用线程休眠减少CPU负担,15ms时间可以减少相当大的CPU负载,且用户无法察觉延迟
-        try {
-            Thread.sleep(15);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         //        去除button边框
         MchUI.menu.setBorderPainted(false);
         MchUI.menu.setFocusPainted(false);
@@ -184,6 +177,7 @@ public class displaySets extends Thread {
         loadingWindow.loadingTip.setForeground(foregroundColor);
         loadingWindow.loading.setBackground(inputBoxColor);
         loadingWindow.loading.setForeground(foregroundColor);
+        loadingWindow.loadStatus.setForeground(foregroundColor);
 
         //        以下为颜色设置
         //            ID=0为白色
@@ -509,6 +503,14 @@ public class displaySets extends Thread {
         ExtraUI.Level0OfMLSL.setForeground(foregroundColor);
         ExtraUI.Level1OfMLSL.setForeground(foregroundColor);
         ExtraUI.minecraftListenSpeedLevel.setForeground(foregroundColor);
+
+
+        //        使用线程休眠减少CPU负担,15ms时间可以减少相当大的CPU负载,且用户无法察觉延迟
+        try {
+            Thread.sleep(15);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void hadesColor() {

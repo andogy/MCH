@@ -1,6 +1,7 @@
 package project.Community.Command;
 
 import project.Community.Community;
+import project.Community.Events.Errors;
 import project.Community.Events.LoadAssembly;
 import project.Community.Times.times;
 import project.Community.UI.MchUI;
@@ -42,6 +43,8 @@ public class ini {
     public static String showCommands = "Commands@Bedrock";
     public static String priorityDisplay = "PriorityDisplay@Bedrock";
 
+    public static String unsupported = "";
+
     public static boolean canStartUI = true;
 
     public static String sets = "settings.ini";
@@ -76,7 +79,13 @@ public class ini {
             LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadSucceed: ini\n    " + path + "settings.ini" + "\n",lang.get("loading_ini_succeed"),new Color(99,128,87));
             parsing();
         } else {
-            LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadFailed: ini\n    " + path + "settings.ini" + "\n",lang.get("loading_ini_fail"),Color.RED);
+            LoadAssembly.badLoadAssembly("[" + times.format + "]\n" + "LoadFailed: ini\n    " + path + "settings.ini" + "\n",lang.get("loading_ini_fail"));
+        }
+
+        System.out.println(unsupported);
+
+        if(!unsupported.equals("")) {
+            Errors.tips(500,150, lang.get("mayIsUnsupportedInfo") + "\n" + unsupported);
         }
     }
 
@@ -92,13 +101,14 @@ public class ini {
 
             while((s = br.readLine()) != null) {
 
-                int re = s.indexOf("//");
-                if(re == - 1) {
+                if(!s.contains("//")) {
                     Reads(s);
 
                     LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadAssemble: ini\n    " + s + "\n",lang.get("loading") + s);
                 }
             }
+
+            LoadAssembly.loadAssembly("","");
 
             br.close();
 
@@ -202,6 +212,8 @@ public class ini {
     }
 
     public static void defaultIniSetOver() {
+        loadingWindow.jFrame.setVisible(false);
+
         LoadAssembly.loadAssembly("[" + times.format + "]\n" + "reLoadingAssemble: MchUI\n",lang.get("reloading_MchUI"));
         if(! MchUI.jFrame.isVisible()) {
             new MchUI();
@@ -238,23 +250,27 @@ public class ini {
                     Community.ColorID = 2;
                     Community.ColorSetID = 2;
                     colorSet = "Color@Hades";
+                    s = "";
                 }
 
                 if(Black != - 1) {
                     Community.ColorID = 1;
                     Community.ColorSetID = 1;
                     colorSet = "Color@Black";
+                    s = "";
                 }
 
                 if(White != - 1) {
                     Community.ColorID = 0;
                     Community.ColorSetID = 0;
                     colorSet = "Color@White";
+                    s = "";
                 }
 
                 if(auto != - 1) {
                     Community.ColorSetID = 3;
                     colorSet = "Color@Auto";
+                    s = "";
                 }
             } else {
                 Community.ColorID = 1;
@@ -273,12 +289,14 @@ public class ini {
                     Community.LangID = 0;
                     Community.LangSetID = 0;
                     languageSet = "Language@Chinese";
+                    s = "";
                 }
 
                 if(English != - 1) {
                     Community.LangID = 1;
                     Community.LangSetID = 1;
                     languageSet = "Language@English";
+                    s = "";
                 }
 
                 if(auto != - 1) {
@@ -292,6 +310,7 @@ public class ini {
                         Community.LangID = 1;
                         languageSet = "Language@Auto";
                     }
+                    s = "";
                 }
             } else {
                 Community.LangSetID = 2;
@@ -316,11 +335,14 @@ public class ini {
                 if(exit != - 1) {
                     Community.exitButtonWillExit = true;
                     exButtonSet = "Button@Ex.Exit";
+                    s = "";
                 }
                 if(exitNot != - 1) {
                     Community.exitButtonWillExit = false;
                     exButtonSet = "Button@Ex.Smaller";
+                    s = "";
                 }
+
             }
         }
 
@@ -333,10 +355,12 @@ public class ini {
                 if(fast != - 1) {
                     Community.fastLoad = true;
                     fastLoadSet = "Load@Fast";
+                    s = "";
                 }
                 if(safe != - 1) {
                     Community.fastLoad = false;
                     fastLoadSet = "Load@Safe";
+                    s = "";
                 }
             }
         }
@@ -350,10 +374,12 @@ public class ini {
                 if(onTop != - 1) {
                     Community.onTop = true;
                     onTopSet = "Display@OnTop";
+                    s = "";
                 }
                 if(noOnTop != - 1) {
                     Community.onTop = false;
                     onTopSet = "Display@Default";
+                    s = "";
                 }
             }
         }
@@ -367,29 +393,33 @@ public class ini {
                 if(saveCaches != - 1) {
                     Community.saveCache = true;
                     saveCache = "Cache@Save";
+                    s = "";
                 }
 
                 if(notSaveCaches != - 1) {
                     Community.saveCache = false;
                     saveCache = "Cache@Delete";
+                    s = "";
                 }
             }
         }
 
         //        保存错误日志
         {
-            int saveErrorLogs = s.indexOf("errorlog@save");
-            int notSaveErrorLogs = s.indexOf("errorlog@delete");
+            int saveErrorLogs = s.indexOf("errlog@save");
+            int notSaveErrorLogs = s.indexOf("errlog@delete");
 
             if(! (saveErrorLogs != - 1 & notSaveErrorLogs != - 1)) {
                 if(saveErrorLogs != - 1) {
                     Community.saveErrorLog = true;
-                    saveErrorLog = "ErrorLog@Save";
+                    saveErrorLog = "ErrLog@Save";
+                    s = "";
                 }
 
                 if(notSaveErrorLogs != - 1) {
                     Community.saveErrorLog = false;
-                    saveErrorLog = "ErrorLog@Delete";
+                    saveErrorLog = "ErrLog@Delete";
+                    s = "";
                 }
             }
         }
@@ -403,11 +433,13 @@ public class ini {
                 if(saveRunLogs != - 1) {
                     Community.saveRunLog = true;
                     saveRunLog = "RunLog@Save";
+                    s = "";
                 }
 
                 if(notSaveRunLog != - 1) {
                     Community.saveRunLog = false;
                     saveRunLog = "RunLog@Delete";
+                    s = "";
                 }
             }
         }
@@ -421,11 +453,13 @@ public class ini {
                 if(autoUPD != - 1) {
                     Community.autoUPD = true;
                     autoPUDSet = "UPD@MCH";
+                    s = "";
                 }
 
                 if(noAutoUPD != - 1) {
                     Community.autoUPD = false;
                     autoPUDSet = "UPD@Self";
+                    s = "";
                 }
             }
         }
@@ -440,16 +474,19 @@ public class ini {
                 if(saveAllHistory != - 1) {
                     Community.historySaveID = 0;
                     saveHistorySet = "History@SaveAll";
+                    s = "";
                 }
 
                 if(saveHistory != - 1) {
                     Community.historySaveID = 1;
                     saveHistorySet = "History@SaveSome";
+                    s = "";
                 }
 
                 if(notSaveHistory != - 1) {
                     Community.historySaveID = 2;
                     saveHistorySet = "History@Delete";
+                    s = "";
                 }
             }
         }
@@ -461,6 +498,7 @@ public class ini {
                 if(input != - 1) {
                     String setCommand = s.substring(s.indexOf("input@") + 6);
                     MchUI.input_Command.setText(setCommand);
+                    s = "";
                 }
             }
         }
@@ -473,11 +511,13 @@ public class ini {
                 if(levels0 != - 1) {
                     Community.minecraftListenFlushSpeedLevels = 0;
                     minecraftListenFlushSpeedLevel = "MinecraftListenFlushSpeedLevel@0";
+                    s = "";
                 }
 
                 if(levels1 != - 1) {
                     Community.minecraftListenFlushSpeedLevels = 1;
                     minecraftListenFlushSpeedLevel = "MinecraftListenFlushSpeedLevel@1";
+                    s = "";
                 }
             }
         }
@@ -490,11 +530,13 @@ public class ini {
                 if(show != - 1) {
                     Community.showInvalidCommand = true;
                     showInvalidCommand = "InvalidCommand@Show";
+                    s = "";
                 }
 
                 if(hide != - 1) {
                     Community.showInvalidCommand = false;
                     showInvalidCommand = "InvalidCommand@Hide";
+                    s = "";
                 }
             }
         }
@@ -510,26 +552,31 @@ public class ini {
                 if(bedrock != - 1) {
                     Community.showCommands = limitedTypes.BEDROCK;
                     showCommands = "Commands@Bedrock";
+                    s = "";
                 }
 
                 if(java != - 1) {
                     Community.showCommands = limitedTypes.JAVA;
                     showCommands = "Commands@Java";
+                    s = "";
                 }
 
                 if(edu != - 1) {
                     Community.showCommands = limitedTypes.EDU;
                     showCommands = "Commands@EDU";
+                    s = "";
                 }
 
                 if(bds != - 1) {
                     Community.showCommands = limitedTypes.BDS;
                     showCommands = "commands@BDS";
+                    s = "";
                 }
 
                 if(wss != - 1) {
                     Community.showCommands = limitedTypes.WS_SERVER;
                     showCommands = "commands@WSS";
+                    s = "";
                 }
             }
         }
@@ -542,13 +589,19 @@ public class ini {
                 if(bedrock != - 1) {
                     Community.showCommandMethod = limitedTypes.BEDROCK;
                     priorityDisplay = "PriorityDisplay@Bedrock";
+                    s = "";
                 }
 
                 if(java != - 1) {
                     Community.showCommandMethod = limitedTypes.JAVA;
                     priorityDisplay = "PriorityDisplay@java";
+                    s = "";
                 }
             }
+        }
+
+        if(!s.equals("")) {
+            unsupported += s + "\n";
         }
     }
 }

@@ -59,7 +59,7 @@ public class Community {
 
     public static int minecraftListenFlushSpeedLevels = 0;
 
-    public static boolean autoUPD = false;
+    public static boolean autoUPD = true;
 
     public static boolean showInvalidCommand = true;
 
@@ -86,9 +86,11 @@ public class Community {
                 Community.LangID = 1;
             }
 
-            displaySets.Color();
-
             loadingWindow.ui();
+
+            initLanguage.initFromSelf();
+
+            displaySets.Color();
 
             new initLanguage();
             languageSet.Language();
@@ -110,8 +112,6 @@ public class Community {
 
             LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: ini\n", lang.get("loading_ini"));
             new ini();
-
-            new initLanguage();
 
             new File(ini.path + "res.cache").delete();
 
@@ -184,9 +184,9 @@ public class Community {
             LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: MchUI\n", lang.get("loading_MchUI"));
             if(ini.canStartUI) {
                 new MchUI();
-//                loadingWindow.jFrame.setVisible(false);
+                loadingWindow.jFrame.setVisible(false);
             } else {
-                LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadFail: MchUI\n", lang.get("loading_MchUI_fail"), Color.RED);
+                LoadAssembly.badLoadAssembly("[" + times.format + "]\n" + "LoadFail: MchUI\n", lang.get("loading_MchUI_fail") );
             }
 
             started = true;

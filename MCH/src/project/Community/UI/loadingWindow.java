@@ -19,6 +19,7 @@ public class loadingWindow {
 
     public static void ui() {
         loading.setEditable(false);
+        loading.setLineWrap(true);
 
         //设置窗口大小和颜色
         jFrame.setSize(350, 520);
@@ -33,9 +34,6 @@ public class loadingWindow {
 
         //设置窗口位置
         jFrame.setLocation(width / 2 - jFrame.getWidth() / 2, height / 2 - jFrame.getHeight() / 2);
-
-        //设置退出时不响应操作,因为要使用自定义退出事件
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         jFrame.setResizable(false);
 
@@ -80,6 +78,11 @@ public class loadingWindow {
                 loadStatus.setBounds(0,5,50,20);
                 status.setBounds(50,5,200,20);
 
+                if(MchUI.jFrame.isVisible()) {
+                    jFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+                } else {
+                    jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                }
             }
         });
 

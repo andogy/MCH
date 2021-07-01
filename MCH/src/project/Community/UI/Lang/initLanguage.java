@@ -24,6 +24,64 @@ public class initLanguage {
         initCommand();
     }
 
+    public static void initFromSelf() {
+        String languagesPath = "C:\\.MCH\\languages.json";
+
+        File f = Resources.getResource("/project/resources/resource_files/languages.json");
+
+        StringBuilder json = new StringBuilder();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(f, StandardCharsets.UTF_8));
+            String brRead;
+
+            while((brRead = br.readLine()) != null) {
+                json.append(brRead).append("\n");
+            }
+
+            br.close();
+
+            JSONObject js = new JSONObject(json.toString());
+
+            //            获得语言列表
+            JSONArray languages = new JSONArray(js.get("languages").toString());
+
+            new JSONObject();
+            JSONObject language;
+            String targetLanguage = "";
+            if(Community.LangID == 0) {
+                targetLanguage = "chinese";
+            } else if(Community.LangID == 1) {
+                targetLanguage = "english";
+            }
+
+            for(int i = 0; ; i++) {
+                language = new JSONObject(languages.get(i).toString());
+                if(language.keys().next().equals(targetLanguage)) {
+                    break;
+                }
+            }
+            JSONArray languageText = new JSONArray(language.get(language.keys().next()).toString());
+
+            int i = languageText.length();
+            i--;
+            JSONObject inMap = new JSONObject(languageText.get(i).toString());
+            String inMapKey = inMap.keys().next();
+            lang.put(inMapKey, inMap.getString(inMapKey));
+
+            while(i != 0) {
+                i--;
+                inMap = new JSONObject(languageText.get(i).toString());
+                inMapKey = inMap.keys().next();
+                lang.put(inMapKey, inMap.getString(inMapKey));
+            }
+        } catch (Exception e) {
+
+        }
+
+        languageSet.Language();
+    }
+
     public static void init() {
         String languagesPath = "C:\\.MCH\\languages.json";
 
@@ -33,7 +91,6 @@ public class initLanguage {
         } else {
             f = Resources.getResource("/project/resources/resource_files/languages.json");
         }
-
         StringBuilder json = new StringBuilder();
 
         try {

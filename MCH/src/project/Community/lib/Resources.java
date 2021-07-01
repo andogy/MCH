@@ -19,7 +19,7 @@ public class Resources extends Thread {
 
     public static void fixResource(String resource, String fixTarget, boolean lineWrap) {
         try {
-            LoadAssembly.loadAssembly("[" + times.format + "]" + "\n" + "fixing resource:" + fixTarget + "\n", lang.get("fixing_resource"), Color.RED);
+            LoadAssembly.badLoadAssembly("[" + times.format + "]" + "\n" + "fixing resource:" + fixTarget + "\n", lang.get("fixing_resource"));
 
             URL resourceURL = initLanguage.class.getResource(resource);
             BufferedReader br = new BufferedReader(new FileReader(new File(resourceURL.toURI()), StandardCharsets.UTF_8));

@@ -295,6 +295,9 @@
                 },
                 {
                     "fixing_resource": "修复资源中"
+                },
+                {
+                    "mayIsUnsupportedInfo": "have one or more ini is not MCH supported"
                 }
             ]
         },
@@ -593,6 +596,9 @@
                 },
                 {
                     "fixing_resource": "Fixing Resource"
+                },
+                {
+                    "mayIsUnsupportedInfo": "have one or more ini is not MCH supported"
                 }
             ]
         }

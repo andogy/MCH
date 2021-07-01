@@ -18,7 +18,6 @@ public class LoadAssembly {
         loadingWindow.status.setForeground(statusColor);
 
         if(Community.saveRunLog) {
-
             if(f.length() > 2048000) {
                 f.delete();
             }
@@ -46,14 +45,18 @@ public class LoadAssembly {
             f.delete();
         }
 
-        try {
-            Thread.sleep(10);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(10);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public static void loadAssembly(String Assembly, String status) {
         loadAssembly(Assembly, status, new Color(232, 107, 22));
+    }
+
+    public static void badLoadAssembly(String Assembly, String status) {
+        loadAssembly(Assembly, status, Color.RED);
     }
 }

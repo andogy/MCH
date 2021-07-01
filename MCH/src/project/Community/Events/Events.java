@@ -81,6 +81,7 @@ public class Events {
 
             try {
                 ini.WriteIni();
+                ini.parsing();
             } catch (Exception e) {
                 e.printStackTrace();
             }

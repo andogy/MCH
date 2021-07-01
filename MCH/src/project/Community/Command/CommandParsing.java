@@ -5,10 +5,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import project.Community.Community;
 import project.Community.Events.Errors;
+import project.Community.Events.LoadAssembly;
 import project.Community.Events.historyReader;
 import project.Community.UI.Lang.initLanguage;
 import project.Community.UI.Lang.languageSet;
 import project.Community.UI.MchUI;
+import project.Community.UI.loadingWindow;
 import project.Community.lib.Resources;
 
 import java.io.*;
@@ -45,8 +47,8 @@ public class CommandParsing extends Thread {
                 jsonText.append(buffered);
             }
 
-            String completeCommand = "";
-            if(MchUI.input_Command.getText().indexOf("/") == 0) {
+            String completeCommand = MchUI.input_Command.getText();
+            if(completeCommand.indexOf("/") == 0) {
                 completeCommand = MchUI.input_Command.getText().replaceFirst("/", "");
             } else {
                 completeCommand = MchUI.input_Command.getText();
@@ -60,9 +62,6 @@ public class CommandParsing extends Thread {
 
             completeCommand = completeCommand.toLowerCase();
             target = target.toLowerCase();
-
-            String out = "";
-            int i = 0;
 
             JSONObject json = new JSONObject();
             JSONObject jsonResources = new JSONObject();
@@ -81,6 +80,9 @@ public class CommandParsing extends Thread {
             offset = 0;
 
             lastExecute = 0;
+
+            LoadAssembly.loadAssembly("", "processing command");
+            loadingWindow.percentage.setText(" " + completeCommand);
 
             display(json, target, completeCommand, jsonResources, json, target, json, jsonResources);
         } catch (IOException e) {
@@ -388,6 +390,7 @@ public class CommandParsing extends Thread {
     public static void commandOver() {
         try {
             MchUI.command1.setText(languageSet.getCommandWord("commandOver"));
+            LoadAssembly.badLoadAssembly("", "CommandOverException");
         } catch (Exception e) {
             try {
                 MchUI.command1.wait();
@@ -502,10 +505,10 @@ public class CommandParsing extends Thread {
 
                         if(! Display) {
 
-                        } else if(next.equals(target)) {
+                        } else if(next.equals(target) | languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()).equals(target)) {
                             //                        如果完全匹配，则直接返回当前结果(加命令描述)
                             result = new StringBuilder(next + "    " + languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()) + "\t\n");
-                        } else if(next.contains(target)) {
+                        } else if(next.contains(target) | languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()).contains(target)) {
                             //                        如果不完全匹配，则保存当前结果(加命令描述)
                             result.append(next).append("    ").append(languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString())).append("\n");
                         }
@@ -529,10 +532,10 @@ public class CommandParsing extends Thread {
 
                     if(! Display) {
 
-                    } else if(next.equals(target)) {
+                    } else if(next.equals(target) | languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()).equals(target)) {
                         //                        如果完全匹配，则直接返回当前结果(加命令描述)
                         result = new StringBuilder(next + "    " + languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()) + "\t\n");
-                    } else if(next.contains(target)) {
+                    } else if(next.contains(target) | languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()).contains(target)) {
                         //                        如果不完全匹配，则保存当前结果(加命令描述)
                         result.append(next).append("    ").append(languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString())).append("\n");
                     }
@@ -601,12 +604,6 @@ public class CommandParsing extends Thread {
     }
 
     public void run() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         while(! Errors.CannotHandle) {
             if(! Community.isDaemons) {
                 try {
@@ -624,7 +621,6 @@ public class CommandParsing extends Thread {
                     }
                     //                    }
                 } else {
-                    historyReader.flush();
                     try {
                         Thread.sleep(20);
                     } catch (InterruptedException e) {

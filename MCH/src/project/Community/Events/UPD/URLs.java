@@ -269,7 +269,6 @@ public class URLs extends Thread {
             } else {
                 file.delete();
             }
-            Errors.errors(null, e, false, "UPD");
             countTime.startDUP_count = false;
             if (Community.LangID == 0) {
                 MenuUI2.checkReturn.setText("更新失败:\n" + "更新行为被拒绝");
