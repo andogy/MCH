@@ -12,7 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class Errors {
+public class Errors extends Throwable {
     public static JFrame jFrame = new JFrame();
     public static JTextArea jTextArea = new JTextArea();
 

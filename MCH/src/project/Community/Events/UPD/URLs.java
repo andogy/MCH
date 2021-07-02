@@ -10,8 +10,11 @@ import project.Community.lib.filesOperator;
 
 import java.io.*;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLConnection;
+
+import static project.Community.UI.Lang.initLanguage.lang;
 
 public class URLs extends Thread {
     public static boolean UPD = false;
@@ -32,7 +35,7 @@ public class URLs extends Thread {
             //                读取缓存
             BufferedReader fr = new BufferedReader(new FileReader("C:\\.MCH\\UPD.cache"));
             String s;
-            while ((s = fr.readLine()) != null) {
+            while((s = fr.readLine()) != null) {
                 result.append(s);
             }
 
@@ -42,7 +45,7 @@ public class URLs extends Thread {
             //                删除缓存
             File file = new File("C:\\.MCH\\UPD.cache");
             File file1 = new File("C:\\.MCH\\save\\cache");
-            if (Community.saveCache) {
+            if(Community.saveCache) {
                 filesOperator.saveCache(file, file1, "UPD");
             } else {
                 file.delete();
@@ -52,14 +55,14 @@ public class URLs extends Thread {
         }
 
         //        如果获取不到符合规格的更新代码,则返回false,拒绝下载更新包
-        if (result.toString().length() < 3) {
+        if(result.toString().length() < 3) {
             return false;
         }
 
         timeOut = false;
         //        如果本地ID和网络ID不一致,则有更新
         //        因为网络ID始终是最新版,本地ID除非是开发人员,不然不可能比网络ID更新
-        return !result.toString().equals(Community.UPD_ID);
+        return ! result.toString().equals(Community.UPD_ID);
     }
 
     public static void UPD(boolean check, boolean getUpdInfo) {
@@ -72,15 +75,15 @@ public class URLs extends Thread {
             urlPath = "https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar";
 
             //            使用下载方式检查代码防止被github拒绝连接
-            if (check) {
+            if(check) {
                 urlPath = "https://raw.githubusercontent.com/andogy/MCH/main/Public/atudpc.code";
             }
 
-            if (check & getUpdInfo) {
+            if(check & getUpdInfo) {
                 urlPath = "https://raw.githubusercontent.com/andogy/MCH/main/Public/test.txt";
-                if (Community.LangID == 0) {
+                if(Community.LangID == 0) {
                     urlPath = "https://raw.githubusercontent.com/andogy/MCH/main/Public/upd/upd_zh.txt";
-                } else if (Community.LangID == 1) {
+                } else if(Community.LangID == 1) {
                     urlPath = "https://raw.githubusercontent.com/andogy/MCH/main/Public/upd/upd_en.txt";
                 }
             }
@@ -109,7 +112,7 @@ public class URLs extends Thread {
             // 打开到此 URL引用的资源的通信链接（如果尚未建立这样的连接）
             httpURLConnection.connect();
 
-            if (countTime.startDUP_count) {
+            if(countTime.startDUP_count) {
 
                 countTime.startDUP_count = false;
 
@@ -125,21 +128,21 @@ public class URLs extends Thread {
                 file = new File(path);
 
                 // 校验文件夹目录是否存在，不存在就创建一个目录
-                if (!file.getParentFile().exists()) {
+                if(! file.getParentFile().exists()) {
                     file.getParentFile().mkdirs();
                 }
 
-                if (!check) {
-                    if (Community.LangID == 0) {
+                if(! check) {
+                    if(Community.LangID == 0) {
                         MenuUI2.checkReturn.setText("检查下载请求中");
-                    } else if (Community.LangID == 1) {
+                    } else if(Community.LangID == 1) {
                         MenuUI2.checkReturn.setText("Checking Download request");
                     }
                     //                    Thread.sleep(1000);
 
-                    if (Community.LangID == 0) {
+                    if(Community.LangID == 0) {
                         MenuUI2.checkReturn.setText("尝试下载中");
-                    } else if (Community.LangID == 1) {
+                    } else if(Community.LangID == 1) {
                         MenuUI2.checkReturn.setText("trying Download");
                     }
 
@@ -152,9 +155,9 @@ public class URLs extends Thread {
                 int size = 0;
                 int len = 0;
                 byte[] buf = new byte[8192];
-                while ((size = bin.read(buf)) != -1) {
+                while((size = bin.read(buf)) != - 1) {
 
-                    if (Errors.CannotHandle) {
+                    if(Errors.CannotHandle) {
                         break;
                     }
 
@@ -162,16 +165,16 @@ public class URLs extends Thread {
                     len += size;
                     out.write(buf, 0, size);
                     // 控制台打印文件下载的百分比情况
-                    if (!check) {
+                    if(! check) {
                         String download = String.valueOf((float) (len) / 1024 / 1024);
                         String downloadFilePercentage = String.valueOf((float) (len) / fileLength * 100);
                         String downloadSource = String.valueOf((float) (fileLength) / 1024 / 1024);
                         download = download.substring(0, download.substring(0, download.indexOf(".")).length() + download.substring(download.indexOf(".")).length() / 2);
                         downloadFilePercentage = downloadFilePercentage.substring(0, downloadFilePercentage.substring(0, downloadFilePercentage.indexOf(".")).length() + downloadFilePercentage.substring(downloadFilePercentage.indexOf(".")).length() / 2);
                         downloadSource = downloadSource.substring(0, downloadSource.substring(0, downloadSource.indexOf(".")).length() + downloadSource.substring(downloadSource.indexOf(".")).length() / 2);
-                        if (Community.LangID == 0) {
+                        if(Community.LangID == 0) {
                             MenuUI2.checkReturn.setText("下载中:\n" + download + "MB / " + downloadSource + "MB\n" + downloadFilePercentage + "%");
-                        } else if (Community.LangID == 1) {
+                        } else if(Community.LangID == 1) {
                             MenuUI2.checkReturn.setText("Downloading:\n" + download + "MB / " + downloadSource + "MB\n" + downloadFilePercentage + "%");
                         }
                     }
@@ -181,20 +184,20 @@ public class URLs extends Thread {
                 bin.close();
                 out.close();
 
-                if (!check) {
+                if(! check) {
                     //                    Thread.sleep(500);
 
-                    if (Community.LangID == 0) {
+                    if(Community.LangID == 0) {
                         MenuUI2.checkReturn.setText("下载完成");
-                    } else if (Community.LangID == 1) {
+                    } else if(Community.LangID == 1) {
                         MenuUI2.checkReturn.setText("Download Finished");
                     }
 
                     //                    Thread.sleep(500);
 
-                    if (Community.LangID == 0) {
+                    if(Community.LangID == 0) {
                         MenuUI2.checkReturn.setText("尝试复制文件中");
-                    } else if (Community.LangID == 1) {
+                    } else if(Community.LangID == 1) {
                         MenuUI2.checkReturn.setText("trying copy file...");
                     }
 
@@ -204,16 +207,16 @@ public class URLs extends Thread {
                         //                        Thread.sleep(1);
                         byte[] buff = new byte[128];
                         int bytesRead;
-                        while ((bytesRead = input.read(buff)) > 0) {
-                            if (Errors.CannotHandle) {
+                        while((bytesRead = input.read(buff)) > 0) {
+                            if(Errors.CannotHandle) {
                                 break;
                             }
 
                             output.write(buff, 0, bytesRead);
 
-                            if (Community.LangID == 0) {
+                            if(Community.LangID == 0) {
                                 MenuUI2.checkReturn.setText("复制了:\n" + new File(getJar.getOldPath()).length() + "Bytes/" + new File("C:\\.MCH\\UPD.cache").length() + "Bytes");
-                            } else if (Community.LangID == 1) {
+                            } else if(Community.LangID == 1) {
                                 MenuUI2.checkReturn.setText("copied\n" + new File(getJar.getOldPath()).length() + "Bytes/" + new File("C:\\.MCH\\UPD.cache").length() + "Bytes");
                             }
                         }
@@ -224,31 +227,31 @@ public class URLs extends Thread {
 
                     File file = new File(downloadDir + fileFullName);
                     File file1 = new File("C:\\.MCH\\save\\cache");
-                    if (Community.saveCache) {
+                    if(Community.saveCache) {
                         filesOperator.saveCache(file, file1, "UPD");
                     } else {
                         file.delete();
                     }
                 }
 
-                if (!check) {
-                    if (Community.LangID == 0) {
+                if(! check) {
+                    if(Community.LangID == 0) {
                         MenuUI2.checkReturn.setText("安装中...");
-                    } else if (Community.LangID == 1) {
+                    } else if(Community.LangID == 1) {
                         MenuUI2.checkReturn.setText("installing...");
                     }
 
                     //                    Thread.sleep(1500);
 
-                    if (Community.LangID == 0) {
+                    if(Community.LangID == 0) {
                         MchUI.tips.setText("MCH更新完成,即将重启");
-                    } else if (Community.LangID == 1) {
+                    } else if(Community.LangID == 1) {
                         MchUI.tips.setText("MCH update finished,about to restart");
                     }
 
-                    if (Community.LangID == 0) {
+                    if(Community.LangID == 0) {
                         MenuUI2.checkReturn.setText("尝试重启中...");
-                    } else if (Community.LangID == 1) {
+                    } else if(Community.LangID == 1) {
                         MenuUI2.checkReturn.setText("trying restart...");
                     }
 
@@ -261,26 +264,30 @@ public class URLs extends Thread {
 
                 System.gc();
             }
+        } catch (SocketTimeoutException e) {
+            countTime.cannotUPD_connectFail();
         } catch (Exception e) {
+            e.printStackTrace();
+
             File file = new File(downloadDir + fileFullName);
             File file1 = new File("C:\\.MCH\\save\\cache");
-            if (Community.saveCache) {
+            if(Community.saveCache) {
                 filesOperator.saveCache(file, file1, "UPD");
             } else {
                 file.delete();
             }
             countTime.startDUP_count = false;
-            if (Community.LangID == 0) {
+            if(Community.LangID == 0) {
                 MenuUI2.checkReturn.setText("更新失败:\n" + "更新行为被拒绝");
-            } else if (Community.LangID == 1) {
+            } else if(Community.LangID == 1) {
                 MenuUI2.checkReturn.setText("update Fail :\n" + "access denied");
             }
         }
 
-        if (!check) {
-            if (Community.LangID == 0) {
+        if(! check) {
+            if(Community.LangID == 0) {
                 MchUI.tips.setText("MCH更新失败");
-            } else if (Community.LangID == 1) {
+            } else if(Community.LangID == 1) {
                 MchUI.tips.setText("MCH update fail");
             }
         }
@@ -289,17 +296,17 @@ public class URLs extends Thread {
     }
 
     public void run() {
-        while (true) {
+        while(true) {
             try {
                 Thread.sleep(50);
 
-                if (Errors.CannotHandle) {
+                if(Errors.CannotHandle) {
                     break;
                 }
 
-                if (!Community.isDaemons) {
+                if(! Community.isDaemons) {
 
-                    if (checkUPD) {
+                    if(checkUPD) {
                         //                检查更新代码,判断是否可以更新
                         UPD = checkUPD();
 
@@ -307,19 +314,21 @@ public class URLs extends Thread {
 
                         //                if (!timeOut) {
                         String Return = "";
-                        if (Community.LangID == 0) {
-                            if (UPD) {
+                        if(Community.LangID == 0) {
+                            if(UPD) {
+                                countTime.counting = false;
                                 Return = "有版本更新可以下载";
                                 Community.canUPD = true;
                                 URLs.UPD(true, true);
                             } else {
+                                countTime.counting = false;
                                 Return = "没有可用更新";
                                 Community.canUPD = false;
                             }
 
                             Return += "\n\n检查时间:\n" + times.format;
-                        } else if (Community.LangID == 1) {
-                            if (UPD) {
+                        } else if(Community.LangID == 1) {
+                            if(UPD) {
                                 Return = "Can UPD now";
                                 Community.canUPD = true;
                                 URLs.UPD(true, true);
@@ -331,18 +340,18 @@ public class URLs extends Thread {
                             Return += "\n\ncheck Time:\n" + times.format;
                         }
 
-                        if (UPD) {
+                        if(UPD) {
                             BufferedReader br = new BufferedReader(new FileReader(ini.path + "UPD.cache"));
                             String string;
                             StringBuilder newly = new StringBuilder();
                             int line = 0;
-                            while ((string = br.readLine()) != null) {
+                            while((string = br.readLine()) != null) {
                                 newly.append(string).append("\n");
 
-                                if (line == 0) {
-                                    if (Community.LangID == 0) {
+                                if(line == 0) {
+                                    if(Community.LangID == 0) {
                                         newly.insert(0, "新版本:");
-                                    } else if (Community.LangID == 1) {
+                                    } else if(Community.LangID == 1) {
                                         newly.insert(0, "new version:");
                                     }
                                 }
@@ -351,10 +360,10 @@ public class URLs extends Thread {
 
                                 line++;
 
-                                if (line == 1) {
-                                    if (Community.LangID == 0) {
+                                if(line == 1) {
+                                    if(Community.LangID == 0) {
                                         newly.append("当前版本:").append(Community.verID).append("(").append(Community.ver).append(")\n\n");
-                                    } else if (Community.LangID == 1) {
+                                    } else if(Community.LangID == 1) {
                                         newly.append("now version:").append(Community.verID).append("(").append(Community.ver).append(")\n\n");
                                     }
                                 }
@@ -364,32 +373,32 @@ public class URLs extends Thread {
 
                             MenuUI2.updateInfo.setText(newly.toString());
 
-                            if (Community.saveCache) {
+                            if(Community.saveCache) {
                                 filesOperator.saveCache(new File(ini.path + "UPD.cache"), new File(ini.path + "save\\cache\\"), "UPD_View");
                             } else {
                                 new File(ini.path + "UPD.cache").delete();
                             }
 
-                            if (Community.LangID == 0) {
+                            if(Community.LangID == 0) {
                                 MchUI.tips.setText("MCH有新版本可以更新");
-                            } else if (Community.LangID == 1) {
+                            } else if(Community.LangID == 1) {
                                 MchUI.tips.setText("MCH have a new version");
                             }
 
-                            if (Community.autoUPD) {
-                                if (Community.LangID == 0) {
+                            if(Community.autoUPD) {
+                                if(Community.LangID == 0) {
                                     MchUI.tips.setText("正在自动更新中");
-                                } else if (Community.LangID == 1) {
+                                } else if(Community.LangID == 1) {
                                     MchUI.tips.setText("auto update now");
                                 }
 
                                 URLs.UPD(false, false);
                             }
                         } else {
-                            if (Community.LangID == 0) {
-                                MenuUI2.updateInfo.setText("没有新的版本可以更新\n当前版本:" + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + "更改了初始化的界面\n" + "增加修复资源功能(只有自动,没手动)");
-                            } else if (Community.LangID == 1) {
-                                MenuUI2.updateInfo.setText("have not new version can update\nnow version:" + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + "changed UI for initialization interface\n" + "add function of fix resources(only auto)");
+                            if(Community.LangID == 0) {
+                                MenuUI2.updateInfo.setText(lang.get("noNewVersion") + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + lang.get("nowFeature"));
+                            } else if(Community.LangID == 1) {
+                                MenuUI2.updateInfo.setText(lang.get("noNewVersion") + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + lang.get("nowFeature"));
                             }
                         }
                         //                输出提示
@@ -402,7 +411,7 @@ public class URLs extends Thread {
                         System.gc();
                     }
 
-                    if (nowUPD) {
+                    if(nowUPD) {
                         UPD(false, false);
                         nowUPD = false;
                     }

@@ -276,7 +276,7 @@
                     "loading_exButtons": "加载退出按钮事件"
                 },
                 {
-                    "loading_exButtons_succeed":"加载退出按钮事件成功"
+                    "loading_exButtons_succeed": "加载退出按钮事件成功"
                 },
                 {
                     "loading_MchUI": "加载UI"
@@ -291,13 +291,19 @@
                     "show_UI": "显示UI"
                 },
                 {
-                   "loading_UI_succeed": "加载UI成功"
+                    "loading_UI_succeed": "加载UI成功"
                 },
                 {
                     "fixing_resource": "修复资源中"
                 },
                 {
-                    "mayIsUnsupportedInfo": "have one or more ini is not MCH supported"
+                    "mayIsUnsupportedInfo": "有一个或多个配置是MCH不支持的:"
+                },
+                {
+                    "noNewVersion": "没有新的版本可以更新\n当前版本:"
+                },
+                {
+                    "nowFeature": "修复关键词查找命令功能"
                 }
             ]
         },
@@ -568,7 +574,7 @@
                     "loading_ini": "Loading ini"
                 },
                 {
-                    "loading_ini_fail":"Load ini Failed"
+                    "loading_ini_fail": "Load ini Failed"
                 },
                 {
                     "loading_ini_succeed": "Load ini Succeed"
@@ -577,7 +583,7 @@
                     "loading_exButtons": "Loading exit button event"
                 },
                 {
-                    "loading_exButtons_succeed":"Load Exit Button Event Succeed"
+                    "loading_exButtons_succeed": "Load Exit Button Event Succeed"
                 },
                 {
                     "loading_MchUI": "Loading UI"
@@ -598,7 +604,13 @@
                     "fixing_resource": "Fixing Resource"
                 },
                 {
-                    "mayIsUnsupportedInfo": "have one or more ini is not MCH supported"
+                    "mayIsUnsupportedInfo": "have one or more MCH unsupported config"
+                },
+                {
+                    "noNewVersion": "have not new version can update\nnow version:"
+                },
+                {
+                    "nowFeature": "fixed function of keyword find command"
                 }
             ]
         }

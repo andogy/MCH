@@ -5,6 +5,7 @@ import project.Community.Events.Errors;
 import project.Community.Times.times;
 import project.Community.UI.MchUI;
 import project.Community.UI.MenuUI2;
+import project.Community.lib.Resources;
 
 public class countTime extends Thread {
     public static boolean startDUP_count = false;
@@ -19,16 +20,17 @@ public class countTime extends Thread {
         } else if (Community.LangID == 1) {
             MenuUI2.checkReturn.setText("Connect Server Fail:\nTime out\n\nPlease waiting and try again");
         }
+
+        MchUI.tips.setText("");
     }
 
     @Override
     public void run() {
-        long time_UPD = 0;
+        long startTime = System.currentTimeMillis();
 
         while (!Errors.CannotHandle) {
             if (!Community.isDaemons) {
                 try {
-
                     if (Suspended) {
                         if (Community.LangID == 0) {
                             MenuUI2.checkReturn.setText("更新功能已恢复使用\n\n确认时间:" + times.format);
@@ -45,22 +47,20 @@ public class countTime extends Thread {
                         // UPD
                         if (startDUP_count) {
                             counting = true;
-                            time_UPD++;
 
                             if (Community.LangID == 0) {
-                                MenuUI2.checkReturn.setText("尝试连接服务器:" + (double) time_UPD / 1000 + "s");
+                                MenuUI2.checkReturn.setText("尝试连接服务器:" + (System.currentTimeMillis() - startTime) / 1000 + "s");
                                 MchUI.tips.setText("正在检查MCH更新中");
                             } else if (Community.LangID == 1) {
-                                MenuUI2.checkReturn.setText("Connecting\ntry:" + (double) time_UPD / 1000 + "s");
+                                MenuUI2.checkReturn.setText("Connecting\ntry:" + (System.currentTimeMillis() - startTime) / 1000 + "s");
                                 MchUI.tips.setText("checking MCH update");
                             }
 
-                            if (time_UPD > 7000) {
+                            if ((System.currentTimeMillis() - startTime) / 1000 > 7) {
                                 cannotUPD_connectFail();
                                 startDUP_count = false;
                             }
                         } else {
-                            time_UPD = 0;
                             counting = false;
                         }
                     }
@@ -69,7 +69,7 @@ public class countTime extends Thread {
                     }
 
                 } catch (Exception ignored) {
-
+                    ignored.printStackTrace();
                 }
             } else {
                 if (startDUP_count) {

@@ -66,12 +66,14 @@ public class Community {
     public static limitedTypes showCommands = limitedTypes.BEDROCK;
     public static limitedTypes showCommandMethod = limitedTypes.BEDROCK;
 
-    public static String UPD_ID = "153";
-    public static String verID = "116130100151/0-0-1-51";
-    public static String ver = "ah-51";
+    public static String UPD_ID = "154";
+    public static String verID = "116980100152/0-0-1-52";
+    public static String ver = "ah-52";
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(args));
+
+        System.out.println(System.getenv("JAVA_HOME"));
 
         try {
 

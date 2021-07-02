@@ -34,11 +34,11 @@ public class CommandParsing extends Thread {
     public static void commands() {
         StringBuilder jsonText = new StringBuilder();
 
-        File f;
+        File f = null;
         if(new File("C:\\.MCH\\commands.json").isFile()) {
             f = new File("C:\\.MCH\\commands.json");
         } else {
-            f = Resources.getResource("/project/resources/resource_files/commands.json");
+//            f = Resources.getResource("/project/resources/resource_files/commands.json");
         }
 
         try {
@@ -306,7 +306,6 @@ public class CommandParsing extends Thread {
                                 throw new IllegalStateException();
                             }
 
-                            //                        displayNotOk.clear();
                             displayJson = new JSONObject((resources.get(jsa.get(commandSteps).toString()).toString()));
 
                             commandSteps += 1;
@@ -333,7 +332,7 @@ public class CommandParsing extends Thread {
                         if(! over) {
                             try {
                                 display(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource);
-                            } catch (StackOverflowError error) {
+                            } catch (StackOverflowError ignored) {
 
                             }
                         } else {

@@ -5,13 +5,11 @@ import project.Community.Times.times;
 import project.Community.UI.Lang.initLanguage;
 import project.Community.UI.loadingWindow;
 
-import java.awt.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Objects;
 
 import static project.Community.UI.Lang.initLanguage.lang;
 
@@ -22,7 +20,7 @@ public class Resources extends Thread {
             LoadAssembly.badLoadAssembly("[" + times.format + "]" + "\n" + "fixing resource:" + fixTarget + "\n", lang.get("fixing_resource"));
 
             URL resourceURL = initLanguage.class.getResource(resource);
-            BufferedReader br = new BufferedReader(new FileReader(new File(resourceURL.toURI()), StandardCharsets.UTF_8));
+            BufferedReader br = new BufferedReader(new InputStreamReader(getResource(resource), StandardCharsets.UTF_8));
 
             FileWriter writer = new FileWriter(fixTarget);
             String out;
@@ -63,7 +61,9 @@ public class Resources extends Thread {
         }
     }
 
-    public static File getResource(String resource) {
-        return new File(initLanguage.class.getResource(resource).getFile());
+    public static InputStream getResource(String resource) {
+        InputStream in = Resources.class.getResourceAsStream(resource);
+//        return new File(Objects.requireNonNull(initLanguage.class.getResource(resource)).getFile());
+        return in;
     }
 }
