@@ -102,6 +102,35 @@ local "src/project/Community/Community.java"
 //  Delete check file, meaning restart is success
     new File(ini.path + "res.cache").delete();
 
+----------------------------------------------------
+local "src/project/Community/Events/reStart.java"
+
+//  get time
+    long startRestart = System.currentTimeMillis();
+
+//  always check restart status when not restart success or time out
+    do {
+//      use reader to check, if no exception then not restart success
+        FileReader fr = new FileReader(ini.path + "res.cache");
+        fr.close();
+        Thread.sleep(1);
+    } while (System.currentTimeMillis() - startRestart <= 2000);
+
+//  if time out, delete check file
+    boolean restart = new File(ini.path + "res.cache").delete();
+
+//if success delete, then tip restart failed and delay exit MCH
+    if (restart) {
+        System.out.println("restart failed");
+
+        Errors.tips(Errors.jFrame.getWidth(), Errors.jFrame.getHeight(), "restart failed");
+
+        Thread.sleep(10000);
+
+        exit.Ex();
+    } else {
+        throw new Exception();
+    }
 
 ```
 
