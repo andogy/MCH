@@ -82,6 +82,29 @@ they show here used to study, and you can try to optimize they<br>
 i hope you can fork work repository and use pull requests to changed code
 (do not pull to storage repository)
 
+### Restart
+```java
+local "src/project/Community/Events/reStart.java"
+
+//  Run a new MCH
+    Runtime r = Runtime.getRuntime();
+    String str = r.exec("cmd.exe /k \"" + getJar.getOldPath() + "\"").toString();
+//  Create a check file
+    File file = new File(ini.path + "res.cache");
+    FileWriter fw = new FileWriter(file);
+    fw.write(file.hashCode());
+//  close Stream
+    fw.close();
+    
+----------------------------------------------------
+local "src/project/Community/Community.java"
+
+//  Delete check file, meaning restart is success
+    new File(ini.path + "res.cache").delete();
+
+
+```
+
 ### CommandParsing.java
 
 ``` java
