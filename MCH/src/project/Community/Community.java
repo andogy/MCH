@@ -1,6 +1,5 @@
 package project.Community;
 
-import project.Community.Command.CommandParsing;
 import project.Community.Command.ini;
 import project.Community.Command.limitedTypes;
 import project.Community.Events.*;
@@ -12,17 +11,12 @@ import project.Community.Times.times;
 import project.Community.UI.*;
 import project.Community.UI.Color.displaySets;
 import project.Community.UI.Lang.languageSet;
+import project.Community.lib.Resources;
 import project.Community.lib.filesOperator;
-import project.Community.UI.Lang.initLanguage;
-import test.ResourceTest.test1;
 
-import static project.Community.UI.Lang.initLanguage.lang;
+import static project.Community.lib.Resources.initLanguage.lang;
 
-import java.awt.*;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.Locale;
 
@@ -90,11 +84,11 @@ public class Community {
 
             loadingWindow.ui();
 
-            initLanguage.initFromSelf();
+            Resources.initLanguage.initFromSelf();
 
             displaySets.Color();
 
-            new initLanguage();
+            new Resources.initLanguage();
             languageSet.Language();
 
             //        加载颜色
@@ -105,7 +99,7 @@ public class Community {
 
             //        加载语言
             LoadAssembly.loadAssembly("[" + times.format + "]\n" + "LoadingAssemble: language\n", lang.get("loading_lang"));
-            new initLanguage();
+            new Resources.initLanguage();
             new languageSet().start();
 
             //        引入退出类

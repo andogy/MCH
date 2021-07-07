@@ -304,12 +304,6 @@
                 },
                 {
                     "nowFeature": "修复关键词查找命令功能"
-                },
-                {
-                    "connect_to_server": "正在尝试连接至服务器:"
-                },
-                {
-                    "checking_UPD": "正在检查MCH更新"
                 }
             ]
         },
@@ -617,12 +611,6 @@
                 },
                 {
                     "nowFeature": "fixed function of keyword find command"
-                },
-                {
-                    "connect_to_server": "try connecting to server:"
-                },
-                {
-                    "checking_UPD": "checking update of MCH"
                 }
             ]
         }

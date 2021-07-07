@@ -6,11 +6,12 @@ import project.Community.Events.Errors;
 import project.Community.Events.LoadAssembly;
 import project.Community.Times.times;
 import project.Community.UI.*;
+import project.Community.lib.Resources;
 
 import java.awt.*;
 
 import static project.Community.Community.ver;
-import static project.Community.UI.Lang.initLanguage.*;
+import static project.Community.lib.Resources.initLanguage.*;
 
 public class languageSet extends Thread {
     public static String c = "";
@@ -151,8 +152,6 @@ public class languageSet extends Thread {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-//                initLanguage.init();
-//                initCommand();
                 Language();
             } else {
                 try {

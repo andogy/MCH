@@ -12,7 +12,7 @@ import javax.swing.text.*;
 import java.awt.*;
 import java.util.Random;
 
-import static project.Community.UI.Lang.initLanguage.lang;
+import static project.Community.lib.Resources.initLanguage.lang;
 
 public class displaySets extends Thread {
 

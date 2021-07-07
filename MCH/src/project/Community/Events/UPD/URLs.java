@@ -14,7 +14,7 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import static project.Community.UI.Lang.initLanguage.lang;
+import static project.Community.lib.Resources.initLanguage.lang;
 
 public class URLs extends Thread {
     public static boolean UPD = false;

@@ -8,10 +8,10 @@ import project.Community.Events.UPD.URLs;
 import project.Community.Events.UPD.countTime;
 import project.Community.Times.times;
 import project.Community.UI.ExtraUI;
-import project.Community.UI.Lang.initLanguage;
 import project.Community.UI.MchUI;
 import project.Community.UI.MenuUI;
 import project.Community.UI.MenuUI2;
+import project.Community.lib.Resources;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -118,7 +118,7 @@ public class Events {
             }
 
             if (LangID != oldLangID) {
-                new initLanguage();
+                new Resources.initLanguage();
             }
         }
     }

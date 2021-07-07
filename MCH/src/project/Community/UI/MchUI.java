@@ -3,12 +3,11 @@ package project.Community.UI;
 import project.Community.Command.Parsing;
 import project.Community.Events.LoadAssembly;
 import project.Community.Times.times;
-import project.Community.UI.Lang.languageSet;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static project.Community.UI.Lang.initLanguage.lang;
+import static project.Community.lib.Resources.initLanguage.lang;
 
 public class MchUI {
 

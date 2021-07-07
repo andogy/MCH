@@ -12,7 +12,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import static project.Community.Exits.*;
-import static project.Community.UI.Lang.initLanguage.lang;
+import static project.Community.lib.Resources.initLanguage.lang;
 
 public class Exits {
     public static boolean small = false;

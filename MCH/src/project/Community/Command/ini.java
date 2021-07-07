@@ -15,7 +15,7 @@ import java.awt.*;
 import java.io.*;
 import java.util.Locale;
 
-import static project.Community.UI.Lang.initLanguage.lang;
+import static project.Community.lib.Resources.initLanguage.lang;
 
 public class ini {
     public static JTextArea jt = new JTextArea();
