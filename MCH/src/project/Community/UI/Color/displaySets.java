@@ -179,10 +179,6 @@ public class displaySets extends Thread {
         loadingWindow.loading.setForeground(foregroundColor);
         loadingWindow.loadStatus.setForeground(foregroundColor);
 
-        //        以下为颜色设置
-        //            ID=0为白色
-
-        //            ID=1为黑色
         MchUI.jFrame.getContentPane().setBackground(backgroundColor);
         MenuUI.jFrame.getContentPane().setBackground(backgroundColor);
         MenuUI2.jFrame.getContentPane().setBackground(backgroundColor);
