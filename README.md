@@ -77,7 +77,8 @@ Here have lots problems<br>
 > fix other bug
 
 # Documentions
-## Command Json
+
+<a href="https://github.com/zhuaidadaya/MCH/blob/main/mds/Json_File_EN.md"><b>JSON File</b></a>
 
 
 ## Code
