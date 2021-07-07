@@ -1,5 +1,5 @@
 # MCH
-> <a href="https://github.com/zhuaidadaya/MCH">English Page</a>
+> <a href="https://github.com/zhuaidadaya/MCH/blob/main/README.md">English Page</a>
 
 hi,欢迎来到MCH项目<br>
 让我们先了解一下MCH吧
