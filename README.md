@@ -1,4 +1,5 @@
 # MCH
+> 中文页面
 
 hi welcome MCH project<br>
 let we got some about MCH
@@ -43,11 +44,10 @@ only these
 
 ## developers
 
-> MCH develop just by two developer<br>
-> (two beginner)<br>
-> this cause inefficiency extraordinary, and we can get two tired developer  
-> so, we wanna more developers can join to ours develop<br>
-> but we know this is almost impossible to achieve
+MCH develop just by two developer<br>
+(two beginner)<br>
+this cause inefficiency extraordinary, and we can get two tired developer so, we wanna more developers can join to ours develop<br>
+but we know this is almost impossible to achieve
 
 ### if you can join to we
 
@@ -60,23 +60,27 @@ you just need send request to we qq(124319875) and waiting for
 
 ## MCH history
 
-> MCH project start with April 9, 2021<br>
-> at present we have not a first official release version<br>
+MCH project start with April 9, 2021<br>
+at present we have not a first official release version<br>
 
 ## actions
 
 now actions 
 > fix bug of "execute" command<br>
 > local "src/project/Community/Command/CommandParsing" at lines 243<br>
-> Here have lots problems<br>
-> <b>if you can, i hope you can help we do that</b>
+Here have lots problems<br>
+<b>if you can, i hope you can help we do that</b>
 
 > completing "README.md"
-> local "README.md"
+> local "./README.md"
 
 > fix other bug
 
-# Code
+# Documentions
+## Command Json
+
+
+## Code
 here have some code about MCH<br>
 they show here used to study, and you can try to optimize they<br>
 i hope you can fork work repository and use pull requests to changed code
