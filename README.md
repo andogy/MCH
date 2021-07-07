@@ -1,5 +1,5 @@
 # MCH
-> 中文页面
+> <a href="https://github.com/zhuaidadaya/MCH/blob/main/README_ZH.md">中文页面</a>
 
 hi welcome MCH project<br>
 let we got some about MCH
