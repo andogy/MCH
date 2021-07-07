@@ -69,7 +69,7 @@ now actions
 > fix bug of "execute" command<br>
 > local "src/project/Community/Command/CommandParsing" at lines 243<br>
 Here have lots problems<br>
-<b>if you can, i hope you can help we do that</b>
+<b>if you can, i hope you can help we fix that</b>
 
 > completing "README.md"
 > local "./README.md"
