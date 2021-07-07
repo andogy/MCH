@@ -83,7 +83,7 @@ Here have lots problems<br>
 ## Code
 here have some code about MCH<br>
 they show here used to study, and you can try to optimize they<br>
-i hope you can fork work repository and use pull requests to changed code
+i hope you clone work repository and use pull requests to changed code
 (do not pull to storage repository)
 
 ### Restart
