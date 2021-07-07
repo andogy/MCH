@@ -75,8 +75,8 @@ MCH项目发起于2021年4月9日<br>
 > 修复其他bug
 
 # 文档
-## 命令的Json
 
+<a href="https://github.com/zhuaidadaya/MCH/blob/main/mds/Json_File_EN.md"><b>JSON File</b></a>
 
 ## 代码
 这里有一些MCH的代码<br>
