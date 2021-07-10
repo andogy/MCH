@@ -23,6 +23,16 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-52.zip">MCH_ah_0-0-1-52(116980100152)</a>
+```
+fixed function of find command by keyword
+add function of quick go to wiki
+	press Ctrl + W can go to exist wiki page for target when you enable function
+	(un exist or did not make in json then cannot go to)
+
+(2021.7.1)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-51.zip">MCH_ah_0-0-1-51(116130100151)</a>
 ```
 changed UI for initialization interface
