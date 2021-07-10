@@ -22,6 +22,16 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-52.zip">MCH_ah_0-0-1-52(116980100152)</a>
+```
+修复关键词查找命令功能
+添加快捷前往wiki功能
+	开启功能后使用Ctrl + W可前往存在wiki的页面
+	(不存在或者没有做进去则无法前往)
+
+(2021.7.1)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-51.zip">MCH_ah_0-0-1-51(116130100151)</a>
 ```
 更改了初始化的界面
