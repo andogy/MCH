@@ -57,7 +57,7 @@ public class Community {
 
     public static boolean showInvalidCommand = true;
 
-    public static limitedTypes showCommands = limitedTypes.BEDROCK;
+    public static limitedTypes showCommands = limitedTypes.ALL_EDITION;
     public static limitedTypes showCommandMethod = limitedTypes.BEDROCK;
 
     public static String UPD_ID = "154";

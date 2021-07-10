@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import project.Community.Community;
 import project.Community.Events.Errors;
 import project.Community.Events.LoadAssembly;
+import project.Community.Help.Helps;
 import project.Community.UI.Lang.languageSet;
 import project.Community.UI.MchUI;
 import project.Community.UI.loadingWindow;
@@ -28,6 +29,15 @@ public class CommandParsing extends Thread {
     public static String buffered;
 
     public static String toResource = "";
+
+    public static boolean canToWiki = false;
+
+    public static boolean showElementsIsOne = false;
+    public static boolean hasWiki = false;
+
+    public static String target_save = "";
+    public static JSONObject displayJson_save = new JSONObject();
+    public static String wikis = "";
 
     public static void commands() {
         StringBuilder jsonText = new StringBuilder();
@@ -219,7 +229,7 @@ public class CommandParsing extends Thread {
                             try {
                                 String json = targetSource.substring(targetSource.lastIndexOf(" ") + 1);
 
-                                if(!json.equals("")) {
+                                if(! json.equals("")) {
                                     JSONObject jo = new JSONObject(json);
                                     MchUI.command1.setText(jo.toString());
                                 } else {
@@ -371,10 +381,17 @@ public class CommandParsing extends Thread {
 
                     }
                 }
-            } else {
-                if(lists.contains("\n")) {
-                    MchUI.command1.setText(lists);
+            } else if(showElementsIsOne & !wikis.equals("")) {
+                target_save = target;
+                displayJson_save = displayJson;
+                try {
+                    MchUI.command1.setText(lists + "\n\n\n" + String.format(languageSet.getCommandWord("canToWiki"),languageSet.getCommandWord(new JSONObject(displayJson_save.get(wikis).toString()).get("wikiTips").toString())));
+                } catch(Exception ex) {
+                    ex.printStackTrace();
+                    MchUI.command1.setText(lists + "\n\n\n" + String.format(languageSet.getCommandWord("canToWiki"),target));
                 }
+            } else if(lists.contains("\n")) {
+                MchUI.command1.setText(lists);
             }
         } catch (CommandErrException e) {
             commandErr(e.getMessage());
@@ -388,6 +405,15 @@ public class CommandParsing extends Thread {
     //    public static void commandNotFound(String errPoint) {
     //        MchUI.command1.setText(languageSet.getCommandWord("commandEnd") + ": \"" + errPoint + "\"");
     //    }
+
+    public static void toWiki() {
+        try {
+            String wiki = new JSONObject(displayJson_save.get(target_save).toString()).get("wiki").toString();
+            Helps.open(wiki);
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
     public static void commandNotFound() {
         try {
@@ -431,6 +457,10 @@ public class CommandParsing extends Thread {
     }
 
     public static String containsTarget(JSONObject displayJson, String target, JSONObject commandJson, String commandTarget) {
+        showElementsIsOne = false;
+        hasWiki = false;
+        wikis = "";
+
         //        用于判断命令是否失效
         boolean invalid = false;
         //        用于获取命令使用限制列表
@@ -511,7 +541,6 @@ public class CommandParsing extends Thread {
                     if(catchLimited.equals("java") & Community.showCommandMethod.equals(limitedTypes.BEDROCK)) {
                         next = "";
                     }
-
                 } catch (Exception e) {
 
                 }
@@ -549,8 +578,18 @@ public class CommandParsing extends Thread {
                         if(! Display) {
 
                         } else if(next.equals(target) | languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()).equals(target)) {
+                            showElementsIsOne = true;
+
+                            try {
+                                new JSONObject(displayJson.get(next).toString()).get("wiki").toString();
+                                wikis = next;
+                                hasWiki = true;
+                            } catch (Exception ex) {
+                                // it did not have wiki
+                            }
+
                             //                        如果完全匹配，则直接返回当前结果(加命令描述)
-                            result = new StringBuilder(next + "    '" + languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()) + "\\n");
+                            result = new StringBuilder(next + "    '" + languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()) + "\t\n");
                         } else if(next.contains(target) | languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()).contains(target)) {
                             //                        如果不完全匹配，则保存当前结果(加命令描述)
                             result.append(next).append("   '").append(languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString())).append("\n");
@@ -576,6 +615,16 @@ public class CommandParsing extends Thread {
                     if(! Display) {
 
                     } else if(next.equals(target) | languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()).equals(target)) {
+                        showElementsIsOne = true;
+
+                        try {
+                            new JSONObject(displayJson.get(next).toString()).get("wiki").toString();
+                            wikis = next;
+                            hasWiki = true;
+                        } catch (Exception ex) {
+                            // it did not have wiki
+                        }
+
                         //                        如果完全匹配，则直接返回当前结果(加命令描述)
                         result = new StringBuilder(next + "    '" + languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()) + "\t\n");
                     } else if(next.contains(target) | languageSet.getCommandWord(new JSONObject(displayJson.get(next).toString()).get("description").toString()).contains(target)) {
@@ -591,10 +640,29 @@ public class CommandParsing extends Thread {
         //        如果没有任何符合的模板文本，则判断有没有可能是允许自定义的(如选择器中的选定名称或者help里的页码)
         if(result.toString().equals("")) {
             if(all.toString().contains("@String")) {
+                showElementsIsOne = true;
+
+                try {
+                    new JSONObject(displayJson.get("@String").toString()).get("wiki").toString();
+                    wikis = "@String";
+                    hasWiki = true;
+                } catch (Exception ex) {
+                    // it did not have wiki
+                }
+
                 result = new StringBuilder(target + "    " + languageSet.getCommandWord(new JSONObject(displayJson.get("@String").toString()).get("description").toString()) + "\t\n");
             }
             if(all.toString().contains("@Number")) {
                 try {
+                    showElementsIsOne = true;
+
+                    try {
+                        new JSONObject(displayJson.get("@Number").toString()).get("wiki").toString();
+                        wikis = "@Number";
+                        hasWiki = true;
+                    } catch (Exception ex) {
+                        // it did not have wiki
+                    }
                     long targetValue = Long.parseLong(target);
                     if(new JSONObject(displayJson.get("@Number").toString()).getLong("limited") > targetValue) {
                         result = new StringBuilder(targetValue + "    " + languageSet.getCommandWord(new JSONObject(displayJson.get("@Number").toString()).get("description").toString()) + "\t\n");
@@ -665,6 +733,9 @@ public class CommandParsing extends Thread {
                     }
                     //                    }
                 } else {
+                    if(Community.historySaveID == 2) {
+                        MchUI.command1.setText("");
+                    }
                     try {
                         Thread.sleep(20);
                     } catch (InterruptedException e) {

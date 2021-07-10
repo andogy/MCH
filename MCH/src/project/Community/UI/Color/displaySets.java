@@ -194,6 +194,7 @@ public class displaySets extends Thread {
         MchUI.switchTip.setBackground(backgroundColor);
         MchUI.input_Command.setCaretColor(caretColor);
         MchUI.input_Command.setSelectionColor(caretColor);
+        MchUI.input_scrollPane.setBackground(backgroundColor);
 
         exit.buttonEXIT.setBackground(buttonColor);
         exit.buttonEXITNot.setBackground(buttonColor);

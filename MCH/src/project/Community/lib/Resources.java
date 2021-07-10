@@ -13,6 +13,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import static project.Community.lib.Resources.initLanguage.lang;
 
@@ -66,6 +67,16 @@ public class Resources extends Thread {
         InputStream in = Resources.class.getResourceAsStream(resource);
         //        return new File(Objects.requireNonNull(initLanguage.class.getResource(resource)).getFile());
         return in;
+    }
+
+    public static int getElementsCounter(Iterator<String> iterator) {
+        int result = 0;
+        while(iterator.hasNext()) {
+            result += 1;
+            iterator.next();
+        }
+
+        return result;
     }
 
     public static class initLanguage {
@@ -204,8 +215,8 @@ public class Resources extends Thread {
             StringBuilder json = new StringBuilder();
 
             try {
-                            BufferedReader br = new BufferedReader(new FileReader(f, StandardCharsets.UTF_8));
-//                BufferedReader br = new BufferedReader(new FileReader(f));
+                BufferedReader br = new BufferedReader(new FileReader(f, StandardCharsets.UTF_8));
+                //                BufferedReader br = new BufferedReader(new FileReader(f));
                 String brRead;
 
                 while((brRead = br.readLine()) != null) {
@@ -285,8 +296,8 @@ public class Resources extends Thread {
             }
 
             try {
-                            BufferedReader br = new BufferedReader(new FileReader(f, StandardCharsets.UTF_8));
-//                BufferedReader br = new BufferedReader(new FileReader(f));
+                BufferedReader br = new BufferedReader(new FileReader(f, StandardCharsets.UTF_8));
+                //                BufferedReader br = new BufferedReader(new FileReader(f));
                 String brRead;
                 StringBuilder json = new StringBuilder();
 
@@ -318,16 +329,29 @@ public class Resources extends Thread {
                 }
                 JSONArray languageText = new JSONArray(language.get(language.keys().next()).toString());
                 int i = languageText.length();
+                int inMapKeyCounter = 0;
                 i--;
                 JSONObject inMap = new JSONObject(languageText.get(i).toString());
                 String inMapKey = inMap.keys().next();
                 commands.put(inMapKey, inMap.getString(inMapKey));
 
-                while(i != 0) {
-                    i--;
+                while(i + 1 != 0) {
                     inMap = new JSONObject(languageText.get(i).toString());
-                    inMapKey = inMap.keys().next();
-                    commands.put(inMapKey, inMap.getString(inMapKey));
+
+                    Iterator<String> in = inMap.keys();
+
+                    inMapKeyCounter = getElementsCounter(in);
+
+                    in = inMap.keys();
+
+                    while(inMapKeyCounter != 0) {
+                        inMapKeyCounter -= 1;
+
+                        String next = in.next();
+                        commands.put(next, inMap.getString(next));
+                    }
+
+                    i--;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
