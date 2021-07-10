@@ -382,13 +382,16 @@ public class CommandParsing extends Thread {
                     }
                 }
             } else if(showElementsIsOne & !wikis.equals("")) {
-                target_save = target;
-                displayJson_save = displayJson;
-                try {
-                    MchUI.command1.setText(lists + "\n\n\n" + String.format(languageSet.getCommandWord("canToWiki"),languageSet.getCommandWord(new JSONObject(displayJson_save.get(wikis).toString()).get("wikiTips").toString())));
-                } catch(Exception ex) {
-                    ex.printStackTrace();
-                    MchUI.command1.setText(lists + "\n\n\n" + String.format(languageSet.getCommandWord("canToWiki"),target));
+                if(Community.toWiki) {
+                    target_save = target;
+                    displayJson_save = displayJson;
+                    try {
+                        MchUI.command1.setText(lists + "\n\n\n" + String.format(languageSet.getCommandWord("canToWiki"), languageSet.getCommandWord(new JSONObject(displayJson_save.get(wikis).toString()).get("wikiTips").toString())));
+                    } catch (Exception ex) {
+                        MchUI.command1.setText(lists + "\n\n\n" + String.format(languageSet.getCommandWord("canToWiki"), target));
+                    }
+                } else {
+                    MchUI.command1.setText(lists);
                 }
             } else if(lists.contains("\n")) {
                 MchUI.command1.setText(lists);

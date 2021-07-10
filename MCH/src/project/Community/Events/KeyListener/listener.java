@@ -507,6 +507,10 @@ class mainFrame {
                             URLs.checkUPD = true;
                         }
 
+                        if(s.contains("|17|") & s.contains("|87|")) {
+                            CommandParsing.toWiki();
+                        }
+
                         c.clear();
                     }
 

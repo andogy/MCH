@@ -90,6 +90,10 @@ public class MenuUI2 {
     public static JButton iniFinished = new JButton();
     public static JButton iniHelper = new JButton();
 
+    public static JLabel toWikiOrNot = new JLabel();
+    public static JButton toWiki = new JButton();
+    public static JButton toWikiNot = new JButton();
+
     public MenuUI2() {
         UI();
     }
@@ -196,6 +200,10 @@ public class MenuUI2 {
             jFrame.add(iniFinished);
             jFrame.add(iniHelper);
 
+            jFrame.add(toWikiOrNot);
+            jFrame.add(toWiki);
+            jFrame.add(toWikiNot);
+
             jFrame.setLayout(new LayoutManager() {
                 @Override
                 public void addLayoutComponent(String name, Component comp) {
@@ -297,6 +305,10 @@ public class MenuUI2 {
                     firstBedrock.setFont(new Font(firstBedrock.getFont().getName(), firstBedrock.getFont().getStyle(), 11));
                     firstJava.setBounds(200, 50, 80, 30);
 
+                    toWikiOrNot.setBounds(5,90,110,30);
+                    toWiki.setBounds(110,90,80,30);
+                    toWikiNot.setBounds(200,90,80,30);
+
                     iniFinished.setBounds(535,280,100,34);
                     iniHelper.setBounds(430,280,100,34);
 
@@ -368,6 +380,9 @@ public class MenuUI2 {
 
         firstBedrock.addActionListener(e -> Events.switchCommandMethod(limitedTypes.BEDROCK));
         firstJava.addActionListener(e -> Events.switchCommandMethod(limitedTypes.JAVA));
+
+        toWiki.addActionListener(e -> Events.switchToWiki(true));
+        toWikiNot.addActionListener(e -> Events.switchToWiki(false));
 
         showDir.addActionListener(e -> {
             if (!Community.isDaemons) {

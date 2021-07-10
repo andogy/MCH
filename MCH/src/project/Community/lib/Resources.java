@@ -130,14 +130,27 @@ public class Resources extends Thread {
                 int i = languageText.length();
                 i--;
                 JSONObject inMap = new JSONObject(languageText.get(i).toString());
+                int inMapKeyCounter = 0;
                 String inMapKey = inMap.keys().next();
                 lang.put(inMapKey, inMap.getString(inMapKey));
 
-                while(i != 0) {
-                    i--;
+                while(i + 1 != 0) {
                     inMap = new JSONObject(languageText.get(i).toString());
-                    inMapKey = inMap.keys().next();
-                    lang.put(inMapKey, inMap.getString(inMapKey));
+
+                    Iterator<String> in = inMap.keys();
+
+                    inMapKeyCounter = getElementsCounter(in);
+
+                    in = inMap.keys();
+
+                    while(inMapKeyCounter != 0) {
+                        inMapKeyCounter -= 1;
+
+                        String next = in.next();
+                        lang.put(next, inMap.getString(next));
+                    }
+
+                    i--;
                 }
             } catch (Exception | Error e) {
 
@@ -189,14 +202,27 @@ public class Resources extends Thread {
                 int i = languageText.length();
                 i--;
                 JSONObject inMap = new JSONObject(languageText.get(i).toString());
+                int inMapKeyCounter = 0;
                 String inMapKey = inMap.keys().next();
                 commands.put(inMapKey, inMap.getString(inMapKey));
 
-                while(i != 0) {
-                    i--;
+                while(i + 1 != 0) {
                     inMap = new JSONObject(languageText.get(i).toString());
-                    inMapKey = inMap.keys().next();
-                    commands.put(inMapKey, inMap.getString(inMapKey));
+
+                    Iterator<String> in = inMap.keys();
+
+                    inMapKeyCounter = getElementsCounter(in);
+
+                    in = inMap.keys();
+
+                    while(inMapKeyCounter != 0) {
+                        inMapKeyCounter -= 1;
+
+                        String next = in.next();
+                        lang.put(next, inMap.getString(next));
+                    }
+
+                    i--;
                 }
             } catch (Exception | Error e) {
 
@@ -246,20 +272,30 @@ public class Resources extends Thread {
                     }
                 }
                 JSONArray languageText = new JSONArray(language.get(language.keys().next()).toString());
-
                 int i = languageText.length();
                 i--;
                 JSONObject inMap = new JSONObject(languageText.get(i).toString());
+                int inMapKeyCounter = 0;
                 String inMapKey = inMap.keys().next();
                 lang.put(inMapKey, inMap.getString(inMapKey));
 
-                while(i != 0) {
-                    i--;
+                while(i + 1 != 0) {
                     inMap = new JSONObject(languageText.get(i).toString());
-                    inMapKey = inMap.keys().next();
-                    lang.put(inMapKey, inMap.getString(inMapKey));
 
-                    //                System.out.println("init: " + inMap + "\n" + "init to:" + lang.get(inMapKey) + "\n" + "------------------------------------");
+                    Iterator<String> in = inMap.keys();
+
+                    inMapKeyCounter = getElementsCounter(in);
+
+                    in = inMap.keys();
+
+                    while(inMapKeyCounter != 0) {
+                        inMapKeyCounter -= 1;
+
+                        String next = in.next();
+                        lang.put(next, inMap.getString(next));
+                    }
+
+                    i--;
                 }
             } catch (FileNotFoundException e) {
 
@@ -311,7 +347,6 @@ public class Resources extends Thread {
 
                 //            获得语言列表
                 JSONArray languages = new JSONArray(js.get("languages").toString());
-
                 new JSONObject();
                 JSONObject language;
                 String targetLanguage = "";

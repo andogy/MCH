@@ -101,6 +101,9 @@ public class languageSet extends Thread {
         MenuUI2.firstJava.setText(lang.get("java"));
         MenuUI2.iniFinished.setText(lang.get("finish"));
         MenuUI2.iniHelper.setText(lang.get("ini_help"));
+        MenuUI2.toWikiOrNot.setText(lang.get("toWikiOnOrOff"));
+        MenuUI2.toWiki.setText(lang.get("toWikiOn"));
+        MenuUI2.toWikiNot.setText(lang.get("toWikiOff"));
 
         if (Community.extraDisplayID == 0) {
             ExtraUI.jFrame.setTitle(lang.get("functions_launcher"));

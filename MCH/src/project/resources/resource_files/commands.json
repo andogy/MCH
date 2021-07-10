@@ -1404,6 +1404,14 @@
                             "@json",
                             "@end"
                         ]
+                    },
+                    {
+                        "tree": [
+                            "@sel",
+                            "@all_items",
+                            "@item_count",
+                            "@end"
+                        ]
                     }
                 ]
             },
@@ -1497,6 +1505,7 @@
             "@all_items": {
                 "spawn_egg": {
                     "description": "@spawn_egg",
+                    "$invalid": true,
                     "catchLimited": "bedrock",
                     "toResource": "@spawn_egg_datas"
                 },

@@ -42,6 +42,7 @@ public class ini {
     public static String showInvalidCommand = "InvalidCommand@hide";
     public static String showCommands = "Commands@Bedrock";
     public static String priorityDisplay = "PriorityDisplay@Bedrock";
+    public static String toWiki = "toWiki@off";
 
     public static String unsupported = "";
 
@@ -227,7 +228,7 @@ public class ini {
 
     public static void WriteIni() throws Exception {
         FileWriter fl = new FileWriter(path + sets, false);
-        fl.write("//---------------MCH Settings---------------" + "\n" + colorSet + "\n" + languageSet + "\n" + exButtonSet + "\n" + fastLoadSet + "\n" + onTopSet + "\n" + saveCache + "\n" + saveRunLog + "\n" + saveErrorLog + "\n" + autoPUDSet + "\n" + saveHistorySet + "\n" + minecraftListenFlushSpeedLevel + "\n" + input_command + "\n" + "//---------------Command Settings---------------" + "\n" + showInvalidCommand + "\n" + showCommands + "\n" + priorityDisplay);
+        fl.write("//---------------MCH Settings---------------" + "\n" + colorSet + "\n" + languageSet + "\n" + exButtonSet + "\n" + fastLoadSet + "\n" + onTopSet + "\n" + saveCache + "\n" + saveRunLog + "\n" + saveErrorLog + "\n" + autoPUDSet + "\n" + saveHistorySet + "\n" + minecraftListenFlushSpeedLevel + "\n" + input_command + "\n" + "//---------------Command Settings---------------" + "\n" + showInvalidCommand + "\n" + showCommands + "\n" + priorityDisplay + "\n" + toWiki);
         fl.close();
     }
 
@@ -597,6 +598,17 @@ public class ini {
                     priorityDisplay = "PriorityDisplay@java";
                     s = "";
                 }
+            }
+        }
+
+        {
+            int toWiki = s.indexOf("towiki@on");
+            int toWikiNot = s.indexOf("towiki@off");
+
+            if(!(toWiki != -1 & toWikiNot != -1)) {
+                Community.toWiki = toWiki != - 1;
+
+                s = "";
             }
         }
 

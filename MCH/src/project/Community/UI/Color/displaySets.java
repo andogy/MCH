@@ -123,6 +123,10 @@ public class displaySets extends Thread {
         MenuUI2.iniFinished.setFocusPainted(false);
         MenuUI2.iniHelper.setBorderPainted(false);
         MenuUI2.iniHelper.setFocusPainted(false);
+        MenuUI2.toWiki.setBorderPainted(false);
+        MenuUI2.toWiki.setFocusPainted(false);
+        MenuUI2.toWikiNot.setBorderPainted(false);
+        MenuUI2.toWikiNot.setFocusPainted(false);
 
         ExtraUI.turnOnMcBe.setBorderPainted(false);
         ExtraUI.turnOnMcBe.setFocusPainted(false);
@@ -404,6 +408,14 @@ public class displaySets extends Thread {
             ExtraUI.Level1OfMLSL.setBackground(backgroundColor);
         }
 
+        if(!Community.toWiki) {
+            MenuUI2.toWiki.setBackground(buttonColor);
+            MenuUI2.toWikiNot.setBackground(backgroundColor);
+        } else {
+            MenuUI2.toWiki.setBackground(backgroundColor);
+            MenuUI2.toWikiNot.setBackground(buttonColor);
+        }
+
         MchUI.tips.setForeground(foregroundColor);
         MchUI.input_Command.setForeground(foregroundColor);
         MchUI.menu.setForeground(foregroundColor);
@@ -486,6 +498,9 @@ public class displaySets extends Thread {
         MenuUI2.firstJava.setForeground(foregroundColor);
         MenuUI2.iniFinished.setForeground(foregroundColor);
         MenuUI2.iniHelper.setForeground(foregroundColor);
+        MenuUI2.toWikiOrNot.setForeground(foregroundColor);
+        MenuUI2.toWiki.setForeground(foregroundColor);
+        MenuUI2.toWikiNot.setForeground(foregroundColor);
 
         ExtraUI.functionEdit.setForeground(foregroundColor);
 
@@ -886,6 +901,9 @@ public class displaySets extends Thread {
         MenuUI2.showCommandsMethod.setVisible(false);
         MenuUI2.firstBedrock.setVisible(false);
         MenuUI2.firstJava.setVisible(false);
+        MenuUI2.toWikiOrNot.setVisible(false);
+        MenuUI2.toWiki.setVisible(false);
+        MenuUI2.toWikiNot.setVisible(false);
         switch(Community.setsDisplayID) {
             case 0 -> {
                 MenuUI2.saveCacheOrNot.setVisible(true);
@@ -948,6 +966,9 @@ public class displaySets extends Thread {
                 MenuUI2.showCommandsMethod.setVisible(true);
                 MenuUI2.firstBedrock.setVisible(true);
                 MenuUI2.firstJava.setVisible(true);
+                MenuUI2.toWikiOrNot.setVisible(true);
+                MenuUI2.toWiki.setVisible(true);
+                MenuUI2.toWikiNot.setVisible(true);
             }
         }
     }

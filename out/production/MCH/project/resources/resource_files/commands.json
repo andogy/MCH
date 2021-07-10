@@ -218,9 +218,12 @@
                     "@cod": "鳕鱼",
                     "@cow_spawn_egg": "生成牛",
                     "@cow": "牛",
-                    "@creeper_spawn_egg": "生成爬行者",
+                    "@creeper_spawn_egg": "生成苦力怕",
+                    "@creeper": "苦力怕",
                     "@dolphin_spawn_egg": "生成海豚",
+                    "@dolphin": "海豚",
                     "@donkey_spawn_egg": "生成驴",
+                    "@donkey": "驴",
                     "@drowned_spawn_egg": "生成溺尸",
                     "@elder_guardian_spawn_egg": "生成远古守卫者",
                     "@enderman_spawn_egg": "生成末影人",
@@ -502,8 +505,11 @@
                     "@cow_spawn_egg": "spawn egg of cow",
                     "@cow": "cow",
                     "@creeper_spawn_egg": "spawn egg of creeper",
+                    "@creeper": "creeper",
                     "@dolphin_spawn_egg": "spawn egg of dolphin",
+                    "@dolphin": "dolphin",
                     "@donkey_spawn_egg": "spawn egg of donkey",
+                    "@donkey": "donkey",
                     "@drowned_spawn_egg": "spawn egg of drowned",
                     "@elder_guardian_spawn_egg": "spawn egg of elder guardian",
                     "@enderman_spawn_egg": "spawn egg of enderman",
@@ -1398,6 +1404,14 @@
                             "@json",
                             "@end"
                         ]
+                    },
+                    {
+                        "tree": [
+                            "@sel",
+                            "@all_items",
+                            "@item_count",
+                            "@end"
+                        ]
                     }
                 ]
             },
@@ -1491,6 +1505,7 @@
             "@all_items": {
                 "spawn_egg": {
                     "description": "@spawn_egg",
+                    "$invalid": true,
                     "catchLimited": "bedrock",
                     "toResource": "@spawn_egg_datas"
                 },
@@ -1545,13 +1560,19 @@
                     "wikiTips": "@cow"
                 },
                 "creeper_spawn_egg": {
-                    "description": "@creeper_spawn_egg"
+                    "description": "@creeper_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%8B%A6%E5%8A%9B%E6%80%95",
+                    "wikiTips": "@creeper"
                 },
                 "dolphin_spawn_egg": {
-                    "description": "@dolphin_spawn_egg"
+                    "description": "@dolphin_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%B5%B7%E8%B1%9A",
+                    "wikiTips": "@dolphin"
                 },
                 "donkey_spawn_egg": {
-                    "description": "@donkey_spawn_egg"
+                    "description": "@donkey_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%A9%B4",
+                    "wikiTip": "@donkey"
                 },
                 "drowned_spawn_egg": {
                     "description": "@drowned_spawn_egg"
@@ -1752,13 +1773,19 @@
                     "wikiTips": "@cow"
                 },
                 "33": {
-                    "description": "@creeper_spawn_egg"
+                    "description": "@creeper_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%8B%A6%E5%8A%9B%E6%80%95",
+                    "wikiTips": "@creeper"
                 },
                 "31": {
-                    "description": "@dolphin_spawn_egg"
+                    "description": "@dolphin_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%B5%B7%E8%B1%9A",
+                    "wikiTips": "@dolphin"
                 },
                 "24": {
-                    "description": "@donkey_spawn_egg"
+                    "description": "@donkey_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%A9%B4",
+                    "wikiTip": "@donkey"
                 },
                 "110": {
                     "description": "@drowned_spawn_egg"

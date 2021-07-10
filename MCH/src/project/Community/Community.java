@@ -60,6 +60,8 @@ public class Community {
     public static limitedTypes showCommands = limitedTypes.ALL_EDITION;
     public static limitedTypes showCommandMethod = limitedTypes.BEDROCK;
 
+    public static boolean toWiki = false;
+
     public static String UPD_ID = "154";
     public static String verID = "116980100152/0-0-1-52";
     public static String ver = "ah-52";
