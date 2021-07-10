@@ -23,6 +23,7 @@ MCH需要解析三个位置的信息才可以正常完成一次完整的解析<b
             {
                 "@command_example": "This is a example command",
                 "@example": "language example",
+                "@example2": "just these",
                 ......
             }
         ],
@@ -30,6 +31,7 @@ MCH需要解析三个位置的信息才可以正常完成一次完整的解析<b
             {
                 "@command_example": "这是一个语言示例",
                 "@example": "语言示例",
+                "@example2": "就这些了",
                 ......
             }
         ]
@@ -58,6 +60,11 @@ MCH需要解析三个位置的信息才可以正常完成一次完整的解析<b
                 "description": "@example",
                 "wiki": "*here need a website link",
                 "wikiTips": "Example"
+            },
+            "@example_step2": {
+                "description": "@example",
+                "wiki": "@here need a website link",
+                "wikiTips": "Example2"
             }
         }
     }
