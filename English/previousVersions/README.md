@@ -23,6 +23,13 @@ like 0.0.1.1,in version ID it should be done "0011",or like 0.0.1.22,in version 
 
 ## updateLogs
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-53.zip">MCH_debug_0-0-1-53(14708010153)</a>
+```
+fixed bug of cannot load Json class
+
+(2021.7.1)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-52.zip">MCH_ah_0-0-1-52(116980100152)</a>
 ```
 fixed function of find command by keyword
