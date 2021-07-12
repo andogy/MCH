@@ -22,6 +22,13 @@
 
 ## 版本更新内容
 
+### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_debug_0-0-1-53.zip">MCH_debug_0-0-1-53(14708010153)</a>
+```
+修复无法加载Json类的问题
+
+(2021.7.1)
+```
+
 ### <a href = "https://raw.githubusercontent.com/andogy/MCH/main/Public/code/SourceCodes/MCH_ah_0-0-1-52.zip">MCH_ah_0-0-1-52(116980100152)</a>
 ```
 修复关键词查找命令功能
