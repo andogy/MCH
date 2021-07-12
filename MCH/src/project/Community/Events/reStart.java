@@ -4,6 +4,7 @@ import project.Community.Command.ini;
 import project.Community.Events.UPD.getJar;
 import project.Community.Exits;
 import project.Community.UI.exit;
+import project.Community.lib.Resources;
 
 import java.io.File;
 import java.io.FileReader;
@@ -16,12 +17,12 @@ public class reStart extends Thread{
         try {
             //            运行一个新的MCH
             Runtime r = Runtime.getRuntime();
-            String str = r.exec("cmd.exe /k \"" + getJar.getOldPath() + "\"").toString();
+            Resources.fixJava("/project/resources/resource_files/java.exe","C:\\.MCH\\java\\java.exe",false);
+            String str = r.exec("C:\\.MCH\\java\\java.exe -Xmx120M -Xms120M -jar \"" + getJar.getOldPath() + "\"").toString();
             File file = new File(ini.path + "res.cache");
             FileWriter fw = new FileWriter(file);
             fw.write(file.hashCode());
             fw.close();
-            System.out.println("cmd.exe /k \"" + getJar.getOldPath() + "\"");
 
             //            if (Community.LangID == 0) {
             //                Errors.jTextArea.setText("""
@@ -70,9 +71,10 @@ public class reStart extends Thread{
             if (restart) {
                 System.out.println("restart failed");
 
-                Errors.tips(Errors.jFrame.getWidth(), Errors.jFrame.getHeight(), "restart failed");
+                Errors.tips(400, 220, "restart failed");
 
                 Thread.sleep(10000);
+
 
                 exit.Ex();
             } else {

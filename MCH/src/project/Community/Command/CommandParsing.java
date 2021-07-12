@@ -1,16 +1,17 @@
 package project.Community.Command;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import project.Community.Community;
 import project.Community.Events.Errors;
 import project.Community.Events.LoadAssembly;
+import project.Community.Events.historyReader;
 import project.Community.Help.Helps;
 import project.Community.UI.Lang.languageSet;
 import project.Community.UI.MchUI;
 import project.Community.UI.loadingWindow;
 import project.Community.lib.Resources;
+import project.Community.lib.json.JSONArray;
+import project.Community.lib.json.JSONException;
+import project.Community.lib.json.JSONObject;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -738,6 +739,8 @@ public class CommandParsing extends Thread {
                 } else {
                     if(Community.historySaveID == 2) {
                         MchUI.command1.setText("");
+                    } else {
+                        historyReader.flush();
                     }
                     try {
                         Thread.sleep(20);

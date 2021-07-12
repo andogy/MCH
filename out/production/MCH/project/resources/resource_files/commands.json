@@ -225,21 +225,37 @@
                     "@donkey_spawn_egg": "生成驴",
                     "@donkey": "驴",
                     "@drowned_spawn_egg": "生成溺尸",
+                    "@drowned": "溺尸",
                     "@elder_guardian_spawn_egg": "生成远古守卫者",
+                    "@elder_guardian": "远古守卫者",
                     "@enderman_spawn_egg": "生成末影人",
+                    "@enderman": "末影人",
                     "@endermite_spawn_egg": "生成末影螨",
+                    "@endermite": "末影螨",
                     "@evoker_spawn_egg": "生成唤魔者",
+                    "@evoker": "唤魔者",
                     "@fox_spawn_egg": "生成狐狸",
+                    "fox": "狐狸",
                     "@ghast_spawn_egg": "生成恶魂",
+                    "@ghast": "恶魂",
                     "@glow_squid_spawn_egg": "生成发光鱿鱼",
+                    "@glow_squid": "发光鱿鱼",
                     "@goat_spawn_egg": "生成山羊",
+                    "@goat": "山羊",
                     "@guardian_spawn_egg": "生成守卫者",
+                    "@guardian": "守卫者",
                     "@hoglin_spawn_egg": "生成疣猪兽",
+                    "@hoglin": "疣猪兽",
                     "@horse_spawn_egg": "生成马",
+                    "@house": "马",
                     "@husk_spawn_egg": "生成尸壳",
+                    "@husk": "尸壳",
                     "@llama_spawn_egg": "生成羊驼",
+                    "@llama": "羊驼",
                     "@magma_cube_spawn_egg": "生成岩浆怪",
+                    "@magma_cube": "岩浆怪",
                     "@mooshroom_spawn_egg": "生成哞菇",
+                    "@mooshroom": "哞菇",
                     "@mule_spawn_egg": "生成骡",
                     "@ocelot_spawn_egg": "生成豹猫",
                     "@panda_spawn_egg": "生成熊猫",
@@ -253,6 +269,7 @@
                     "@pufferfish_spawn_egg": "生成河豚",
                     "@rabbit_spawn_egg": "生成兔子",
                     "@ravager_spawn_egg": "生成劫掠兽",
+                    "@ravager": "劫掠兽",
                     "@salmon_spawn_egg": "生成绵羊",
                     "@shulker_spawn_egg": "生成潜影贝",
                     "@silverfish_spawn_egg": "生成蠹虫",
@@ -511,21 +528,37 @@
                     "@donkey_spawn_egg": "spawn egg of donkey",
                     "@donkey": "donkey",
                     "@drowned_spawn_egg": "spawn egg of drowned",
+                    "@drowned": "drowned",
                     "@elder_guardian_spawn_egg": "spawn egg of elder guardian",
+                    "@elder_guardian": "elder guardian",
                     "@enderman_spawn_egg": "spawn egg of enderman",
+                    "@enderman": "ender man",
                     "@endermite_spawn_egg": "spawn egg of endermite",
+                    "@endermite": "ender mite",
                     "@evoker_spawn_egg": "spawn egg of evoker",
+                    "@evoker": "evoker",
                     "@fox_spawn_egg": "spawn egg of fox",
+                    "fox": "fox",
                     "@ghast_spawn_egg": "spawn egg of ghast",
+                    "@ghast": "ghast",
                     "@glow_squid_spawn_egg": "spawn egg of glow squid",
+                    "@glow_squid": "glow_squid",
                     "@goat_spawn_egg": "spawn egg of goat",
+                    "@goat": "goat",
                     "@guardian_spawn_egg": "spawn egg of guardian",
+                    "@guardian": "guardian",
                     "@hoglin_spawn_egg": "spawn egg of hoglin",
+                    "@hoglin": "hoglin",
                     "@horse_spawn_egg": "spawn egg of horse",
+                    "@house": "house",
                     "@husk_spawn_egg": "spawn egg of husk",
+                    "@husk": "husk",
                     "@llama_spawn_egg": "spawn egg of llama",
+                    "@llama": "llama",
                     "@magma_cube_spawn_egg": "spawn egg of magma cube",
+                    "@magma_cube": "magma_cube",
                     "@mooshroom_spawn_egg": "spawn egg of mooshroom",
+                    "@mooshroom": "mooshroom",
                     "@mule_spawn_egg": "spawn egg of mule",
                     "@ocelot_spawn_egg": "spawn egg of ocelot",
                     "@panda_spawn_egg": "spawn egg of panda",
@@ -539,6 +572,7 @@
                     "@pufferfish_spawn_egg": "spwan egg of pufferfish",
                     "@rabbit_spawn_egg": "spawn egg of pufferfish rabbit",
                     "@ravager_spawn_egg": "spawn egg of ravager",
+                    "@ravager": "ravager",
                     "@salmon_spawn_egg": "spawn egg of salmon",
                     "@sheep_spawn_egg": "spawn egg of sheep",
                     "@shulker_spawn_egg": "spawn egg of shulker",
@@ -631,7 +665,8 @@
                         "tree": [
                             "@sel",
                             "@ability",
-                            "@boolean"
+                            "@boolean",
+                            "@end"
                         ]
                     }
                 ]
@@ -644,7 +679,8 @@
                         "tree": [
                             "@achievement_operator",
                             "@advancements",
-                            "@sel"
+                            "@sel",
+                            "@end"
                         ]
                     }
                 ]
@@ -691,7 +727,8 @@
                 "usage": [
                     {
                         "tree": [
-                            "@boolean"
+                            "@boolean",
+                            "@end"
                         ]
                     }
                 ]
@@ -721,7 +758,8 @@
                     {
                         "tree": [
                             "@sel",
-                            "@ban_reason"
+                            "@ban_reason",
+                            "@end"
                         ]
                     }
                 ]
@@ -736,7 +774,8 @@
                     {
                         "tree": [
                             "@ip",
-                            "@ban_reason"
+                            "@ban_reason",
+                            "@end"
                         ]
                     }
                 ]
@@ -752,7 +791,8 @@
                     {
                         "tree": [
                             "@ip",
-                            "@ban_reason"
+                            "@ban_reason",
+                            "@end"
                         ]
                     }
                 ]
@@ -766,7 +806,8 @@
                 "usage": [
                     {
                         "tree": [
-                            "@banlist_lists"
+                            "@banlist_lists",
+                            "@end"
                         ]
                     }
                 ]
@@ -789,7 +830,8 @@
                         "tree": [
                             "@bossbars",
                             "@namespace",
-                            "@json"
+                            "@json",
+                            "@end"
                         ]
                     },
                     {
@@ -1326,24 +1368,15 @@
                 "usage": [
                     {
                         "tree": [
-                            "@sel",
-                            "@x",
-                            "@y",
-                            "@z",
-                            "@commands"
+                            "@gugu",
+                            "@end"
                         ]
                     },
                     {
                         "tree": [
-                            "@execute_operator"
+                           "@gugu",
+                           "@end"
                         ]
-                    },
-                    {
-                        "tree": "execute @sel @xyz @commands",
-                        "edit": "@bedrock"
-                    },
-                    {
-                        "tree": "@null"
                     }
                 ]
             },
@@ -1572,49 +1605,87 @@
                 "donkey_spawn_egg": {
                     "description": "@donkey_spawn_egg",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%A9%B4",
-                    "wikiTip": "@donkey"
+                    "wikiTips": "@donkey"
                 },
                 "drowned_spawn_egg": {
-                    "description": "@drowned_spawn_egg"
+                    "description": "@drowned_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%BA%BA%E5%B0%B8",
+                    "wikiTips": "@drowned"
                 },
                 "elder_guardian_spawn_egg": {
-                    "description": "@elder_guardian_spawn_egg"
+                    "description": "@elder_guardian_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%BF%9C%E5%8F%A4%E5%AE%88%E5%8D%AB%E8%80%85",
+                    "wikiTips": "@elder_guardian"
                 },
                 "enderman_spawn_egg": {
-                    "description": "@enderman_spawn_egg"
+                    "description": "@enderman_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%9C%AB%E5%BD%B1%E4%BA%BA",
+                    "wikiTips": "@enderman"
                 },
                 "endermite_spawn_egg": {
-                    "description": "@endermite_spawn_egg"
+                    "description": "@endermite_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%9C%AB%E5%BD%B1%E8%9E%A8",
+                    "wikiTips": "@endermite"
                 },
                 "evoker_spawn_egg": {
-                    "description": "@evoker_spawn_egg"
+                    "description": "@evoker_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%94%A4%E9%AD%94%E8%80%85",
+                    "wikiTips": "@evoker"
                 },
                 "fox_spawn_egg": {
-                    "description": "@fox_spawn_egg"
+                    "description": "@fox_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8B%90%E7%8B%B8",
+                    "wikiTips": "@fox"
+                },
+                "ghast_spawn_egg": {
+                    "description": "@ghast_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%81%B6%E9%AD%82",
+                    "wikiTips": "@ghast"
+                },
+                "glow_squid_spawn_egg": {
+                    "description": "@glow_squid_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%8F%91%E5%85%89%E9%B1%BF%E9%B1%BC",
+                    "wikiTips": "@glow_squid"
                 },
                 "goat_spawn_egg": {
-                    "description": "@goat_spawn_egg"
+                    "description": "@goat_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B1%B1%E7%BE%8A",
+                    "wikiTips": "@goat"
                 },
                 "guardian_spawn_egg": {
-                    "description": "@guardian_spawn_egg"
+                    "description": "@guardian_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%AE%88%E5%8D%AB%E8%80%85",
+                    "wikiTips": "@guardian"
                 },
                 "hoglin_spawn_egg": {
-                    "description": "@hoglin_spawn_egg"
+                    "description": "@hoglin_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%96%A3%E7%8C%AA%E5%85%BD",
+                    "wikiTips": "@hoglin"
                 },
                 "horse_spawn_egg": {
-                    "description": "@horse_spawn_egg"
+                    "description": "@horse_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%A9%AC",
+                    "wikiTips": "@house"
                 },
                 "husk_spawn_egg": {
-                    "description": "@husk_spawn_egg"
+                    "description": "@husk_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B0%B8%E5%A3%B3",
+                    "wikiTips": "@husk"
                 },
                 "llama_spawn_egg": {
-                    "description": "@llama_spawn_egg"
+                    "description": "@llama_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%BE%8A%E9%A9%BC",
+                    "wikiTips": "@llama"
                 },
                 "magma_cube_spawn_egg": {
-                    "description": "@magma_cube_spawn_egg"
+                    "description": "@magma_cube_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B2%A9%E6%B5%86%E6%80%AA",
+                    "wikiTips": "@magma_cube"
                 },
                 "mooshroom_spawn_egg": {
-                    "description": "@mooshroom_spawn_egg"
+                    "description": "@mooshroom_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%93%9E%E8%8F%87",
+                    "wikiTips": "@mooshroom"
                 },
                 "mule_spawn_egg": {
                     "description": "@mule_spawn_egg"
@@ -1653,7 +1724,9 @@
                     "description": "@rabbit_spawn_egg"
                 },
                 "ravager_spawn_egg": {
-                    "description": "@ravager_spawn_egg"
+                    "description": "@ravager_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%8A%AB%E6%8E%A0%E5%85%BD",
+                    "wikiTips": "@ravager"
                 },
                 "salmon_spawn_egg": {
                     "description": "@salmon_spawn_egg"
@@ -1788,49 +1861,84 @@
                     "wikiTip": "@donkey"
                 },
                 "110": {
-                    "description": "@drowned_spawn_egg"
+                    "description": "@drowned_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%BA%BA%E5%B0%B8",
+                    "wikiTips": "@drowned"
                 },
                 "50": {
-                    "description": "@elder_guardian_spawn_egg"
+                    "description": "@elder_guardian_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%BF%9C%E5%8F%A4%E5%AE%88%E5%8D%AB%E8%80%85",
+                    "wikiTips": "@elder_guardian"
                 },
                 "38": {
-                    "description": "@enderman_spawn_egg"
+                    "description": "@enderman_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%9C%AB%E5%BD%B1%E4%BA%BA",
+                    "wikiTips": "@enderman"
                 },
                 "55": {
-                    "description": "@endermite_spawn_egg"
+                    "description": "@endermite_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%9C%AB%E5%BD%B1%E8%9E%A8",
+                    "wikiTips": "@endermite"
                 },
                 "104": {
-                    "description": "@evoker_spawn_egg"
+                    "description": "@evoker_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%94%A4%E9%AD%94%E8%80%85",
+                    "wikiTips": "@evoker"
                 },
                 "121": {
-                    "description": "@fox_spawn_egg"
+                    "description": "@fox_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8B%90%E7%8B%B8",
+                    "wikiTips": "@fox"
                 },
                 "41": {
-                    "description": "@ghast_spawn_egg"
+                    "description": "@ghast_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%81%B6%E9%AD%82",
+                    "wikiTips": "@ghast"
+                },
+                "129": {
+                    "description": "@glow_squid_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%8F%91%E5%85%89%E9%B1%BF%E9%B1%BC",
+                    "wikiTips": "@glow_squid"
                 },
                 "128": {
-                    "description": "@goat_spawn_egg"
+                    "description": "@goat_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B1%B1%E7%BE%8A",
+                    "wikiTips": "@goat"
                 },
                 "49": {
-                    "description": "@guardian_spawn_egg"
+                    "description": "@guardian_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%AE%88%E5%8D%AB%E8%80%85",
+                    "wikiTips": "@guardian"
                 },
                 "124": {
-                    "description": "@hoglin_spawn_egg"
+                    "description": "@hoglin_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%96%A3%E7%8C%AA%E5%85%BD",
+                    "wikiTips": "@hoglin"
                 },
                 "23": {
-                    "description": "@horse_spawn_egg"
+                    "description": "@horse_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%A9%AC",
+                    "wikiTips": "@house"
                 },
                 "47": {
-                    "description": "@husk_spawn_egg"
+                    "description": "@husk_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B0%B8%E5%A3%B3",
+                    "wikiTips": "@husk"
                 },
                 "29": {
-                    "description": "@llama_spawn_egg"
+                    "description": "@llama_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%BE%8A%E9%A9%BC",
+                    "wikiTips": "@llama"
                 },
                 "42": {
-                    "description": "@magma_cube_spawn_egg"
+                    "description": "@magma_cube_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B2%A9%E6%B5%86%E6%80%AA",
+                    "wikiTips": "@magma_cube"
                 },
                 "16": {
-                    "description": "@mooshroom_spawn_egg"
+                    "description": "@mooshroom_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%93%9E%E8%8F%87",
+                    "wikiTips": "@mooshroom"
                 },
                 "25": {
                     "description": "@mule_spawn_egg"
@@ -1869,7 +1977,9 @@
                     "description": "@rabbit_spawn_egg"
                 },
                 "59": {
-                    "description": "@ravager_spawn_egg"
+                    "description": "@ravager_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%8A%AB%E6%8E%A0%E5%85%BD",
+                    "wikiTips": "@ravager"
                 },
                 "109": {
                     "description": "@salmon_spawn_egg"

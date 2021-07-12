@@ -1,7 +1,7 @@
 package test.MinecraftQuery;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import project.Community.lib.json.JSONArray;
+import project.Community.lib.json.JSONObject;
 import test.MinecraftQuery.api.Protocol;
 import test.MinecraftQuery.api.QueryStatus;
 

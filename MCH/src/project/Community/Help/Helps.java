@@ -6,6 +6,8 @@ import project.Community.Events.Errors;
 import java.awt.*;
 import java.net.URI;
 
+import static project.Community.lib.Resources.initLanguage.lang;
+
 public class Helps {
     public static void open(String url) {
         try {
@@ -76,12 +78,7 @@ public class Helps {
 
     public static void iniHelps() {
         try {
-            String url = "";
-            if (Community.LangID == 0) {
-                url = "https://github.com/andogy/MCH/blob/main/%E4%B8%AD%E6%96%87/%E5%B8%AE%E5%8A%A9/%E8%AE%BE%E5%AE%9A%E5%B8%AE%E5%8A%A9/README.md";
-            } else if (Community.LangID == 1) {
-                url = "https://github.com/andogy/MCH/blob/main/English/Helps/settings/README.md";
-            }
+            String url = lang.get("iniHelpLink");
             open(url);
         } catch (Exception e) {
             Errors.errors(null, e, false, "Helps");

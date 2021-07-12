@@ -264,7 +264,7 @@ public class MenuUI2 {
                     if(!ini.settingIni) {
                         setting_command.setBounds(320, 280, 100, 34);
                     } else {
-                        setting_command.setBounds(160, 280, 80, 34);
+                        setting_command.setBounds(160, 280, 100, 34);
                     }
 
                     Language.setBounds(0, 5, 80, 30);

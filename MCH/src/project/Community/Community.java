@@ -53,7 +53,7 @@ public class Community {
 
     public static int minecraftListenFlushSpeedLevels = 0;
 
-    public static boolean autoUPD = true;
+    public static boolean autoUPD = false;
 
     public static boolean showInvalidCommand = true;
 
@@ -62,13 +62,12 @@ public class Community {
 
     public static boolean toWiki = false;
 
-    public static String UPD_ID = "154";
-    public static String verID = "116980100152/0-0-1-52";
-    public static String ver = "ah-52";
+    public static String UPD_ID = "155";
+    public static String verID = "14708010153/0-0-1-53";
+    public static String ver = "debug-53";
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(args));
-
         System.out.println(System.getenv("JAVA_HOME"));
 
         try {

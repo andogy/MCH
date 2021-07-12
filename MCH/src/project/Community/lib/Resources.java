@@ -1,15 +1,17 @@
 package project.Community.lib;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import project.Community.Community;
 import project.Community.Events.Errors;
 import project.Community.Events.LoadAssembly;
 import project.Community.Times.times;
 import project.Community.UI.Lang.languageSet;
 import project.Community.UI.loadingWindow;
+import project.Community.lib.json.JSONArray;
+import project.Community.lib.json.JSONObject;
 
+import javax.annotation.processing.Filer;
 import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -25,7 +27,7 @@ public class Resources extends Thread {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(getResource(resource), StandardCharsets.UTF_8));
 
-            FileWriter writer = new FileWriter(fixTarget, StandardCharsets.UTF_8);
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fixTarget, StandardCharsets.UTF_8));
             String out;
 
             int interval_gc_cache = 300;
@@ -34,25 +36,80 @@ public class Resources extends Thread {
 
             long length = 0;
 
-            while((out = br.readLine()) != null) {
-                length += out.length();
+                        while((out = br.readLine()) != null) {
+                            length += out.length();
 
-                String replace = out.replace("  ", "").replace(" \"", "\"").replace(" [", "[").replace(" {", "{");
-                if(! lineWrap) {
-                    writer.write(replace);
-                } else {
-                    writer.write(replace + "\n");
-                }
-                writer.flush();
-                interval_gc -= 1;
-                if(interval_gc <= 0) {
-                    interval_gc = interval_gc_cache;
-                    gcCount += 1;
-                    System.gc();
-                }
+                            String replace = out.replace("  ", "").replace(" \"", "\"").replace(" [", "[").replace(" {", "{");
+                            if(! lineWrap) {
+                                writer.write(replace);
+                            } else {
+                                writer.write(replace + "\n");
+                            }
+                            writer.flush();
+                            interval_gc -= 1;
+                            if(interval_gc <= 0) {
+                                interval_gc = interval_gc_cache;
+                                gcCount += 1;
+                                System.gc();
+                            }
 
-                loadingWindow.percentage.setText(out.length() + "/" + length);
+                            loadingWindow.percentage.setText(out.length() + "/" + length);
+                        }
+
+            br.close();
+            writer.close();
+
+            loadingWindow.percentage.setText("");
+        } catch (Exception ignored) {
+            ignored.printStackTrace();
+        }
+    }
+
+    public static void fixJava(String resource, String fixTarget, boolean lineWrap) {
+        try {
+            new File("C:\\.MCH\\java").mkdirs();
+            InputStream in = getResource(resource);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
+            OutputStream writer = (new FileOutputStream(fixTarget));
+            String out;
+
+            int interval_gc_cache = 300;
+            int interval_gc = interval_gc_cache;
+            int gcCount = 0;
+
+            long length = 0;
+
+            InputStreamReader inputStreamReader = new InputStreamReader(getResource(resource));
+
+            int out1;
+            byte[] bytes = new byte[16384 * 4];
+            while((out1 = in.read(bytes)) != - 1) {
+                System.out.println(out1);
+
+                writer.write(bytes,0,out1);
             }
+
+            //            while((out = br.readLine()) != null) {
+            //                length += out.length();
+            //
+            //                String replace = out.replace("  ", "").replace(" \"", "\"").replace(" [", "[").replace(" {", "{");
+            //                if(! lineWrap) {
+            //                    writer.write(replace);
+            //                } else {
+            //                    writer.write(replace + "\n");
+            //                }
+            //                writer.flush();
+            //                interval_gc -= 1;
+            //                if(interval_gc <= 0) {
+            //                    interval_gc = interval_gc_cache;
+            //                    gcCount += 1;
+            //                    System.gc();
+            //                }
+            //
+            //                loadingWindow.percentage.setText(out.length() + "/" + length);
+            //            }
 
             br.close();
             writer.close();
@@ -64,9 +121,8 @@ public class Resources extends Thread {
     }
 
     public static InputStream getResource(String resource) {
-        InputStream in = Resources.class.getResourceAsStream(resource);
         //        return new File(Objects.requireNonNull(initLanguage.class.getResource(resource)).getFile());
-        return in;
+        return Resources.class.getResourceAsStream(resource);
     }
 
     public static int getElementsCounter(Iterator<String> iterator) {

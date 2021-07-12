@@ -3,6 +3,7 @@
         {
             "chinese": [
                 {
+                    "iniHelpLink": "https://github.com/zhuaidadaya/MCH/blob/main/mds/settings_help_ZH.md",
                     "toWikiOnOrOff": "wiki跳转:",
                     "toWikiOn": "启用",
                     "toWikiOff": "禁用",
@@ -115,6 +116,7 @@
         {
             "english": [
                 {
+                    "iniHelpLink": "https://github.com/zhuaidadaya/MCH/blob/main/mds/settings_help_EN.md",
                     "toWikiOnOrOff": "to wiki:",
                     "toWikiOn": "enable",
                     "toWikiOff": "disable",
