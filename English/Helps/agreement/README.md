@@ -10,17 +10,7 @@ if accept not any terms or constraints,then please do not use MCH<br>
 this agreement is of user with MCH team(hereinafter referred to "we"),it is about user download and used or copy for MCH<br>
 ## 1.rights statement
 ```
-all intellectual property rights of MCH,and all information content of MCH,include but no only:
-    information content and it combination
-    icons
-    images
-    figure
-    colors
-    UI design
-    Layout frame
-    MCH date
-    extra programs
-these all owned by the we
+all intellectual property rights of MCH,and all information content of MCH, these all owned by the we
 it protected by copyright law,international copyright treaties and other intellectual property laws and regulations
 ```
 ## 2.Scope of license
@@ -90,13 +80,14 @@ we has the right to interpret and modify this agreement to the maximum extent pe
 <hr>
 
 download MCH from:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)<br>
+Release: [Github](https://github.com/zhuaidadaya/MCH/releases)
 feedback from:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr) or [mail](mailto:1501917367@qq.com)
 <hr>
-agreement version: 1.2
+agreement version: 1.3
 
 ## - translation -
 
-"zhuaidadaya" translated all about MCH texts<br>
+["zhuaidadaya"](https://github.com/zhuaidadaya) translated all about MCH texts<br>
 if have any error,please contack to (Wechat)zhuaidadaya or (QQ)1501917367<br>
 thanks for you<br>
 
