@@ -559,7 +559,6 @@ public class CommandParsing extends Thread {
                 }
 
                 if(invalid) {
-
                     //判断是否显示失效的命令
                     if(Community.showInvalidCommand) {
 

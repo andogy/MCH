@@ -102,7 +102,6 @@ public class Parsing extends Thread {
                         if(MchUI.tips.getText().equals("到达长度上限了,无法再进行输入")) {
                             MchUI.tips.setText("");
                         }
-
                         Community.commandLength = MchUI.input_Command.getText().length();
                         Community.nowPoint = 0;
 
