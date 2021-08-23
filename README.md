@@ -3,12 +3,6 @@
 
 hi welcome MCH project<br>
 let we got some about MCH
-> this project is suspended<br>
-> because developers need go to exam<br>
-> will resume development in August<br>
->
-> before that, will have some small action<br>
-> but may cannot be updating
 
 ## first
 
