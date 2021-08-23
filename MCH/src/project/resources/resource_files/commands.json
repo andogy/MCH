@@ -257,14 +257,23 @@
                     "@mooshroom_spawn_egg": "生成哞菇",
                     "@mooshroom": "哞菇",
                     "@mule_spawn_egg": "生成骡",
+                    "@mule": "骡",
                     "@ocelot_spawn_egg": "生成豹猫",
+                    "@ocelot": "豹猫",
                     "@panda_spawn_egg": "生成熊猫",
-                    "@prot_spawn_egg": "生成鹦鹉",
+                    "@panda": "熊猫",
+                    "@parrot_spawn_egg": "生成鹦鹉",
+                    "@parrot": "鹦鹉",
                     "@phantom_spawn_egg": "生成幻翼",
+                    "@phantom": "幻翼",
                     "@pig_spawn_egg": "生成猪",
+                    "@pig": "猪",
                     "@piglin_brute_spawn_egg": "生成猪灵蛮兵",
+                    "@pihlin_brute": "猪灵蛮兵",
                     "@piglin_spawn_egg": "生成猪灵",
+                    "@pihlin": "猪灵",
                     "@pillager_spawn_egg": "生成掠夺者",
+                    "@pillager": "掠夺者",
                     "@polar_bear_spawn_egg": "生成北极熊",
                     "@pufferfish_spawn_egg": "生成河豚",
                     "@rabbit_spawn_egg": "生成兔子",
@@ -304,7 +313,10 @@
                     "@ender_pearl": "末影珍珠",
                     "@tnt_minecart": "TNT矿车",
                     "@current_position_wikiTips": "当前位置",
-                    "@coordinates_wikiTips": "坐标"
+                    "@coordinates_wikiTips": "坐标",
+                    "@command_kick": "将玩家踢出服务器",
+                    "@kick_reason": "<原因 : 字符串>",
+                    "@reason": "原因"
                 }
             ]
         },
@@ -560,14 +572,23 @@
                     "@mooshroom_spawn_egg": "spawn egg of mooshroom",
                     "@mooshroom": "mooshroom",
                     "@mule_spawn_egg": "spawn egg of mule",
+                    "@mule": "mule",
                     "@ocelot_spawn_egg": "spawn egg of ocelot",
+                    "@ocelot": "ocelot",
                     "@panda_spawn_egg": "spawn egg of panda",
-                    "@prot_spawn_egg": "spawn egg of prot",
+                    "@panda": "panda",
+                    "@parrot_spawn_egg": "spawn egg of parrot",
+                    "@parrot": "parrot",
                     "@phantom_spawn_egg": "spawn egg of phantom",
+                    "@phantom": "phantom",
                     "@pig_spawn_egg": "spawn egg of pig",
+                    "@pig": "pig",
                     "@piglin_brute_spawn_egg": "spawn egg of piglin brute",
+                    "@pihlin_brute": "pihlin brute",
                     "@piglin_spawn_egg": "spawn egg of piglin",
+                    "@pihlin": "piglin",
                     "@pillager_spawn_egg": "spawn egg of pillager",
+                    "@pillager": "pillager",
                     "@polar_bear_spawn_egg": "spawn egg of polar bear",
                     "@pufferfish_spawn_egg": "spwan egg of pufferfish",
                     "@rabbit_spawn_egg": "spawn egg of pufferfish rabbit",
@@ -608,7 +629,329 @@
                     "@ender_pearl": "pearl of ender man",
                     "@tnt_minecart": "TNT minecart",
                     "@current_position_wikiTips": "current position",
-                    "@coordinates_wikiTips": "coordinates"
+                    "@coordinates_wikiTips": "coordinates",
+                    "@command_kick": "kick players from your server",
+                    "@kick_reason": "<reason : String>",
+                    "@reason": "reason"
+                }
+            ]
+        },
+        {
+
+            "chinese_tw": [
+                {
+                    "canToWiki": "同时按下Ctrl于W可以前往 \"%s\" 的Wiki页面",
+                    "jsonErr": "%s 是一个错误的json",
+                    "noComplete": "未完成的命令:",
+                    "@gugul": "咕咕了，以后做这个",
+                    "@command_help": "查找命令用法",
+                    "@command_gamemode": "设定游戏模式",
+                    "@command_gamerule": "设定或查询游戏规则",
+                    "@comamnd_ability": "给予或清除玩家能力",
+                    "@command_achievenment": "给予或清除玩家的成就(已失效)",
+                    "@command_advancement": "添加、清除、查询玩家的进度",
+                    "@command_agent": "操作吉祥物",
+                    "@command_bossbar": "操作boss栏",
+                    "commandNotFound": "无法找到此命令的这种用法",
+                    "commandOver": "命令已经结束",
+                    "pageOut": "页码超出限制",
+                    "@page": "页码",
+                    "@boolean_true": "启用",
+                    "@boolean_false": "禁用",
+                    "@appointName": "指定名称",
+                    "@sel_s": "执行命令的实体",
+                    "@sel_r": "随机玩家",
+                    "@sel_p": "最近的玩家",
+                    "@sel_e": "所有实体",
+                    "@sel_a": "所有玩家",
+                    "@adventure": "冒险",
+                    "@default": "默认",
+                    "@creative": "创造",
+                    "@survival": "生存",
+                    "@spectator": "旁观 (仅java版可用)",
+                    "@ability_worldbuilder": "给予玩家成为世界建造者的能力",
+                    "@ability_mayfly": "给予玩家飞行能力",
+                    "@ability_mute": "禁言玩家",
+                    "@grant": "给予成就",
+                    "@revoke": "清除成就",
+                    "@advancement_only": "指定一个成就",
+                    "@advancement_everything": "所有成就",
+                    "@advancement_condition": "条件",
+                    "@advancement_through": "指定进度及其全部上游和下游进度",
+                    "@advancement_from": "指定进度及其下游进度",
+                    "@advancement_until": "指定进度及其上游进度",
+                    "@alwaysday": "是否启用昼夜更替",
+                    "@attribute": "修改、查询玩家和生物的属性",
+                    "@ban_player": "封禁一个玩家",
+                    "@ban_ip": "封禁一个IP",
+                    "@ban_reason": "原因",
+                    "@ban_reason_text": "<封禁原因 : 字符串>",
+                    "@ban_ip_reason_text": "<IP : 字符串>",
+                    "@null": "",
+                    "@ban_strings": "字符串",
+                    "@ban_list": "封禁列表",
+                    "@ban_ip_list": "IP列表",
+                    "@ban_players_list": "玩家列表",
+                    "@bossbar_add": "创建一个新boss栏",
+                    "@bossbar_list": "显示已有的bossbar",
+                    "@bossbar_remove": "清除一个已有的bossbar",
+                    "@bossbar_set": "设置一个bossbar的属性",
+                    "@bossbar_get": "获取一个bossbar的属性",
+                    "@namespace": "<命名空间 : 字符串>",
+                    "@name_space": "命名空间",
+                    "@json": "<json : String>",
+                    "@bossbar_get_max": "获得boosbar的最大值",
+                    "@bossbar_get_players": "获得可以看到此bossbar的玩家",
+                    "@bossbar_get_value": "获得bossbar的值",
+                    "@bossbar_get_visible": "获得bossbar的显示状态",
+                    "@color": "设置颜色",
+                    "@blue": "蓝色",
+                    "@green": "绿色",
+                    "@pink": "粉色",
+                    "@purple": "紫色",
+                    "@red": "红色",
+                    "@white": "白色",
+                    "@yellow": "黄色",
+                    "@bossbar_max_set": "<最大值 : 整数>",
+                    "@valueErr": "是一个错误的数",
+                    "@help_valueOutLimited": "页数超出限制",
+                    "@int_valueOutLimited": "值超出限制",
+                    "@bossbar_max_set_value": "最大值",
+                    "bossbar_set_max": "设置最大值",
+                    "@bossbar_set_name": "设置bossbar名称",
+                    "@bossbar_set_players": "设置可以看见bossbar的玩家",
+                    "@bossbar_set_style": "设置bossbar的样式",
+                    "@bossbar_style_progress": "默认样式",
+                    "@bossbar_style_notched_6": "分为六截显示",
+                    "@bossbar_style_notched_10": "分为十截显示",
+                    "@bossbar_style_notched_12": "分为十二截显示",
+                    "@bossbar_style_notched_20": "分为二十截显示",
+                    "@bossbar_set_value": "设置bossbar的值",
+                    "@bossbar_value_set": "<值 : 整数>",
+                    "@bossbar_value_sey_value": "值",
+                    "@bossbar_set_visible": "设置bossbar显示状态",
+                    "@command_camerashake": "设置镜头抖动效果",
+                    "@camerashake_add": "添加一个镜头摇晃",
+                    "@camerashake_stop": "停止镜头摇晃",
+                    "@banip": "封禁一个IP(已失效)",
+                    "@advancement_conditions": "<条件 : 字符串>",
+                    "@all": "所有",
+                    "@command_changesettin": "在bds运行时更改设置",
+                    "@allow-cheats": "允许玩家作弊",
+                    "@difficulty": "更改游戏难度",
+                    "@peaceful": "和平模式",
+                    "@easy": "简单模式",
+                    "@normal": "一般模式",
+                    "@hard": "困难模式",
+                    "@peaceful_be": "和平模式(仅基岩版)",
+                    "@easy_be": "简单模式(仅基岩版)",
+                    "@normal_be": "一般模式(仅基岩版)",
+                    "@hard_be": "困难模式(仅基岩版)",
+                    "@lost_command": "未证实命令",
+                    "@clear_data": "<物品特殊值 : 整数>",
+                    "@item_count": "<数量 : 整数>",
+                    "@count": "数量",
+                    "@command_clear": "清除玩家物品栏的的物品",
+                    "@command_clone": "将一个区域克隆到另一个区域",
+                    "@command_clearspawnpoint": "清除玩家的重生点",
+                    "@x_position_integer": "<X轴坐标 : 整数>",
+                    "@x": "x轴坐标",
+                    "@y_position_integer": "<y轴坐标 : 整数>",
+                    "@y": "y轴坐标",
+                    "@z_position_integer": "<z轴坐标 : 整数>",
+                    "@z": "z轴坐标",
+                    "@current_position": "当前位置",
+                    "@clone_x_start_position_integer": "<区域起始坐标(X轴): 整数>",
+                    "@clone_y_start_position_integer": "<区域起始坐标(Y轴) : 整数>",
+                    "@clone_z_start_position_integer": "<区域起始坐标(Z轴) : 整数>",
+                    "@clone_x_diagonally_position_integer": "<区域对角坐标(X轴) : 整数>",
+                    "@clone_y_diagonally_position_integer": "<区域对角坐标(Y轴) : 整数>",
+                    "@clone_z_diagonally_position_integer": "<区域对角坐标(Z轴) : 整数>",
+                    "@clone_x_position_target": "<目标坐标(X轴) : 整数>",
+                    "@clone_y_position_target": "<目标坐标(Y轴) : 整数>",
+                    "@clone_z_position_target": "<目标坐标(Z轴) : 整数>",
+                    "@clone_replace": "直接替换方块",
+                    "@clone_replace_normal": "默认替换方式",
+                    "@clone_replace_force": "强制替换",
+                    "@clone_replace_move": "替换后清除源区域的方块",
+                    "@clone_masked": "克隆非空气方块",
+                    "@clone_filtered": "克隆选定的方块",
+                    "mayErrNamespace": "是一个不正确的命名空间",
+                    "@command_closechat": "关闭聊天框(已失效)",
+                    "@command_closewebsocket": "断开wsserver的连接",
+                    "@command_closewebsocket_description": "此命令用于断开游戏与websocket的连接，仅限websocket服务器主动发送",
+                    "@command_code": "启用代码编辑器",
+                    "@command_lost": "这个命令来自于Minecraft Wiki，上面没用给出任何有关此命令的其他信息\n并且此命令暂时无法被我们确认是否属实",
+                    "@command_codebuilder": "设置玩家的代码编辑状态",
+                    "@command_connect": "连接到websocket服务器",
+                    "@connect_out": "断开websocket服务器的连接",
+                    "@connect_URL": "<URL : 字符串>",
+                    "@URL": "URL",
+                    "@command_data": "获取、合并、移除实体或方块的数据标签",
+                    "@command_datapack": "控制加载的数据包",
+                    "@disable_datapack": "禁用指定数据包",
+                    "@enable_datapack": "启用指定数据包",
+                    "@list_datapack": "显示数据包列表",
+                    "@datapack_list_available": "显示可用数据包列表",
+                    "@datapack_list_enable": "显示启用数据包列表",
+                    "@datapack_name": "<数据包名称 : 字符串>",
+                    "@dataapckname": "数据包名称",
+                    "@vanilla_datapack": "原版数据包",
+                    "@datapack_first": "最低优先级",
+                    "@datapack_last": "最高优先级",
+                    "@datapack_after": "优先级高于指定数据包",
+                    "@datapack_before": "优先级低于指定数据包",
+                    "@command_daylock": "是否锁定时间",
+                    "@command_debug": "设置调试状态",
+                    "@start_debug": "开始调试",
+                    "@stop_debug": "停止调试",
+                    "@adventure_bedrock": "冒险(仅基岩版)",
+                    "@creative_bedrock": "创造(基岩版)",
+                    "@survival_bedrock": "生存(仅基岩版)",
+                    "@default_bedrock": "默认(仅基岩版)",
+                    "@command_defaultgamemode": "设置默认游戏模式",
+                    "@command_deop": "去除玩家的操作员权限",
+                    "@command_dialogue": "打开一个玩家的NPC对话框",
+                    "@command_difficulty": "设置游戏难度",
+                    "@command_effect": "添加或清除状态效果",
+                    "@command_enableencryption": "为wsserver连接进行加密",
+                    "@command_enchant": "附魔玩家的物品",
+                    "@effect_clear_je": "为目清除指定或全部效果",
+                    "@effect_clear": "为目标清除所有效果",
+                    "@effect_give": "给予目标一个效果",
+                    "@effect_time": "<有效时间 : 整数>",
+                    "@effect_times": "持续时间(秒)",
+                    "@effect_amplifier": "<效果等级 : 整数>",
+                    "@effect_amplifiers": "效果等级",
+                    "@effect_no_particle": "隐藏粒子",
+                    "@effect_have_particle": "显示粒子",
+                    "@websocketserver_public_key": "<公钥 : 字符串>",
+                    "@public_key": "公钥",
+                    "@salt_value": "<盐值 : 整数>",
+                    "@salt": "盐值",
+                    "@enchant_level": "<附魔等级 : 整数>",
+                    "@enchant_levels": "附魔等级",
+                    "@command_event": "触发实体事件",
+                    "@event_entity": "实体目标",
+                    "@command_execute": "代表实体执行一个命令",
+                    "@execute_detect": "判断指定位置的方块,与目标方块一致才执行命令",
+                    "@blockdata": "<特殊值 : 整数>",
+                    "@block_datas": "特殊值",
+                    "@acacia_boat": "金合欢木船",
+                    "@bat_spawn_egg": "生成蝙蝠",
+                    "@bat": "蝙蝠",
+                    "@spawn_egg": "刷怪蛋",
+                    "@bee_spawn_egg": "生成蜜蜂",
+                    "@bee": "蜜蜂",
+                    "@blaze_spawn_egg": "生成烈焰人",
+                    "@blaze": "烈焰人",
+                    "@cat_spawn_egg": "生成猫",
+                    "@cat": "猫",
+                    "@cave_spider_spawn_egg": "生成洞穴蜘蛛",
+                    "@cave_spider": "洞穴蜘蛛",
+                    "@chicken_spawn_egg": "生成鸡",
+                    "@chicken": "鸡",
+                    "@cod_spawn_egg": "生成鳕鱼",
+                    "@cod": "鳕鱼",
+                    "@cow_spawn_egg": "生成牛",
+                    "@cow": "牛",
+                    "@creeper_spawn_egg": "生成苦力怕",
+                    "@creeper": "苦力怕",
+                    "@dolphin_spawn_egg": "生成海豚",
+                    "@dolphin": "海豚",
+                    "@donkey_spawn_egg": "生成驴",
+                    "@donkey": "驴",
+                    "@drowned_spawn_egg": "生成溺尸",
+                    "@drowned": "溺尸",
+                    "@elder_guardian_spawn_egg": "生成远古守卫者",
+                    "@elder_guardian": "远古守卫者",
+                    "@enderman_spawn_egg": "生成末影人",
+                    "@enderman": "末影人",
+                    "@endermite_spawn_egg": "生成末影螨",
+                    "@endermite": "末影螨",
+                    "@evoker_spawn_egg": "生成唤魔者",
+                    "@evoker": "唤魔者",
+                    "@fox_spawn_egg": "生成狐狸",
+                    "fox": "狐狸",
+                    "@ghast_spawn_egg": "生成恶魂",
+                    "@ghast": "恶魂",
+                    "@glow_squid_spawn_egg": "生成发光鱿鱼",
+                    "@glow_squid": "发光鱿鱼",
+                    "@goat_spawn_egg": "生成山羊",
+                    "@goat": "山羊",
+                    "@guardian_spawn_egg": "生成守卫者",
+                    "@guardian": "守卫者",
+                    "@hoglin_spawn_egg": "生成疣猪兽",
+                    "@hoglin": "疣猪兽",
+                    "@horse_spawn_egg": "生成马",
+                    "@house": "马",
+                    "@husk_spawn_egg": "生成尸壳",
+                    "@husk": "尸壳",
+                    "@llama_spawn_egg": "生成羊驼",
+                    "@llama": "羊驼",
+                    "@magma_cube_spawn_egg": "生成岩浆怪",
+                    "@magma_cube": "岩浆怪",
+                    "@mooshroom_spawn_egg": "生成哞菇",
+                    "@mooshroom": "哞菇",
+                    "@mule_spawn_egg": "生成骡",
+                    "@mule": "骡",
+                    "@ocelot_spawn_egg": "生成豹猫",
+                    "@ocelot": "豹猫",
+                    "@panda_spawn_egg": "生成熊猫",
+                    "@panda": "熊猫",
+                    "@parrot_spawn_egg": "生成鹦鹉",
+                    "@parrot": "鹦鹉",
+                    "@phantom_spawn_egg": "生成幻翼",
+                    "@phantom": "幻翼",
+                    "@pig_spawn_egg": "生成猪",
+                    "@pig": "猪",
+                    "@piglin_brute_spawn_egg": "生成猪灵蛮兵",
+                    "@pihlin_brute": "猪灵蛮兵",
+                    "@piglin_spawn_egg": "生成猪灵",
+                    "@pihlin": "猪灵",
+                    "@pillager_spawn_egg": "生成掠夺者",
+                    "@pillager": "掠夺者",
+                    "@polar_bear_spawn_egg": "生成北极熊",
+                    "@pufferfish_spawn_egg": "生成河豚",
+                    "@rabbit_spawn_egg": "生成兔子",
+                    "@ravager_spawn_egg": "生成劫掠兽",
+                    "@ravager": "劫掠兽",
+                    "@salmon_spawn_egg": "生成绵羊",
+                    "@shulker_spawn_egg": "生成潜影贝",
+                    "@silverfish_spawn_egg": "生成蠹虫",
+                    "@skeleton_horse_spawn_egg": "生成骷髅马",
+                    "@skeleton_spawn_egg": "生成骷髅",
+                    "@slime_spawn_egg": "生成史莱姆",
+                    "@spider_spawn_egg": "生成蜘蛛",
+                    "@squid_spawn_egg": "生成鱿鱼",
+                    "@stray_spawn_egg": "生成流浪者",
+                    "@strider_spawn_egg": "生成炽足兽",
+                    "@tropical_fish_spawn_egg": "生成热带鱼",
+                    "@turtle_spawn_egg": "生成海龟",
+                    "@vex_spawn_egg": "生成恼鬼",
+                    "@villager_spawn_egg": "生成村民",
+                    "@vindicator_spawn_egg": "生成卫道士",
+                    "@wandering_trader_spawn_egg": "生成流浪商人",
+                    "@witch_spawn_egg": "生成女巫",
+                    "@wither_skeleton_spawn_egg": "生成凋零骷髅",
+                    "@wolf_spawn_egg": "生成狼",
+                    "@zoglin_spawn_egg": "生成僵尸疣猪兽",
+                    "@zombie_horse_spawn_egg": "生成僵尸马",
+                    "@zombie_pigman_spawn_egg": "生成僵尸猪灵",
+                    "@zombie_spawn_egg": "生成僵尸",
+                    "@zombie_villager_spawn_egg": "生成僵尸村民",
+                    "@npc_spawn_egg": "生成NPC",
+                    "@command_give": "给予玩家物品",
+                    "@command_globalpause": "查询或设置所有玩家的世界暂停状态(已失效)",
+                    "@command_immutableworld": "设置世界的不可变状态(已失效)",
+                    "@immutable": "不可变",
+                    "@mutable": "可变",
+                    "@command_item": "修改方块或实体的物品栏",
+                    "@ender_pearl": "末影珍珠",
+                    "@tnt_minecart": "TNT矿车",
+                    "@current_position_wikiTips": "当前位置",
+                    "@coordinates_wikiTips": "坐标",
+                    "@reason": "<原因 : 字符串>"
                 }
             ]
         }
@@ -1368,14 +1711,17 @@
                 "usage": [
                     {
                         "tree": [
-                            "@gugu",
-                            "@end"
+                            "@sel",
+                            "@x",
+                            "@y",
+                            "@z",
+                            "@commands"
                         ]
                     },
                     {
                         "tree": [
-                           "@gugu",
-                           "@end"
+                            "@gugu",
+                            "@end"
                         ]
                     }
                 ]
@@ -1505,6 +1851,22 @@
                         "tree": [
                             "@item_operator",
                             "@item_operator_target"
+                        ]
+                    }
+                ]
+            },
+            "kick": {
+                "description": "@command_kick",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree":[
+                            "@sel",
+                            "@kick_reason",
+                            "@end"
                         ]
                     }
                 ]
@@ -1688,31 +2050,49 @@
                     "wikiTips": "@mooshroom"
                 },
                 "mule_spawn_egg": {
-                    "description": "@mule_spawn_egg"
+                    "description": "@mule_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%AA%A1",
+                    "wikiTips": "@mule"
                 },
                 "ocelot_spawn_egg": {
-                    "description": "@ocelot_spawn_egg"
+                    "description": "@ocelot_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%B1%B9%E7%8C%AB",
+                    "wikiTips": "@ocelot"
                 },
                 "panda_spawn_egg": {
-                    "description": "@panda_spawn_egg"
+                    "description": "@panda_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%86%8A%E7%8C%AB",
+                    "wikiTips": "@panda"
                 },
-                "prot_spawn_egg": {
-                    "description": "@prot_spawn_egg"
+                "parrot_spawn_egg": {
+                    "description": "@parrot_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%B9%A6%E9%B9%89",
+                    "wikiTips": "@parrot"
                 },
                 "phantom_spawn_egg": {
-                    "description": "@phantom_spawn_egg"
+                    "description": "@phantom_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B9%BB%E7%BF%BC",
+                    "wikiTips": "@phantom"
                 },
                 "pig_spawn_egg": {
-                    "description": "@pig_spawn_egg"
+                    "description": "@pig_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8C%AA",
+                    "wikiTips": "@pig"
                 },
                 "piglin_brute_spawn_egg": {
-                    "description": "@piglin_brute_spawn_egg"
+                    "description": "@piglin_brute_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8C%AA%E7%81%B5%E8%9B%AE%E5%85%B5",
+                    "wikiTips": "@pihlin_brute"
                 },
                 "piglin_spawn_egg": {
-                    "description": "@piglin_spawn_egg"
+                    "description": "@piglin_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8C%AA%E7%81%B5",
+                    "wikiTips": "@pihlin"
                 },
                 "pillager_spawn_egg": {
-                    "description": "@pillager_spawn_egg"
+                    "description": "@pillager_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%8E%A0%E5%A4%BA%E8%80%85",
+                    "wikiTips": "@pillager"
                 },
                 "polar_bear_spawn_egg": {
                     "description": "@polar_bear_spawn_egg"
@@ -1795,7 +2175,7 @@
                     "description": "@zombie_pigman_spawn_egg"
                 },
                 "@zombie_spawn_egg": {
-                    "description": "@@zombie_spawn_egg"
+                    "description": "@zombie_spawn_egg"
                 },
                 "zombie_villager_spawn_egg": {
                     "description": "@zombie_villager_spawn_egg"
@@ -2085,7 +2465,7 @@
             },
             "@blocks": {
                 "blocks1": {
-                    "description": ""
+                    "description": "@ability_mayfly"
                 }
             },
             "@effects": {
@@ -2928,6 +3308,14 @@
                     "valueErr": "@valueErr",
                     "valueOutLimited": "@int_valueOutLimited",
                     "limited": 255
+                }
+            },
+            "@kick_reason": {
+                "": {
+                    "description": "@kick_reason"
+                },
+                "@String": {
+                    "description": "@reason"
                 }
             }
         }

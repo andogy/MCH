@@ -281,7 +281,7 @@ public class CommandParsing extends Thread {
                                 }
 
                                 try {
-                                    buffered = buffered.substring(buffered.indexOf(" ") + 1 + offset);
+                                    buffered = buffered.substring(buffered.indexOf(" ") + 1);
                                 } catch (Exception e) {
                                     buffered = buffered.substring(buffered.indexOf(" ") + 1);
                                 }
@@ -293,7 +293,6 @@ public class CommandParsing extends Thread {
                                     if(commandText.charAt(0) == ' ') {
                                         commandText = commandText.substring(1);
 
-                                        offset += 1;
                                         allSteps += 1;
                                     }
 
@@ -309,8 +308,6 @@ public class CommandParsing extends Thread {
 
                                 commandSteps = 0;
                                 steps = 0;
-
-                                offset += 2;
 
                                 allSteps += 1;
 
@@ -382,7 +379,7 @@ public class CommandParsing extends Thread {
 
                     }
                 }
-            } else if(showElementsIsOne & !wikis.equals("")) {
+            } else if(showElementsIsOne & ! wikis.equals("")) {
                 if(Community.toWiki) {
                     target_save = target;
                     displayJson_save = displayJson;
@@ -414,7 +411,7 @@ public class CommandParsing extends Thread {
         try {
             String wiki = new JSONObject(displayJson_save.get(target_save).toString()).get("wiki").toString();
             Helps.open(wiki);
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
@@ -466,7 +463,7 @@ public class CommandParsing extends Thread {
         wikis = "";
 
         //        用于判断命令是否失效
-        boolean invalid = false;
+        boolean invalid;
         //        用于获取命令使用限制列表
         String limited;
         //        用于获取命令修饰分支限制
@@ -640,6 +637,7 @@ public class CommandParsing extends Thread {
 
             }
         }
+
 
         //        如果没有任何符合的模板文本，则判断有没有可能是允许自定义的(如选择器中的选定名称或者help里的页码)
         if(result.toString().equals("")) {

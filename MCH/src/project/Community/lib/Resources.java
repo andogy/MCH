@@ -1,5 +1,6 @@
 package project.Community.lib;
 
+import project.Community.Command.ini;
 import project.Community.Community;
 import project.Community.Events.Errors;
 import project.Community.Events.LoadAssembly;
@@ -9,9 +10,7 @@ import project.Community.UI.loadingWindow;
 import project.Community.lib.json.JSONArray;
 import project.Community.lib.json.JSONObject;
 
-import javax.annotation.processing.Filer;
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -20,9 +19,12 @@ import java.util.Iterator;
 import static project.Community.lib.Resources.initLanguage.lang;
 
 public class Resources extends Thread {
+    public static int ErrCounter = 0;
 
     public static void fixResource(String resource, String fixTarget, boolean lineWrap) {
         try {
+            ErrCounter += 1;
+
             LoadAssembly.badLoadAssembly("[" + times.format + "]" + "\n" + "fixing resource:" + fixTarget + "\n", lang.get("fixing_resource"));
 
             BufferedReader br = new BufferedReader(new InputStreamReader(getResource(resource), StandardCharsets.UTF_8));
@@ -36,25 +38,25 @@ public class Resources extends Thread {
 
             long length = 0;
 
-                        while((out = br.readLine()) != null) {
-                            length += out.length();
+            while((out = br.readLine()) != null) {
+                length += out.length();
 
-                            String replace = out.replace("  ", "").replace(" \"", "\"").replace(" [", "[").replace(" {", "{");
-                            if(! lineWrap) {
-                                writer.write(replace);
-                            } else {
-                                writer.write(replace + "\n");
-                            }
-                            writer.flush();
-                            interval_gc -= 1;
-                            if(interval_gc <= 0) {
-                                interval_gc = interval_gc_cache;
-                                gcCount += 1;
-                                System.gc();
-                            }
+                String replace = out.replace("  ", "").replace(" \"", "\"").replace(" [", "[").replace(" {", "{");
+                if(! lineWrap) {
+                    writer.write(replace);
+                } else {
+                    writer.write(replace + "\n");
+                }
+                writer.flush();
+                interval_gc -= 1;
+                if(interval_gc <= 0) {
+                    interval_gc = interval_gc_cache;
+                    gcCount += 1;
+                    System.gc();
+                }
 
-                            loadingWindow.percentage.setText(out.length() + "/" + length);
-                        }
+                loadingWindow.percentage.setText(out.length() + "/" + length);
+            }
 
             br.close();
             writer.close();
@@ -81,14 +83,12 @@ public class Resources extends Thread {
 
             long length = 0;
 
-            InputStreamReader inputStreamReader = new InputStreamReader(getResource(resource));
-
             int out1;
             byte[] bytes = new byte[16384 * 4];
             while((out1 = in.read(bytes)) != - 1) {
                 System.out.println(out1);
 
-                writer.write(bytes,0,out1);
+                writer.write(bytes, 0, out1);
             }
 
             //            while((out = br.readLine()) != null) {
@@ -209,12 +209,30 @@ public class Resources extends Thread {
                     i--;
                 }
             } catch (Exception | Error e) {
+                if(! (ErrCounter < 4)) {
+                    ini.languageSet ="Language@Auto";
+                    try {
+                        ini.WriteIni();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    if(e instanceof Exception) {
+                        Errors.errors(null, (Exception) e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH");
+                    } else if(e instanceof Error) {
+                        Errors.errors((Error) e, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH");
+                    }
+                }
 
+                if(ErrCounter < 5) {
+                    initFromSelf();
+                }
             }
 
-            initCommandFromSelf();
+            if(ErrCounter < 4) {
+                initCommandFromSelf();
 
-            languageSet.Language();
+                languageSet.Language();
+            }
         }
 
         public static void initCommandFromSelf() {
@@ -245,6 +263,8 @@ public class Resources extends Thread {
                     targetLanguage = "chinese";
                 } else if(Community.LangID == 1) {
                     targetLanguage = "english";
+                } else if(Community.LangID == 3) {
+                    targetLanguage = "chinese_tw";
                 }
 
                 for(int i = 0; ; i++) {
@@ -281,7 +301,27 @@ public class Resources extends Thread {
                     i--;
                 }
             } catch (Exception | Error e) {
+                if(! (ErrCounter < 4)) {
+                    ini.languageSet ="Language@Auto";
+                    try {
+                        ini.WriteIni();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    if(e instanceof Exception) {
+                        Errors.errors(null, (Exception) e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH");
+                    } else if(e instanceof Error) {
+                        Errors.errors((Error) e, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH");
+                    }
 
+                    if(ErrCounter < 5) {
+                        initCommandFromSelf();
+                    }
+                }
+            }
+
+            if(ErrCounter < 4) {
+                languageSet.Language();
             }
         }
 
@@ -319,6 +359,8 @@ public class Resources extends Thread {
                     targetLanguage = "chinese";
                 } else if(Community.LangID == 1) {
                     targetLanguage = "english";
+                } else if(Community.LangID == 3) {
+                    targetLanguage = "chinese_tw";
                 }
 
                 for(int i = 0; ; i++) {
@@ -354,27 +396,58 @@ public class Resources extends Thread {
                     i--;
                 }
             } catch (FileNotFoundException e) {
+                ini.languageSet ="Language@Auto";
+                try {
+                    ini.WriteIni();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                if(! (ErrCounter < 4)) {
+                    Errors.errors(null, e, true, "LanguageParse", "");
+                }
 
                 //修复语言文件
                 fixResource("/project/resources/resource_files/languages.json", languagesPath, false);
 
-                Errors.errors(null, e, false, "languageInit");
+                Errors.errors(null, e, false, "languageInit", "null");
 
-                init();
+                if(ErrCounter < 5) {
+                    init();
+                }
             } catch (Exception e) {
+                ini.languageSet ="Language@Auto";
+                try {
+                    ini.WriteIni();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                if(! (ErrCounter < 4)) {
+                    Errors.errors(null, e, true, "LanguageParse", "");
+                }
+
                 e.printStackTrace();
                 //修复语言文件
                 fixResource("/project/resources/resource_files/languages.json", languagesPath, false);
 
                 loadingWindow.loading.append(Arrays.toString(e.getStackTrace()) + "\n");
-                Errors.errors(null, e, false, json.toString());
+                Errors.errors(null, e, false, json.toString(), "null");
 
-                init();
+                if(ErrCounter < 5) {
+                    init();
+                }
             } catch (Error error) {
+                if(! (ErrCounter < 4)) {
+                    Errors.errors(error, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH");
+                }
 
+                if(ErrCounter < 5) {
+                    init();
+                }
             }
 
-            languageSet.Language();
+            if(ErrCounter < 4) {
+                languageSet.Language();
+            }
         }
 
         public static void initCommand() {
@@ -410,6 +483,8 @@ public class Resources extends Thread {
                     targetLanguage = "chinese";
                 } else if(Community.LangID == 1) {
                     targetLanguage = "english";
+                } else if(Community.LangID == 3) {
+                    targetLanguage = "chinese_tw";
                 }
 
                 for(int i = 0; ; i++) {
@@ -445,8 +520,26 @@ public class Resources extends Thread {
                     i--;
                 }
             } catch (Exception e) {
+                ini.languageSet ="Language@Auto";
+                try {
+                    ini.WriteIni();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                if(! (ErrCounter < 4)) {
+                    Errors.errors(null, e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH");
+                }
+
                 e.printStackTrace();
                 fixResource("/project/resources/resource_files/commands.json", commandPath, false);
+
+                if(ErrCounter < 5) {
+                    initCommand();
+                }
+            }
+
+            if(ErrCounter < 4) {
+                languageSet.Language();
             }
         }
     }

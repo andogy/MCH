@@ -99,6 +99,9 @@ public class Parsing extends Thread {
                             MchUI.tips.setText("This Command is the Maximum Length,You Cannot input Any More\n");
                         }
                     } else {
+                        if(MchUI.tips.getText().equals("到达长度上限了,无法再进行输入")) {
+                            MchUI.tips.setText("");
+                        }
 
                         Community.commandLength = MchUI.input_Command.getText().length();
                         Community.nowPoint = 0;
@@ -136,7 +139,7 @@ public class Parsing extends Thread {
                             try {
                                 throw new IllegalStateException();
                             } catch (Exception ex) {
-                                Errors.errors(null, ex, true, "MCH test");
+                                Errors.errors(null, ex, true, "MCH test", "You Crashed MCH");
                             }
                         }
 
@@ -186,7 +189,7 @@ public class Parsing extends Thread {
                                         historyReader.flush();
                                     }
                                 } catch (IllegalStateException e) {
-                                    Errors.errors(null, e, true, "copy");
+                                    Errors.errors(null, e, true, "copy", "");
                                     //                        exit.Ex();
                                 }
                             }

@@ -6,7 +6,6 @@ import project.Community.Events.Errors;
 import project.Community.Events.LoadAssembly;
 import project.Community.Times.times;
 import project.Community.UI.*;
-import project.Community.lib.Resources;
 
 import java.awt.*;
 
@@ -35,8 +34,9 @@ public class languageSet extends Thread {
         MenuUI2.Black.setText(lang.get("black"));
         MenuUI2.White.setText(lang.get("white"));
         MenuUI2.Language.setText(lang.get("languageSet"));
-        MenuUI2.Chinese.setText(lang.get("chinese"));
+        MenuUI2.Chinese_ZH.setText(lang.get("chinese"));
         MenuUI2.English.setText(lang.get("english"));
+        MenuUI2.Chinese_TW.setText(lang.get("chinese_tw"));
         MenuUI2.fastLoad.setText(lang.get("fastLoad"));
         MenuUI2.fastLoadNo.setText(lang.get("disable"));
         MenuUI2.fastLoadYes.setText(lang.get("enable"));

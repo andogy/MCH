@@ -39,8 +39,8 @@ public class displaySets extends Thread {
         MenuUI2.White.setFocusPainted(false);
         MenuUI2.Black.setBorderPainted(false);
         MenuUI2.Black.setFocusPainted(false);
-        MenuUI2.Chinese.setBorderPainted(false);
-        MenuUI2.Chinese.setFocusPainted(false);
+        MenuUI2.Chinese_ZH.setBorderPainted(false);
+        MenuUI2.Chinese_ZH.setFocusPainted(false);
         MenuUI2.English.setBorderPainted(false);
         MenuUI2.English.setFocusPainted(false);
         MenuUI2.exButtonExit.setBorderPainted(false);
@@ -127,6 +127,8 @@ public class displaySets extends Thread {
         MenuUI2.toWiki.setFocusPainted(false);
         MenuUI2.toWikiNot.setBorderPainted(false);
         MenuUI2.toWikiNot.setFocusPainted(false);
+        MenuUI2.Chinese_TW.setBorderPainted(false);
+        MenuUI2.Chinese_TW.setFocusPainted(false);
 
         ExtraUI.turnOnMcBe.setBorderPainted(false);
         ExtraUI.turnOnMcBe.setFocusPainted(false);
@@ -233,19 +235,27 @@ public class displaySets extends Thread {
 
         switch(Community.LangSetID) {
             case 0 -> {
-                MenuUI2.Chinese.setBackground(backgroundColor);
+                MenuUI2.Chinese_ZH.setBackground(backgroundColor);
                 MenuUI2.English.setBackground(buttonColor);
                 MenuUI2.LanguageAuto.setBackground(buttonColor);
+                MenuUI2.Chinese_TW.setBackground(buttonColor);
             }
             case 1 -> {
-                MenuUI2.Chinese.setBackground(buttonColor);
+                MenuUI2.Chinese_ZH.setBackground(buttonColor);
                 MenuUI2.English.setBackground(backgroundColor);
                 MenuUI2.LanguageAuto.setBackground(buttonColor);
+                MenuUI2.Chinese_TW.setBackground(buttonColor);
             }
             case 2 -> {
-                MenuUI2.Chinese.setBackground(buttonColor);
+                MenuUI2.Chinese_ZH.setBackground(buttonColor);
                 MenuUI2.English.setBackground(buttonColor);
                 MenuUI2.LanguageAuto.setBackground(backgroundColor);
+                MenuUI2.Chinese_TW.setBackground(buttonColor);
+            } case 3 -> {
+                MenuUI2.Chinese_ZH.setBackground(buttonColor);
+                MenuUI2.English.setBackground(buttonColor);
+                MenuUI2.LanguageAuto.setBackground(buttonColor);
+                MenuUI2.Chinese_TW.setBackground(backgroundColor);
             }
         }
 
@@ -435,7 +445,7 @@ public class displaySets extends Thread {
         MenuUI2.Black.setForeground(foregroundColor);
         MenuUI2.White.setForeground(foregroundColor);
         MenuUI2.Language.setForeground(foregroundColor);
-        MenuUI2.Chinese.setForeground(foregroundColor);
+        MenuUI2.Chinese_ZH.setForeground(foregroundColor);
         MenuUI2.English.setForeground(foregroundColor);
         MenuUI2.exButton.setForeground(foregroundColor);
         MenuUI2.exButtonExit.setForeground(foregroundColor);
@@ -550,7 +560,7 @@ public class displaySets extends Thread {
         MenuUI2.deleteData.setBackground(randomColor.getColor());
         MenuUI.helps.setBackground(randomColor.getColor());
         MenuUI2.Hades.setBackground(randomColor.getColor());
-        MenuUI2.Chinese.setBackground(randomColor.getColor());
+        MenuUI2.Chinese_ZH.setBackground(randomColor.getColor());
         MenuUI2.English.setBackground(randomColor.getColor());
         MenuUI2.onTop.setBackground(randomColor.getColor());
         MenuUI2.noOnTop.setBackground(randomColor.getColor());
@@ -627,7 +637,7 @@ public class displaySets extends Thread {
         MenuUI2.Black.setForeground(randomColor.getColor());
         MenuUI2.White.setForeground(randomColor.getColor());
         MenuUI2.Language.setForeground(randomColor.getColor());
-        MenuUI2.Chinese.setForeground(randomColor.getColor());
+        MenuUI2.Chinese_ZH.setForeground(randomColor.getColor());
         MenuUI2.English.setForeground(randomColor.getColor());
         MenuUI2.exButton.setForeground(randomColor.getColor());
         MenuUI2.exButtonExit.setForeground(randomColor.getColor());
@@ -875,7 +885,7 @@ public class displaySets extends Thread {
         MenuUI2.exButtonExit.setVisible(false);
         MenuUI2.exButtonNarrow.setVisible(false);
         MenuUI2.Language.setVisible(false);
-        MenuUI2.Chinese.setVisible(false);
+        MenuUI2.Chinese_ZH.setVisible(false);
         MenuUI2.LanguageAuto.setVisible(false);
         MenuUI2.English.setVisible(false);
         MenuUI2.fastLoad.setVisible(false);
@@ -904,6 +914,7 @@ public class displaySets extends Thread {
         MenuUI2.toWikiOrNot.setVisible(false);
         MenuUI2.toWiki.setVisible(false);
         MenuUI2.toWikiNot.setVisible(false);
+        MenuUI2.Chinese_TW.setVisible(false);
         switch(Community.setsDisplayID) {
             case 0 -> {
                 MenuUI2.saveCacheOrNot.setVisible(true);
@@ -937,7 +948,8 @@ public class displaySets extends Thread {
                 MenuUI2.User_Color.setVisible(true);
                 MenuUI2.colorAuto.setVisible(true);
                 MenuUI2.Language.setVisible(true);
-                MenuUI2.Chinese.setVisible(true);
+                MenuUI2.Chinese_ZH.setVisible(true);
+                MenuUI2.Chinese_TW.setVisible(true);
                 MenuUI2.English.setVisible(true);
                 MenuUI2.LanguageAuto.setVisible(true);
                 MenuUI2.onTops.setVisible(true);

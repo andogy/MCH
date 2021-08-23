@@ -8,7 +8,6 @@ import project.Community.Events.UPD.URLs;
 import project.Community.Events.UPD.countTime;
 import project.Community.Times.times;
 import project.Community.UI.ExtraUI;
-import project.Community.UI.Lang.languageSet;
 import project.Community.UI.MchUI;
 import project.Community.UI.MenuUI;
 import project.Community.UI.MenuUI2;
@@ -58,7 +57,7 @@ public class Events {
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (OutOfMemoryError e) {
-                Errors.errors(e, null, true, "Copy-DANGER");
+                Errors.errors(e, null, true, "Copy-DANGER","");
             }
         }
     }
@@ -99,15 +98,22 @@ public class Events {
             switch(LangID) {
                 case 0 -> {
                     Community.LangID = 0;
+                    Community.LangSetID = 0;
                     ini.languageSet = "Language@Chinese";
                 }
                 case 1 -> {
                     Community.LangID = 1;
+                    Community.LangSetID = 1;
                     ini.languageSet = "Language@English";
                 }
                 case 2 -> {
                     Community.LangSetID = 2;
                     ini.languageSet = "Language@Auto";
+                }
+                case 3 -> {
+                    Community.LangID = 3;
+                    Community.LangSetID = 3;
+                    ini.languageSet = "Language@Chinese_TW";
                 }
             }
 

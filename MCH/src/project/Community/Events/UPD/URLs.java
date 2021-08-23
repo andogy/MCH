@@ -9,10 +9,8 @@ import project.Community.UI.MenuUI2;
 import project.Community.lib.filesOperator;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.SocketTimeoutException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
 
 import static project.Community.lib.Resources.initLanguage.lang;
 
@@ -50,8 +48,8 @@ public class URLs extends Thread {
             } else {
                 file.delete();
             }
-        } catch (Exception ignored) {
-
+        } catch (Exception e) {
+            return false;
         }
 
         //        如果获取不到符合规格的更新代码,则返回false,拒绝下载更新包
@@ -265,7 +263,9 @@ public class URLs extends Thread {
                 System.gc();
             }
         } catch (SocketTimeoutException e) {
-            countTime.cannotUPD_connectFail();
+            countTime.cannotUPD_connectTimeOut();
+        } catch (SocketException e) {
+            countTime.cannotUPD_connectReset();
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -317,23 +317,23 @@ public class URLs extends Thread {
                         if(Community.LangID == 0) {
                             if(UPD) {
                                 countTime.counting = false;
-                                Return = "有版本更新可以下载";
+                                Return = "MCH有版本更新可以下载";
                                 Community.canUPD = true;
                                 URLs.UPD(true, true);
                             } else {
                                 countTime.counting = false;
-                                Return = "没有可用更新";
+                                Return = "MCH没有可用更新";
                                 Community.canUPD = false;
                             }
 
                             Return += "\n\n检查时间:\n" + times.format;
                         } else if(Community.LangID == 1) {
                             if(UPD) {
-                                Return = "Can UPD now";
+                                Return = "MCH Can update now";
                                 Community.canUPD = true;
                                 URLs.UPD(true, true);
                             } else {
-                                Return = "Cannot UPD now";
+                                Return = "Cannot update MCH now";
                                 Community.canUPD = false;
                             }
 
@@ -341,7 +341,7 @@ public class URLs extends Thread {
                         }
 
                         if(UPD) {
-                            BufferedReader br = new BufferedReader(new FileReader(ini.path + "UPD.cache"));
+                            BufferedReader br = new BufferedReader(new FileReader(ini.path + "UPD.cache", StandardCharsets.UTF_8));
                             String string;
                             StringBuilder newly = new StringBuilder();
                             int line = 0;
@@ -379,27 +379,15 @@ public class URLs extends Thread {
                                 new File(ini.path + "UPD.cache").delete();
                             }
 
-                            if(Community.LangID == 0) {
-                                MchUI.tips.setText("MCH有新版本可以更新");
-                            } else if(Community.LangID == 1) {
-                                MchUI.tips.setText("MCH have a new version");
-                            }
+                            MchUI.tips.setText(lang.get("MchHaveNewVer"));
 
                             if(Community.autoUPD) {
-                                if(Community.LangID == 0) {
-                                    MchUI.tips.setText("正在自动更新中");
-                                } else if(Community.LangID == 1) {
-                                    MchUI.tips.setText("auto update now");
-                                }
+                                MchUI.tips.setText(lang.get("autoUpdating"));
 
                                 URLs.UPD(false, false);
                             }
                         } else {
-                            if(Community.LangID == 0) {
-                                MenuUI2.updateInfo.setText(lang.get("noNewVersion") + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + lang.get("nowFeature"));
-                            } else if(Community.LangID == 1) {
-                                MenuUI2.updateInfo.setText(lang.get("noNewVersion") + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + lang.get("nowFeature"));
-                            }
+                            MenuUI2.updateInfo.setText(lang.get("noNewVersion") + Community.verID + "(" + Community.ver + ")" + "\n" + "\n" + lang.get("nowFeature"));
                         }
                         //                输出提示
                         MenuUI2.checkReturn.setText(Return);

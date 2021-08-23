@@ -143,41 +143,6 @@ public class historyReader extends Thread {
         BreakRead = true;
     }
 
-    public static void randomTips() {
-        if(Community.LangID == 0) {
-            String tips = "";
-
-            int tipID = new Random(new Random().nextInt()).nextInt(15);
-
-            switch(tipID) {
-                case 0 -> tips = "你知道吗,在输入框输入超过340万个字符有几率导致电脑死机哦";
-                case 1 -> tips = "今天又是鸽着的一天";
-                case 2 -> tips = "为什么你会看到这条tip";
-                case 3 -> tips = "据说随机问题里面的问题都非常难,要不要试试看?";
-                case 4 -> tips = "挺不正经一程序";
-                case 5 -> tips = "苦力怕被小白射死后可能会掉落唱片,要不试试?";
-                case 6 -> tips = "听说MCH的开发者都是自学编程,不知道真的假的";
-                case 7 -> tips = "草";
-                case 8 -> tips = "MCH的命令提示体系不咋,但彩蛋可不少(x";
-                case 9 -> tips = "哦豁";
-                case 10 -> {
-                    if(times.hour < 5) {
-                        tips = "快去睡觉";
-                    } else {
-                        tips = "恭喜你刷到了一个空的tip";
-                    }
-                }
-                case 11 -> tips = "tip重复显示的几率很高";
-                case 12 -> tips = "真当tip看不完啊";
-                case 13 -> tips = "我猜你一定连续看过几次一样的tip";
-                case 14 -> tips = "在提示命令时,MCH只会截取光标之前的内容喔";
-                case 15 -> tips = "";
-            }
-
-            MchUI.tips.setText(tips);
-        }
-    }
-
     @Override
     public void run() {
         //        if (!BreakRead) {
@@ -230,7 +195,7 @@ public class historyReader extends Thread {
                             MchUI.command1.setText("");
                         }
                     } catch (Exception e) {
-                        Errors.errors(null, e, false, "historyRead");
+                        Errors.errors(null, e, false, "historyRead","");
                     }
 
                     Runtime.getRuntime().gc();

@@ -23,7 +23,7 @@ public class Errors extends Throwable {
     public static int width = screenSize.width;
     public static int height = screenSize.height;
 
-    public static void errors(Error error, Exception exception, boolean cannotHandle, String exceptionSource) {
+    public static void errors(Error error, Exception exception, boolean cannotHandle, String exceptionSource,String message) {
         if (!CannotHandle) {
 
             CannotHandle = cannotHandle;
@@ -41,12 +41,14 @@ public class Errors extends Throwable {
             if (Community.saveErrorLog) {
                 jFrame.setSize(300, 160);
             } else {
-                jFrame.setSize(450, 300);
+                jFrame.setSize(600, 550);
             }
 
             jFrame.add(jTextArea);
 
-            jTextArea.setBounds(0, 0, 340, 160);
+            jTextArea.setVisible(true);
+
+            jTextArea.setBounds(0, 0, 1000, 1000);
             jTextArea.setEditable(false);
 
             if (CannotHandle) {
@@ -128,36 +130,35 @@ public class Errors extends Throwable {
                 } else if (error != null) {
                     er = error + "\n" + Arrays.toString(error.getStackTrace()).replace("  ", " ").replace("[", "    at ").replace("]", "").replace(",", "\n    at ");
                 }
+                jTextArea.setText("""
+                            MCH have a problem is cannot handle
+                            Trying restart the MCH
+                                                    
+                            error info is as follows
+                            """ + er);
+
                 if (Community.LangID == 0) {
                     jTextArea.setText("""
                             MCH遇到了一个无法处理的错误
                             正在尝试重启MCH
                                                     
                             错误信息如下:
-
-                            """);
-                } else if (Community.LangID == 1) {
-                    jTextArea.setText("""
-                            MCH have a problem is cannot handle
-                            Trying restart the MCH
-                                                    
-                            error info is as follows
-
-                            """);
+                            """ + er);
                 }
-                jTextArea.setText(jTextArea.getText() + er + "\nSourceAt:" + exceptionSource);
+
+                System.out.println(er);
+                jTextArea.setText(jTextArea.getText() + "\nSourceAt:" + exceptionSource + "\nInfo:\n" + message);
             }
 
             if (CannotHandle) {
                 try {
-                    Thread.sleep(4000);
+                    Thread.sleep(6000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
                 new reStart().start();
 
-                jFrame.setSize(450, 300);
-                jFrame.setLocation(width / 2 - jFrame.getWidth() / 2, height / 2 - jFrame.getHeight() / 2);
                 try {
                     Thread.sleep(10000);
                 } catch (InterruptedException e) {

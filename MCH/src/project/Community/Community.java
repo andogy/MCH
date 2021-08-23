@@ -14,6 +14,8 @@ import project.Community.UI.Lang.languageSet;
 import project.Community.lib.Resources;
 import project.Community.lib.filesOperator;
 
+import javax.swing.*;
+
 import static project.Community.lib.Resources.initLanguage.lang;
 
 import java.io.File;
@@ -62,15 +64,19 @@ public class Community {
 
     public static boolean toWiki = false;
 
-    public static String UPD_ID = "155";
-    public static String verID = "14708010153/0-0-1-53";
-    public static String ver = "debug-53";
+    public static String UPD_ID = "156";
+    public static String verID = "11445010154/0-0-1-54";
+    public static String ver = "ah-54";
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(args));
         System.out.println(System.getenv("JAVA_HOME"));
-
         try {
+            try {
+                UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+            } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException e) {
+                e.printStackTrace();
+            }
 
             //        格式化时间
             times.Times();

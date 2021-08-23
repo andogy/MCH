@@ -284,8 +284,9 @@ public class ini {
             int Chinese = s.indexOf("language@chinese");
             int English = s.indexOf("language@english");
             int auto = s.indexOf("language@auto");
+            int Chinese_TW = s.indexOf("language@chinese_tw");
 
-            if(! (Chinese != - 1 & English != - 1 & auto != - 1)) {
+            if(! (Chinese != - 1 & English != - 1 & auto != - 1 & Chinese_TW != -1)) {
                 if(Chinese != - 1) {
                     Community.LangID = 0;
                     Community.LangSetID = 0;
@@ -300,10 +301,17 @@ public class ini {
                     s = "";
                 }
 
+                if(Chinese_TW != -1) {
+                    Community.LangID = 3;
+                    Community.LangSetID = 3;
+                    languageSet = "Language@Chinese_TW";
+                }
+
                 if(auto != - 1) {
                     Community.LangSetID = 2;
 
                     Locale locale = Locale.getDefault();
+
                     if(locale.getLanguage().equals("zh")) {
                         Community.LangID = 0;
                         languageSet = "Language@Auto";
@@ -317,6 +325,7 @@ public class ini {
                 Community.LangSetID = 2;
 
                 Locale locale = Locale.getDefault();
+
                 if(locale.getLanguage().equals("zh")) {
                     Community.LangID = 0;
                     languageSet = "Language@Auto";

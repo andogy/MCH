@@ -54,7 +54,8 @@ public class MenuUI2 {
     public static JButton exButtonExit = new JButton();
     public static JButton exButtonNarrow = new JButton();
     public static JLabel Language = new JLabel();
-    public static JButton Chinese = new JButton();
+    public static JButton Chinese_ZH = new JButton();
+    public static JButton Chinese_TW = new JButton();
     public static JButton English = new JButton();
     public static JButton LanguageAuto = new JButton();
 
@@ -163,7 +164,8 @@ public class MenuUI2 {
             jFrame.add(setting_info);
 
             jFrame.add(Language);
-            jFrame.add(Chinese);
+            jFrame.add(Chinese_ZH);
+            jFrame.add(Chinese_TW);
             jFrame.add(English);
             jFrame.add(LanguageAuto);
 
@@ -261,16 +263,17 @@ public class MenuUI2 {
                     setting_display.setBounds(80, 280, 80, 34);
                     setting_upd.setBounds(160, 280, 80, 34);
                     setting_info.setBounds(240, 280, 80, 34);
-                    if(!ini.settingIni) {
+                    if(! ini.settingIni) {
                         setting_command.setBounds(320, 280, 100, 34);
                     } else {
                         setting_command.setBounds(160, 280, 100, 34);
                     }
 
                     Language.setBounds(0, 5, 80, 30);
-                    Chinese.setBounds(80, 5, 80, 30);
-                    English.setBounds(170, 5, 80, 30);
-                    LanguageAuto.setBounds(260, 5, 80, 30);
+                    Chinese_ZH.setBounds(80, 5, 80, 30);
+                    Chinese_TW.setBounds(170, 5, 80, 30);
+                    English.setBounds(260, 5, 80, 30);
+                    LanguageAuto.setBounds(350, 5, 80, 30);
 
                     Color.setBounds(0, 45, 80, 30);
                     White.setBounds(80, 45, 80, 30);
@@ -305,12 +308,12 @@ public class MenuUI2 {
                     firstBedrock.setFont(new Font(firstBedrock.getFont().getName(), firstBedrock.getFont().getStyle(), 11));
                     firstJava.setBounds(200, 50, 80, 30);
 
-                    toWikiOrNot.setBounds(5,90,110,30);
-                    toWiki.setBounds(110,90,80,30);
-                    toWikiNot.setBounds(200,90,80,30);
+                    toWikiOrNot.setBounds(5, 90, 110, 30);
+                    toWiki.setBounds(110, 90, 80, 30);
+                    toWikiNot.setBounds(200, 90, 80, 30);
 
-                    iniFinished.setBounds(535,280,100,34);
-                    iniHelper.setBounds(430,280,100,34);
+                    iniFinished.setBounds(535, 280, 100, 34);
+                    iniHelper.setBounds(430, 280, 100, 34);
 
                     if(ini.settingIni) {
                         setting_upd.setVisible(false);
@@ -346,9 +349,10 @@ public class MenuUI2 {
         Black.addActionListener(e -> Events.switchColor(1));
         White.addActionListener(e -> Events.switchColor(0));
 
-        Chinese.addActionListener(e -> Events.switchLanguage(0));
+        Chinese_ZH.addActionListener(e -> Events.switchLanguage(0));
         English.addActionListener(e -> Events.switchLanguage(1));
         LanguageAuto.addActionListener(e -> Events.switchLanguage(2));
+        Chinese_TW.addActionListener(e -> Events.switchLanguage(3));
 
         exButtonNarrow.addActionListener(e -> Events.switchExButtonWillExit(false));
         exButtonExit.addActionListener(e -> Events.switchExButtonWillExit(true));
@@ -385,7 +389,7 @@ public class MenuUI2 {
         toWikiNot.addActionListener(e -> Events.switchToWiki(false));
 
         showDir.addActionListener(e -> {
-            if (!Community.isDaemons) {
+            if(! Community.isDaemons) {
                 try {
                     Runtime.getRuntime().exec("explorer.exe C:\\.MCH\\");
                 } catch (IOException exception) {
@@ -395,38 +399,38 @@ public class MenuUI2 {
         });
 
         setting_run.addActionListener(e -> {
-            if (!Community.isDaemons) {
+            if(! Community.isDaemons) {
                 Community.setsDisplayID = 0;
                 displaySets.settingsDisplay();
             }
         });
         setting_display.addActionListener(e -> {
-            if (!Community.isDaemons) {
+            if(! Community.isDaemons) {
                 Community.setsDisplayID = 1;
                 displaySets.settingsDisplay();
             }
         });
         setting_upd.addActionListener(e -> {
-            if (!Community.isDaemons) {
+            if(! Community.isDaemons) {
                 Community.setsDisplayID = 2;
                 displaySets.settingsDisplay();
             }
         });
         setting_info.addActionListener(e -> {
-            if (!Community.isDaemons) {
+            if(! Community.isDaemons) {
                 Community.setsDisplayID = 3;
                 displaySets.settingsDisplay();
             }
         });
         setting_command.addActionListener(e -> {
-            if (!Community.isDaemons) {
+            if(! Community.isDaemons) {
                 Community.setsDisplayID = 4;
                 displaySets.settingsDisplay();
             }
         });
 
         checkUPD.addActionListener(e -> {
-            if (Community.canUPD) {
+            if(Community.canUPD) {
                 URLs.nowUPD = true;
             } else {
                 Events.checkUPD();
@@ -434,7 +438,7 @@ public class MenuUI2 {
         });
 
         MenuUI2.deleteData.addActionListener(e -> {
-            if (!Community.isDaemons) {
+            if(! Community.isDaemons) {
                 new File(ini.path + "run.log").delete();
 
                 File[] caches = new File(ini.path).listFiles();

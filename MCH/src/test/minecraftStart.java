@@ -1,13 +1,11 @@
 package test;
 
-import project.Community.UI.ExtraUI;
 import project.Community.lib.filesOperator;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.UUID;
@@ -23,7 +21,7 @@ public class minecraftStart extends Thread {
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
-                //                Runtime.getRuntime().exec("cmd.exe /k taskkill /pid " + pid.get(pid));
+                Runtime.getRuntime().exec("cmd.exe /k taskkill /pid " + pid.get(pid) + " /t");
                 System.out.println("exit:" + pid);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -87,13 +85,12 @@ public class minecraftStart extends Thread {
                     $LIB_PATH$org\\lwjgl\\lwjgl-stb\\3.2.2\\lwjgl-stb-3.2.2.jar
                     $LIB_PATH$org\\lwjgl\\lwjgl-tinyfd\\3.2.2\\lwjgl-tinyfd-3.2.2.jar
                     $LIB_PATH$com\\mojang\\text2speech\\1.11.3\\text2speech-1.11.3.jar
-                    $GAME_PATH$1.16.5-Fabric 0.11.3-OptiFine_G8_pre12.jar"
-                    """;
+                    $GAME_PATH$1.16.5-Fabric 0.11.3-OptiFine_G8_pre12.jar\"""";
 
             String classPaths = path.replace("$LIB_PATH$", LIB_PATH).replace("\n", ";").replace("$GAME_PATH$", "C:\\normal\\Minecraft\\.minecraft\\versions\\1.16.5-Fabric 0.11.3-OptiFine_G8_pre12\\");
             String outClassPath = classPaths;
             System.out.println(outClassPath);
-            while (true) {
+            while(true) {
                 try {
                     System.out.println(outClassPath.substring(0, outClassPath.indexOf(";")));
                     outClassPath = outClassPath.substring(outClassPath.indexOf(";") + 1);
@@ -118,7 +115,7 @@ public class minecraftStart extends Thread {
             int height = 300;
             String memory = "8G";
 
-            String start = "\"" + java + "\\bin\\javaw.exe\" " + jvmArgs + jLib + jName + name + jVer + displayVer + jCP + classPaths + " -Xmn256M" + jMemoryMax + memory + mainClass + mUserName + username + mVer + launcherVer + mGameDir + gameDir + mAssetsDir + assetsDir + mAssets + asset + mUUID + uuid + mAccessToken + accessToken + mUsertype + userType + mWidth + width + mHeight + height;
+            String start = "\"" + java + "\\bin\\java.exe\" " + jvmArgs + jLib + jName + name + jVer + displayVer + jCP + classPaths + " -Xmn256M" + jMemoryMax + memory + mainClass + mUserName + username + mVer + launcherVer + mGameDir + gameDir + mAssetsDir + assetsDir + mAssets + asset + mUUID + uuid + mAccessToken + accessToken + mUsertype + userType + mWidth + width + mHeight + height;
 
             System.out.println("运行配置:" + start);
 
@@ -134,51 +131,50 @@ public class minecraftStart extends Thread {
                 String s;
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
-                new Thread(() -> {
-                    while (true) {
-                        try {
+                //                new Thread(() -> {
+                //                    while (true) {
+                //                        try {
+                //
+                //                            Runtime r1 = Runtime.getRuntime();
+                //                            Process p1 = r1.exec("tasklist");
+                //                            InputStreamReader inputStreamReader = new InputStreamReader(p1.getInputStream());
+                //                            BufferedReader br1 = new BufferedReader(inputStreamReader);
+                //
+                //                            var all = "";
+                //                            String str;
+                //                            while ((str = br1.readLine()) != null) {
+                //                                //                        System.out.println(str);
+                //                                all += str + ";";
+                //                            }
+                //
+                //                            String strs = Arrays.toString(HashMapToSTRS.toSTRS(pid, 2)).replace("[", "").replace("]", ",").replace(" ", "");
+                ////                            do {
+                ////                                String s1 = strs.substring(0, strs.indexOf(","));
+                ////                                if (!s1.equals("null")) {
+                ////                                    if (!all.contains(s1)) {
+                ////                                        pid.remove(Integer.parseInt(s1));
+                ////                                        System.out.println("\033[33removed:" + s1);
+                ////                                    }
+                ////                                } else {
+                ////                                    break;
+                ////                                }
+                ////
+                ////                                strs = strs.substring(strs.indexOf(",") + 1);
+                ////                            } while (strs.contains(","));
+                //
+                //                            Thread.sleep(100);
+                //
+                //                            br1.close();
+                //                            inputStreamReader.close();
+                //                        } catch (Exception e) {
+                //                            //                    e.printStackTrace();
+                //                        }
+                //                    }
+                //                }).start();
 
-                            Runtime r1 = Runtime.getRuntime();
-                            Process p1 = r1.exec("tasklist");
-                            InputStreamReader inputStreamReader = new InputStreamReader(p1.getInputStream());
-                            BufferedReader br1 = new BufferedReader(inputStreamReader);
-
-                            var all = "";
-                            String str;
-                            while ((str = br1.readLine()) != null) {
-                                //                        System.out.println(str);
-                                all += str + ";";
-                            }
-
-                            String strs = Arrays.toString(HashMapToSTRS.toSTRS(pid, 2)).replace("[", "").replace("]", ",").replace(" ", "");
-                            do {
-                                String s1 = strs.substring(0, strs.indexOf(","));
-                                if (!s1.equals("null")) {
-                                    if (!all.contains(s1)) {
-                                        pid.remove(Integer.parseInt(s1));
-                                        System.out.println("\033[33removed:" + s1);
-                                    }
-                                } else {
-                                    break;
-                                }
-
-                                strs = strs.substring(strs.indexOf(",") + 1);
-                            } while (strs.contains(","));
-
-
-                            Thread.sleep(100);
-
-                            br1.close();
-                            inputStreamReader.close();
-                        } catch (Exception e) {
-                            //                    e.printStackTrace();
-                        }
-                    }
-                }).start();
-
-                while ((s = br.readLine()) != null) {
-                    //                    System.out.println(s);
-                    ExtraUI.McJeStatus.setText(s + "\n" + ExtraUI.McJeStatus.getText());
+                while((s = br.readLine()) != null) {
+                    System.out.println(s);
+                    //                    ExtraUI.McJeStatus.setText(s + "\n" + ExtraUI.McJeStatus.getText());
                 }
 
                 System.out.println("game is quit");

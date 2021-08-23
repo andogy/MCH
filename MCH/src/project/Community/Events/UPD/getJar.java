@@ -13,7 +13,7 @@ public class getJar {
             assert file != null;
             return file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("\\")).replace("\\","");
         } catch (Error e) {
-            Errors.errors(e,null,false,"UPD");
+            Errors.errors(e,null,false,"UPD","");
         }
         return null;
     }

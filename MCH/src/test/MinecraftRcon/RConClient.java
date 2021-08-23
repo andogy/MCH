@@ -17,7 +17,7 @@ public class RConClient implements Closeable {
     /**
      * The default port for RCON used by minecraft
      */
-    public static final int DEFAULT_RCON_PORT = 25566;
+    public static final int DEFAULT_RCON_PORT = 25575;
 
     /**
      * The API version

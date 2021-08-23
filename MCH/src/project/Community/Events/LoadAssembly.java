@@ -30,7 +30,7 @@ public class LoadAssembly {
 
                 fw.close();
             } catch (Exception e) {
-                Errors.errors(null, e, false, "loadAssembly");
+                Errors.errors(null, e, false, "loadAssembly","");
             }
 
             if(f.length() > 10240000) {

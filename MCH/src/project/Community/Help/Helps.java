@@ -19,7 +19,7 @@ public class Helps {
                 dp.browse(uri);// 获取系统默认浏览器打开链接
             }
         } catch (Exception e) {
-            Errors.errors(null, e, false, "Helps");
+            Errors.errors(null, e, false, "Helps","");
         }
     }
 
@@ -33,7 +33,7 @@ public class Helps {
             }
             open(url);
         } catch (Exception e) {
-            Errors.errors(null, e, false, "Helps");
+            Errors.errors(null, e, false, "Helps","");
         }
     }
 
@@ -48,7 +48,7 @@ public class Helps {
             }
             open(url);
         } catch (Exception e) {
-            Errors.errors(null, e, false, "Helps");
+            Errors.errors(null, e, false, "Helps","");
         }
     }
 
@@ -62,7 +62,7 @@ public class Helps {
             }
             open(url);
         } catch (Exception e) {
-            Errors.errors(null, e, false, "Helps");
+            Errors.errors(null, e, false, "Helps","");
         }
     }
 
@@ -72,7 +72,7 @@ public class Helps {
             URI uri = URI.create(url);
             open(url);
         } catch (Exception e) {
-            Errors.errors(null, e, false, "Helps");
+            Errors.errors(null, e, false, "Helps","");
         }
     }
 
@@ -81,7 +81,7 @@ public class Helps {
             String url = lang.get("iniHelpLink");
             open(url);
         } catch (Exception e) {
-            Errors.errors(null, e, false, "Helps");
+            Errors.errors(null, e, false, "Helps","");
         }
     }
 }
