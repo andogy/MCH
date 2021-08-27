@@ -88,7 +88,9 @@ agreement version: 1.3
 ## - translation -
 
 ["zhuaidadaya"](https://github.com/zhuaidadaya) translated all about MCH texts<br>
+**^^["andogy"](https://github.com/andogy): not really at all, I made it, trust me^^**
 if have any error,please contack to (Wechat)zhuaidadaya or (QQ)1501917367<br>
 thanks for you<br>
 
 (zhuaidadaya: this agreement is so strict)
+(andogy: no, I don't think so)
