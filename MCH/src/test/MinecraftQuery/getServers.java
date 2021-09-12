@@ -1,13 +1,10 @@
 package test.MinecraftQuery;
 
-import project.Community.lib.json.JSONArray;
-import project.Community.lib.json.JSONObject;
+import com.github.zhuaidadaya.MCH.lib.json.JSONArray;
+import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
 import test.MinecraftQuery.api.Protocol;
 import test.MinecraftQuery.api.QueryException;
 import test.MinecraftQuery.api.QueryStatus;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 
 public class getServers {
     public static int count_static = 10;

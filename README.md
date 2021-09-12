@@ -33,7 +33,10 @@ please read user agreement and attentions before used MCH<br>
 agreement</a><br>
 <a>注意事项</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>attentions</a><br>
 
-only these
+```
+MacOs and Linux users please waiting some time
+MCH are not optimized for macos and linus, so will have many bugs 
+```
 
 # other
 

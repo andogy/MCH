@@ -32,8 +32,10 @@ MCH在Minecraft指令方面提供帮助<br>
 中文页面</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/andogy/MCH/tree/main/English/Helps/agreement">
 english-page</a>
 
-就没了
-
+```
+MacOs 或 Linux 的用户请稍等一段时间
+MCH 没有为特地 macos 或 linus 进行优化, 所以可能会存在许多bug 
+```
 # 其他
 
 ## 开发者

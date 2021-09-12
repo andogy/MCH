@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Main-Class: project.Community.Community
+Main-Class: com.github.zhuaidadaya.MCH.Community
 Class-Path: gson-2.8.7.jar log4j-1.2.17.jar dnsjava-2.0.8.jar ezmorph-1.
  0.3.jar json-20210307.jar commons-logging.jar zip4j-2.7.0 (1).jar annot
  ations-20.1.0.jar json-lib-2.1-jdk15.jar commons-lang-2.5(1).jar Java-W
