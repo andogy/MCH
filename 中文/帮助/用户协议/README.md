@@ -48,7 +48,7 @@
 <hr>
 
 直链下载地址:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)<br>
-Release地址: [Github](https://github.com/zhuaidadaya/MCH/releases)
-反馈:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr)、[邮箱](mailto:1501917367@qq.com)、[Issue](https://github.com/zhuaidadaya/MCH/issue)
+Release地址: [Github](https://github.com/zhuaidadaya/MCH/releases)<br>
+反馈:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr)、[邮箱](mailto:1501917367@qq.com)、[Issue](https://github.com/zhuaidadaya/MCH/issues)
 <hr>
 协议版本: 1.31
