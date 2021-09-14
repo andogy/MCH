@@ -3,87 +3,77 @@
 changed by MCH developers<br>
 
 ## welcome to use MCH!
-please read and understand all rules and all right and restrict in this page <br>
-unless you accept the terms of this agreement,otherwise you cannot download and used MCH and servise of MCH<br>
-start with you get MCH,it mean you accept terms of this agreement,this express you accept terms and constraints<br>
-if accept not any terms or constraints,then please do not use MCH<br>
-this agreement is of user with MCH team(hereinafter referred to "we"),it is about user download and used or copy for MCH<br>
-## 1.rights statement
+this is a statement of rights, we are open to restrictions on rights
+
+### modify
 ```
-all intellectual property rights of MCH,and all information content of MCH, these all owned by the we
-it protected by copyright law,international copyright treaties and other intellectual property laws and regulations
-```
-## 2.Scope of license
-### 2.1
-```
-downlaod and use:
-MCH is free program
-user can unlimited amount of non commercial download and use MCH
-```
-### 2.2
-```
-copy and distribute and spread
-user can unlimited amount of non commercial copy and spread MCH
-but,must ensure any copied MCH is complete and true,includ all the copyright of the MCH,and include this agreement
-```
-## 3.Limitation of rights
-### 3.1 
-```
-component separate:
-MCH is use licensed as a single product,user can separate MCH component used to learn 
-but component cannot used to any other 
-```
-### 3.2
-```
-rights reserved:
-all authorization not indicated is belong we in this agreement
-user must get consent from we at need use these authorization
-```
-## 4.law and dispute resolution
-### 4.1 
-```
-this agreement shall be governed by the laws of the peoples Republic of China
-```
-### 4.2 
-```
-any dispute arising out of or in connection with this agreement shall be settled through friendly negotiation
-if the negotiation fails,either party may submit the dispute to the court with jurisdiction in the defendant domicile for settlement
+we allow to modify the MCH, and decompile(because source just here, that are meaningless)
+but, we require that is should not be transmitted in a vicious manner
+(like make to virus)
+
+and it also needs to be open source after modify
+(if distribute)
+
+if it is not completely different from the original
+please announce the MCH source when distributing
+
+if MCH is changed so that no one in the family can recognize it...
+it has been developed by yourself. you can feel free to it
 ```
 
-### 5.other 
-### 5.1 
+### close source
 ```
-if any provision of this agreement is invalid or unenforceable in whole or in part for all reason or violates any applicable law
-such provision then be deemed deleted
-but the remaining provisions of this agreement shall remain valid and binding
+we do not allow any person or thing to close source of MCH
+in under any circumstances
+(include ourselves)
+
+furthermore
+the distribution in close source are absolutely not allowed
 ```
-### 5.2 
+
+### resource
 ```
-we has the right to change with the relevant laws at any time
-this agreement shall be amended with the change of laws and regulations
-and the adjustment of team management status and business strategy
-revised agreement will be published on this page
-in case of any dispute,the latest agreement shall prevail
-if disagree changed content,user can delete MCH
-if user continue to use MCH,then mean user accept changed
+we allow our resource files (JSON or ETC.)
+to be used on any open source software
+it is still forbidden to close source
+
+declare the MCH source at any time
 ```
-### 5.3 
+
+### stakeholders
 ```
-when the team update terms,you will not be notified in any way
-if there is any dispute about the change of the agreement is violation of the provisions of the agreement but user may not aware of
-then,please see 5.2
+there cannot interest in any of the above operations
+Include payment, sponsorship, fund-raising, and ETC.
+we ask all service costs
+       development costs
+       distribution costs
+       time costs
+       and ETC. 
+shall be borne by the development team
 ```
-### 5.4
+
+### share
 ```
-we has the right to interpret and modify this agreement to the maximum extent permitted by law
+we can share any rights about MCH with you when we can
+note, however, source rights are greater than those distribution
+this is we bottom line for the distribution of rights
+therefore, although MCH has open rights, you cannot use it without a bottom line
+
+non source rights distribution is not allowed
+(mean：that we are only allowed to distribute by ourselves
+       and you have no right to modify the distribution)
 ```
+
 <hr>
 
-download MCH from:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)<br>
+direct download:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)<br>
 Release: [Github](https://github.com/zhuaidadaya/MCH/releases)
-feedback from:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr) or [mail](mailto:1501917367@qq.com)
+feedback from:
+[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr) or 
+[mail](mailto:1501917367@qq.com) and 
+[Issue](https://github.com/zhuaidadaya/MCH/issues)
 <hr>
-agreement version: 1.3
+agreement version: 1.31
 
 ## - translation -
 
