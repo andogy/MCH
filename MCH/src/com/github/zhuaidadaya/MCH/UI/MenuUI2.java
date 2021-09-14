@@ -4,18 +4,17 @@ import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
+import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
 import com.github.zhuaidadaya.MCH.Help.Helps;
 import com.github.zhuaidadaya.MCH.UI.Color.displaySets;
-import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.lib.filesOperator;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 
-public class MenuUI2 {
+public class MenuUI2 extends Community {
     public static JFrame jFrame = new JFrame();
 
     public static JLabel saveCacheOrNot = new JLabel();
@@ -24,11 +23,11 @@ public class MenuUI2 {
 
     public static JLabel saveErrorLogsOrNot = new JLabel();
     public static JButton saveErrorLogs = new JButton();
-    public static JButton notSaveErrorLogs = new JButton();
+    public static JButton noSaveErrorLogs = new JButton();
 
     public static JLabel saveRunLogsOrNot = new JLabel();
     public static JButton saveRunLogs = new JButton();
-    public static JButton notSaveRunLogs = new JButton();
+    public static JButton noSaveRunLogs = new JButton();
 
     public static JLabel autoUpdOrNot = new JLabel();
     public static JButton autoUPD = new JButton();
@@ -101,7 +100,9 @@ public class MenuUI2 {
     }
 
     public static void UI() {
-        jFrame.setSize(650, 350);
+        uiSizeMap.put(jFrame, new Dimension(650, 350));
+
+        jFrame.setSize(uiSizeMap.getDimension(jFrame));
 
         //        窗口初始化设置
         //获得屏幕大小
@@ -128,6 +129,99 @@ public class MenuUI2 {
         updateInfo.setEditable(false);
 
         {
+            uiSizeMap.put(saveCacheOrNot, new Rectangle(0, 5, 80, 30));
+            uiSizeMap.put(saveCache, new Rectangle(80, 5, 80, 30));
+            uiSizeMap.put(notSaveCache, new Rectangle(170, 5, 80, 30));
+
+            uiSizeMap.put(saveErrorLogsOrNot, new Rectangle(0, 45, 80, 30));
+
+            uiSizeMap.put(saveErrorLogs, new Rectangle(80, 45, 80, 30));
+            uiSizeMap.put(noSaveErrorLogs, new Rectangle(170, 45, 80, 30));
+
+            uiSizeMap.put(saveRunLogsOrNot, new Rectangle(0, 85, 80, 30));
+
+            uiSizeMap.put(saveRunLogs, new Rectangle(80, 85, 80, 30));
+            uiSizeMap.put(noSaveRunLogs, new Rectangle(170, 85, 80, 30));
+
+            uiSizeMap.put(autoUpdOrNot, new Rectangle(0, 125, 80, 30));
+            uiSizeMap.put(autoUPD, new Rectangle(80, 125, 80, 30));
+            uiSizeMap.put(noAutoUPD, new Rectangle(170, 125, 80, 30));
+
+            uiSizeMap.put(fastLoad, new Rectangle(0, 165, 80, 30));
+            uiSizeMap.put(fastLoadYes, new Rectangle(80, 165, 80, 30));
+            uiSizeMap.put(fastLoadNo, new Rectangle(170, 165, 80, 30));
+
+            uiSizeMap.put(saveHistoryOrNot, new Rectangle(270, 5, 90, 30));
+            uiSizeMap.put(saveAllHistory, new Rectangle(340, 5, 90, 30));
+            uiSizeMap.put(saveHistory, new Rectangle(440, 5, 100, 30));
+            uiSizeMap.put(notSaveHistory, new Rectangle(550, 5, 80, 30));
+
+            uiSizeMap.put(exButton, new Rectangle(270, 45, 80, 30));
+            uiSizeMap.put(exButtonExit, new Rectangle(340, 45, 90, 30));
+            uiSizeMap.put(exButtonNarrow, new Rectangle(440, 45, 100, 30));
+
+            uiSizeMap.put(setting_run, new Rectangle(0, 280, 80, 34));
+            uiSizeMap.put(setting_display, new Rectangle(80, 280, 80, 34));
+            uiSizeMap.put(setting_upd, new Rectangle(160, 280, 80, 34));
+            uiSizeMap.put(setting_info, new Rectangle(240, 280, 80, 34));
+            if(! Config.settingIni) {
+                uiSizeMap.put(setting_command, new Rectangle(320, 280, 100, 34));
+            } else {
+                uiSizeMap.put(setting_command, new Rectangle(160, 280, 100, 34));
+            }
+
+            uiSizeMap.put(Language, new Rectangle(0, 5, 80, 30));
+            uiSizeMap.put(Chinese_ZH, new Rectangle(80, 5, 80, 30));
+            uiSizeMap.put(Chinese_TW, new Rectangle(170, 5, 80, 30));
+            uiSizeMap.put(English, new Rectangle(260, 5, 80, 30));
+            uiSizeMap.put(LanguageAuto, new Rectangle(350, 5, 80, 30));
+
+            uiSizeMap.put(Color, new Rectangle(0, 45, 80, 30));
+            uiSizeMap.put(White, new Rectangle(80, 45, 80, 30));
+            uiSizeMap.put(Black, new Rectangle(170, 45, 80, 30));
+
+            uiSizeMap.put(onTops, new Rectangle(0, 85, 80, 30));
+            uiSizeMap.put(onTop, new Rectangle(80, 85, 80, 30));
+            uiSizeMap.put(noOnTop, new Rectangle(170, 85, 80, 30));
+
+            uiSizeMap.put(checkUPD, new Rectangle(0, 5, 100, 30));
+            uiSizeMap.put(checkReturn, new Rectangle(0, 45, 220, 135));
+            uiSizeMap.put(updateInfo, new Rectangle(230, 0, 300, 195));
+
+            uiSizeMap.put(aboutMCH, new Rectangle(0, 5, 100, 30));
+            uiSizeMap.put(PATH, new Rectangle(0, 35, 250, 30));
+            uiSizeMap.put(mchDirSize, new Rectangle(0, 65, 350, 30));
+            uiSizeMap.put(showDir, new Rectangle(0, 95, 100, 30));
+            uiSizeMap.put(deleteData, new Rectangle(105, 95, 100, 30));
+            uiSizeMap.put(versionInfo, new Rectangle(0, 145, 200, 40));
+
+            uiSizeMap.put(aboutDevelopOfMCH, new Rectangle(350, 5, 100, 30));
+            uiSizeMap.put(Developers, new Rectangle(350, 40, 300, 150));
+
+            uiSizeMap.put(invalidCommand, new Rectangle(5, 5, 110, 30));
+            uiSizeMap.put(showInvalidCommand, new Rectangle(110, 5, 80, 30));
+            uiSizeMap.put(noShowInvalidCommand, new Rectangle(200, 5, 80, 30));
+
+            uiSizeMap.put(showCommandsMethod, new Rectangle(5, 50, 110, 30));
+            uiSizeMap.put(firstBedrock, new Rectangle(110, 50, 80, 30));
+            uiSizeMap.put(firstJava, new Rectangle(200, 50, 80, 30));
+
+            uiSizeMap.put(toWikiOrNot, new Rectangle(5, 90, 110, 30));
+            uiSizeMap.put(toWiki, new Rectangle(110, 90, 80, 30));
+            uiSizeMap.put(toWikiNot, new Rectangle(200, 90, 80, 30));
+
+            uiSizeMap.put(iniFinished, new Rectangle(535, 280, 100, 34));
+            uiSizeMap.put(iniHelper, new Rectangle(430, 280, 100, 34));
+
+            uiSizeMap.put(deleteData, new Rectangle(0, 40 + 35 + 100 + 30 + 40, 110, 30));
+
+            setting_upd.setVisible(! Config.settingIni);
+            setting_info.setVisible(! Config.settingIni);
+            iniFinished.setVisible(Config.settingIni);
+            iniHelper.setVisible(Config.settingIni);
+        }
+
+        {
 
             jFrame.add(saveCacheOrNot);
             jFrame.add(saveCache);
@@ -135,11 +229,11 @@ public class MenuUI2 {
 
             jFrame.add(saveErrorLogsOrNot);
             jFrame.add(saveErrorLogs);
-            jFrame.add(notSaveErrorLogs);
+            jFrame.add(noSaveErrorLogs);
 
             jFrame.add(saveRunLogsOrNot);
             jFrame.add(saveRunLogs);
-            jFrame.add(notSaveRunLogs);
+            jFrame.add(noSaveRunLogs);
 
             jFrame.add(autoUpdOrNot);
             jFrame.add(autoUPD);
@@ -227,47 +321,43 @@ public class MenuUI2 {
 
                 @Override
                 public void layoutContainer(Container parent) {
-                    saveCacheOrNot.setBounds(0, 5, 80, 30);
+                    jFrame.setSize(uiSizeMap.getDimension(jFrame));
 
-                    saveCache.setBounds(80, 5, 80, 30);
-                    notSaveCache.setBounds(170, 5, 80, 30);
+                    saveCacheOrNot.setBounds(uiSizeMap.getRectangle(saveCacheOrNot));
 
-                    saveErrorLogsOrNot.setBounds(0, 45, 80, 30);
+                    saveCache.setBounds(uiSizeMap.getRectangle(saveCache));
+                    notSaveCache.setBounds(uiSizeMap.getRectangle(notSaveCache));
 
-                    saveErrorLogs.setBounds(80, 45, 80, 30);
-                    notSaveErrorLogs.setBounds(170, 45, 80, 30);
+                    saveErrorLogsOrNot.setBounds(uiSizeMap.getRectangle(saveErrorLogsOrNot));
+                    saveErrorLogs.setBounds(uiSizeMap.getRectangle(saveErrorLogs));
+                    noSaveErrorLogs.setBounds(uiSizeMap.getRectangle(noSaveErrorLogs));
 
-                    saveRunLogsOrNot.setBounds(0, 85, 80, 30);
+                    saveRunLogsOrNot.setBounds(uiSizeMap.getRectangle(saveRunLogsOrNot));
+                    saveRunLogs.setBounds(uiSizeMap.getRectangle(saveRunLogs));
+                    noSaveRunLogs.setBounds(uiSizeMap.getRectangle(noSaveRunLogs));
 
-                    saveRunLogs.setBounds(80, 85, 80, 30);
-                    notSaveRunLogs.setBounds(170, 85, 80, 30);
+                    autoUpdOrNot.setBounds(uiSizeMap.getRectangle(autoUpdOrNot));
+                    autoUPD.setBounds(uiSizeMap.getRectangle(autoUPD));
+                    noAutoUPD.setBounds(uiSizeMap.getRectangle(noAutoUPD));
 
-                    autoUpdOrNot.setBounds(0, 125, 80, 30);
-                    autoUPD.setBounds(80, 125, 80, 30);
-                    noAutoUPD.setBounds(170, 125, 80, 30);
+                    fastLoad.setBounds(uiSizeMap.getRectangle(fastLoad));
+                    fastLoadYes.setBounds(uiSizeMap.getRectangle(fastLoadYes));
+                    fastLoadNo.setBounds(uiSizeMap.getRectangle(fastLoadNo));
 
-                    fastLoad.setBounds(0, 165, 80, 30);
-                    fastLoadYes.setBounds(80, 165, 80, 30);
-                    fastLoadNo.setBounds(170, 165, 80, 30);
+                    saveHistoryOrNot.setBounds(uiSizeMap.getRectangle(saveHistoryOrNot));
+                    saveAllHistory.setBounds(uiSizeMap.getRectangle(saveAllHistory));
+                    saveHistory.setBounds(uiSizeMap.getRectangle(saveHistory));
+                    notSaveHistory.setBounds(uiSizeMap.getRectangle(notSaveHistory));
 
-                    saveHistoryOrNot.setBounds(270, 5, 90, 30);
-                    saveAllHistory.setBounds(340, 5, 90, 30);
-                    saveHistory.setBounds(440, 5, 100, 30);
-                    notSaveHistory.setBounds(550, 5, 80, 30);
+                    exButton.setBounds(uiSizeMap.getRectangle(exButton));
+                    exButtonExit.setBounds(uiSizeMap.getRectangle(exButtonExit));
+                    exButtonNarrow.setBounds(uiSizeMap.getRectangle(exButtonNarrow));
 
-                    exButton.setBounds(270, 45, 80, 30);
-                    exButtonExit.setBounds(340, 45, 90, 30);
-                    exButtonNarrow.setBounds(440, 45, 100, 30);
-
-                    setting_run.setBounds(0, 280, 80, 34);
-                    setting_display.setBounds(80, 280, 80, 34);
+                    setting_run.setBounds(uiSizeMap.getRectangle(setting_run));
+                    setting_display.setBounds(uiSizeMap.getRectangle(setting_display));
                     setting_upd.setBounds(160, 280, 80, 34);
                     setting_info.setBounds(240, 280, 80, 34);
-                    if(! Config.settingIni) {
-                        setting_command.setBounds(320, 280, 100, 34);
-                    } else {
-                        setting_command.setBounds(160, 280, 100, 34);
-                    }
+                    setting_command.setBounds(uiSizeMap.getRectangle(setting_command));
 
                     Language.setBounds(0, 5, 80, 30);
                     Chinese_ZH.setBounds(80, 5, 80, 30);
@@ -315,17 +405,12 @@ public class MenuUI2 {
                     iniFinished.setBounds(535, 280, 100, 34);
                     iniHelper.setBounds(430, 280, 100, 34);
 
-                    if(Config.settingIni) {
-                        setting_upd.setVisible(false);
-                        setting_info.setVisible(false);
-                        iniFinished.setVisible(true);
-                        iniHelper.setVisible(true);
-                    } else {
-                        setting_upd.setVisible(true);
-                        setting_info.setVisible(true);
-                        iniFinished.setVisible(false);
-                        iniHelper.setVisible(false);
-                    }
+                    deleteData.setBounds(0, 40 + 35 + 100 + 30 + 40, 110, 30);
+
+                    setting_upd.setVisible(! Config.settingIni);
+                    setting_info.setVisible(! Config.settingIni);
+                    iniFinished.setVisible(Config.settingIni);
+                    iniHelper.setVisible(Config.settingIni);
                 }
             });
         }
@@ -368,10 +453,10 @@ public class MenuUI2 {
         notSaveCache.addActionListener(e -> Events.switchSaveUpdCache(false));
 
         saveErrorLogs.addActionListener(e -> Events.switchSaveErrorLog(true));
-        notSaveErrorLogs.addActionListener(e -> Events.switchSaveErrorLog(false));
+        noSaveErrorLogs.addActionListener(e -> Events.switchSaveErrorLog(false));
 
         saveRunLogs.addActionListener(e -> Events.switchSaveRunLog(true));
-        notSaveRunLogs.addActionListener(e -> Events.switchSaveRunLog(false));
+        noSaveRunLogs.addActionListener(e -> Events.switchSaveRunLog(false));
 
         autoUPD.addActionListener(e -> Events.switchAutoUPD(true));
         noAutoUPD.addActionListener(e -> Events.switchAutoUPD(false));
@@ -391,7 +476,7 @@ public class MenuUI2 {
 
         showDir.addActionListener(e -> {
             if(! Community.isDaemons) {
-                if (Community.os.equals("Linux")) {
+                if(Community.os.equals("Linux")) {
                     try {
                         Runtime.getRuntime().exec("nautilus " + Config.path);
                     } catch (Exception exception) {
@@ -399,7 +484,7 @@ public class MenuUI2 {
                     }
                 } else {
                     try {
-                        Runtime.getRuntime().exec("explorer.exe \"" + Config.path.replace("/","\\") + "\"");
+                        Runtime.getRuntime().exec("explorer.exe \"" + Config.path.replace("/", "\\") + "\"");
                     } catch (Exception exception) {
                         Errors.tips(500, 300, "open-files-cannot", "");
                     }
@@ -453,7 +538,5 @@ public class MenuUI2 {
                 filesOperator.DeleteFiles(caches);
             }
         });
-
-        jFrame.setVisible(false);
     }
 }

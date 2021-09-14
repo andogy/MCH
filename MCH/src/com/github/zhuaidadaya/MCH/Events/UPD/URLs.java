@@ -69,7 +69,7 @@ public class URLs extends Thread {
 
         try {
             String urlPath;
-            githubConnect.writeHosts();
+//            githubConnect.writeHosts();
             urlPath = "https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar";
 
             //            使用下载方式检查代码防止被github拒绝连接
@@ -267,8 +267,6 @@ public class URLs extends Thread {
         } catch (SocketException e) {
             countTime.cannotUPD_connectReset();
         } catch (Exception e) {
-            e.printStackTrace();
-
             File file = new File(downloadDir + fileFullName);
             File file1 = new File("C:/.MCH/cache/cache");
             if(Community.saveCache) {

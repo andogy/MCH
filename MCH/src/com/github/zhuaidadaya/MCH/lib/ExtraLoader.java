@@ -71,7 +71,7 @@ public class ExtraLoader {
 
             }
 
-            JSONObject conf = new JSONObject(al.toString().replace(" ", ""));
+            JSONObject conf = new JSONObject(al.toString());
 
             try {
                 loadExtra(f.getAbsolutePath(), conf.get("loader").toString(), f, false, false, conf);

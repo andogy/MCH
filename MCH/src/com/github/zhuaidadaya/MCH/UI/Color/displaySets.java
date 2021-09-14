@@ -79,12 +79,12 @@ public class displaySets extends Thread {
         MenuUI2.notSaveCache.setFocusPainted(false);
         MenuUI2.saveErrorLogs.setBorderPainted(false);
         MenuUI2.saveErrorLogs.setFocusPainted(false);
-        MenuUI2.notSaveErrorLogs.setBorderPainted(false);
-        MenuUI2.notSaveErrorLogs.setFocusPainted(false);
+        MenuUI2.noSaveErrorLogs.setBorderPainted(false);
+        MenuUI2.noSaveErrorLogs.setFocusPainted(false);
         MenuUI2.saveRunLogs.setBorderPainted(false);
         MenuUI2.saveRunLogs.setFocusPainted(false);
-        MenuUI2.notSaveRunLogs.setBorderPainted(false);
-        MenuUI2.notSaveRunLogs.setFocusPainted(false);
+        MenuUI2.noSaveRunLogs.setBorderPainted(false);
+        MenuUI2.noSaveRunLogs.setFocusPainted(false);
         MenuUI2.autoUPD.setBorderPainted(false);
         MenuUI2.autoUPD.setFocusPainted(false);
         MenuUI2.noAutoUPD.setBorderPainted(false);
@@ -332,19 +332,19 @@ public class displaySets extends Thread {
         }
 
         if(Community.saveErrorLog) {
-            MenuUI2.notSaveErrorLogs.setBackground(buttonColor);
+            MenuUI2.noSaveErrorLogs.setBackground(buttonColor);
             MenuUI2.saveErrorLogs.setBackground(backgroundColor);
         } else {
-            MenuUI2.notSaveErrorLogs.setBackground(backgroundColor);
+            MenuUI2.noSaveErrorLogs.setBackground(backgroundColor);
             MenuUI2.saveErrorLogs.setBackground(buttonColor);
         }
 
         if(Community.saveRunLog) {
             MenuUI2.saveRunLogs.setBackground(backgroundColor);
-            MenuUI2.notSaveRunLogs.setBackground(buttonColor);
+            MenuUI2.noSaveRunLogs.setBackground(buttonColor);
         } else {
             MenuUI2.saveRunLogs.setBackground(buttonColor);
-            MenuUI2.notSaveRunLogs.setBackground(backgroundColor);
+            MenuUI2.noSaveRunLogs.setBackground(backgroundColor);
         }
 
         if(Community.autoUPD) {
@@ -480,10 +480,10 @@ public class displaySets extends Thread {
         MenuUI2.notSaveCache.setForeground(foregroundColor);
         MenuUI2.saveErrorLogsOrNot.setForeground(foregroundColor);
         MenuUI2.saveErrorLogs.setForeground(foregroundColor);
-        MenuUI2.notSaveErrorLogs.setForeground(foregroundColor);
+        MenuUI2.noSaveErrorLogs.setForeground(foregroundColor);
         MenuUI2.saveRunLogsOrNot.setForeground(foregroundColor);
         MenuUI2.saveRunLogs.setForeground(foregroundColor);
-        MenuUI2.notSaveRunLogs.setForeground(foregroundColor);
+        MenuUI2.noSaveRunLogs.setForeground(foregroundColor);
         MenuUI2.autoUpdOrNot.setForeground(foregroundColor);
         MenuUI2.autoUPD.setForeground(foregroundColor);
         MenuUI2.noAutoUPD.setForeground(foregroundColor);
@@ -587,9 +587,9 @@ public class displaySets extends Thread {
         MenuUI2.saveCache.setBackground(randomColor.getColor());
         MenuUI2.notSaveCache.setBackground(randomColor.getColor());
         MenuUI2.saveErrorLogs.setBackground(randomColor.getColor());
-        MenuUI2.notSaveErrorLogs.setBackground(randomColor.getColor());
+        MenuUI2.noSaveErrorLogs.setBackground(randomColor.getColor());
         MenuUI2.saveRunLogs.setBackground(randomColor.getColor());
-        MenuUI2.notSaveRunLogs.setBackground(randomColor.getColor());
+        MenuUI2.noSaveRunLogs.setBackground(randomColor.getColor());
         MenuUI2.autoUPD.setBackground(randomColor.getColor());
         MenuUI2.noAutoUPD.setBackground(randomColor.getColor());
         MenuUI2.saveAllHistory.setBackground(randomColor.getColor());
@@ -667,10 +667,10 @@ public class displaySets extends Thread {
         MenuUI2.notSaveCache.setForeground(randomColor.getColor());
         MenuUI2.saveErrorLogsOrNot.setForeground(randomColor.getColor());
         MenuUI2.saveErrorLogs.setForeground(randomColor.getColor());
-        MenuUI2.notSaveErrorLogs.setForeground(randomColor.getColor());
+        MenuUI2.noSaveErrorLogs.setForeground(randomColor.getColor());
         MenuUI2.saveRunLogsOrNot.setForeground(randomColor.getColor());
         MenuUI2.saveRunLogs.setForeground(randomColor.getColor());
-        MenuUI2.notSaveRunLogs.setForeground(randomColor.getColor());
+        MenuUI2.noSaveRunLogs.setForeground(randomColor.getColor());
         MenuUI2.autoUpdOrNot.setForeground(randomColor.getColor());
         MenuUI2.autoUPD.setForeground(randomColor.getColor());
         MenuUI2.noAutoUPD.setForeground(randomColor.getColor());
@@ -864,10 +864,10 @@ public class displaySets extends Thread {
         MenuUI2.notSaveCache.setVisible(false);
         MenuUI2.saveErrorLogsOrNot.setVisible(false);
         MenuUI2.saveErrorLogs.setVisible(false);
-        MenuUI2.notSaveErrorLogs.setVisible(false);
+        MenuUI2.noSaveErrorLogs.setVisible(false);
         MenuUI2.saveRunLogsOrNot.setVisible(false);
         MenuUI2.saveRunLogs.setVisible(false);
-        MenuUI2.notSaveRunLogs.setVisible(false);
+        MenuUI2.noSaveRunLogs.setVisible(false);
         MenuUI2.autoUpdOrNot.setVisible(false);
         MenuUI2.autoUPD.setVisible(false);
         MenuUI2.noAutoUPD.setVisible(false);
@@ -922,10 +922,10 @@ public class displaySets extends Thread {
                 MenuUI2.notSaveCache.setVisible(true);
                 MenuUI2.saveErrorLogsOrNot.setVisible(true);
                 MenuUI2.saveErrorLogs.setVisible(true);
-                MenuUI2.notSaveErrorLogs.setVisible(true);
+                MenuUI2.noSaveErrorLogs.setVisible(true);
                 MenuUI2.saveRunLogsOrNot.setVisible(true);
                 MenuUI2.saveRunLogs.setVisible(true);
-                MenuUI2.notSaveRunLogs.setVisible(true);
+                MenuUI2.noSaveRunLogs.setVisible(true);
                 MenuUI2.autoUpdOrNot.setVisible(true);
                 MenuUI2.autoUPD.setVisible(true);
                 MenuUI2.noAutoUPD.setVisible(true);

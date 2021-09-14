@@ -15,9 +15,13 @@ public class LoadAssembly {
     public static void loadAssembly(Object Assembly, Object status, Color statusColor,boolean warn) {
         File f = new File(Config.path + "logs/run/latest.log");
 
-        loadingWindow.loading.setText(Assembly + "\n" + loadingWindow.loading.getText());
-        loadingWindow.status.setText(status.toString());
-        loadingWindow.status.setForeground(statusColor);
+        try {
+            loadingWindow.loading.setText(Assembly + "\n" + loadingWindow.loading.getText());
+            loadingWindow.status.setText(status.toString());
+            loadingWindow.status.setForeground(statusColor);
+        } catch (Exception e) {
+
+        }
 
         if(Community.saveRunLog) {
             if(f.length() > 2048000) {

@@ -2,11 +2,11 @@ package com.github.zhuaidadaya.MCH.lib;
 
 import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Community;
+import com.github.zhuaidadaya.MCH.Events.Errors;
+import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.UI.Lang.languageSet;
 import com.github.zhuaidadaya.MCH.UI.loadingWindow;
 import com.github.zhuaidadaya.MCH.lib.json.JSONArray;
-import com.github.zhuaidadaya.MCH.Events.Errors;
-import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
 
 import java.io.*;
@@ -20,7 +20,7 @@ public class Resources extends Thread {
 
     public static void fixResource(String resource, String fixTarget, boolean lineWrap) {
         try {
-            createPath(fixTarget.substring(0,fixTarget.lastIndexOf("/")));
+            createPath(fixTarget.substring(0, fixTarget.lastIndexOf("/")));
 
             ErrCounter += 1;
 
@@ -46,11 +46,11 @@ public class Resources extends Thread {
             //                writer.write(bytes, 0, out1);
             //            }
 
-            while ((out = br.readLine()) != null) {
+            while((out = br.readLine()) != null) {
                 length += out.length();
 
                 String replace = out.replace("  ", "").replace(" \"", "\"").replace(" [", "[").replace(" {", "{");
-                if (!lineWrap) {
+                if(! lineWrap) {
                     writer.write(replace);
                 } else {
                     writer.write(replace + "\n");
@@ -59,7 +59,7 @@ public class Resources extends Thread {
                 writer.flush();
 
                 interval_gc -= 1;
-                if (interval_gc <= 0) {
+                if(interval_gc <= 0) {
                     interval_gc = interval_gc_cache;
                     gcCount += 1;
                     System.gc();
@@ -84,7 +84,7 @@ public class Resources extends Thread {
 
     public static int getElementsCounter(Iterator<String> iterator) {
         int result = 0;
-        while (iterator.hasNext()) {
+        while(iterator.hasNext()) {
             result += 1;
             iterator.next();
         }
@@ -93,7 +93,7 @@ public class Resources extends Thread {
     }
 
     public static void createPath(String path) {
-        if (!new File(path).isDirectory())
+        if(! new File(path).isDirectory())
             new File(path).mkdirs();
     }
 
@@ -103,26 +103,27 @@ public class Resources extends Thread {
         public initLanguage() {
             createPath(Config.resPath);
 
-            initLang("languages.json");
-            initLang("commands/commands.json");
+            initLang("languages.json","/com/github/zhuaidadaya/resources/resource_files/","");
+            initLang("commands/commands.json","/com/github/zhuaidadaya/resources/resource_files/","");
         }
 
-        public static void initLang(String langFile) {
+        public static void initLang(String langFile,String resourceRoot, String targetLanguage) {
             String languagesPath = Config.resPath + langFile;
 
             File f = null;
-            if (new File(Config.resPath + langFile).isFile()) {
+            if(new File(Config.resPath + langFile).isFile()) {
                 f = new File(Config.resPath + langFile);
             } else {
 
             }
+
             StringBuilder json = new StringBuilder();
 
             try {
                 BufferedReader br = new BufferedReader(new FileReader(f, StandardCharsets.UTF_8));
                 String brRead;
 
-                while ((brRead = br.readLine()) != null) {
+                while((brRead = br.readLine()) != null) {
                     json.append(brRead);
                 }
 
@@ -135,20 +136,20 @@ public class Resources extends Thread {
 
                 new JSONObject();
                 JSONObject language;
-                String targetLanguage = "";
-                if (Community.LangID == 0) {
-                    targetLanguage = "chinese";
-                } else if (Community.LangID == 1) {
-                    targetLanguage = "english";
-                } else if (Community.LangID == 3) {
-                    targetLanguage = "chinese_tw";
+                if(targetLanguage.equals("")) {
+                    if(Community.LangID == 0) {
+                        targetLanguage = "chinese";
+                    } else if(Community.LangID == 1) {
+                        targetLanguage = "english";
+                    } else if(Community.LangID == 3) {
+                        targetLanguage = "chinese_tw";
+                    }
                 }
 
-                for (int i = 0; ; i++) {
+                for(int i = 0; ; i++) {
                     language = new JSONObject(languages.get(i).toString());
-                    if (language.keys().next().equals(targetLanguage)) {
+                    if(language.keys().next().equals(targetLanguage))
                         break;
-                    }
                 }
                 JSONArray languageText = new JSONArray(language.get(language.keys().next()).toString());
                 int i = languageText.length();
@@ -158,7 +159,7 @@ public class Resources extends Thread {
                 String inMapKey = inMap.keys().next();
                 lang.put(inMapKey, inMap.getString(inMapKey));
 
-                while (i + 1 != 0) {
+                while(i + 1 != 0) {
                     inMap = new JSONObject(languageText.get(i).toString());
 
                     Iterator<String> in = inMap.keys();
@@ -167,7 +168,7 @@ public class Resources extends Thread {
 
                     in = inMap.keys();
 
-                    while (inMapKeyCounter != 0) {
+                    while(inMapKeyCounter != 0) {
                         inMapKeyCounter -= 1;
 
                         String next = in.next();
@@ -179,50 +180,50 @@ public class Resources extends Thread {
             } catch (FileNotFoundException e) {
 
                 Config.languageSet = "Language@Auto";
-                if (!(ErrCounter < 4)) {
-                    Errors.errors(null, e, true, "LanguageParse", "",700,520,false);
+                if(! (ErrCounter < 4)) {
+                    Errors.errors(null, e, true, "LanguageParse", "", 700, 520, false);
                 }
 
                 //修复语言文件
-                fixResource("/com/github/zhuaidadaya/resources/resource_files/" + langFile, languagesPath, false);
+                fixResource(resourceRoot + langFile, languagesPath, false);
 
-                Errors.errors(null, e, false, "languageInit", "null",700,520,false);
+                Errors.errors(null, e, false, "languageInit", "null", 700, 520, false);
 
-                if (ErrCounter < 5) {
-                    initLang(langFile);
+                if(ErrCounter < 5) {
+                    initLang(langFile,resourceRoot,targetLanguage);
                 }
             } catch (Exception e) {
                 Config.languageSet = "Language@Auto";
-                if (!(ErrCounter < 4)) {
-                    Errors.errors(null, e, true, "LanguageParse", "",700,520,false);
+                if(! (ErrCounter < 4)) {
+                    Errors.errors(null, e, true, "LanguageParse", "", 700, 520, false);
                 }
 
                 //修复语言文件
-                fixResource("/com/github/zhuaidadaya/resources/resource_files/" + langFile, languagesPath, false);
+                fixResource(resourceRoot + langFile, languagesPath, false);
 
                 loadingWindow.loading.append(Arrays.toString(e.getStackTrace()).replace(", ", "\n") + "\n");
-                Errors.errors(null, e, false, json.toString(), "null",700,520,false);
+                Errors.errors(null, e, false, json.toString(), "null", 700, 520, false);
 
-                if (ErrCounter < 5) {
-                    initLang(langFile);
+                if(ErrCounter < 5) {
+                    initLang(langFile,resourceRoot,targetLanguage);
                 }
             } catch (Error error) {
-                if (!(ErrCounter < 4)) {
-                    Errors.errors(error, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH",700,520,true);
+                if(! (ErrCounter < 4)) {
+                    Errors.errors(error, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true);
                 }
 
-                if (ErrCounter < 5) {
-                    initLang(langFile);
+                if(ErrCounter < 5) {
+                    initLang(langFile,resourceRoot,targetLanguage);
                 }
             }
 
-            if (ErrCounter < 4) {
+            if(ErrCounter < 4) {
                 languageSet.Language();
             }
         }
 
-        public static void initFromSelf(String langFile) {
-            InputStream f = getResource("/com/github/zhuaidadaya/resources/resource_files/" + langFile);
+        public static void initFromSelf(String langFile,String resourceRoot,String targetLanguage) {
+            InputStream f = getResource(resourceRoot + langFile);
 
             StringBuilder json = new StringBuilder();
 
@@ -230,7 +231,7 @@ public class Resources extends Thread {
                 BufferedReader br = new BufferedReader(new InputStreamReader(f, StandardCharsets.UTF_8));
                 String brRead;
 
-                while ((brRead = br.readLine()) != null) {
+                while((brRead = br.readLine()) != null) {
                     json.append(brRead).append("\n");
                 }
 
@@ -243,18 +244,19 @@ public class Resources extends Thread {
 
                 new JSONObject();
                 JSONObject language;
-                String targetLanguage = "";
-                if (Community.LangID == 0) {
-                    targetLanguage = "chinese";
-                } else if (Community.LangID == 1) {
-                    targetLanguage = "english";
-                } else if (Community.LangID == 3) {
-                    targetLanguage = "chinese_tw";
+                if(targetLanguage.equals("")) {
+                    if(Community.LangID == 0) {
+                        targetLanguage = "chinese";
+                    } else if(Community.LangID == 1) {
+                        targetLanguage = "english";
+                    } else if(Community.LangID == 3) {
+                        targetLanguage = "chinese_tw";
+                    }
                 }
 
-                for (int i = 0; ; i++) {
+                for(int i = 0; ; i++) {
                     language = new JSONObject(languages.get(i).toString());
-                    if (language.keys().next().equals(targetLanguage))
+                    if(language.keys().next().equals(targetLanguage))
                         break;
                 }
 
@@ -267,7 +269,7 @@ public class Resources extends Thread {
                 String inMapKey = inMap.keys().next();
                 lang.put(inMapKey, inMap.getString(inMapKey));
 
-                while (i + 1 != 0) {
+                while(i + 1 != 0) {
                     inMap = new JSONObject(languageText.get(i).toString());
 
                     Iterator<String> in = inMap.keys();
@@ -276,7 +278,7 @@ public class Resources extends Thread {
 
                     in = inMap.keys();
 
-                    while (inMapKeyCounter != 0) {
+                    while(inMapKeyCounter != 0) {
                         inMapKeyCounter -= 1;
 
                         String next = in.next();
@@ -286,26 +288,26 @@ public class Resources extends Thread {
                     i--;
                 }
             } catch (Exception | Error e) {
-                if (!(ErrCounter < 4)) {
+                if(! (ErrCounter < 4)) {
                     Config.languageSet = "Language@Auto";
-                    if (e instanceof Exception) {
-                        Errors.errors(null, (Exception) e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH",700,520,true);
+                    if(e instanceof Exception) {
+                        Errors.errors(null, (Exception) e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true);
                     } else {
-                        Errors.errors((Error) e, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH",700,520,true);
+                        Errors.errors((Error) e, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true);
                     }
                 }
 
-                if (ErrCounter < 5) {
+                if(ErrCounter < 5) {
                     ErrCounter++;
 
-                    initFromSelf(langFile);
+                    initFromSelf(langFile,resourceRoot,targetLanguage);
                 }
             }
 
-            if (ErrCounter < 4) {
+            if(ErrCounter < 4) {
                 ErrCounter++;
 
-                initFromSelf(langFile);
+                initFromSelf(langFile,resourceRoot,targetLanguage);
 
                 languageSet.Language();
             }

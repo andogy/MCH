@@ -1,16 +1,16 @@
 package com.github.zhuaidadaya.MCH.UI;
 
 import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.UI.Color.displaySets;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.Events;
+import com.github.zhuaidadaya.MCH.UI.Color.displaySets;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.io.*;
 
-public class ExtraUI {
+public class ExtraUI extends Community {
     public static JFrame jFrame = new JFrame();
 
     public static boolean mcRunning = false;
@@ -71,6 +71,25 @@ public class ExtraUI {
 
         displaySets.extraDisplay();
 
+        {
+            uiSizeMap.put(McBe, new Rectangle(5, 5, 80, 30));
+            uiSizeMap.put(turnOnMcBe, new Rectangle(85, 5, 80, 30));
+            uiSizeMap.put(turnOffMcBe, new Rectangle(175, 5, 80, 30));
+            uiSizeMap.put(McBeStatus, new Rectangle(5, 45, 265, 180));
+            uiSizeMap.put(minecraftListenSpeedLevel, new Rectangle(5, 230, 80, 30));
+            uiSizeMap.put(Level0OfMLSL, new Rectangle(180, 230, 90, 30));
+            uiSizeMap.put(Level1OfMLSL, new Rectangle(80, 230, 90, 30));
+
+            uiSizeMap.put(launchers, new Rectangle(0, 290, 90, 32));
+            uiSizeMap.put(randomProblem, new Rectangle(90, 290, 90, 32));
+            uiSizeMap.put(functions, new Rectangle(180, 290, 90, 32));
+
+            uiSizeMap.put(functionEdit, new Rectangle(0, 0, (360 / 4) * 3, 260));
+            uiSizeMap.put(saveFunc, new Rectangle(360 - (360 / 4) + 10, 0, 100, 30));
+
+            uiSizeMap.put(McJe, new Rectangle(5, 310, 90, 30));
+        }
+
         jFrame.setLayout(new LayoutManager() {
             @Override
             public void addLayoutComponent(String name, Component comp) {
@@ -92,31 +111,28 @@ public class ExtraUI {
 
             @Override
             public void layoutContainer(Container parent) {
-                int Width = jFrame.getWidth();
-                int Height = jFrame.getHeight();
+                McBe.setBounds(uiSizeMap.getRectangle(McBe));
+                turnOnMcBe.setBounds(uiSizeMap.getRectangle(turnOnMcBe));
+                turnOffMcBe.setBounds(uiSizeMap.getRectangle(turnOffMcBe));
+                McBeStatus.setBounds(uiSizeMap.getRectangle(McBeStatus));
+                minecraftListenSpeedLevel.setBounds(uiSizeMap.getRectangle(minecraftListenSpeedLevel));
+                Level0OfMLSL.setBounds(uiSizeMap.getRectangle(Level0OfMLSL));
+                Level1OfMLSL.setBounds(uiSizeMap.getRectangle(Level1OfMLSL));
 
-                McBe.setBounds(5, 5, 80, 30);
-                turnOnMcBe.setBounds(85, 5, 80, 30);
-                turnOffMcBe.setBounds(175, 5, 80, 30);
-                McBeStatus.setBounds(5, 45, 265, 180);
-                minecraftListenSpeedLevel.setBounds(5, 230, 80, 30);
-                Level0OfMLSL.setBounds(180, 230, 90, 30);
-                Level1OfMLSL.setBounds(80, 230, 90, 30);
+                launchers.setBounds(uiSizeMap.getRectangle(launchers));
+                randomProblem.setBounds(uiSizeMap.getRectangle(randomProblem));
+                functions.setBounds(uiSizeMap.getRectangle(functions));
 
-                launchers.setBounds(0, Height - 70, 90, 32);
-                randomProblem.setBounds(90, Height - 70, 90, 32);
-                functions.setBounds(180, Height - 70, 90, 32);
-
-                functionEdit.setBounds(0, 0, (Width / 4) * 3, Height - 100);
-                saveFunc.setBounds(Width - (Width / 4) + 10, 0, 100, 30);
+                functionEdit.setBounds(0, 0, (360 / 4) * 3, 260);
+                saveFunc.setBounds(360 - (360 / 4) + 10, 0, 100, 30);
 
                 McJe.setText("Java Minecraft:");
-                McJe.setBounds(5,310,90,30);
+                McJe.setBounds(5, 310, 90, 30);
             }
         });
 
         turnOffMcBe.addActionListener(e -> {
-            if (! Community.isDaemons) {
+            if(! Community.isDaemons) {
                 try {
                     Runtime.getRuntime().exec("cmd.exe /k taskkill /f /im minecraft.windows.exe");
                 } catch (IOException exception) {
@@ -126,7 +142,7 @@ public class ExtraUI {
         });
 
         turnOnMcBe.addActionListener(e -> {
-            if (!Community.isDaemons) {
+            if(! Community.isDaemons) {
                 try {
                     Runtime.getRuntime().exec("cmd.exe /k start minecraft:");
                 } catch (IOException exception) {
@@ -136,21 +152,21 @@ public class ExtraUI {
         });
 
         launchers.addActionListener(e -> {
-            if (!Community.isDaemons) {
+            if(! Community.isDaemons) {
                 Community.extraDisplayID = 0;
                 displaySets.extraDisplay();
             }
         });
 
         randomProblem.addActionListener(e -> {
-            if (!Community.isDaemons) {
+            if(! Community.isDaemons) {
                 Community.extraDisplayID = 1;
                 displaySets.extraDisplay();
             }
         });
 
         functions.addActionListener(e -> {
-            if (!Community.isDaemons) {
+            if(! Community.isDaemons) {
                 Community.extraDisplayID = 2;
                 displaySets.extraDisplay();
             }
@@ -164,7 +180,7 @@ public class ExtraUI {
     }
 
     public static void saveFunction() {
-        if (!Community.isDaemons) {
+        if(! Community.isDaemons) {
             try {
                 int result;
                 new File("");
@@ -176,9 +192,9 @@ public class ExtraUI {
                 fileChooser.setApproveButtonText("确定");
                 fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
                 result = fileChooser.showOpenDialog(jFrame);
-                if (JFileChooser.APPROVE_OPTION == result) {
+                if(JFileChooser.APPROVE_OPTION == result) {
                     path = fileChooser.getSelectedFile().getPath();
-                    if (new File(path).isFile()) {
+                    if(new File(path).isFile()) {
                         FileWriter fileWriter = new FileWriter(path);
                     } else {
                         JTextArea fileName = new JTextArea();
@@ -240,57 +256,57 @@ public class ExtraUI {
     public static class minecraftListener extends Thread {
         @Override
         public void run() {
-            if (Community.os.equals("windows")) {
+            if(Community.os.equals("windows")) {
                 Runtime r = Runtime.getRuntime();
-                while (true) {
+                while(true) {
                     try {
                         //                    Thread.sleep(10);
-                        if (!Community.isDaemons & Community.extraDisplayID == 0 & ExtraUI.jFrame.isVisible()) {
+                        if(! Community.isDaemons & Community.extraDisplayID == 0 & ExtraUI.jFrame.isVisible()) {
                             try {
                                 Process p = r.exec("cmd.exe /c tasklist");
                                 BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
                                 String s = "";
                                 StringBuilder all = new StringBuilder();
-                                while ((s = br.readLine()) != null) {
+                                while((s = br.readLine()) != null) {
                                     s = s.toLowerCase();
 
                                     all.append(s).append("\n");
 
                                     StringBuilder displayString = new StringBuilder();
-                                    if (Community.LangID == 0) {
+                                    if(Community.LangID == 0) {
                                         displayString = new StringBuilder("Minecraft状态\n\n");
-                                    } else if (Community.LangID == 1) {
+                                    } else if(Community.LangID == 1) {
                                         displayString = new StringBuilder("Minecraft Status\n\n");
                                     }
 
-                                    if (s.contains("minecraft.windows.exe")) {
+                                    if(s.contains("minecraft.windows.exe")) {
                                         String s1;
                                         int c = 0;
-                                        while (s.contains(" ")) {
+                                        while(s.contains(" ")) {
                                             c++;
                                             s1 = s.substring(0, s.indexOf(" "));
 
                                             s = s.substring(s.indexOf(" "));
-                                            while (s.substring(0, 1).contains(" ")) {
+                                            while(s.substring(0, 1).contains(" ")) {
                                                 s = s.replaceFirst(" ", "");
                                             }
 
-                                            if (Community.LangID == 0) {
-                                                switch (c) {
+                                            if(Community.LangID == 0) {
+                                                switch(c) {
                                                     case 1 -> displayString.append("软件包名: ").append(s1).append("\n");
                                                     case 2 -> displayString.append("PID: ").append(s1).append("\n");
                                                     case 5 -> displayString.append("占用内存: ").append(s1).append(" KB\n");
                                                 }
-                                            } else if (Community.LangID == 1) {
-                                                switch (c) {
+                                            } else if(Community.LangID == 1) {
+                                                switch(c) {
                                                     case 1 -> displayString.append("minecraft name: ").append(s1).append("\n");
                                                     case 2 -> displayString.append("PID: ").append(s1).append("\n");
                                                     case 5 -> displayString.append("minecraft ram: ").append(s1).append("kb\n");
                                                 }
                                             }
 
-                                            if (c >= 5) {
+                                            if(c >= 5) {
                                                 break;
                                             }
                                         }
@@ -298,25 +314,25 @@ public class ExtraUI {
                                         McBeStatus.setText(displayString.toString());
 
                                     }
-                                    if (Community.minecraftListenFlushSpeedLevels == 0) {
+                                    if(Community.minecraftListenFlushSpeedLevels == 0) {
                                         Thread.sleep(1);
                                     }
                                 }
 
                                 System.gc();
 
-                                if (!all.toString().contains("minecraft.windows.exe")) {
+                                if(! all.toString().contains("minecraft.windows.exe")) {
                                     mcRunning = false;
-                                    if (Community.LangID == 0) {
+                                    if(Community.LangID == 0) {
                                         McBeStatus.setText("Minecraft基岩版未在运行");
-                                    } else if (Community.LangID == 1) {
+                                    } else if(Community.LangID == 1) {
                                         McBeStatus.setText("Minecraft Bedrock Edition is not running");
                                     }
                                 } else {
                                     mcRunning = true;
                                 }
 
-                                if (Errors.CannotHandle) {
+                                if(Errors.CannotHandle) {
                                     break;
                                 }
                             } catch (Exception e) {

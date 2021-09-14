@@ -74,6 +74,8 @@ public class Community {
 
     public static String os = System.getProperty("os.name");
 
+    public static UiSizeMap uiSizeMap = new UiSizeMap();
+
     public static String UPD_ID = "157";
     public static String verID = "11445010154/0-0-1-54";
     public static String ver = "ah-54";
@@ -92,7 +94,7 @@ public class Community {
         saveErrorLog = true;
         saveRunLog = true;
 
-        Config.path = System.getProperty("user.home").replace("\\","/") + "/" + Config.path;
+        Config.path = System.getProperty("user.home").replace("\\", "/") + "/" + Config.path;
         Config.resPath = Config.path + Config.resPath;
         Config.runLogsPath = Config.path + Config.runLogsPath;
         Config.errLogsPath = Config.path + Config.errLogsPath;
@@ -105,6 +107,9 @@ public class Community {
         } catch (Exception e) {
 
         }
+
+        LangID = 0;
+        new Resources.initLanguage();
 
         if(mode.equals("ex-tes")) {
             lis.showWindow();
@@ -157,8 +162,8 @@ public class Community {
                         Community.LangID = 1;
                     }
 
-                    Resources.initLanguage.initFromSelf("languages.json");
-                    Resources.initLanguage.initFromSelf("commands.json");
+                    Resources.initLanguage.initFromSelf("languages.json","/com/github/zhuaidadaya/resources/resource_files/","");
+                    Resources.initLanguage.initFromSelf("commands.json","/com/github/zhuaidadaya/resources/resource_files/","");
 
                     displaySets.Color();
 

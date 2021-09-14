@@ -2,6 +2,7 @@ package com.github.zhuaidadaya.MCH.UI;
 
 import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Community;
+import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.Events.reStart;
 import com.github.zhuaidadaya.MCH.Help.Helps;
@@ -9,7 +10,7 @@ import com.github.zhuaidadaya.MCH.Help.Helps;
 import javax.swing.*;
 import java.awt.*;
 
-public class MenuUI {
+public class MenuUI extends Community {
     public static JFrame jFrame = new JFrame();
 
     public static boolean OpenMenu = false;
@@ -32,7 +33,9 @@ public class MenuUI {
     public static JButton deleteMCH = new JButton();
 
     public MenuUI() {
-        LoadAssembly.loadAssembly("[Main Thread/INFO] Reloading configs by MenuUI","",false);
+        uiSizeMap.put(jFrame, new Dimension(640, 360));
+
+        LoadAssembly.loadAssembly("[Main Thread/INFO] Reloading configs by MenuUI", "", false);
         OpenMenu = true;
         menuUI();
     }
@@ -42,8 +45,9 @@ public class MenuUI {
 
         OpenMenu = false;
 
-        jFrame.setSize(640, 360);
         jFrame.setResizable(false);
+
+        jFrame.setSize(uiSizeMap.getDimension(jFrame));
 
         //        窗口初始化设置
         //获得屏幕大小
@@ -80,9 +84,9 @@ public class MenuUI {
 
             @Override
             public void layoutContainer(Container parent) {
-                announcement.setBounds(5, 5, 630, 170);
+                jFrame.setSize(uiSizeMap.getDimension(jFrame));
 
-                MenuUI2.deleteData.setBounds(0, 40 + 35 + 100 + 30 + 40, 110, 30);
+                announcement.setBounds(5, 5, 630, 170);
 
                 restart.setBounds(0, 40 + 35 + 100 + 30 + 40 + 30 + 10, 110, 30);
 
@@ -98,13 +102,12 @@ public class MenuUI {
 
                 gayhub.setBounds(120, 40 + 35 + 100 + 30 + 40 + 30 + 10, 80, 30);
 
-                deleteMCH.setBounds(490,285,120,30);
+                deleteMCH.setBounds(490, 285, 120, 30);
             }
         };
 
         jFrame.setLayout(layoutManager);
 
-        jFrame.add(MenuUI2.deleteData);
         jFrame.add(helps);
         jFrame.add(user);
         jFrame.add(gayhub);
@@ -124,6 +127,11 @@ public class MenuUI {
 
         settings.addActionListener(e -> {
             if(! Community.isDaemons) {
+                try {
+                    Events.menu();
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
                 MenuUI2.jFrame.setVisible(true);
             }
         });

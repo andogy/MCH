@@ -790,8 +790,8 @@ public class CommandParsing extends Thread {
     @Override
     public void run() {
         new Thread(() -> {
-            while (!Errors.CannotHandle) {
-                Resources.initLanguage.initLang("commands/commands.json");
+            while (! Errors.CannotHandle) {
+                Resources.initLanguage.initLang("commands/commands.json","/com/github/zhuaidadaya/resources/resource_files/","");
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
@@ -807,7 +807,7 @@ public class CommandParsing extends Thread {
             if (!Community.isDaemons) {
                 var input = MchUI.input_Command.getText();
                 if (!input.equals("") & !input.contains("\n")) {
-                    Resources.initLanguage.initFromSelf("commands.json");
+                    Resources.initLanguage.initFromSelf("commands.json","/com/github/zhuaidadaya/resources/resource_files/","");
 
                     //                    if (MchUI.input_Command.getText().lastIndexOf("/") == 0 | !MchUI.input_Command.getText().contains("/")) {
                     if (!MchUI.switchTip.isFocusOwner()) {

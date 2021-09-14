@@ -1,14 +1,15 @@
 package com.github.zhuaidadaya.MCH.UI;
 
 import com.github.zhuaidadaya.MCH.Command.Parsing;
+import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
-import com.github.zhuaidadaya.MCH.lib.Resources;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
+import com.github.zhuaidadaya.MCH.lib.Resources;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class MchUI {
+public class MchUI extends Community {
 
     public static JFrame jFrame = new JFrame();
     public static JTextPane input_Command = new JTextPane();
@@ -60,7 +61,7 @@ public class MchUI {
         jFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
         //显示窗口
-        jFrame.setVisible(!Errors.CannotHandle);
+        jFrame.setVisible(! Errors.CannotHandle);
         LoadAssembly.loadAssembly("[Main Thread/INFO] Showing UI", Resources.initLanguage.lang.get("show_UI"), false);
 
         LayoutManager layoutManager = new LayoutManager() {
@@ -88,12 +89,8 @@ public class MchUI {
                 int Width = jFrame.getWidth();
 
                 command_scrollPane.setBounds(5, 0, Width + 100, Height - (20 + 65));
-                //                jScrollPane.setBounds(0, 0, 35, 2000);
-
                 tips.setBounds(0, Height - 65 - 20, Width, 20);
-                //                switchTip.setBounds(0, Height - 65, Width - 110, 25);
                 tip_scrollPane.setBounds(0, Height - 65, Width - 110, 30);
-                //                input_Command.setBounds(0, Height - 65, Width - 110, 25);
                 input_scrollPane.setBounds(0, Height - 65, Width - 110, 100);
                 menu.setBounds(Width - 100, Height - 65, 80, 27);
             }

@@ -2,14 +2,19 @@ package com.github.zhuaidadaya.MCH.UI.Lang;
 
 import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.UI.*;
 import com.github.zhuaidadaya.MCH.Events.Errors;
+import com.github.zhuaidadaya.MCH.UI.*;
+
+import java.util.HashMap;
+import java.util.HashSet;
 
 import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.*;
 
 public class languageSet extends Thread {
     public static String c = "";
     public static String type = "";
+
+    public static HashMap<String,String > langFile = new HashMap<>();
 
     public static void Language() {
         MchUI.menu.setText(lang.get("menuButton"));
@@ -69,10 +74,10 @@ public class languageSet extends Thread {
         MenuUI2.notSaveCache.setText(lang.get("delete"));
         MenuUI2.saveErrorLogsOrNot.setText(lang.get("save_err"));
         MenuUI2.saveErrorLogs.setText(lang.get("save"));
-        MenuUI2.notSaveErrorLogs.setText(lang.get("delete"));
+        MenuUI2.noSaveErrorLogs.setText(lang.get("delete"));
         MenuUI2.saveRunLogsOrNot.setText(lang.get("runLog"));
         MenuUI2.saveRunLogs.setText(lang.get("save"));
-        MenuUI2.notSaveRunLogs.setText(lang.get("delete"));
+        MenuUI2.noSaveRunLogs.setText(lang.get("delete"));
         MenuUI2.autoUpdOrNot.setText(lang.get("autoUPD"));
         MenuUI2.autoUPD.setText(lang.get("enable"));
         MenuUI2.noAutoUPD.setText(lang.get("disable"));
@@ -142,6 +147,8 @@ public class languageSet extends Thread {
 
     @Override
     public void run() {
+        langFile.put("languages.json","/com/github/zhuaidadaya/resources/resource_files/");
+
         while (!Errors.CannotHandle) {
             if (!Community.isDaemons) {
                 try {
@@ -150,7 +157,8 @@ public class languageSet extends Thread {
                     e.printStackTrace();
                 }
 
-                initLang("languages.json");
+//                for(String s : langFile.keySet())
+//                    initLang(s,langFile.get(s),"");
                 Language();
             } else {
                 try {

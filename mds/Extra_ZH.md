@@ -37,9 +37,6 @@ public class Declared {
 我们并没有为扩展完善线程安全<br>
 请不要在扩展内做出以上或其他作死操作
 
-在未加载完成时不会被记录在扩展列表<br>
-可以通过寻找没有在列表上的扩展来删除不能够加载的
-
 <hr>
 
 # Dev包
@@ -183,17 +180,12 @@ import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.lib.Log;
 
 import java.io.File;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 public class Declared() {
     public void onLoad() {
         //直接在给参数时临时建立参数        
-        Log.writeLog(new File(Config.runLogsPath + "latest.log"), 
-                true, 
-                StandardCharsets.UTF_8, 
-                "this is a log", 
-                false);
+        Log.writeLog(new File(Config.runLogsPath + "latest.log"), true, StandardCharsets.UTF_8, "this is a log", false);
     }
 }
 ```
