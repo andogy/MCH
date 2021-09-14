@@ -13,6 +13,7 @@
 邮箱:<br>
 [1501917367@qq.com](mailto:1501917367@qq.com)<br>
 (bug、建议等建议发往这里)<br>
+(更建议直接在github上发issue)<br>
 QQ:<br>
 1501917367<br>
 2293332045<br>
