@@ -169,9 +169,34 @@ public class Declared() {
         Log.writeLog(logSaveTo, append, charset, log, warn);
     }
 }
+
+
+//       去掉注释以后的样子
+        
+
+package Mex;
+
+import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.lib.Log;
+
+import java.io.File;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
+public class Declared() {
+    public void onLoad() {
+        File logSaveTo = new File(Config.runLogsPath + "latest.log");
+        boolean append = true;
+        Charset charset = StandardCharsets.UTF_8;
+        String log = "this is a log";
+        boolean warn = false;
+
+        Log.writeLog(logSaveTo, append, charset, log, warn);
+    }
+}
 ```
 
-如果觉得太长,也可以这样
+如果觉得行数有点多,也可以这样
 
 ```java
 package Mex;
@@ -179,13 +204,12 @@ package Mex;
 import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.lib.Log;
 
-import java.io.File;
 import java.nio.charset.StandardCharsets;
 
 public class Declared() {
     public void onLoad() {
         //直接在给参数时临时建立参数        
-        Log.writeLog(new File(Config.runLogsPath + "latest.log"), true, StandardCharsets.UTF_8, "this is a log", false);
+        Log.writeLog(Config.runLogsPath + "latest.log", true, StandardCharsets.UTF_8, "this is a log", false);
     }
 }
 ```
