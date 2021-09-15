@@ -39,7 +39,9 @@ public class ExtraLoader {
         for(File extra : Objects.requireNonNull(f.listFiles())) {
             new Thread(() -> {
                 extraList.add(extra.getAbsolutePath());
-                ExtraLoader.this.getMANIFEST(extra.getAbsoluteFile());
+                if(extra.getName().contains(".jar")) {
+                    ExtraLoader.this.getMANIFEST(extra.getAbsoluteFile());
+                }
             }).start();
         }
 

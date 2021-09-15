@@ -1,6 +1,7 @@
 package com.github.zhuaidadaya.MCH.lib;
 
 import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Times.timeType;
 import com.github.zhuaidadaya.MCH.Times.times;
 
@@ -27,22 +28,23 @@ public class Log {
         try {
             logFile = logFile.replace("\\", "/");
             File logF = new File(logFile);
-            if(! logF.exists()) {
-                new File(logFile.substring(0, logFile.lastIndexOf("/"))).mkdirs();
-                logF.createNewFile();
+            try {
+                if(! logF.exists()) {
+                    new File(logFile.substring(0, logFile.lastIndexOf("/"))).mkdirs();
+                    logF.createNewFile();
+                }
+            } catch (Exception e) {
+
             }
             writeLog(new BufferedWriter(new FileWriter(logFile, charset, append)), log, WARN, null);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+
         }
     }
 
     public static void writeLog(BufferedWriter logger, Object log, boolean WARN, Object exID) {
         try {
-            if(exID == null)
-                log = times.getTime(timeType.LONG_LOG) + log;
-            else
-                log = times.getTime(timeType.LONG_LOG) + "[" + exID + "] " + log;
+            log = exID == null ? times.getTime(timeType.LONG_LOG) + log : times.getTime(timeType.LONG_LOG) + "[" + exID + "] " + log;
 
             if(WARN)
                 System.err.println(log);
@@ -57,11 +59,13 @@ public class Log {
     }
 
     public static void writeLog(Object log) {
-        writeLog(defRunPath,defAppend,defCharset,log,false);
+        if(Community.saveRunLog)
+            writeLog(defRunPath, defAppend, defCharset, log, false);
     }
 
     public static void writeErr(Object log) {
-        writeLog(defErrPath,defAppend,defCharset,log,true);
+        if(Community.saveErrorLog)
+            writeLog(defErrPath, defAppend, defCharset, log, true);
     }
 
     public static void compress(String srcPath, String dstPath) throws IOException {
@@ -120,61 +124,68 @@ public class Log {
         }
     }
 
-    public static void packet(File path, String oldDay, String log) {
+    public static void packetLog(File path, String log) {
         for(File f : Objects.requireNonNull(path.listFiles())) {
             if(f.isFile()) {
                 if(f.getName().equals("latest.log")) {
 
-                    if(! oldDay.equals(times.getTime(timeType.AS_DAY))) {
-                        String fp = f.getPath().replace("\\", "/");
-                        File pack;
-                        String zipF = fp.substring(0, fp.lastIndexOf("/")) + "/" + oldDay + ".log.zip";
-                        pack = new File(zipF);
+                    String fp = f.getPath().replace("\\", "/");
 
-                        if(f.length() > 100) {
+                    if(f.length() > 100) {
 
-                            String pack_for = (fp.substring(fp.substring(0, fp.indexOf("/") + 1).length()));
+                        String pack_for = (fp.substring(fp.substring(0, fp.indexOf("/") + 1).length()));
 
-                            if(log != null)
-                                Log.writeLog(log, true, StandardCharsets.UTF_8, "[Log Packer/INFO] Pack latest.log for " + pack_for.substring(0, pack_for.lastIndexOf("/")), false);
-                            if(pack.isFile()) {
-                                try {
-                                    if(! new File(fp.substring(0, fp.lastIndexOf("/")) + "/" + times.getTime(timeType.AS_MINUTE) + ".log.zip").isFile()) {
-                                        String name = fp.substring(0, fp.lastIndexOf("/")) + "/" + times.getTime(timeType.AS_MINUTE) + ".log";
-                                        fileToZip(f, name + ".zip", new File(name).getName());
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            } else {
-                                try {
-                                    if(! new File(zipF).isFile()) {
-                                        String name = fp.substring(0, fp.lastIndexOf("/")) + "//" + oldDay + ".log";
-                                        fileToZip(f, name + ".zip", new File(name).getName());
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
+                        if(log != null)
+                            Log.writeLog("[Log Packer/INFO] Pack latest.log for <" + pack_for.substring(0, pack_for.lastIndexOf("/")) + ">");
+
+                        try {
+                            if(! new File(fp.substring(0, fp.lastIndexOf("/")) + "/" + times.getTime(timeType.AS_SECOND) + ".log.zip").isFile()) {
+                                String name = fp.substring(0, fp.lastIndexOf("/")) + "/" + times.getTime(timeType.AS_SECOND) + ".log";
+                                fileToZip(f, name + ".zip", new File(name).getName());
+
+                                f.delete();
+                                f.createNewFile();
                             }
-                        } else {
-                            try {
-                                new File((fp.substring(0, f.getPath().lastIndexOf("/"))) + "/latest/latest.log").delete();
-                                new File((fp.substring(0, f.getPath().lastIndexOf("/"))) + "/latest/latest.log").createNewFile();
-                            } catch (Exception e) {
-
-                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                    }
-
-                    f.delete();
-                    try {
-                        f.createNewFile();
-                    } catch (IOException e) {
-                        e.printStackTrace();
                     }
                 }
             } else {
-                packet(f, oldDay, log);
+                packetLog(f, log);
+            }
+        }
+    }
+
+    public static void packetLog(File path, String zipName, String log) {
+        for(File f : Objects.requireNonNull(path.listFiles())) {
+            if(f.isFile()) {
+                if(f.getName().equals("latest.log")) {
+
+                    String fp = f.getPath().replace("\\", "/");
+
+                    if(f.length() > 100) {
+
+                        String pack_for = (fp.substring(fp.substring(0, fp.indexOf("/") + 1).length()));
+
+                        if(log != null)
+                            Log.writeLog("[Log Packer/INFO] Pack latest.log for <" + pack_for.substring(0, pack_for.lastIndexOf("/")) + ">");
+
+                        try {
+                            if(! new File(fp.substring(0, fp.lastIndexOf("/")) + "/" + zipName + ".log.zip").isFile()) {
+                                String name = fp.substring(0, fp.lastIndexOf("/")) + "/" + zipName + ".log";
+                                fileToZip(f, name + ".zip", new File(name).getName());
+
+                                f.delete();
+                                f.createNewFile();
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } else {
+                packetLog(f, log);
             }
         }
     }

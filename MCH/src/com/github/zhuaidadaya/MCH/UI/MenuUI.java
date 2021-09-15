@@ -6,6 +6,7 @@ import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.Events.reStart;
 import com.github.zhuaidadaya.MCH.Help.Helps;
+import com.github.zhuaidadaya.MCH.lib.Log;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,13 +36,13 @@ public class MenuUI extends Community {
     public MenuUI() {
         uiSizeMap.put(jFrame, new Dimension(640, 360));
 
-        LoadAssembly.loadAssembly("[Main Thread/INFO] Reloading configs by MenuUI", "", false);
+        Log.writeLog("[Main Thread/INFO] Reloading configs by MenuUI");
         OpenMenu = true;
         menuUI();
     }
 
     public static void menuUI() {
-        Config.parsing();
+        Config.parsing(false);
 
         OpenMenu = false;
 

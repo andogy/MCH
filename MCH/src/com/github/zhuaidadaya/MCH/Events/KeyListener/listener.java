@@ -29,6 +29,7 @@ public class listener extends Thread {
     }
 
     public void run() {
+        new errorFrame();
         new inputs();
         new ex();
         new mainFrame();
@@ -498,6 +499,53 @@ class mainFrame {
 
                         if (s.contains("|17|") & s.contains("|85|")) {
                             URLs.checkUPD = true;
+                        }
+
+                        c.clear();
+                    }
+
+                } catch (Exception ignored) {
+
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                c.clear();
+            }
+        });
+    }
+}
+
+class errorFrame {
+    public static Set<Integer> c = new HashSet<>();
+
+    public errorFrame() {
+        Errors.jTextArea.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                try {
+                    c.add(e.getKeyCode());
+
+                    String s = Arrays.toString(c.toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
+
+                    if (c.size() > 1) {
+
+                        System.out.println(s);
+
+                        normallyKeyP.p(s);
+
+                        if (s.contains("|76|") & s.contains("|18|")) {
+                            if (Community.LangID == 0) {
+                                Events.switchLanguage(1);
+                            } else if (Community.LangID == 1) {
+                                Events.switchLanguage(0);
+                            }
                         }
 
                         c.clear();

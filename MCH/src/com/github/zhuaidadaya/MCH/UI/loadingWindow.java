@@ -14,6 +14,7 @@ public class loadingWindow {
     public static JLabel status = new JLabel();
 
     public static JLabel percentage = new JLabel();
+    public static JProgressBar progress = new JProgressBar();
 
     public static void ui() {
         loading.setEditable(false);
@@ -22,7 +23,7 @@ public class loadingWindow {
         jFrame.setAlwaysOnTop(true);
 
         //设置窗口大小和颜色
-        jFrame.setSize(350, 520);
+        jFrame.setSize(600, 520);
         jFrame.getContentPane().setBackground(Color.white);
 
         //        窗口初始化设置
@@ -45,6 +46,7 @@ public class loadingWindow {
         jFrame.add(status);
 
         jFrame.add(percentage);
+        jFrame.add(progress);
 
         jFrame.setLayout(new LayoutManager() {
             @Override
@@ -70,13 +72,14 @@ public class loadingWindow {
             @Override
             public void layoutContainer(Container parent) {
 
-                loading.setBounds(0,70,350,450);
-                loadingTip.setBounds(0,50,350,20);
+                loading.setBounds(0, 90, jFrame.getWidth(), jFrame.getHeight());
+                loadingTip.setBounds(0, 50, 350, 20);
+                progress.setBounds(0,70,jFrame.getWidth(),20);
 
-                percentage.setBounds(0,30,350,20);
+                percentage.setBounds(0, 30, 350, 20);
 
-                loadStatus.setBounds(0,5,50,20);
-                status.setBounds(50,5,200,20);
+                loadStatus.setBounds(0, 5, 50, 20);
+                status.setBounds(50, 5, 200, 20);
 
                 if(MchUI.jFrame.isVisible()) {
                     jFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);

@@ -150,6 +150,8 @@ public class displaySets extends Thread {
         Config.autoSet.setBorderPainted(false);
         Config.autoSet.setFocusPainted(false);
 
+        loadingWindow.progress.setBorderPainted(false);
+
         Color foregroundColor = new Color(214, 214, 214);
         Color backgroundColor = new Color(43, 43, 43);
         Color inputBoxColor = new Color(49, 51, 53);
@@ -527,6 +529,9 @@ public class displaySets extends Thread {
         ExtraUI.Level0OfMLSL.setForeground(foregroundColor);
         ExtraUI.Level1OfMLSL.setForeground(foregroundColor);
         ExtraUI.minecraftListenSpeedLevel.setForeground(foregroundColor);
+
+        loadingWindow.progress.setBackground(backgroundColor);
+        loadingWindow.progress.setForeground(buttonColor);
 
 
         //        使用线程休眠减少CPU负担,15ms时间可以减少相当大的CPU负载,且用户无法察觉延迟

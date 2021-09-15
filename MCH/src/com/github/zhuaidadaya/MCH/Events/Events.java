@@ -10,6 +10,7 @@ import com.github.zhuaidadaya.MCH.UI.ExtraUI;
 import com.github.zhuaidadaya.MCH.UI.MchUI;
 import com.github.zhuaidadaya.MCH.UI.MenuUI;
 import com.github.zhuaidadaya.MCH.UI.MenuUI2;
+import com.github.zhuaidadaya.MCH.lib.Log;
 import com.github.zhuaidadaya.MCH.lib.Resources;
 
 import java.awt.*;
@@ -76,7 +77,6 @@ public class Events {
 
             try {
                 Config.WriteIni();
-                Config.parsing();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -114,7 +114,6 @@ public class Events {
 
             try {
                 Config.WriteIni();
-                Config.parsing();
             } catch (Exception e) {
                 e.printStackTrace();
             }

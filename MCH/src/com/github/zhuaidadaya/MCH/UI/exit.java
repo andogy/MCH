@@ -2,6 +2,7 @@ package com.github.zhuaidadaya.MCH.UI;
 
 import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
+import com.github.zhuaidadaya.MCH.lib.Log;
 
 import javax.swing.*;
 
@@ -12,7 +13,7 @@ public class exit extends JFrame {
     public static JTextArea jTextArea = new JTextArea();
 
     public static void Ex() {
-        LoadAssembly.loadAssembly("[Main Thread/INFO] Stopping MCH","",false);
+        Log.writeLog("[Main Thread/INFO] Stopping MCH");
 
         try {
             Events.closeStreamOfUPD();

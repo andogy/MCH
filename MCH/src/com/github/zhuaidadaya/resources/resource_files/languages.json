@@ -124,6 +124,7 @@
                     "crash-by-user": "你使MCH发生了手动崩溃",
                     "restart": "重启",
                     "tick-invalid": "Tick线程失效",
+                    "conf-recoding": "正在重编码配置",
                     "unSupport-conf": "不支持的配置",
                     "description": "描述",
                     "name": "名称",
@@ -252,9 +253,13 @@
                     "message": "message:\n%s",
                     "SourceAt": "info:\n%s\n\n",
                     "crash-by-user": "You Crashed MCH",
+                    "conf-recoding": "recoding config",
                     "restart": "restart",
                     "tick-invalid": "Tick Thread Invalid",
-                    "unSupport-conf": "unsupport configs"
+                    "unSupport-conf": "unsupport configs",
+                    "description": "description",
+                    "name": "name",
+                    "reg": "regin"
                 },
                 {
                     "nowFeature": "fixed bug of cannot parse execute command when it too large\n"
@@ -382,7 +387,11 @@
                     "crash-by-user": "你使MCH发生了手动崩溃",
                     "restart": "重启",
                     "tick-invalid": "Tick线程失效",
-                    "unSupport-conf": "不被支援的配置"
+                    "unSupport-conf": "不被支援的配置",
+                    "conf-recoding": "正在重编码配置",
+                    "description": "描述",
+                    "name": "名称",
+                    "reg": "已注册"
                 },
                 {
                     "nowFeature": "修復無法解析過大execute命令的問題\n"

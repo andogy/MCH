@@ -8,13 +8,16 @@ import com.github.zhuaidadaya.MCH.UI.MchUI;
 import com.github.zhuaidadaya.MCH.UI.MenuUI;
 import com.github.zhuaidadaya.MCH.UI.MenuUI2;
 import com.github.zhuaidadaya.MCH.UI.loadingWindow;
+import com.github.zhuaidadaya.MCH.lib.Log;
 import com.github.zhuaidadaya.MCH.lib.Resources;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Random;
 
 import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.lang;
 
@@ -52,8 +55,8 @@ public class Config {
 
     public static String sets = "settings.ini";
     public static String path = "MinecraftCommandHelper/";
-    public static String runLogsPath = "MinecraftCommandHelper/logs/run";
-    public static String errLogsPath = "MinecraftCommandHelper/logs/run";
+    public static String runLogsPath = "logs/run/latest.log";
+    public static String errLogsPath = "logs/err/latest.log";
     public static String resPath = "resources/";
 
     public Config() {
@@ -78,9 +81,9 @@ public class Config {
         boolean hasIni = create();
 
         if(hasIni) {
-            parsing();
+            parsing(true);
         } else {
-            LoadAssembly.badLoadAssembly("Main Thread/WARN] Cannot Load configs Assembly", lang.get("loading_ini_fail"));
+            LoadAssembly.badLoadAssembly("[Main Thread/WARN] Cannot Load configs Assembly", lang.get("loading_ini_fail"));
         }
 
         if(iniOneMOre)
@@ -106,35 +109,57 @@ public class Config {
         }
     }
 
-    public static void parsing() {
+    public static void parsing(boolean saveAllLog) {
         try {
-
             String src = path + sets;
             File ini = new File(src);
 
             // 构造一个BufferedReader类来读取文件
-            BufferedReader br = new BufferedReader(new FileReader(ini));
+            BufferedReader br = new BufferedReader(new FileReader(ini, Charset.forName("unicode")));
+            BufferedReader br_line = new BufferedReader(new FileReader(ini, Charset.forName("unicode")));
             String s;
+
+            loadingWindow.progress.setMaximum(Math.toIntExact(br_line.lines().count()));
 
             boolean exConf = false;
 
+            if(! saveAllLog)
+                LoadAssembly.loadAssembly("[Recode Thread/INFO] recoding config", lang.get("conf-recoding"), false);
+
+            int lines = 0;
+
             while((s = br.readLine()) != null) {
+                lines ++;
+                loadingWindow.progress.setValue(lines);
 
-                if(s.equals("//$Extra_Conf")) {
+                StringBuilder s1 = new StringBuilder();
+                int lim = s.charAt(0);
+                s = s.substring(1);
+                for(Object o : s.chars().toArray())
+                    s1.append((char) (Integer.parseInt(o.toString()) - lim));
+
+                if(saveAllLog)
+                    LoadAssembly.loadAssembly("[Recode Thread/INFO] recoding <" + s + "> to <" + s1 + ">", lang.get("conf-recoding") + s, false);
+                s = s1.toString();
+
+                if(s.equals("//$Extra_settings"))
                     exConf = true;
-                }
 
-                if(! s.contains("//")) {
+                if(! s.contains("//") & s.contains("@")) {
                     if(! exConf)
                         Community.conf.put(s.substring(0, s.indexOf("@")), s.substring(s.indexOf("@") + 1));
                     else
                         Community.extraConf.put(s.substring(0, s.indexOf("@")), s.substring(s.indexOf("@") + 1));
 
-                    LoadAssembly.loadAssembly("[Main Thread/INFO] Loading for config: " + s, lang.get("loading") + s, false);
+                    if(saveAllLog)
+                        LoadAssembly.loadAssembly("[Config Thread/INFO] Loading for config: " + s, lang.get("loading") + s, false);
                 } else {
-                    LoadAssembly.loadAssembly("[Main Thread/INFO] Skip for config notes: " + s, lang.get("loading") + s, false);
+                    if(saveAllLog)
+                        LoadAssembly.loadAssembly("[Config Thread/INFO] Skip for config notes: " + s, lang.get("loading") + s, false);
                 }
             }
+
+            Log.writeLog("[Config Thread/INFO] Config load finished");
 
             Reads();
 
@@ -237,7 +262,7 @@ public class Config {
 
                 Resources.fixResource("/com/github/zhuaidadaya/resources/resource_files/settings_default.ini", path + "settings.ini", true);
 
-                parsing();
+                parsing(false);
                 defaultIniSetOver();
             });
             return false;
@@ -263,22 +288,44 @@ public class Config {
     public static void WriteIni() throws Exception {
         updateConf();
 
-        FileWriter fl = new FileWriter(path + sets, false);
-        fl.write("//$MCH_Settings\n");
+        FileWriter fl = new FileWriter(path + sets, Charset.forName("unicode"), false);
 
-        for(String s : Community.conf.keySet())
-            fl.write(s + "@" + Community.conf.get(s) + "\n");
+        StringBuilder write = new StringBuilder();
+        StringBuilder conf = new StringBuilder();
+        StringBuilder exConf = new StringBuilder();
 
-        fl.write("//$Extra_settings\n");
+        write.append("//$MCH_Settings\n");
 
-        for(String s : Community.extraConf.keySet())
-            fl.write(s + "@" + Community.extraConf.get(s) + "\n");
+        for(Object s : Community.conf.keySet())
+            conf.append(s).append("@").append(Community.conf.get(s)).append("\n");
+
+        write.append(conf).append("//$Extra_settings\n");
+
+        for(Object s : Community.extraConf.keySet())
+            exConf.append(s).append("@").append(Community.extraConf.get(s)).append("\n");
+
+        write.append(exConf);
+
+        int lim = 1;
+        fl.write(1);
+
+        for(Object o : write.chars().toArray()) {
+            if(Integer.parseInt(o.toString()) == 10) {
+                Random r = new Random();
+                int rand = r.nextInt(9);
+                fl.write(10);
+                lim = rand > 0 ? rand : 1;
+                fl.write((char) lim);
+            } else {
+                fl.write(Integer.parseInt(o.toString()) + lim);
+            }
+        }
 
         fl.close();
     }
 
     public static void Reads() {
-        for(String s : Community.conf.keySet())
+        for(Object s : Community.conf.keySet())
             Reads(s + "@" + Community.conf.get(s));
     }
 
@@ -559,8 +606,12 @@ public class Config {
                 int input = s.indexOf("input@");
 
                 if(input == 0) {
-                    String setCommand = s.substring(s.indexOf("input@") + 6);
-                    MchUI.input_Command.setText(setCommand);
+                    try {
+                        String setCommand = s.substring(s.indexOf("input@") + 6);
+                        MchUI.input_Command.setText(setCommand);
+                    } catch (Exception ignored) {
+
+                    }
                     s = "";
                 }
             }

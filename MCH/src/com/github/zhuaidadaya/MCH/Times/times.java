@@ -31,7 +31,7 @@ public class times extends Thread {
         } else if(timeType == timeType.LOG) {
             return new SimpleDateFormat("[HH:mm:ss] ").format(new Date());
         } else if(timeType == timeType.LONG_LOG) {
-            return new SimpleDateFormat("[yyyy-MM-dd+HH:mm:ss] ").format(new Date());
+            return new SimpleDateFormat("[yyyy-MM-dd+HH:mm:ss:SSS] ").format(new Date());
         } else {
             return "";
         }

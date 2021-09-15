@@ -176,12 +176,12 @@ public class Declared() {
 
 package Mex;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
-import com.github.zhuaidadaya.MCH.lib.Log;
+        import com.github.zhuaidadaya.MCH.Command.Config;
+        import com.github.zhuaidadaya.MCH.lib.Log;
 
-import java.io.File;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
+        import java.io.File;
+        import java.nio.charset.Charset;
+        import java.nio.charset.StandardCharsets;
 
 public class Declared() {
     public void onLoad() {
@@ -241,12 +241,12 @@ public class Declared() {
     public void onLoad() {
         //检查是否保存日志        
         if(Community.saveRunLog)
-            Log.writeLog("this is a log");
+            Log.writeLog(Config.runLogsPath + "latest.log", true, StandardCharsets.UTF_8, "this is a log", false);
     }
 }
 ```
 
-或者使用Load
+或者使用LoadAssembly类检查
 
 ```java
 package Mex;
@@ -260,3 +260,106 @@ public class Declared() {
     }
 }
 ```
+
+> ``` Log.writeLog(Object) ``` 或 ``` Log.writeErr(Object) ``` <br>
+> 会进行自动检查,也就是说如果使用默认日志参数,则不需要手动检查
+> 
+> 除了默认以外的日志方法都不支持自动检查
+
+<hr>
+
+### 保存错误
+
+```java
+package Mex;
+
+import com.github.zhuaidadaya.MCH.Events.Errors;
+
+public class Declared() {
+    public void onLoad() {
+        try {
+            throw new IllegalStateException();
+        } catch (Exception e) {
+            Errors.errors(null, e, false, "extra loading", "a extra are testing Errors class", 600, 460, true);
+        }
+    }
+}
+```
+
+``` Errors.errors() ``` 可以有八个参数
+
+```
+Error/Exception  -必须在首位,可以只有一个,也可以有两个
+CannotHandle     -在Err/Exce后面,true时会尝试重启MCH
+exceptionSource  -错误源,如果没有会被记录为Unknow
+message          -错误时的提示信息
+w                -错误窗口的宽度
+h                -错误窗口的高度
+show             -发生错误时是否显示错误窗口
+```
+
+以上只有列出七行,因为Error/Exception可以同时传递,算作两个
+
+Errors类是一个保存错误以方便反馈的类<br>
+当然你也可以选择使用Log类和JFrame自己完成
+
+在无关紧要的地方不建议保存错误,否则可能意外增大错误日志
+
+> Errors.class
+
+```java
+package com.github.zhuaidadaya.MCH.Events;
+
+import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Community;
+import com.github.zhuaidadaya.MCH.UI.*;
+import com.github.zhuaidadaya.MCH.lib.Log;
+import com.github.zhuaidadaya.MCH.lib.Resources;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+
+public class Errors extends Throwable {
+    public static JFrame jFrame = new JFrame();
+    public static JTextArea jTextArea = new JTextArea();
+
+    public static boolean CannotHandle = false;
+
+    public static Toolkit toolkit = Toolkit.getDefaultToolkit();
+    public static Dimension screenSize = toolkit.getScreenSize();
+    public static int width = screenSize.width;
+    public static int height = screenSize.height;
+
+    public static void errors(Exception exception, boolean cannotHandle, String message) {
+        errors(exception, cannotHandle, "Unknow", message);
+    }
+
+    public static void errors(Error error, boolean cannotHandle, String message) {
+        errors(error, cannotHandle, "Unknow", message);
+    }
+
+    public static void errors(Error error, boolean cannotHandle, String exceptionSource, String message) {
+        errors(error, null, cannotHandle, exceptionSource, message);
+    }
+
+    public static void errors(Exception exception, boolean cannotHandle, String exceptionSource, String message) {
+        errors(null, exception, cannotHandle, exceptionSource, message);
+    }
+
+    public static void errors(Error error, Exception exception, boolean cannotHandle, String exceptionSource, String message) {
+        errors(error, exception, cannotHandle, exceptionSource, message, 644, 466, true);
+    }
+
+    //    Errors主体函数
+    public static void errors(Error error, Exception exception, boolean cannotHandle, String exceptionSource, String message, int w, int h, boolean show) {
+        ......
+    }
+}
+```
+
+<hr>
+

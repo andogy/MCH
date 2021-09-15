@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
@@ -24,39 +25,50 @@ public class Errors extends Throwable {
     public static int width = screenSize.width;
     public static int height = screenSize.height;
 
+    public static void errors(Exception exception, boolean cannotHandle, String message) {
+        errors(exception, cannotHandle, "Unknow", message);
+    }
+
+    public static void errors(Error error, boolean cannotHandle, String message) {
+        errors(error, cannotHandle, "Unknow", message);
+    }
+
+    public static void errors(Error error, boolean cannotHandle, String exceptionSource, String message) {
+        errors(error, null, cannotHandle, exceptionSource, message);
+    }
+
+    public static void errors(Exception exception, boolean cannotHandle, String exceptionSource, String message) {
+        errors(null, exception, cannotHandle, exceptionSource, message);
+    }
+
+    public static void errors(Error error, Exception exception, boolean cannotHandle, String exceptionSource, String message) {
+        errors(error, exception, cannotHandle, exceptionSource, message, 644, 466, true);
+    }
+
     public static void errors(Error error, Exception exception, boolean cannotHandle, String exceptionSource, String message, int w, int h, boolean show) {
         try {
-            if (!CannotHandle) {
+            if(! CannotHandle) {
                 jFrame.setAlwaysOnTop(true);
 
                 CannotHandle = cannotHandle;
-                if (error != null) {
+                if(error != null)
                     jFrame.setTitle("Error Now");
-                }
-
-                if (exception != null) {
+                if(exception != null)
                     jFrame.setTitle("Exception now");
-                }
-
-                if (exception != null & error != null) {
+                if(exception != null & error != null)
                     jFrame.setTitle("Exception and Error now");
-                }
 
                 jFrame.setSize(w, h);
-
                 jFrame.add(jTextArea);
 
                 jTextArea.setVisible(true);
-
                 jTextArea.setBounds(0, 0, 1000, 1000);
                 jTextArea.setEditable(false);
 
                 new Thread(() -> {
-                    while (true) {
-                        if (CannotHandle) {
-
+                    while(true) {
+                        if(CannotHandle) {
                             historyReader.BreakRead = true;
-
                             historyReader.history = null;
 
                             exit.jFrame.setVisible(false);
@@ -80,31 +92,22 @@ public class Errors extends Throwable {
 
                 jFrame.setResizable(false);
 
-                if (cannotHandle)
-                    jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                if(cannotHandle)
+                    jFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
                 else
                     jFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 
-                //设置窗口位置
                 jFrame.setLocation(width / 2 - jFrame.getWidth() / 2, height / 2 - jFrame.getHeight() / 2);
 
-                String er = "";
+                Object o = exception != null ? exception : error;
+                String er = o + "\n" + Arrays.toString(exception.getStackTrace()).replace("  ", " ").replace("[", "    at ").replace("]", "").replace(",", "\n    at");
 
-                if (exception != null) {
-                    er = Arrays.toString(exception.getStackTrace()).replace("  ", " ").replace("[", "    at ").replace("]", "").replace(",", "\n    at");
-                    er = exception + "\n" + er;
-                } else if (error != null) {
-                    er = Arrays.toString(error.getStackTrace()).replace("  ", " ").replace("[", "    at ").replace("]", "").replace(",", "\n    at");
-                    er = error + "\n" + er;
-                }
-
-                if (Community.saveErrorLog) {
-                    if (er.substring(er.indexOf("at")).equals("at ")) {
+                if(Community.saveErrorLog) {
+                    if(er.substring(er.indexOf("at")).equals("at "))
                         er = er.replace("at ", "no local");
-                    }
 
                     FileWriter fr;
-                    if (exceptionSource.equals("history")) {
+                    if(exceptionSource.equals("history")) {
                         try {
                             fr = new FileWriter(Config.path + "history.txt", false);
                             fr.write("");
@@ -120,40 +123,37 @@ public class Errors extends Throwable {
 
                     File file = new File(Config.path + "logs/err/latest.log");
 
-                    if (file.length() > 2048000) {
+                    if(file.length() > 2048000) {
                         file.delete();
                     }
                     Log.writeLog(file, true, StandardCharsets.UTF_8, "[ERROR Thread/INFO] " + er + "\nSourceAt:" + exceptionSource, false);
                 } else {
                     jTextArea.setText(String.format(Resources.initLanguage.lang.get("err-cannot-handle"), er));
 
-                    System.out.println(er);
+                    Log.writeLog("",true, StandardCharsets.UTF_8,er,cannotHandle);
                     jTextArea.setText(jTextArea.getText() + "\n" + String.format(Resources.initLanguage.lang.get("SourceAt"), exceptionSource) + String.format(Resources.initLanguage.lang.get("message"), message));
                 }
 
-                if (CannotHandle) {
+                if(CannotHandle) {
                     LoadAssembly.loadAssembly("[Main Thread/ERROR] Trying restart MCH", "", false);
 
                     try {
                         Thread.sleep(6000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
 
-                    new reStart().restart();
+                        new reStart().restart();
 
-                    try {
                         Thread.sleep(10000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    System.exit(-1);
+                    System.exit(- 1);
                 }
 
                 jFrame.setVisible(show);
             }
         } catch (Exception | Error er) {
-
+            Log.writeLog("[Error Thread/ERROR] Stopping MCH");
+            System.exit(-1);
         }
     }
 

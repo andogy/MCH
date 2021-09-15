@@ -18,6 +18,7 @@ import com.github.zhuaidadaya.MCH.lib.*;
 
 import javax.swing.*;
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -69,8 +70,8 @@ public class Community {
 
     public static boolean toWiki = false;
 
-    public static HashMap<String, String> conf = new HashMap<>();
-    public static HashMap<String, String> extraConf = new HashMap<>();
+    public static HashMap<Object, Object> conf = new HashMap<>();
+    public static HashMap<Object, Object> extraConf = new HashMap<>();
 
     public static String os = System.getProperty("os.name");
 
@@ -98,6 +99,20 @@ public class Community {
         Config.resPath = Config.path + Config.resPath;
         Config.runLogsPath = Config.path + Config.runLogsPath;
         Config.errLogsPath = Config.path + Config.errLogsPath;
+
+        Log.defErrPath = new File(Config.errLogsPath);
+        Log.defRunPath = new File(Config.runLogsPath);
+
+
+        /*
+        封装文件部分
+         */
+        File runTo = new File(Config.path + "logs/");
+        try {
+            Log.packetLog(runTo.getAbsoluteFile(), runTo.getAbsolutePath() + "/run/latest.log");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         new File(Config.path + "extra/").mkdirs();
 
@@ -162,10 +177,13 @@ public class Community {
                         Community.LangID = 1;
                     }
 
-                    Resources.initLanguage.initFromSelf("languages.json","/com/github/zhuaidadaya/resources/resource_files/","");
-                    Resources.initLanguage.initFromSelf("commands.json","/com/github/zhuaidadaya/resources/resource_files/","");
+                    Resources.initLanguage.initFromSelf("languages.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
+                    Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
 
                     displaySets.Color();
+
+                    Log.writeLog("[Main Thread/INFO] reloading config");
+                    Config.parsing(false);
 
                     new Resources.initLanguage();
                     languageSet.Language();
@@ -174,9 +192,6 @@ public class Community {
                     LoadAssembly.loadAssembly("[Main Thread/INFO] Reloading Language Assembly", lang.get("loading_lang"), false);
                     new Resources.initLanguage();
                     new languageSet().start();
-
-                    LoadAssembly.loadAssembly("[Main Thread/INFO] Reloading configs", lang.get("loading_ini"), false);
-                    new Config();
 
                     new File(Config.path + "res.cache").delete();
 
@@ -223,31 +238,22 @@ public class Community {
 
                     URLs.checkUPD = true;
 
-        /*
-        封装文件部分
-         */
-
-                    if(saveRunLog || saveErrorLog) {
-                        File runTo = new File(Config.path + "logs/");
-                        try {
-                            Log.packet(runTo.getAbsoluteFile(), "", runTo.getAbsolutePath() + "/run/latest.log");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
 
                     Events.menu();
 
                     new Thread(() -> new ExtraLoader().LoadExtra()).start();
 
-                    //        显示UI
-                    LoadAssembly.loadAssembly("[Main Thread/INFO] Loading UI", lang.get("loading_MchUI"), false);
-                    if(Config.canStartUI) {
-                        new MchUI();
-                        loadingWindow.jFrame.setVisible(false);
-                    } else {
-                        LoadAssembly.badLoadAssembly("[Main Thread/WARN] Cannot Load UI", lang.get("loading_MchUI_fail"));
-                    }
+                    new Thread(() -> {
+                        //        显示UI
+                        LoadAssembly.loadAssembly("[Main Thread/INFO] Loading UI", lang.get("loading_MchUI"), false);
+                        if(Config.canStartUI) {
+                            new MchUI();
+                            loadingWindow.jFrame.setVisible(false);
+                        } else {
+                            LoadAssembly.badLoadAssembly("[Main Thread/WARN] Cannot Load UI", lang.get("loading_MchUI_fail"));
+                        }
+
+                    }).start();
 
                     started = true;
 
