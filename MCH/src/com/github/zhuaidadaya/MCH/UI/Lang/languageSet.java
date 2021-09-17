@@ -135,10 +135,6 @@ public class languageSet extends Thread {
         if (!Community.functionEditing) {
             ExtraUI.functionEdit.setText(lang.get("disableFunctionEdit"));
         }
-
-        if (Errors.CannotHandle) {
-            Errors.jTextArea.setText(lang.get("CannotHandleErr"));
-        }
     }
 
     public static String getCommandWord(String word) {

@@ -177,8 +177,8 @@ public class Community {
                         Community.LangID = 1;
                     }
 
-                    Resources.initLanguage.initFromSelf("languages.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
-                    Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
+                    Resources.initLanguage.initFromSelf("languages.json", "/com/github/zhuaidadaya/resources/resource_files/", "",this.getClass());
+                    Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "",this.getClass());
 
                     displaySets.Color();
 
@@ -241,6 +241,7 @@ public class Community {
 
                     Events.menu();
 
+//                    new ExtraLoader().LoadExtra();
                     new Thread(() -> new ExtraLoader().LoadExtra()).start();
 
                     new Thread(() -> {

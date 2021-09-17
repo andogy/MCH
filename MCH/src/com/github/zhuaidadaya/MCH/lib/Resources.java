@@ -4,31 +4,50 @@ import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
-import com.github.zhuaidadaya.MCH.UI.Lang.languageSet;
 import com.github.zhuaidadaya.MCH.UI.loadingWindow;
 import com.github.zhuaidadaya.MCH.lib.json.JSONArray;
 import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
 
 import java.io.*;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 
 public class Resources extends Thread {
-    public static int ErrCounter = 0;
+    public static InputStream getResource(String resource, Class<?> getC) {
+        return getC.getResourceAsStream(resource);
+    }
 
-    public static void fixResource(String resource, String fixTarget, boolean lineWrap) {
+    public static URL getResourceByFile(String resource, Class<?> getC) {
+        return getC.getResource(resource);
+    }
+
+    public static int getElementsCounter(Iterator<String> iterator) {
+        int result = 0;
+        while(iterator.hasNext()) {
+            result += 1;
+            iterator.next();
+        }
+
+        return result;
+    }
+
+    public static void createPath(String path) {
+        if(! new File(path).isDirectory())
+            new File(path).mkdirs();
+    }
+
+    public void fixResource(String resource, String fixTarget, boolean lineWrap) {
         try {
             createPath(fixTarget.substring(0, fixTarget.lastIndexOf("/")));
-
-            ErrCounter += 1;
 
             LoadAssembly.badLoadAssembly("[Resource Thread/INFO] fixing resource:" + fixTarget, Resources.initLanguage.lang.get("fixing_resource"));
 
             //            InputStream in = new InputStreamReader(getResource(resource), StandardCharsets.UTF_8));
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(getResource(resource), StandardCharsets.UTF_8));
+            BufferedReader br = new BufferedReader(new InputStreamReader(getResource(resource, this.getClass()), StandardCharsets.UTF_8));
 
             BufferedWriter writer = new BufferedWriter(new FileWriter(fixTarget, StandardCharsets.UTF_8));
             //            int out;
@@ -77,37 +96,20 @@ public class Resources extends Thread {
         }
     }
 
-    public static InputStream getResource(String resource) {
-        //        return new File(Objects.requireNonNull(initLanguage.class.getResource(resource)).getFile());
-        return Resources.class.getResourceAsStream(resource);
-    }
-
-    public static int getElementsCounter(Iterator<String> iterator) {
-        int result = 0;
-        while(iterator.hasNext()) {
-            result += 1;
-            iterator.next();
-        }
-
-        return result;
-    }
-
-    public static void createPath(String path) {
-        if(! new File(path).isDirectory())
-            new File(path).mkdirs();
-    }
-
     public static class initLanguage {
         public static HashMap<String, String> lang = new HashMap<>();
 
         public initLanguage() {
             createPath(Config.resPath);
 
-            initLang("languages.json","/com/github/zhuaidadaya/resources/resource_files/","");
-            initLang("commands/commands.json","/com/github/zhuaidadaya/resources/resource_files/","");
+            //            initLang("languages.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
+            //            initLang("commands/commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
+
+            initFromSelf("languages.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
+            initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
         }
 
-        public static void initLang(String langFile,String resourceRoot, String targetLanguage) {
+        public static void initLang(String langFile, String resourceRoot, String targetLanguage) {
             String languagesPath = Config.resPath + langFile;
 
             File f = null;
@@ -180,50 +182,28 @@ public class Resources extends Thread {
             } catch (FileNotFoundException e) {
 
                 Config.languageSet = "Language@Auto";
-                if(! (ErrCounter < 4)) {
-                    Errors.errors(null, e, true, "LanguageParse", "", 700, 520, false);
-                }
 
                 //修复语言文件
-                fixResource(resourceRoot + langFile, languagesPath, false);
+                new Resources().fixResource(resourceRoot + langFile, languagesPath, false);
 
                 Errors.errors(null, e, false, "languageInit", "null", 700, 520, false);
 
-                if(ErrCounter < 5) {
-                    initLang(langFile,resourceRoot,targetLanguage);
-                }
             } catch (Exception e) {
                 Config.languageSet = "Language@Auto";
-                if(! (ErrCounter < 4)) {
-                    Errors.errors(null, e, true, "LanguageParse", "", 700, 520, false);
-                }
 
                 //修复语言文件
-                fixResource(resourceRoot + langFile, languagesPath, false);
+                new Resources().fixResource(resourceRoot + langFile, languagesPath, false);
 
                 loadingWindow.loading.append(Arrays.toString(e.getStackTrace()).replace(", ", "\n") + "\n");
                 Errors.errors(null, e, false, json.toString(), "null", 700, 520, false);
 
-                if(ErrCounter < 5) {
-                    initLang(langFile,resourceRoot,targetLanguage);
-                }
             } catch (Error error) {
-                if(! (ErrCounter < 4)) {
-                    Errors.errors(error, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true);
-                }
 
-                if(ErrCounter < 5) {
-                    initLang(langFile,resourceRoot,targetLanguage);
-                }
-            }
-
-            if(ErrCounter < 4) {
-                languageSet.Language();
             }
         }
 
-        public static void initFromSelf(String langFile,String resourceRoot,String targetLanguage) {
-            InputStream f = getResource(resourceRoot + langFile);
+        public static void initFromSelf(String langFile, String resourceRoot, String targetLanguage, Class<?> initFrom) {
+            InputStream f = getResource(resourceRoot + langFile, initFrom);
 
             StringBuilder json = new StringBuilder();
 
@@ -288,28 +268,12 @@ public class Resources extends Thread {
                     i--;
                 }
             } catch (Exception | Error e) {
-                if(! (ErrCounter < 4)) {
-                    Config.languageSet = "Language@Auto";
-                    if(e instanceof Exception) {
-                        Errors.errors(null, (Exception) e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true);
-                    } else {
-                        Errors.errors((Error) e, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true);
-                    }
+                Config.languageSet = "Language@Auto";
+                if(e instanceof Exception) {
+                    Errors.errors(null, (Exception) e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true);
+                } else {
+                    Errors.errors((Error) e, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true);
                 }
-
-                if(ErrCounter < 5) {
-                    ErrCounter++;
-
-                    initFromSelf(langFile,resourceRoot,targetLanguage);
-                }
-            }
-
-            if(ErrCounter < 4) {
-                ErrCounter++;
-
-                initFromSelf(langFile,resourceRoot,targetLanguage);
-
-                languageSet.Language();
             }
         }
     }

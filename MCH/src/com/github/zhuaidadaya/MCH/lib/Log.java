@@ -20,6 +20,10 @@ public class Log {
     public static File defRunPath = new File(Config.runLogsPath);
     public static File defErrPath = new File(Config.errLogsPath);
 
+    public static void outLog(Object log,boolean WARN) {
+        writeLog(null,log,WARN,null);
+    }
+
     public static void writeLog(File logFile, boolean append, Charset charset, Object log, boolean WARN) {
         writeLog(logFile.getAbsolutePath(), append, charset, log, WARN);
     }
@@ -125,35 +129,39 @@ public class Log {
     }
 
     public static void packetLog(File path, String log) {
-        for(File f : Objects.requireNonNull(path.listFiles())) {
-            if(f.isFile()) {
-                if(f.getName().equals("latest.log")) {
+        try {
+            for(File f : Objects.requireNonNull(path.listFiles())) {
+                if(f.isFile()) {
+                    if(f.getName().equals("latest.log")) {
 
-                    String fp = f.getPath().replace("\\", "/");
+                        String fp = f.getPath().replace("\\", "/");
 
-                    if(f.length() > 100) {
+                        if(f.length() > 100) {
 
-                        String pack_for = (fp.substring(fp.substring(0, fp.indexOf("/") + 1).length()));
+                            String pack_for = (fp.substring(fp.substring(0, fp.indexOf("/") + 1).length()));
 
-                        if(log != null)
-                            Log.writeLog("[Log Packer/INFO] Pack latest.log for <" + pack_for.substring(0, pack_for.lastIndexOf("/")) + ">");
+                            if(log != null)
+                                Log.writeLog("[Log Packer/INFO] Pack latest.log for <" + pack_for.substring(0, pack_for.lastIndexOf("/")) + ">");
 
-                        try {
-                            if(! new File(fp.substring(0, fp.lastIndexOf("/")) + "/" + times.getTime(timeType.AS_SECOND) + ".log.zip").isFile()) {
-                                String name = fp.substring(0, fp.lastIndexOf("/")) + "/" + times.getTime(timeType.AS_SECOND) + ".log";
-                                fileToZip(f, name + ".zip", new File(name).getName());
+                            try {
+                                if(! new File(fp.substring(0, fp.lastIndexOf("/")) + "/" + times.getTime(timeType.AS_SECOND) + ".log.zip").isFile()) {
+                                    String name = fp.substring(0, fp.lastIndexOf("/")) + "/" + times.getTime(timeType.AS_SECOND) + ".log";
+                                    fileToZip(f, name + ".zip", new File(name).getName());
 
-                                f.delete();
-                                f.createNewFile();
+                                    f.delete();
+                                    f.createNewFile();
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
-                        } catch (Exception e) {
-                            e.printStackTrace();
                         }
                     }
+                } else {
+                    packetLog(f, log);
                 }
-            } else {
-                packetLog(f, log);
             }
+        } catch (Exception e) {
+
         }
     }
 

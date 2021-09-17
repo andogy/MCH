@@ -3,7 +3,7 @@
         {
             "chinese": [
                 {
-                    "canToWiki": "同时按下Ctrl于W可以前往 \"%s\" 的Wiki页面",
+                    "canToWiki": "同时按下Ctrl与W可以前往 \"%s\" 的Wiki页面",
                     "jsonErr": "%s 是一个错误的json",
                     "noComplete": "未完成的命令:",
                     "@gugul": "咕咕了，以后做这个",
@@ -76,9 +76,9 @@
                     "@white": "白色",
                     "@yellow": "黄色",
                     "@bossbar_max_set": "<最大值 : 整数>",
-                    "@valueErr": "是一个错误的数",
+                    "@Integer_valueErr": "是一个错误的整数",
                     "@help_valueOutLimited": "页数超出限制",
-                    "@int_valueOutLimited": "值超出限制",
+                    "@valueOutLimited": "值超出限制",
                     "@bossbar_max_set_value": "最大值",
                     "bossbar_set_max": "设置最大值",
                     "@bossbar_set_name": "设置bossbar名称",
@@ -316,7 +316,8 @@
                     "@coordinates_wikiTips": "坐标",
                     "@command_kick": "将玩家踢出服务器",
                     "@kick_reason": "<原因 : 字符串>",
-                    "@reason": "原因"
+                    "@reason": "原因",
+                    "@double_valueErr": "是一个错误的双精浮点数"
                 }
             ]
         },
@@ -393,9 +394,9 @@
                     "@white": "white",
                     "@yellow": "yellow",
                     "@bossbar_max_set": "<max : Integer>",
-                    "@valueErr": "is a error value",
+                    "@Integer_valueErr": "is a error integer",
                     "@help_valueOutLimited": "the page is out of limited",
-                    "@int_valueOutLimited": "the number is out of limited",
+                    "@valueOutLimited": "the number is out of limited",
                     "@bossbar_max_set_value": "max value",
                     "bossbar_set_max": "set max value",
                     "@bossbar_set_name": "set bossbar name",
@@ -632,15 +633,15 @@
                     "@coordinates_wikiTips": "coordinates",
                     "@command_kick": "kick players from your server",
                     "@kick_reason": "<reason : String>",
-                    "@reason": "reason"
+                    "@reason": "reason",
+                    "@double_valueErr": "is a error double number"
                 }
             ]
         },
         {
-
             "chinese_tw": [
                 {
-                    "canToWiki": "同时按下Ctrl于W可以前往 \"%s\" 的Wiki页面",
+                    "canToWiki": "同时按下Ctrl与W可以前往 \"%s\" 的Wiki页面",
                     "jsonErr": "%s 是一个错误的json",
                     "noComplete": "未完成的命令:",
                     "@gugul": "咕咕了，以后做这个",
@@ -713,9 +714,9 @@
                     "@white": "白色",
                     "@yellow": "黄色",
                     "@bossbar_max_set": "<最大值 : 整数>",
-                    "@valueErr": "是一个错误的数",
+                    "@Integer_valueErr": "是一个错误的整数",
                     "@help_valueOutLimited": "页数超出限制",
-                    "@int_valueOutLimited": "值超出限制",
+                    "@valueOutLimited": "值超出限制",
                     "@bossbar_max_set_value": "最大值",
                     "bossbar_set_max": "设置最大值",
                     "@bossbar_set_name": "设置bossbar名称",
@@ -951,7 +952,8 @@
                     "@tnt_minecart": "TNT矿车",
                     "@current_position_wikiTips": "当前位置",
                     "@coordinates_wikiTips": "坐标",
-                    "@reason": "<原因 : 字符串>"
+                    "@reason": "<原因 : 字符串>",
+                    "@double_valueErr": "是一个错误的双精浮点数"
                 }
             ]
         }
@@ -1863,7 +1865,7 @@
                 ],
                 "usage": [
                     {
-                        "tree":[
+                        "tree": [
                             "@sel",
                             "@kick_reason",
                             "@end"
@@ -2176,7 +2178,7 @@
                 "zombie_pigman_spawn_egg": {
                     "description": "@zombie_pigman_spawn_egg"
                 },
-                "@zombie_spawn_egg": {
+                "zombie_spawn_egg": {
                     "description": "@zombie_spawn_egg"
                 },
                 "zombie_villager_spawn_egg": {
@@ -2447,22 +2449,22 @@
                 "51": {
                     "description": "@npc_spawn_egg"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@null",
                     "limited": 2147483647,
-                    "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited"
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited"
                 }
             },
             "@acacia_boat_datas": {
                 "0": {
                     "description": "@acacia_boat"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@null",
                     "limited": 2147483647,
-                    "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited"
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited"
                 }
             },
             "@blocks": {
@@ -2491,10 +2493,10 @@
                 "": {
                     "description": "@enchant_level"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@enchant_levels",
-                    "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 256
                 }
             },
@@ -2511,10 +2513,10 @@
                 "": {
                     "description": "@effect_time"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@effect_times",
-                    "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2522,10 +2524,10 @@
                 "": {
                     "description": "@effect_amplifier"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@effect_amplifiers",
-                    "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 256
                 }
             },
@@ -2549,10 +2551,10 @@
                 "": {
                     "description": "@salt_value"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@salt",
                     "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2565,12 +2567,12 @@
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@x",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
-                    "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueErr": "@double_valueErr",
+                    "valueOutLimited": "@double_valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2583,12 +2585,12 @@
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@y",
-                    "valueErr": "@valueErr",
+                    "valueErr": "@double_valueErr",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2601,12 +2603,12 @@
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@z",
-                    "valueErr": "@valueErr",
+                    "valueErr": "@double_valueErr",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2619,12 +2621,12 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@x",
-                    "valueErr": "@valueErr",
+                    "valueErr": "@double_valueErr",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2637,12 +2639,12 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@y",
-                    "valueErr": "@valueErr",
+                    "valueErr": "@double_valueErr",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2655,12 +2657,12 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@z",
-                    "valueErr": "@valueErr",
+                    "valueErr": "@double_valueErr",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2673,12 +2675,12 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@x",
                     "valueErr": "@valueErr",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2691,12 +2693,12 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@y",
                     "valueErr": "@valueErr",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2709,12 +2711,12 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@z",
                     "valueErr": "@valueErr",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2727,12 +2729,12 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@x",
                     "valueErr": "@valueErr",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2745,12 +2747,12 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@y",
                     "valueErr": "@valueErr",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2763,12 +2765,12 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
-                "@Number": {
+                "@Double": {
                     "description": "@z",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
                     "wikiTips": "@coordinates_wikiTips",
                     "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2827,7 +2829,7 @@
                 "?": {
                     "description": "@command_help"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@page",
                     "valueErr": "@valueErr",
                     "valueOutLimited": "@help_valueOutLimited",
@@ -2955,10 +2957,10 @@
                 "": {
                     "description": "@clear_data"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@null",
                     "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -2966,10 +2968,10 @@
                 "": {
                     "description": "@item_count"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@count",
-                    "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -3120,10 +3122,10 @@
                 "": {
                     "description": "@bossbar_value_set"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@bossbar_value_sey_value",
                     "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -3148,10 +3150,10 @@
                 "": {
                     "description": "@bossbar_max_set"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@bossbar_max_set_value",
                     "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
             },
@@ -3305,10 +3307,10 @@
                 "": {
                     "description": "@blockdata"
                 },
-                "@Number": {
+                "@Integer": {
                     "description": "@block_datas",
                     "valueErr": "@valueErr",
-                    "valueOutLimited": "@int_valueOutLimited",
+                    "valueOutLimited": "@valueOutLimited",
                     "limited": 255
                 }
             },

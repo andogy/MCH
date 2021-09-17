@@ -3,6 +3,7 @@ package com.github.zhuaidadaya.MCH.lib;
 import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
+import com.github.zhuaidadaya.MCH.UI.loadingWindow;
 import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -36,7 +37,11 @@ public class ExtraLoader {
     public void LoadExtra() {
         File f = new File(Config.path + "/extra/");
 
+        loadingWindow.progress.setValue(0);
+        loadingWindow.progress.setMaximum(f.listFiles().length);
+
         for(File extra : Objects.requireNonNull(f.listFiles())) {
+            LoadAssembly.loadAssembly("[Extra Thread/INFO] loading extra: " + extra.getName());
             new Thread(() -> {
                 extraList.add(extra.getAbsolutePath());
                 if(extra.getName().contains(".jar")) {
@@ -45,10 +50,10 @@ public class ExtraLoader {
             }).start();
         }
 
-        for(String s : extras.keySet()) {
-            System.out.print(s + ":");
-            System.out.println(extras.get(s));
-        }
+//        for(String s : extras.keySet()) {
+//            System.out.print(s + ":");
+//            System.out.println(extras.get(s));
+//        }
 
         Community.lis.uploadList(ExtraLoader.extras.keySet().toArray(new String[0]));
 
@@ -148,6 +153,8 @@ public class ExtraLoader {
         else
             for(Object o : conf.keySet())
                 h.put(o.toString(), conf.get(o.toString()).toString());
+
+            loadingWindow.progress.setValue(loadingWindow.progress.getValue() + 1);
 
         upLoad();
     }

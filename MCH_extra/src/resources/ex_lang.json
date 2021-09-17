@@ -1,0 +1,11 @@
+{
+    "languages": [
+        {
+            "testLang": [
+                {
+                    "launcher": "qdq"
+                }
+            ]
+        }
+    ]
+}

@@ -130,10 +130,13 @@ public class Parsing extends Thread {
                         }
 
                         if (allStr.equals(".reload")) {
-                            loadingWindow.ui();
-                            new ExtraLoader().LoadExtra();
+                            new Thread(() -> {
+                                loadingWindow.ui();
+                                new Config();
+                                new ExtraLoader().LoadExtra();
+                                loadingWindow.jFrame.setVisible(false);
+                            }).start();
                             MchUI.input_Command.setText("");
-                            loadingWindow.jFrame.setVisible(false);
                         }
 
                         if (allStr.equals(".exit")) {

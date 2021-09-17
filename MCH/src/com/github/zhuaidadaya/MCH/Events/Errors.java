@@ -10,7 +10,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
@@ -130,7 +129,7 @@ public class Errors extends Throwable {
                 } else {
                     jTextArea.setText(String.format(Resources.initLanguage.lang.get("err-cannot-handle"), er));
 
-                    Log.writeLog("",true, StandardCharsets.UTF_8,er,cannotHandle);
+                    Log.outLog(er,true);
                     jTextArea.setText(jTextArea.getText() + "\n" + String.format(Resources.initLanguage.lang.get("SourceAt"), exceptionSource) + String.format(Resources.initLanguage.lang.get("message"), message));
                 }
 
@@ -152,8 +151,8 @@ public class Errors extends Throwable {
                 jFrame.setVisible(show);
             }
         } catch (Exception | Error er) {
-            Log.writeLog("[Error Thread/ERROR] Stopping MCH");
-            System.exit(-1);
+//            Log.writeLog("[Error Thread/ERROR] Stopping MCH");
+//            System.exit(- 1);
         }
     }
 

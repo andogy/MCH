@@ -89,13 +89,6 @@ public class Config {
         if(iniOneMOre)
             if(! unsupported.equals("")) {
                 Errors.tips(500, 150, lang.get("mayIsUnsupportedInfo") + "\n" + unsupported, lang.get("unSupport-conf"));
-                while(Errors.jFrame.isVisible()) {
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
             }
 
         unsupported = "";
@@ -119,6 +112,7 @@ public class Config {
             BufferedReader br_line = new BufferedReader(new FileReader(ini, Charset.forName("unicode")));
             String s;
 
+            loadingWindow.progress.setValue(0);
             loadingWindow.progress.setMaximum(Math.toIntExact(br_line.lines().count()));
 
             boolean exConf = false;
@@ -260,7 +254,7 @@ public class Config {
                 continues.setVisible(false);
                 autoSet.setVisible(false);
 
-                Resources.fixResource("/com/github/zhuaidadaya/resources/resource_files/settings_default.ini", path + "settings.ini", true);
+                new Resources().fixResource("/com/github/zhuaidadaya/resources/resource_files/settings_default.ini", path + "settings.ini", true);
 
                 parsing(false);
                 defaultIniSetOver();
@@ -602,7 +596,7 @@ public class Config {
         }
 
         {
-            if(! Community.started) {
+//            if(! Community.started) {
                 int input = s.indexOf("input@");
 
                 if(input == 0) {
@@ -614,7 +608,7 @@ public class Config {
                     }
                     s = "";
                 }
-            }
+//            }
         }
 
         {

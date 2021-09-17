@@ -2,11 +2,11 @@ package com.github.zhuaidadaya.MCH.Events.KeyListener;
 
 import com.github.zhuaidadaya.MCH.Command.CommandParsing;
 import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
-import com.github.zhuaidadaya.MCH.Help.Helps;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.Events;
+import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
 import com.github.zhuaidadaya.MCH.Events.reStart;
+import com.github.zhuaidadaya.MCH.Help.Helps;
 import com.github.zhuaidadaya.MCH.UI.*;
 
 import javax.swing.text.*;
@@ -254,50 +254,62 @@ public class listener extends Thread {
         }
 
         public static void setLightForInput(int start, int end, boolean onlyDefault, String color) {
-            Document doc = MchUI.input_Command.getDocument();
-            AttributeSet aset = null;
-            StyleContext sc = StyleContext.getDefaultStyleContext();
-
-            if (!onlyDefault) {
-                if (Community.ColorID == 0) {
-                    if (color.equals("red"))
-                        aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 65, 50));
-                } else if (Community.ColorID == 1) {
-                    if (color.equals("red"))
-                        aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 70, 49));
-                }
-            } else {
-                if (Community.ColorID == 0) {
-                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
-                } else if (Community.ColorID == 1) {
-                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
-                }
-            }
-
-            AttributeSet aset_normal = null;
-            StyleContext sc_normal = StyleContext.getDefaultStyleContext();
-
-            if (Community.ColorID == 0) {
-                aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
-            } else if (Community.ColorID == 1) {
-                aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
-            }
-
+            int selectLength = -1;
             try {
-                String ins = MchUI.input_Command.getText().substring(start, end);
+                selectLength = MchUI.input_Command.getSelectedText().length();
+            } catch(Exception ex) {
 
-                String command = MchUI.input_Command.getText();
+            }
 
-                doc.remove(0, command.length());
-                doc.insertString(0, command, aset_normal);
+            if(selectLength == -1) {
+                Document doc = MchUI.input_Command.getDocument();
+                AttributeSet aset = null;
+                StyleContext sc = StyleContext.getDefaultStyleContext();
 
-                doc.remove(start, end - start);
-                doc.insertString(start, ins, aset);
-                MchUI.input_Command.setCaretPosition(end);
+                if(! onlyDefault) {
+                    if(Community.ColorID == 0) {
+                        if(color.equals("red"))
+                            aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 65, 50));
+                    } else if(Community.ColorID == 1) {
+                        if(color.equals("red"))
+                            aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 70, 49));
+                    }
+                } else {
+                    if(Community.ColorID == 0) {
+                        aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
+                    } else if(Community.ColorID == 1) {
+                        aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
+                    }
+                }
 
-                commandDoc = aset;
-            } catch (Exception ignored) {
+                AttributeSet aset_normal = null;
+                StyleContext sc_normal = StyleContext.getDefaultStyleContext();
 
+                if(Community.ColorID == 0) {
+                    aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
+                } else if(Community.ColorID == 1) {
+                    aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
+                }
+
+                try {
+                    int caret = onlyDefault ? MchUI.input_Command.getCaretPosition() : end;
+                    String ins = MchUI.input_Command.getText().substring(start, end);
+
+                    String command = MchUI.input_Command.getText();
+
+                    doc.remove(0, command.length());
+                    doc.insertString(0, command, aset_normal);
+                    if(!onlyDefault)
+                    MchUI.input_Command.setCaretPosition(caret);
+
+                    doc.remove(start, end - start);
+                    doc.insertString(start, ins, aset);
+                    MchUI.input_Command.setCaretPosition(caret);
+
+                    commandDoc = aset;
+                } catch (Exception ignored) {
+
+                }
             }
         }
     }
