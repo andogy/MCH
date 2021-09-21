@@ -25,7 +25,7 @@ if lost then cannot load this extra
 
 > ```onLoad()``` like ```main()``` in normally program<br>
 > so it cannot load when that method lost
-> if you do not <a heref="ttps://github.com/zhuaidadaya/MCH/blob/main/mds/means.md#def">def</a> entrance, program do not know where are you star with
+> if you do not <a href="https://github.com/zhuaidadaya/MCH/blob/main/mds/means.md#def">def</a> entrance, program do not know where are you star with
 
 > "Declare" are not must be that name<br>
 > that just a <a >std</a> name它只是一个标准化名称,如果要使用其他名称则需要在extra.json文件声明<br>
