@@ -116,7 +116,10 @@ public class Errors extends Throwable {
                         }
                     }
 
-                    jTextArea.setText(String.format(Resources.initLanguage.lang.get("err-cannot-handle"), er));
+                    if(cannotHandle)
+                        jTextArea.setText(String.format(Resources.initLanguage.lang.get("err-cannot-handle"), er));
+                    else
+                        jTextArea.setText(String.format(Resources.initLanguage.lang.get("err"), er));
 
                     jTextArea.setText(jTextArea.getText() + "\n" + String.format(Resources.initLanguage.lang.get("SourceAt"), exceptionSource) + String.format(Resources.initLanguage.lang.get("message"), message) + "\n\n" + String.format(Resources.initLanguage.lang.get("err-already-save"), Config.path + "logs/err/latest.log"));
 

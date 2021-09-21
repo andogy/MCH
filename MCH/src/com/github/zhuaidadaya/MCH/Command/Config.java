@@ -4,11 +4,7 @@ import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
-import com.github.zhuaidadaya.MCH.UI.MchUI;
-import com.github.zhuaidadaya.MCH.UI.MenuUI;
-import com.github.zhuaidadaya.MCH.UI.MenuUI2;
-import com.github.zhuaidadaya.MCH.UI.loadingWindow;
-import com.github.zhuaidadaya.MCH.lib.Log;
+import com.github.zhuaidadaya.MCH.UI.*;
 import com.github.zhuaidadaya.MCH.lib.Resources;
 
 import javax.swing.*;
@@ -31,6 +27,9 @@ public class Config {
     public static boolean iniOneMOre = false;
 
     public static boolean settingIni = false;
+
+    public static String checking = "";
+    public static int checkCode = - 1;
 
     public static String colorSet = "Color@White";
     public static String languageSet = "Language@Auto";
@@ -58,6 +57,7 @@ public class Config {
     public static String runLogsPath = "logs/run/latest.log";
     public static String errLogsPath = "logs/err/latest.log";
     public static String resPath = "resources/";
+    public static String logsPath = "logs/";
 
     public Config() {
         //获得屏幕大小
@@ -113,28 +113,37 @@ public class Config {
             String s;
 
             loadingWindow.progress.setValue(0);
-            loadingWindow.progress.setMaximum(Math.toIntExact(br_line.lines().count()));
+            loadingWindow.progress.setMaximum(Math.toIntExact(br_line.lines().count()) * 3);
+
+            checkCode = Integer.parseInt(String.valueOf(br.readLine().chars().toArray()[0]));
 
             boolean exConf = false;
 
             if(! saveAllLog)
                 LoadAssembly.loadAssembly("[Recode Thread/INFO] recoding config", lang.get("conf-recoding"), false);
 
-            int lines = 0;
-
             while((s = br.readLine()) != null) {
-                lines ++;
-                loadingWindow.progress.setValue(lines);
+                loadingWindow.progress.setValue(loadingWindow.progress.getValue() + 1);
 
                 StringBuilder s1 = new StringBuilder();
-                int lim = s.charAt(0);
-                s = s.substring(1);
-                for(Object o : s.chars().toArray())
-                    s1.append((char) (Integer.parseInt(o.toString()) - lim));
+                int lim = s.length() > 1 ? s.charAt(0) : 0;
+                s = s.length() > 1 ? s.substring(1): "";
 
-                if(saveAllLog)
-                    LoadAssembly.loadAssembly("[Recode Thread/INFO] recoding <" + s + "> to <" + s1 + ">", lang.get("conf-recoding") + s, false);
+                for(Object o : s.chars().toArray())
+                    s1.append((char) (Integer.parseInt(o.toString()) - lim - checkCode));
+
+                long encoding = - 1;
+                for(Integer i : s.chars().toArray())
+                    encoding += i + lim + checkCode;
+
+                if(saveAllLog) {
+                    System.out.println(s.chars());
+                    LoadAssembly.loadAssembly("[Recode Thread/INFO] recoding <ConfigEncoder$" + s.length() + "@" + encoding + "> to <" + s1 + ">", lang.get("conf-recoding") + s, false);
+                }
+
                 s = s1.toString();
+
+                loadingWindow.progress.setValue(loadingWindow.progress.getValue() + 1);
 
                 if(s.equals("//$Extra_settings"))
                     exConf = true;
@@ -151,15 +160,18 @@ public class Config {
                     if(saveAllLog)
                         LoadAssembly.loadAssembly("[Config Thread/INFO] Skip for config notes: " + s, lang.get("loading") + s, false);
                 }
+
+                loadingWindow.progress.setValue(loadingWindow.progress.getValue() + 1);
             }
 
-            Log.writeLog("[Config Thread/INFO] Config load finished");
+            br.close();
 
             Reads();
 
-            br.close();
-        } catch (Exception ignored) {
-
+            LoadAssembly.loadAssembly("[Config Thread/INFO] Config load finished");
+        } catch (Exception e) {
+            Errors.errors(e, false, "Config Reading", "");
+            parsing(saveAllLog);
         }
     }
 
@@ -300,18 +312,21 @@ public class Config {
 
         write.append(exConf);
 
-        int lim = 1;
-        fl.write(1);
+        Random r = new Random();
+        int cheekingCode = r.nextInt(1024);
+        int lim = r.nextInt(1024);
+        fl.write(cheekingCode);
+        fl.write(10);
+        fl.write(lim);
 
         for(Object o : write.chars().toArray()) {
             if(Integer.parseInt(o.toString()) == 10) {
-                Random r = new Random();
-                int rand = r.nextInt(9);
+                int rand = r.nextInt(1024);
                 fl.write(10);
                 lim = rand > 0 ? rand : 1;
-                fl.write((char) lim);
+                fl.write(lim);
             } else {
-                fl.write(Integer.parseInt(o.toString()) + lim);
+                fl.write(Integer.parseInt(o.toString()) + lim + cheekingCode);
             }
         }
 
@@ -596,19 +611,20 @@ public class Config {
         }
 
         {
-//            if(! Community.started) {
-                int input = s.indexOf("input@");
+            //            if(! Community.started) {
+            int input = s.indexOf("input@");
 
-                if(input == 0) {
-                    try {
-                        String setCommand = s.substring(s.indexOf("input@") + 6);
-                        MchUI.input_Command.setText(setCommand);
-                    } catch (Exception ignored) {
+            if(input == 0) {
+                try {
+                    String setCommand = s.substring(s.indexOf("input@") + 6);
+                    //                        MchUI.input_Command.setText(setCommand);
+                    inputUI.inputArea.setText(setCommand);
+                } catch (Exception ignored) {
 
-                    }
-                    s = "";
                 }
-//            }
+                s = "";
+            }
+            //            }
         }
 
         {

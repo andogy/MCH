@@ -24,12 +24,6 @@ public class ExtraLoader {
         try {
             Community.lis.uploadList(ExtraLoader.extras.keySet().toArray());
         } catch (Exception e) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-
             upLoad();
         }
     }
@@ -145,7 +139,6 @@ public class ExtraLoader {
             h.put("loaded", "false");
 
             extras.put(f.getName(), h);
-
         }
 
         if(noConf)

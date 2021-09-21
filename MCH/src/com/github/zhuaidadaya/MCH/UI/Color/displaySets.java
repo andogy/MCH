@@ -24,7 +24,7 @@ public class displaySets extends Thread {
         //        去除button边框
         MchUI.menu.setBorderPainted(false);
         MchUI.menu.setFocusPainted(false);
-        MchUI.command1.setBorder(null);
+        MchUI.commandDisplay.setBorder(null);
 
         exit.buttonEXIT.setBorderPainted(false);
         exit.buttonEXIT.setFocusPainted(false);
@@ -160,7 +160,7 @@ public class displaySets extends Thread {
         Color grayColor = tipColor;
         Color caretColor = new Color(88, 195, 84);
 
-        if(Community.ColorID == 0) {
+        if (Community.ColorID == 0) {
             foregroundColor = new Color(0, 0, 0);
             backgroundColor = new Color(255, 255, 255);
             inputBoxColor = new Color(214, 214, 214);
@@ -191,16 +191,16 @@ public class displaySets extends Thread {
         exit.jFrame.getContentPane().setBackground(backgroundColor);
         ExtraUI.jFrame.getContentPane().setBackground(backgroundColor);
 
-        MchUI.input_Command.setCaretColor(foregroundColor);
+//        MchUI.input_Command.setCaretColor(foregroundColor);
 
         MchUI.tips.setBackground(tipColor);
-        MchUI.input_Command.setBackground(inputBoxColor);
+//        MchUI.input_Command.setBackground(inputBoxColor);
         MchUI.menu.setBackground(buttonColor);
-        MchUI.command1.setBackground(backgroundColor);
+        MchUI.commandDisplay.setBackground(backgroundColor);
         MchUI.switchTip.setBackground(backgroundColor);
-        MchUI.input_Command.setCaretColor(caretColor);
-        MchUI.input_Command.setSelectionColor(caretColor);
-        MchUI.input_scrollPane.setBackground(backgroundColor);
+//        MchUI.input_Command.setCaretColor(caretColor);
+//        MchUI.input_Command.setSelectionColor(caretColor);
+//        MchUI.input_scrollPane.setBackground(backgroundColor);
 
         exit.buttonEXIT.setBackground(buttonColor);
         exit.buttonEXITNot.setBackground(buttonColor);
@@ -234,7 +234,7 @@ public class displaySets extends Thread {
 
         ExtraUI.McBeStatus.setBackground(grayColor);
 
-        switch(Community.LangSetID) {
+        switch (Community.LangSetID) {
             case 0 -> {
                 MenuUI2.Chinese_ZH.setBackground(backgroundColor);
                 MenuUI2.English.setBackground(buttonColor);
@@ -261,15 +261,15 @@ public class displaySets extends Thread {
             }
         }
 
-        if(Community.showCommandMethod.equals(limitedTypes.BEDROCK)) {
+        if (Community.showCommandMethod.equals(limitedTypes.BEDROCK)) {
             MenuUI2.firstBedrock.setBackground(backgroundColor);
             MenuUI2.firstJava.setBackground(buttonColor);
-        } else if(Community.showCommandMethod.equals(limitedTypes.JAVA)) {
+        } else if (Community.showCommandMethod.equals(limitedTypes.JAVA)) {
             MenuUI2.firstBedrock.setBackground(buttonColor);
             MenuUI2.firstJava.setBackground(backgroundColor);
         }
 
-        if(Community.showInvalidCommand) {
+        if (Community.showInvalidCommand) {
             MenuUI2.showInvalidCommand.setBackground(backgroundColor);
             MenuUI2.noShowInvalidCommand.setBackground(buttonColor);
         } else {
@@ -277,31 +277,31 @@ public class displaySets extends Thread {
             MenuUI2.noShowInvalidCommand.setBackground(backgroundColor);
         }
 
-        if(Community.ColorID == 0) {
+        if (Community.ColorID == 0) {
             MenuUI2.Black.setBackground(buttonColor);
             MenuUI2.White.setBackground(backgroundColor);
-        } else if(Community.ColorID == 1) {
+        } else if (Community.ColorID == 1) {
             MenuUI2.Black.setBackground(backgroundColor);
             MenuUI2.White.setBackground(buttonColor);
         }
 
-        if(Community.historySaveID == 0) {
+        if (Community.historySaveID == 0) {
             MenuUI2.saveAllHistory.setBackground(backgroundColor);
             MenuUI2.saveHistory.setBackground(buttonColor);
             MenuUI2.notSaveHistory.setBackground(buttonColor);
         }
-        if(Community.historySaveID == 1) {
+        if (Community.historySaveID == 1) {
             MenuUI2.saveAllHistory.setBackground(buttonColor);
             MenuUI2.saveHistory.setBackground(backgroundColor);
             MenuUI2.notSaveHistory.setBackground(buttonColor);
         }
-        if(Community.historySaveID == 2) {
+        if (Community.historySaveID == 2) {
             MenuUI2.saveAllHistory.setBackground(buttonColor);
             MenuUI2.saveHistory.setBackground(buttonColor);
             MenuUI2.notSaveHistory.setBackground(backgroundColor);
         }
 
-        if(Community.onTop) {
+        if (Community.onTop) {
             MenuUI2.onTop.setBackground(backgroundColor);
             MenuUI2.noOnTop.setBackground(buttonColor);
         } else {
@@ -309,7 +309,7 @@ public class displaySets extends Thread {
             MenuUI2.noOnTop.setBackground(backgroundColor);
         }
 
-        if(Community.exitButtonWillExit) {
+        if (Community.exitButtonWillExit) {
             MenuUI2.exButtonNarrow.setBackground(buttonColor);
             MenuUI2.exButtonExit.setBackground(backgroundColor);
         } else {
@@ -317,7 +317,7 @@ public class displaySets extends Thread {
             MenuUI2.exButtonExit.setBackground(buttonColor);
         }
 
-        if(Community.fastLoad) {
+        if (Community.fastLoad) {
             MenuUI2.fastLoadYes.setBackground(backgroundColor);
             MenuUI2.fastLoadNo.setBackground(buttonColor);
         } else {
@@ -325,7 +325,7 @@ public class displaySets extends Thread {
             MenuUI2.fastLoadNo.setBackground(backgroundColor);
         }
 
-        if(Community.saveCache) {
+        if (Community.saveCache) {
             MenuUI2.notSaveCache.setBackground(buttonColor);
             MenuUI2.saveCache.setBackground(backgroundColor);
         } else {
@@ -333,7 +333,7 @@ public class displaySets extends Thread {
             MenuUI2.saveCache.setBackground(buttonColor);
         }
 
-        if(Community.saveErrorLog) {
+        if (Community.saveErrorLog) {
             MenuUI2.noSaveErrorLogs.setBackground(buttonColor);
             MenuUI2.saveErrorLogs.setBackground(backgroundColor);
         } else {
@@ -341,7 +341,7 @@ public class displaySets extends Thread {
             MenuUI2.saveErrorLogs.setBackground(buttonColor);
         }
 
-        if(Community.saveRunLog) {
+        if (Community.saveRunLog) {
             MenuUI2.saveRunLogs.setBackground(backgroundColor);
             MenuUI2.noSaveRunLogs.setBackground(buttonColor);
         } else {
@@ -349,7 +349,7 @@ public class displaySets extends Thread {
             MenuUI2.noSaveRunLogs.setBackground(backgroundColor);
         }
 
-        if(Community.autoUPD) {
+        if (Community.autoUPD) {
             MenuUI2.autoUPD.setBackground(backgroundColor);
             MenuUI2.noAutoUPD.setBackground(buttonColor);
         } else {
@@ -357,7 +357,7 @@ public class displaySets extends Thread {
             MenuUI2.noAutoUPD.setBackground(backgroundColor);
         }
 
-        if(ExtraUI.mcRunning) {
+        if (ExtraUI.mcRunning) {
             ExtraUI.turnOnMcBe.setBackground(backgroundColor);
             ExtraUI.turnOffMcBe.setBackground(buttonColor);
         } else {
@@ -366,31 +366,31 @@ public class displaySets extends Thread {
         }
 
 
-        if(Community.setsDisplayID == 0) {
+        if (Community.setsDisplayID == 0) {
             MenuUI2.setting_run.setBackground(backgroundColor);
             MenuUI2.setting_display.setBackground(buttonColor);
             MenuUI2.setting_upd.setBackground(buttonColor);
             MenuUI2.setting_info.setBackground(buttonColor);
             MenuUI2.setting_command.setBackground(buttonColor);
-        } else if(Community.setsDisplayID == 1) {
+        } else if (Community.setsDisplayID == 1) {
             MenuUI2.setting_run.setBackground(buttonColor);
             MenuUI2.setting_display.setBackground(backgroundColor);
             MenuUI2.setting_upd.setBackground(buttonColor);
             MenuUI2.setting_info.setBackground(buttonColor);
             MenuUI2.setting_command.setBackground(buttonColor);
-        } else if(Community.setsDisplayID == 2) {
+        } else if (Community.setsDisplayID == 2) {
             MenuUI2.setting_run.setBackground(buttonColor);
             MenuUI2.setting_display.setBackground(buttonColor);
             MenuUI2.setting_upd.setBackground(backgroundColor);
             MenuUI2.setting_info.setBackground(buttonColor);
             MenuUI2.setting_command.setBackground(buttonColor);
-        } else if(Community.setsDisplayID == 3) {
+        } else if (Community.setsDisplayID == 3) {
             MenuUI2.setting_run.setBackground(buttonColor);
             MenuUI2.setting_display.setBackground(buttonColor);
             MenuUI2.setting_upd.setBackground(buttonColor);
             MenuUI2.setting_info.setBackground(backgroundColor);
             MenuUI2.setting_command.setBackground(buttonColor);
-        } else if(Community.setsDisplayID == 4) {
+        } else if (Community.setsDisplayID == 4) {
             MenuUI2.setting_run.setBackground(buttonColor);
             MenuUI2.setting_display.setBackground(buttonColor);
             MenuUI2.setting_upd.setBackground(buttonColor);
@@ -398,29 +398,29 @@ public class displaySets extends Thread {
             MenuUI2.setting_command.setBackground(backgroundColor);
         }
 
-        if(Community.extraDisplayID == 0) {
+        if (Community.extraDisplayID == 0) {
             ExtraUI.functions.setBackground(buttonColor);
             ExtraUI.launchers.setBackground(backgroundColor);
             ExtraUI.randomProblem.setBackground(buttonColor);
-        } else if(Community.extraDisplayID == 1) {
+        } else if (Community.extraDisplayID == 1) {
             ExtraUI.functions.setBackground(buttonColor);
             ExtraUI.launchers.setBackground(buttonColor);
             ExtraUI.randomProblem.setBackground(backgroundColor);
-        } else if(Community.extraDisplayID == 2) {
+        } else if (Community.extraDisplayID == 2) {
             ExtraUI.functions.setBackground(backgroundColor);
             ExtraUI.launchers.setBackground(buttonColor);
             ExtraUI.randomProblem.setBackground(buttonColor);
         }
 
-        if(Community.minecraftListenFlushSpeedLevels == 0) {
+        if (Community.minecraftListenFlushSpeedLevels == 0) {
             ExtraUI.Level0OfMLSL.setBackground(backgroundColor);
             ExtraUI.Level1OfMLSL.setBackground(buttonColor);
-        } else if(Community.minecraftListenFlushSpeedLevels == 1) {
+        } else if (Community.minecraftListenFlushSpeedLevels == 1) {
             ExtraUI.Level0OfMLSL.setBackground(buttonColor);
             ExtraUI.Level1OfMLSL.setBackground(backgroundColor);
         }
 
-        if(! Community.toWiki) {
+        if (!Community.toWiki) {
             MenuUI2.toWiki.setBackground(buttonColor);
             MenuUI2.toWikiNot.setBackground(backgroundColor);
         } else {
@@ -429,9 +429,9 @@ public class displaySets extends Thread {
         }
 
         MchUI.tips.setForeground(foregroundColor);
-        MchUI.input_Command.setForeground(foregroundColor);
+//        MchUI.input_Command.setForeground(foregroundColor);
         MchUI.menu.setForeground(foregroundColor);
-        MchUI.command1.setForeground(foregroundColor);
+        MchUI.commandDisplay.setForeground(foregroundColor);
         MchUI.switchTip.setForeground(foregroundColor);
 
         exit.buttonEXIT.setForeground(foregroundColor);
@@ -533,6 +533,9 @@ public class displaySets extends Thread {
         loadingWindow.progress.setBackground(backgroundColor);
         loadingWindow.progress.setForeground(buttonColor);
 
+        inputUI.inputArea.setBackground(backgroundColor);
+        inputUI.inputArea.setForeground(foregroundColor);
+        inputUI.inputArea.setCaretColor(caretColor);
 
         //        使用线程休眠减少CPU负担,15ms时间可以减少相当大的CPU负载,且用户无法察觉延迟
         try {
@@ -551,9 +554,9 @@ public class displaySets extends Thread {
         ExtraUI.jFrame.getContentPane().setBackground(randomColor.getColor());
 
         MchUI.tips.setBackground(randomColor.getColor());
-        MchUI.input_Command.setBackground(randomColor.getColor());
+//        MchUI.input_Command.setBackground(randomColor.getColor());
         MchUI.menu.setBackground(randomColor.getColor());
-        MchUI.command1.setBackground(randomColor.getColor());
+        MchUI.commandDisplay.setBackground(randomColor.getColor());
 
         exit.buttonEXIT.setBackground(randomColor.getColor());
         exit.buttonEXITNot.setBackground(randomColor.getColor());
@@ -627,9 +630,9 @@ public class displaySets extends Thread {
 
 
         MchUI.tips.setForeground(randomColor.getColor());
-        MchUI.input_Command.setForeground(randomColor.getColor());
+//        MchUI.input_Command.setForeground(randomColor.getColor());
         MchUI.menu.setForeground(randomColor.getColor());
-        MchUI.command1.setForeground(randomColor.getColor());
+        MchUI.commandDisplay.setForeground(randomColor.getColor());
 
         exit.buttonEXIT.setForeground(randomColor.getColor());
         exit.buttonEXITNot.setForeground(randomColor.getColor());
@@ -720,101 +723,243 @@ public class displaySets extends Thread {
         ExtraUI.Level1OfMLSL.setForeground(randomColor.getColor());
     }
 
+    //    public static void colorCode() {
+//
+//        int selectLength;
+//        boolean setCodeColor = true;
+//        try {
+//            selectLength = MchUI.input_Command.getSelectedText().length();
+//            if(MchUI.input_Command.getSelectedText().isEmpty()) {
+//                selectLength = 0;
+//            }
+//
+//            if((selectLength > 0)) {
+//                setCodeColor = false;
+//            }
+//        } catch (Exception ignored) {
+//
+//        }
+//
+//        if(MchUI.input_Command.getText().contains("§")) {
+//            if(setCodeColor) {
+//                try {
+//                    String colorCode = "§";
+//
+//                    String s = MchUI.input_Command.getText();
+//
+//                    if(s.contains(colorCode)) {
+//                        Document doc = MchUI.input_Command.getDocument();
+//                        StyleContext sc = StyleContext.getDefaultStyleContext();
+//                        StyleContext sc_normal = StyleContext.getDefaultStyleContext();
+//                        AttributeSet asset = null;
+//
+//                        AttributeSet asset_normal = null;
+//                        if(Community.ColorID == 0) {
+//                            asset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
+//                        } else if(Community.ColorID == 1) {
+//                            asset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
+//                        }
+//                        String command_text = MchUI.input_Command.getText();
+//                        int inputPoint = MchUI.input_Command.getCaretPosition();
+//
+//                        doc.remove(0, command_text.length());
+//
+//                        doc.insertString(0, command_text, asset_normal);
+//
+//
+//                        String inp = MchUI.input_Command.getText();
+//                        int point = inp.length();
+//
+//                        while(inp.contains("§")) {
+//                            boolean noHaveThisColor = false;
+//
+//                            inp = inp.substring(inp.indexOf("§"));
+//
+//                            int tabPoint = point - inp.length();
+//
+//                            if(inp.indexOf("§0") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
+//                            } else if(inp.indexOf("§1") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(0, 0, 170));
+//                            } else if(inp.indexOf("§2") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(0, 170, 0));
+//                            } else if(inp.indexOf("§3") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(0, 170, 170));
+//                            } else if(inp.indexOf("§4") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(170, 0, 0));
+//                            } else if(inp.indexOf("§5") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(170, 0, 170));
+//                            } else if(inp.indexOf("§6") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 170, 0));
+//                            } else if(inp.indexOf("§7") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(170, 170, 170));
+//                            } else if(inp.indexOf("§8") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(85, 85, 85));
+//                            } else if(inp.indexOf("§9") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(85, 85, 255));
+//                            } else if(inp.indexOf("§a") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(85, 255, 85));
+//                            } else if(inp.indexOf("§b") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(85, 255, 255));
+//                            } else if(inp.indexOf("§c") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 85, 85));
+//                            } else if(inp.indexOf("§d") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 85, 255));
+//                            } else if(inp.indexOf("§e") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 255, 85));
+//                            } else if(inp.indexOf("§f") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 255, 255));
+//                            } else if(inp.indexOf("§g") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(55, 53, 1));
+//                            } else if(inp.indexOf("§r") == 0) {
+//                                if(Community.ColorID == 0) {
+//                                    asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
+//                                } else if(Community.ColorID == 1) {
+//                                    asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
+//                                }
+//                            } else if(inp.indexOf("§§") == 0) {
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 255, 255, 125));
+//                            } else {
+//                                noHaveThisColor = true;
+//                                asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 255, 255, 125));
+//                            }
+//
+////                            System.out.println(inp);
+//
+//                            doc.remove(tabPoint, inp.length());
+//                            doc.insertString(tabPoint, inp, asset);
+//                            MchUI.input_Command.setCaretPosition(inputPoint);
+//                            if(noHaveThisColor) {
+//                                if(Community.ColorID == 0) {
+//                                    asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
+//                                } else if(Community.ColorID == 1) {
+//                                    asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
+//                                }
+//
+//                                doc.remove(tabPoint + 2, inp.length() - 2);
+//                                doc.insertString(tabPoint + 2, inp.substring(2), asset);
+//                                MchUI.input_Command.setCaretPosition(inputPoint);
+//                            }
+//
+//                            inp = inp.substring(inp.indexOf("§") + 1);
+//                        }
+//                    } else {
+//                        Document doc = MchUI.input_Command.getDocument();
+//                        StyleContext sc_normal = StyleContext.getDefaultStyleContext();
+//                        AttributeSet asset_normal = null;
+//                        if(Community.ColorID == 0) {
+//                            asset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
+//                        } else if(Community.ColorID == 1) {
+//                            asset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
+//                        }
+//                        int inputPoint = MchUI.input_Command.getCaretPosition();
+//                        String command_text = MchUI.input_Command.getText();
+//                        doc.remove(0, MchUI.input_Command.getText().length());
+//                        MchUI.input_Command.setText("");
+//                        doc.insertString(0, command_text, asset_normal);
+//                        MchUI.input_Command.setCaretPosition(inputPoint);
+//                    }
+//                } catch (Exception ignored) {
+//
+//                }
+//            }
+//        }
+//    }
     public static void colorCode() {
 
         int selectLength;
         boolean setCodeColor = true;
         try {
-            selectLength = MchUI.input_Command.getSelectedText().length();
-            if(MchUI.input_Command.getSelectedText().isEmpty()) {
+            selectLength = inputUI.inputArea.getSelectedText().length();
+            if (inputUI.inputArea.getSelectedText().isEmpty()) {
                 selectLength = 0;
             }
 
-            if((selectLength > 0)) {
+            if ((selectLength > 0)) {
                 setCodeColor = false;
             }
         } catch (Exception ignored) {
 
         }
 
-        if(MchUI.input_Command.getText().contains("§")) {
-            if(setCodeColor) {
+        if (inputUI.inputArea.getText().contains("§")) {
+            if (setCodeColor) {
                 try {
                     String colorCode = "§";
 
-                    String s = MchUI.input_Command.getText();
+                    String s = inputUI.inputArea.getText();
 
-                    if(s.contains(colorCode)) {
-                        Document doc = MchUI.input_Command.getDocument();
+                    if (s.contains(colorCode)) {
+                        Document doc = inputUI.inputArea.getDocument();
                         StyleContext sc = StyleContext.getDefaultStyleContext();
                         StyleContext sc_normal = StyleContext.getDefaultStyleContext();
                         AttributeSet asset = null;
 
                         AttributeSet asset_normal = null;
-                        if(Community.ColorID == 0) {
+                        if (Community.ColorID == 0) {
                             asset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
-                        } else if(Community.ColorID == 1) {
+                        } else if (Community.ColorID == 1) {
                             asset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
                         }
-                        String command_text = MchUI.input_Command.getText();
-                        int inputPoint = MchUI.input_Command.getCaretPosition();
+                        String command_text = inputUI.inputArea.getText();
+                        int inputPoint = inputUI.inputArea.getCaretPosition();
 
                         doc.remove(0, command_text.length());
 
                         doc.insertString(0, command_text, asset_normal);
 
 
-                        String inp = MchUI.input_Command.getText();
+                        String inp = inputUI.inputArea.getText();
                         int point = inp.length();
 
-                        while(inp.contains("§")) {
+                        while (inp.contains("§")) {
                             boolean noHaveThisColor = false;
 
                             inp = inp.substring(inp.indexOf("§"));
 
                             int tabPoint = point - inp.length();
 
-                            if(inp.indexOf("§0") == 0) {
+                            if (inp.indexOf("§0") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
-                            } else if(inp.indexOf("§1") == 0) {
+                            } else if (inp.indexOf("§1") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(0, 0, 170));
-                            } else if(inp.indexOf("§2") == 0) {
+                            } else if (inp.indexOf("§2") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(0, 170, 0));
-                            } else if(inp.indexOf("§3") == 0) {
+                            } else if (inp.indexOf("§3") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(0, 170, 170));
-                            } else if(inp.indexOf("§4") == 0) {
+                            } else if (inp.indexOf("§4") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(170, 0, 0));
-                            } else if(inp.indexOf("§5") == 0) {
+                            } else if (inp.indexOf("§5") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(170, 0, 170));
-                            } else if(inp.indexOf("§6") == 0) {
+                            } else if (inp.indexOf("§6") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 170, 0));
-                            } else if(inp.indexOf("§7") == 0) {
+                            } else if (inp.indexOf("§7") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(170, 170, 170));
-                            } else if(inp.indexOf("§8") == 0) {
+                            } else if (inp.indexOf("§8") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(85, 85, 85));
-                            } else if(inp.indexOf("§9") == 0) {
+                            } else if (inp.indexOf("§9") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(85, 85, 255));
-                            } else if(inp.indexOf("§a") == 0) {
+                            } else if (inp.indexOf("§a") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(85, 255, 85));
-                            } else if(inp.indexOf("§b") == 0) {
+                            } else if (inp.indexOf("§b") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(85, 255, 255));
-                            } else if(inp.indexOf("§c") == 0) {
+                            } else if (inp.indexOf("§c") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 85, 85));
-                            } else if(inp.indexOf("§d") == 0) {
+                            } else if (inp.indexOf("§d") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 85, 255));
-                            } else if(inp.indexOf("§e") == 0) {
+                            } else if (inp.indexOf("§e") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 255, 85));
-                            } else if(inp.indexOf("§f") == 0) {
+                            } else if (inp.indexOf("§f") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 255, 255));
-                            } else if(inp.indexOf("§g") == 0) {
+                            } else if (inp.indexOf("§g") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(55, 53, 1));
-                            } else if(inp.indexOf("§r") == 0) {
-                                if(Community.ColorID == 0) {
+                            } else if (inp.indexOf("§r") == 0) {
+                                if (Community.ColorID == 0) {
                                     asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
-                                } else if(Community.ColorID == 1) {
+                                } else if (Community.ColorID == 1) {
                                     asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
                                 }
-                            } else if(inp.indexOf("§§") == 0) {
+                            } else if (inp.indexOf("§§") == 0) {
                                 asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 255, 255, 125));
                             } else {
                                 noHaveThisColor = true;
@@ -825,36 +970,36 @@ public class displaySets extends Thread {
 
                             doc.remove(tabPoint, inp.length());
                             doc.insertString(tabPoint, inp, asset);
-                            MchUI.input_Command.setCaretPosition(inputPoint);
-                            if(noHaveThisColor) {
-                                if(Community.ColorID == 0) {
+                            inputUI.inputArea.setCaretPosition(inputPoint);
+                            if (noHaveThisColor) {
+                                if (Community.ColorID == 0) {
                                     asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
-                                } else if(Community.ColorID == 1) {
+                                } else if (Community.ColorID == 1) {
                                     asset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
                                 }
 
                                 doc.remove(tabPoint + 2, inp.length() - 2);
                                 doc.insertString(tabPoint + 2, inp.substring(2), asset);
-                                MchUI.input_Command.setCaretPosition(inputPoint);
+                                inputUI.inputArea.setCaretPosition(inputPoint);
                             }
 
                             inp = inp.substring(inp.indexOf("§") + 1);
                         }
                     } else {
-                        Document doc = MchUI.input_Command.getDocument();
+                        Document doc = inputUI.inputArea.getDocument();
                         StyleContext sc_normal = StyleContext.getDefaultStyleContext();
                         AttributeSet asset_normal = null;
-                        if(Community.ColorID == 0) {
+                        if (Community.ColorID == 0) {
                             asset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.black);
-                        } else if(Community.ColorID == 1) {
+                        } else if (Community.ColorID == 1) {
                             asset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.white);
                         }
-                        int inputPoint = MchUI.input_Command.getCaretPosition();
-                        String command_text = MchUI.input_Command.getText();
-                        doc.remove(0, MchUI.input_Command.getText().length());
-                        MchUI.input_Command.setText("");
+                        int inputPoint = inputUI.inputArea.getCaretPosition();
+                        String command_text = inputUI.inputArea.getText();
+                        doc.remove(0, inputUI.inputArea.getText().length());
+                        inputUI.inputArea.setText("");
                         doc.insertString(0, command_text, asset_normal);
-                        MchUI.input_Command.setCaretPosition(inputPoint);
+                        inputUI.inputArea.setCaretPosition(inputPoint);
                     }
                 } catch (Exception ignored) {
 
@@ -920,7 +1065,7 @@ public class displaySets extends Thread {
         MenuUI2.toWiki.setVisible(false);
         MenuUI2.toWikiNot.setVisible(false);
         MenuUI2.Chinese_TW.setVisible(false);
-        switch(Community.setsDisplayID) {
+        switch (Community.setsDisplayID) {
             case 0 -> {
                 MenuUI2.saveCacheOrNot.setVisible(true);
                 MenuUI2.saveCache.setVisible(true);
@@ -1000,7 +1145,7 @@ public class displaySets extends Thread {
         ExtraUI.minecraftListenSpeedLevel.setVisible(false);
         ExtraUI.Level0OfMLSL.setVisible(false);
         ExtraUI.Level1OfMLSL.setVisible(false);
-        if(Community.extraDisplayID == 0) {
+        if (Community.extraDisplayID == 0) {
             ExtraUI.McBe.setVisible(true);
             ExtraUI.turnOnMcBe.setVisible(true);
             ExtraUI.turnOffMcBe.setVisible(true);
@@ -1008,10 +1153,10 @@ public class displaySets extends Thread {
             ExtraUI.minecraftListenSpeedLevel.setVisible(true);
             ExtraUI.Level0OfMLSL.setVisible(true);
             ExtraUI.Level1OfMLSL.setVisible(true);
-        } else if(Community.extraDisplayID == 1) {
+        } else if (Community.extraDisplayID == 1) {
 
-        } else if(Community.extraDisplayID == 2) {
-            if(Community.functionEditing) {
+        } else if (Community.extraDisplayID == 2) {
+            if (Community.functionEditing) {
                 ExtraUI.saveFunc.setVisible(true);
                 ExtraUI.functionEdit.setEditable(true);
             } else {
@@ -1024,17 +1169,17 @@ public class displaySets extends Thread {
     @Override
     public void run() {
         int counts = 0;
-        while(! Errors.CannotHandle) {
+        while (!Errors.CannotHandle) {
             counts++;
             try {
-                if(! Community.isDaemons) {
-                    if(Community.ColorSetID != 3) {
+                if (!Community.isDaemons) {
+                    if (Community.ColorSetID != 3) {
                         Color();
                     } else {
                         //
                     }
                     colorCode();
-                    if(counts >= 120) {
+                    if (counts >= 120) {
                         settingsDisplay();
                         extraDisplay();
                         counts = 0;

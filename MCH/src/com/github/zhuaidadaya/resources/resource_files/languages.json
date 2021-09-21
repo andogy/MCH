@@ -3,6 +3,7 @@
         {
             "chinese": [
                 {
+                    "cannotReadHistory": "出了一点小问题,因此暂时无法读取历史命令\n可能因为找不见历史记录的文件或程序出现问题\n\n你可以尝试重启MCH或者在输入栏按下回车\n如果以上操作无法修复,请尝试使用更新版本\n若错误依旧,请联系开发人员",
                     "iniHelpLink": "https://github.com/zhuaidadaya/MCH/blob/main/mds/settings_help_ZH.md",
                     "toWikiOnOrOff": "wiki跳转:",
                     "toWikiOn": "启用",
@@ -117,6 +118,7 @@
                     "restart-failed-title": "重启失败",
                     "WARN-PTEST-Title": "PTEST警告",
                     "PTEST-Rabit": "rabbit测试是在模拟兔子们进行繁殖\n原先有两只兔子,年龄为0个月,三个月后这两只兔子每隔一个月会生一对兔子\n新兔子在年龄到达三个月后也会生兔子\n\n这是一个内存测试,请在已提交内存到达95%前关闭测试\n否则有几率让电脑死机\n\n(无法在非ZGC状态下进行,G1不支持如此高内存,所以需要重启后进行)",
+                    "err": "MCH遇到了一个可能需要上报的错误,错误信息如下:\n%s",
                     "err-cannot-handle": "MCH遇到了一个无法处理的错误\n正在尝试重启MCH\n\n错误信息如下:\n%s",
                     "err-already-save": "已将错误保存到%s下",
                     "message": "错误信息:\n%s",
@@ -138,6 +140,7 @@
         {
             "english": [
                 {
+                    "cannotReadHistory": "There's a Small Problem,So we Cannot Read the History Command right now\nThere Maybe a Problem With the File or Program\n\nYou Can Try to Restart MCH or Press enter Key\nif The Above Operation Cannot be Repaired,Please Try to Use The Updated Version\nif The Error Persists,Please Contact the Developer",
                     "iniHelpLink": "https://github.com/zhuaidadaya/MCH/blob/main/mds/settings_help_EN.md",
                     "toWikiOnOrOff": "to wiki:",
                     "toWikiOn": "enable",
@@ -249,6 +252,7 @@
                     "restart-failed": "cannot restart MCH\nplease restart by you self",
                     "restart-failed-title": "restart failed",
                     "WARN-PTEST-Title": "PTEST Warning",
+                    "err": "MCH now an has error that may need to be reported\nerror info is as follows:\n%s",
                     "err-cannot-handle": "MCH have a problem is cannot handle\nTrying restart the MCH\n\nerror info is as follows:\n%s",
                     "message": "message:\n%s",
                     "SourceAt": "info:\n%s\n\n",
@@ -269,6 +273,7 @@
         {
             "chinese_tw": [
                 {
+                    "cannotReadHistory": "出了一点小问题,因此暂时无法读取历史命令\n可能因为找不见历史记录的文件或程序出现问题\n\n你可以尝试重启MCH或者在输入栏按下回车\n如果以上操作无法修复,请尝试使用更新版本\n若错误依旧,请联系开发人员",
                     "iniHelpLink": "https://github.com/zhuaidadaya/MCH/blob/main/mds/settings_help_ZH.md",
                     "toWikiOnOrOff": "wiki:",
                     "toWikiOn": "啟用",
@@ -381,6 +386,7 @@
                     "restart-failed": "無法重啟MCH\n请尝试手动重启",
                     "restart-failed-title": "重啟失敗",
                     "WARN-PTEST-Title": "PTEST警告",
+                    "err": "MCH遇到了一个可能需要上报的错误,错误信息如下:\n%s",
                     "err-cannot-handle": "MCH遇到了一个无法处理的错误\n正在尝试重启MCH\n\n错误信息如下:\n%s",
                     "message": "错误信息:\n%s",
                     "SourceAt": "错误源:\n%s\n\n",

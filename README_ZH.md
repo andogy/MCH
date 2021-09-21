@@ -59,4 +59,6 @@ MCH项目发起于2021年4月9日<br>
 
 # 文档
 
-<a href="https://github.com/zhuaidadaya/MCH/blob/main/mds/Json_File_ZH.md"><b>扩展文件文档</b></a>
+<a href="https://github.com/zhuaidadaya/MCH/blob/main/mds/Json_File_ZH.md">扩展文件文档</a></br>
+<a href="https://github.com/zhuaidadaya/MCH/blob/main/mds/Extra_ZH.md"><b>扩展包文档</b></a>
+

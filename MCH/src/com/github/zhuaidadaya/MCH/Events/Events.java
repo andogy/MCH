@@ -6,11 +6,7 @@ import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
 import com.github.zhuaidadaya.MCH.Events.UPD.countTime;
-import com.github.zhuaidadaya.MCH.UI.ExtraUI;
-import com.github.zhuaidadaya.MCH.UI.MchUI;
-import com.github.zhuaidadaya.MCH.UI.MenuUI;
-import com.github.zhuaidadaya.MCH.UI.MenuUI2;
-import com.github.zhuaidadaya.MCH.lib.Log;
+import com.github.zhuaidadaya.MCH.UI.*;
 import com.github.zhuaidadaya.MCH.lib.Resources;
 
 import java.awt.*;
@@ -29,14 +25,16 @@ public class Events {
     }
 
     public static void Copy() {
-        StringSelection selection = new StringSelection(MchUI.input_Command.getText().replace("\r", "").replace("\n", ""));
+        StringSelection selection = new StringSelection(inputUI.inputArea.getText().replace("\r", "").replace("\n", ""));
+//        StringSelection selection = new StringSelection(MchUI.input_Command.getText().replace("\r", "").replace("\n", ""));
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(selection, null);
 
         if(Community.historySaveID != 2) {
             try {
-                FileWriter fileWriter = new FileWriter(Config.path + "history.txt", true);
-                String write = MchUI.input_Command.getText().replace("/", "").replace("\r", "").replace("\n", "");
+                FileWriter fileWriter = new FileWriter(historyReader.file, true);
+                String write = inputUI.inputArea.getText().replace("/", "").replace("\r", "").replace("\n", "");
+//                String write = MchUI.input_Command.getText().replace("/", "").replace("\r", "").replace("\n", "");
                 if(! write.equals("")) {
                     write += "\n";
 

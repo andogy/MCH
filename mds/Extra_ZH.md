@@ -170,10 +170,9 @@ public class Declared() {
     }
 }
 
-
-//       去掉注释以后的样子
-        
-
+```
+去掉注释以后的样子
+```java
 package Mex;
 
         import com.github.zhuaidadaya.MCH.Command.Config;
@@ -356,10 +355,48 @@ public class Errors extends Throwable {
 
     //    Errors主体函数
     public static void errors(Error error, Exception exception, boolean cannotHandle, String exceptionSource, String message, int w, int h, boolean show) {
-        ......
+        //......
     }
 }
 ```
 
 <hr>
+
+### 配置文件
+
+MCH在写入以及读取配置文件时会对其加密<br>
+使用每行的首位字符对后面所有字符进行char的偏移
+这是随机的
+
+需要使用MCH提供的HashMap来保存配置文件<br>
+用以下代码来存储配置文件
+```java
+package Mex;
+
+import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Community;
+
+public class Declared() {
+    public void onLoad() {
+        Community.extraConf.put("config-name", "config-value");
+        Config.WriteIni();
+    }
+}
+```
+
+以下来读取配置文件
+
+```java
+package Mex;
+
+import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Community;
+
+public class Declared() {
+    public void onLoad() {
+        String conf = Community.extraConf.get("config-name");
+    }
+}
+```
+
 

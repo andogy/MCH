@@ -92,13 +92,20 @@ public class Community {
     }
 
     public void startMch(String... arg) {
+
+        HashSet<String> args = new HashSet<>(Arrays.asList(arg));
+
         saveErrorLog = true;
         saveRunLog = true;
 
         Config.path = System.getProperty("user.home").replace("\\", "/") + "/" + Config.path;
+
+        if (args.contains("developing"))
+            Config.path = "/MCH_testing_path/";
         Config.resPath = Config.path + Config.resPath;
         Config.runLogsPath = Config.path + Config.runLogsPath;
         Config.errLogsPath = Config.path + Config.errLogsPath;
+        Config.logsPath = Config.path + Config.logsPath;
 
         Log.defErrPath = new File(Config.errLogsPath);
         Log.defRunPath = new File(Config.runLogsPath);
@@ -116,24 +123,14 @@ public class Community {
 
         new File(Config.path + "extra/").mkdirs();
 
-        String mode = "";
-        try {
-            mode = arg[0];
-        } catch (Exception e) {
-
-        }
-
         LangID = 0;
         new Resources.initLanguage();
 
-        if(mode.equals("ex-tes")) {
+        if(args.contains("ex-tes")) {
             lis.showWindow();
 
             new ExtraLoader().LoadExtra();
         } else {
-
-            HashSet<String> args = new HashSet<>(Arrays.asList(arg));
-
             if(args.contains("perf-ui"))
                 perf = true;
 
