@@ -353,10 +353,10 @@ public class Config {
             if(Integer.parseInt(o.toString()) == 10) {
                 int rand = r.nextInt(1024);
                 fl.write(10);
-                lim = rand > 0 ? rand : 1;
+                lim = rand > 10 ? rand : 11;
                 fl.write(lim);
             } else {
-                fl.write(Integer.parseInt(o.toString()) + lim + cheekingCode);
+                fl.write((Integer.parseInt(o.toString()) + lim + cheekingCode));
             }
         }
 

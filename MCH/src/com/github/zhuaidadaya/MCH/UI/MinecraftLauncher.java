@@ -373,7 +373,7 @@ public class MinecraftLauncher {
         LinkedHashMap<Object, Object> hashMap = new LinkedHashMap<>();
 
         try {
-            for(Object o : Community.launcherConf.get("javapaths").toString().split(";")) {
+            for(Object o : Community.launcherConf.get("javaPaths").toString().split(";")) {
                 if(! o.equals("")) {
                     hashMap.put(o.toString(), "");
                 }
@@ -751,6 +751,8 @@ public class MinecraftLauncher {
         javaStatus.setEditable(false);
 
         deleteWarning.setEditable(false);
+
+        minecraftAreaDescription.setEditable(false);
 
         //        jFrame.setResizable(false);
 
@@ -1644,7 +1646,7 @@ public class MinecraftLauncher {
             boolean javas = s.startsWith("javapaths@");
 
             if(javas) {
-                Community.launcherConf.put("javapaths", s.substring(s.indexOf("@") + 1));
+                Community.launcherConf.put("javaPaths", s.substring(s.indexOf("@") + 1));
                 s = "";
             }
         }

@@ -230,6 +230,7 @@ public class displaySets extends Thread {
         MinecraftLauncher.downloadScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
         MinecraftLauncher.runningScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
         MinecraftLauncher.javaScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
+        MinecraftLauncher.minecraftAreaList.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
 
         MinecraftLauncher.launch.setBackground(buttonColor);
 
@@ -742,6 +743,11 @@ public class displaySets extends Thread {
         MinecraftLauncher.javaStatus.setForeground(foregroundColor);
 
         MinecraftLauncher.switchMinecraftAreaPanel.setForeground(foregroundColor);
+
+        MinecraftLauncher.minecraftAreaDescription.setBackground(backgroundColor);
+        MinecraftLauncher.minecraftAreaDescription.setForeground(foregroundColor);
+
+        MinecraftLauncher.minecraftAreaList.setBackground(inputBoxColor);
 
         //        MinecraftLauncher.showSelect
 

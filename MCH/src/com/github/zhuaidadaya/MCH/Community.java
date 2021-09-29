@@ -126,14 +126,6 @@ public class Community {
         LangID = 0;
         new Resources.initLanguage();
 
-        if(args.contains("launcher")) {
-            launcher = true;
-            new Thread(() -> {
-                MinecraftLauncher.UI();
-                MinecraftLauncher.show();
-            }).start();
-        }
-
         if(args.contains("ex-tes")) {
             lis.showWindow();
 
@@ -165,6 +157,14 @@ public class Community {
                     Config.updateConf();
                 } catch (Exception e) {
                     e.printStackTrace();
+                }
+
+                if(args.contains("launcher")) {
+                    launcher = true;
+                    new Thread(() -> {
+                        MinecraftLauncher.UI();
+                        MinecraftLauncher.show();
+                    }).start();
                 }
 
                 try {
