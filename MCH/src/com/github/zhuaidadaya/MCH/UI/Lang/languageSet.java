@@ -161,6 +161,7 @@ public class languageSet extends Thread {
 
             MinecraftLauncher.switchMinecraftAreaPanel.setText(lang.get("area"));
             MinecraftLauncher.minecraftAreaDescription.setText(lang.get("area_description"));
+            MinecraftLauncher.minecraftAreaSwitchWarning.setText(lang.get("switch_area_warning"));
 
             try {
                 new JSONObject(MinecraftLauncher.minecraftVersions.get(MinecraftLauncher.verList.getSelectedValue().toString()).toString()).get("path");

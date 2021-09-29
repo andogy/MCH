@@ -747,7 +747,11 @@ public class displaySets extends Thread {
         MinecraftLauncher.minecraftAreaDescription.setBackground(backgroundColor);
         MinecraftLauncher.minecraftAreaDescription.setForeground(foregroundColor);
 
+        MinecraftLauncher.minecraftAreaStatus.setBackground(backgroundColor);
+        MinecraftLauncher.minecraftAreaStatus.setForeground(foregroundColor);
+
         MinecraftLauncher.minecraftAreaList.setBackground(inputBoxColor);
+        MinecraftLauncher.minecraftAreaList.setForeground(foregroundColor);
 
         //        MinecraftLauncher.showSelect
 

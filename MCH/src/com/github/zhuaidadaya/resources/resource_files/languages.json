@@ -3,6 +3,8 @@
         {
             "chinese": [
                 {
+                    "switch_area_warning": "切换域后将无法\n在\"实例\"控制其他域运行中的实例\n即使换回原来的域也无法恢复\n\"启动器\"显示的版本会随着域变化",
+                    "default_area": "默认域",
                     "area_description": "域可以让MCH工作在多个Minecraft目录\n通过切换域来选择其他目录下的Minecraft\n而非仅MCH默认目录",
                     "area": "域",
                     "select_this_java": "选定此Java",

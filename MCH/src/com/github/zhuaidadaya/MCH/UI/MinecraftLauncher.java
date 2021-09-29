@@ -82,6 +82,8 @@ public class MinecraftLauncher {
     public static JScrollPane minecraftAreaScrollPane = new JScrollPane();
     public static JTextPane minecraftAreaDescription = new JTextPane();
     public static JTextPane minecraftAreaStatus = new JTextPane();
+    public static JTextPane minecraftAreaSwitchWarning = new JTextPane();
+    public static JButton addMinecraftArea = new JButton();
 
     public static JButton switchDownloadPanel = new JButton();
     public static JButton switchLauncherPanel = new JButton();
@@ -94,6 +96,7 @@ public class MinecraftLauncher {
     //-1 = all, 0 = release, 1 = snapshot, 2 = old alpha/beta
     public static int downloadListDisplay = - 1;
     public static String versionPath = Config.path + "minecraft/versions/";
+    public static String gamePath = Config.path + "minecraft";
 
     public static LinkedHashMap<Object, Object> runningMinecraft = new LinkedHashMap<>();
     public static LinkedHashMap<Object, Object> runningLogs = new LinkedHashMap<>();
@@ -169,6 +172,49 @@ public class MinecraftLauncher {
                         for(Object o : forceFound.getJavas().split("\n"))
                             javaPaths.put(o.toString(), "{\"path\":\"" + o + "\"}");
                     }
+                }
+
+                for(Object o : javaPaths.keySet()) {
+                    if(new File(o.toString()).isFile()) {
+                        JavasList.add(o.toString());
+                    }
+                }
+
+                uploadConfig();
+
+                Config.WriteIni();
+            }
+        } catch (Exception ignored) {
+
+        }
+    }
+
+    public static void selectMinecraftArea(String title) {
+        try {
+            int result;
+            new File("");
+            String path;
+
+            UIManager.put("FileChooser.cancelButtonText", lang.get("cancel"));
+            UIManager.put("FileChooser.saveButtonText", lang.get("confirm"));
+            UIManager.put("FileChooser.openButtonText", lang.get("confirm"));
+
+            JFileChooser fileChooser = new JFileChooser();
+            FileSystemView fsv = FileSystemView.getFileSystemView();
+            fileChooser.setCurrentDirectory(fsv.getHomeDirectory());
+            fileChooser.setDialogTitle(title);
+            fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+            fileChooser.removeChoosableFileFilter(fileChooser.getFileFilter());
+
+            result = fileChooser.showOpenDialog(jFrame);
+            if(JFileChooser.APPROVE_OPTION == result) {
+                path = fileChooser.getSelectedFile().getPath();
+                if(new File(path).isDirectory()) {
+                    JSONObject info = new JSONObject();
+                    info.put("name", path);
+                    info.put("path", path);
+                    minecraftAreas.put(path, info);
                 }
 
                 uploadConfig();
@@ -374,8 +420,8 @@ public class MinecraftLauncher {
 
         try {
             for(Object o : Community.launcherConf.get("javaPaths").toString().split(";")) {
-                if(! o.equals("")) {
-                    hashMap.put(o.toString(), "");
+                if(new File(o.toString()).isFile()) {
+                    hashMap.put(o.toString(), "{\"path\":\"" + o + "\"}");
                 }
             }
         } catch (Exception e) {
@@ -384,6 +430,32 @@ public class MinecraftLauncher {
 
         if(hashMap.size() == 0) {
             hashMap.put(lang.get("java_not_found"), lang.get("java_are_not_found_here"));
+        }
+
+        return hashMap;
+    }
+
+    public static LinkedHashMap<Object, Object> getMinecraftAreas() {
+        configReads();
+
+        LinkedHashMap<Object, Object> hashMap = new LinkedHashMap<>();
+
+        try {
+            for(Object o : Community.launcherConf.get("minecraftAreas").toString().split(";")) {
+                JSONObject info = new JSONObject();
+                for(Object area : new JSONObject(o.toString()).keySet()) {
+                    info.put(area.toString(), new JSONObject(o.toString()).get(area.toString()).toString());
+                }
+                hashMap.put(info.get("name"), info);
+            }
+        } catch (Exception e) {
+
+        }
+
+        if(hashMap.size() == 0) {
+            JSONObject info = new JSONObject();
+            info.put("path", gamePath);
+            hashMap.put(lang.get("default_area"), info);
         }
 
         return hashMap;
@@ -724,10 +796,24 @@ public class MinecraftLauncher {
 
         }
 
+        StringBuilder areas = new StringBuilder();
+        try {
+            for(Object o : minecraftAreas.keySet()) {
+                if(new File(new JSONObject(minecraftAreas.get(o.toString()).toString()).get("path").toString()).isDirectory()) {
+                    JSONObject area = new JSONObject(minecraftAreas.get(o.toString()).toString());
+                    area.put("name", o.toString());
+                    areas.append(area).append(";");
+                }
+            }
+        } catch (Exception e) {
+
+        }
+
+        areas.insert(0, "minecraftAreas@");
         javas.insert(0, "javaPaths@");
         String usingJava = "java@" + java;
 
-        for(String s : Arrays.asList(checkResource_config, javas.toString(), usingJava)) {
+        for(String s : Arrays.asList(checkResource_config, javas.toString(), usingJava, areas.toString())) {
             Community.launcherConf.put(s.substring(0, s.indexOf("@")), s.substring(s.indexOf("@") + 1));
         }
     }
@@ -737,6 +823,14 @@ public class MinecraftLauncher {
 
         java = Community.launcherConf.get("java") == null ? "java" : Community.launcherConf.get("java").toString();
         javaPaths = getJavaVersions();
+
+        for(Object o : javaPaths.keySet()) {
+            if(new File(o.toString()).isFile()) {
+                JavasList.add(o.toString());
+            }
+        }
+
+        minecraftAreas = getMinecraftAreas();
 
         uploadConfig();
 
@@ -864,7 +958,6 @@ public class MinecraftLauncher {
                 }
 
                 setLoadingStatus(launching);
-                setJavaStatus();
 
                 try {
                     javaPaths = getJavaVersions();
@@ -878,6 +971,29 @@ public class MinecraftLauncher {
                 } catch (Exception e) {
 
                 }
+
+                try {
+                    if(! java.equals("java")) {
+                        usingJava.setText(lang.get("used_java") + ": " + java);
+                    } else {
+                        usingJava.setText(lang.get("used_java") + ": " + lang.get("default"));
+                    }
+                } catch (Exception e) {
+
+                }
+
+                setJavaStatus();
+
+                try {
+                    minecraftAreas = getMinecraftAreas();
+                    int selected = Math.max(minecraftAreaList.getSelectedIndex(), 0);
+                    minecraftAreaList.setListData(minecraftAreas.keySet().toArray());
+                    minecraftAreaList.setSelectedIndex(selected);
+                } catch (Exception e) {
+
+                }
+
+                setAreaStatus();
 
                 try {
                     if(! java.equals("java")) {
@@ -969,7 +1085,9 @@ public class MinecraftLauncher {
                 importJava.setBounds(5, javaPanel.getHeight() / 2 + 140, 122, 30);
 
                 minecraftAreaList.setBounds(jFrame.getWidth() - jFrame.getWidth() / 3 + 10, 0, jFrame.getWidth(), minecraftAreaPanel.getHeight());
-                minecraftAreaDescription.setBounds(0, (jFrame.getHeight() / 3) * 2, jFrame.getWidth() / 3, minecraftAreaPanel.getHeight());
+                minecraftAreaDescription.setBounds(10, 300, 200, 150);
+                minecraftAreaStatus.setBounds(200, 0, jFrame.getWidth() / 3 + 70, jFrame.getHeight());
+                minecraftAreaSwitchWarning.setBounds(0, 0, 200, 100);
 
                 checkResOption.setBounds(5, 5, 100, 30);
                 checkRes.setBounds(110, 5, 100, 30);
@@ -1123,6 +1241,7 @@ public class MinecraftLauncher {
         minecraftAreaPanel.add(minecraftAreaScrollPane);
         minecraftAreaPanel.add(minecraftAreaDescription);
         minecraftAreaPanel.add(minecraftAreaStatus);
+        minecraftAreaPanel.add(minecraftAreaSwitchWarning);
         jFrame.add(minecraftAreaPanel);
 
         launchPanel.setVisible(true);
@@ -1466,6 +1585,58 @@ public class MinecraftLauncher {
         }
     }
 
+    public static void setAreaStatus() {
+        try {
+            ListModel<?> listModel = minecraftAreaList.getModel();
+
+            String source;
+
+            source = minecraftAreas.get(minecraftAreaList.getSelectedValue().toString()).toString();
+
+            JSONObject json = new JSONObject();
+            try {
+                json = new JSONObject(source);
+            } catch (Exception v1) {
+
+            }
+
+            Document doc = minecraftAreaStatus.getDocument();
+            AttributeSet red = null;
+            StyleContext sc = StyleContext.getDefaultStyleContext();
+
+            if(Community.ColorID == 0) {
+                red = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 60, 80));
+            } else if(Community.ColorID == 1) {
+                red = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 70, 49));
+            }
+
+            AttributeSet aset_normal = null;
+            StyleContext sc_normal = StyleContext.getDefaultStyleContext();
+
+            if(Community.ColorID == 0) {
+                aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.gray);
+            } else if(Community.ColorID == 1) {
+                aset_normal = sc_normal.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.gray);
+            }
+
+            doc.remove(0, doc.getLength());
+
+            for(Object o : json.keySet()) {
+                //                        des.append(lang.get(o.toString()) == null ? o : lang.get(o.toString())).append(": ").append(lang.get(json.get(o.toString()).toString()) == null ? json.get(o.toString()).toString() : lang.get(json.get(o.toString()).toString())).append("\n");
+
+                try {
+                    doc.insertString(doc.getLength(), (lang.get(o.toString()) == null ? o.toString() : lang.get(o.toString())) + ":", red);
+                    doc.insertString(doc.getLength(), lang.get(json.get(o.toString()).toString()) == null ? json.get(o.toString()).toString() : lang.get(json.get(o.toString()).toString()), aset_normal);
+                    doc.insertString(doc.getLength(), "\n", aset_normal);
+                } catch (Exception ignored) {
+
+                }
+            }
+        } catch (Exception e) {
+
+        }
+    }
+
     public static boolean exec(String command) {
         try {
             Runtime.getRuntime().exec(command);
@@ -1656,6 +1827,15 @@ public class MinecraftLauncher {
 
             if(javas) {
                 Community.launcherConf.put("java", s.substring(s.indexOf("@") + 1));
+                s = "";
+            }
+        }
+
+        {
+            boolean javas = s.startsWith("minecraftareas@");
+
+            if(javas) {
+                Community.launcherConf.put("minecraftAreas", s.substring(s.indexOf("@") + 1));
                 s = "";
             }
         }
