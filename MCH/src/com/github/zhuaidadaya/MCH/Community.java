@@ -1,5 +1,6 @@
 package com.github.zhuaidadaya.MCH;
 
+import ch.randelshofer.quaqua.QuaquaLookAndFeel;
 import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
@@ -170,7 +171,7 @@ public class Community {
 
                 try {
                     try {
-                        UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+                        UIManager.setLookAndFeel(new QuaquaLookAndFeel());
                     } catch (Exception e) {
 
                     }
