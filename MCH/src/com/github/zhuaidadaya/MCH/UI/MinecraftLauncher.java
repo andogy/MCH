@@ -948,7 +948,7 @@ public class MinecraftLauncher {
 
                 }
 
-                launch.setVisible(minecraftVersionsList_use.size() > 0 & verList.getSelectedIndex() != - 1 & ! status.equals("#downloading"));
+                launch.setVisible(minecraftVersionsList_use.size() > 0 & verList.getSelectedIndex() != - 1 & (status.equals("#ready") | status.equals("#checking")));
                 stepNow.setVisible(launch.isVisible());
                 if(selectionIndex != verList.getSelectedIndex()) {
                     stepNow.setText("");

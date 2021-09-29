@@ -76,19 +76,23 @@ public class Config {
 
         jFrame.setAlwaysOnTop(true);
 
-        boolean hasIni = create();
-
         if(!Community.launcher) {
-            if(hasIni) {
+            boolean hasIni = create();
+
+            if (hasIni) {
                 parsing(true);
             } else {
                 LoadAssembly.badLoadAssembly("[Main Thread/WARN] Cannot Load configs Assembly", lang.get("loading_ini_fail"));
             }
         } else {
-            try {
-                new File(path + "settings.ini").createNewFile();
-            } catch(Exception ex) {
+            if (!new File(path + "settings.ini").isFile()) {
+                try {
+                    new File(path + "settings.ini").createNewFile();
+                } catch (Exception ex) {
 
+                }
+            }else {
+                parsing(true);
             }
         }
 

@@ -126,6 +126,8 @@ public class Community {
         LangID = 0;
         new Resources.initLanguage();
 
+        launcher = args.contains("launcher");
+
         if(args.contains("ex-tes")) {
             lis.showWindow();
 
@@ -160,7 +162,6 @@ public class Community {
                 }
 
                 if(args.contains("launcher")) {
-                    launcher = true;
                     new Thread(() -> {
                         MinecraftLauncher.UI();
                         MinecraftLauncher.show();
