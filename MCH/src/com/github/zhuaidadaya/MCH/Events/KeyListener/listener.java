@@ -210,7 +210,7 @@ public class listener extends Thread {
 
             if(! onlyDefault) {
                 if(Community.ColorID == 0) {
-                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 125, 50));
+                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 145, 70));
                     //                    aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, new Color(255, 255, 255));
                     aset = sc.addAttribute(aset, StyleConstants.Background, new Color(210, 210, 210));
                 } else if(Community.ColorID == 1) {

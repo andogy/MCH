@@ -75,21 +75,31 @@ public class ExtraLoader {
             JSONObject conf = new JSONObject(al.toString());
 
             try {
-                loadExtra(f.getAbsolutePath(), conf.get("loader").toString(), f, false, false, conf);
+                loadExtra(f.getAbsolutePath(), conf.get("loader").toString(), f, false, false, conf,"");
                 loaded = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
             if(! loaded) {
-                loadExtra(f.getAbsolutePath(), "Mex.Declared", f, false, false, conf);
+                loadExtra(f.getAbsolutePath(), "Mex.Declared", f, false, false, conf,"");
             }
         } catch (Exception e) {
-            loadExtra(f.getAbsolutePath(), "Mex.Declared", f, false, true, null);
+            loadExtra(f.getAbsolutePath(), "Mex.Declared", f, false, true, null,"");
         }
     }
 
-    public void loadExtra(String path, String loader, File f, boolean unloaded, boolean noConf, JSONObject conf) {
+    public void customLoader(Class<?> clazz,String methodPath) {
+        try {
+            Method method = clazz.getDeclaredMethod(methodPath);
+
+            method.invoke(clazz.getDeclaredConstructor().newInstance());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadExtra(String path, String loader, File f, boolean unloaded, boolean noConf, JSONObject conf,String methodPath) {
         HashMap<String, String> h = new HashMap<>();
 
         try {
@@ -97,9 +107,11 @@ public class ExtraLoader {
             ExtraClassLoader classLoader = new ExtraClassLoader(urls, ClassLoader.getSystemClassLoader());
             classLoader.addJar(new File(path).toURI().toURL());
             Class<?> clazz = classLoader.loadClass(loader);
-            Method method = clazz.getDeclaredMethod("onLoad");
 
-            method.invoke(clazz.getDeclaredConstructor().newInstance());
+            if(methodPath.equals(""))
+                methodPath = "onLoad";
+
+            customLoader(clazz,methodPath);
 
             boolean loadF = false;
             Object res = null;

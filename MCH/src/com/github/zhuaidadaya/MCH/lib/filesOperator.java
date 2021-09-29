@@ -3,24 +3,36 @@ package com.github.zhuaidadaya.MCH.lib;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.Times.times;
+import com.github.zhuaidadaya.MCH.UI.loadingWindow;
 
 import java.io.File;
 
 public class filesOperator {
     public static long fileSize = 0;
+    public static long fileCount = 0;
+
+    public static void countFiles(File[] files) {
+        for (File f : files) {
+            if (f.isDirectory())
+                countFiles(f.listFiles());
+            fileCount++;
+        }
+    }
 
     public static void DeleteFiles(File[] path) {
         try {
             for (File f : path) {
                 if (f.isFile()) {
                     if (!f.getName().equals("settings.ini") & !f.getName().equals("run.log") & !f.getName().equals("languages.json") & !f.getName().equals("commands.json")) {
-                        LoadAssembly.loadAssembly("[Main Thread/INFO] Delete File: " + f.getName(), "",false);
+                        LoadAssembly.loadAssembly("[Main Thread/INFO] Delete File: " + f.getName(), "", false);
                         f.delete();
+                        loadingWindow.progress.setValue(loadingWindow.progress.getValue() + 1);
                     }
                 }
                 if (f.isDirectory()) {
                     DeleteFiles(f.listFiles());
                     f.delete();
+                    loadingWindow.progress.setValue(loadingWindow.progress.getValue() + 1);
                 }
             }
         } catch (Exception ignored) {

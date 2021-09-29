@@ -114,6 +114,7 @@ public class MchUI extends Community {
 //        input_scrollPane.setVisible(false);
 
         commandArea.setEditable(false);
+        commandDisplay.setEditable(false);
 
         tips.setEditable(false);
         tips.setLineWrap(true);

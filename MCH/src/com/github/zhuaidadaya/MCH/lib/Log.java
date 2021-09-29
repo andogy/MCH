@@ -4,6 +4,7 @@ import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Times.timeType;
 import com.github.zhuaidadaya.MCH.Times.times;
+import com.github.zhuaidadaya.MCH.UI.loadingWindow;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -62,14 +63,22 @@ public class Log {
         }
     }
 
-    public static void writeLog(Object log) {
-        if (Community.saveRunLog)
+    public static void writeLog(Object log, String type) {
+        loadingWindow.loading.setText(log.toString() + "\n" + loadingWindow.loading.getText());
+
+
+        if (type.equals("error") & Community.saveErrorLog)
+            writeLog(defErrPath, defAppend, defCharset, log, true);
+        else if (type.equals("log"))
             writeLog(defRunPath, defAppend, defCharset, log, false);
     }
 
+    public static void writeLog(Object log) {
+        writeLog(log, "log");
+    }
+
     public static void writeErr(Object log) {
-        if (Community.saveErrorLog)
-            writeLog(defErrPath, defAppend, defCharset, log, true);
+        writeLog(log, "error");
     }
 
     public static void compress(String srcPath, String dstPath) throws IOException {

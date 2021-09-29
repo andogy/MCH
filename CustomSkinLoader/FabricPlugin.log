@@ -1,0 +1,11 @@
+[2021-09-27 05:19:35] [main INFO] "version.json": jar:file:/C:/normal/Minecraft/.minecraft/versions/1.17.1-Fabric%200.11.6/1.17.1-Fabric%200.11.6.jar!/version.json
+[2021-09-27 05:19:35] [main INFO] MinecraftVersion: {name='1.17.1', world_version='2730', protocol_version='756'}
+[2021-09-27 05:19:36] [main INFO] target: net.minecraft.class_355, mixin: customskinloader.mixin.MixinGuiPlayerTabOverlay, result: true
+[2021-09-27 05:19:36] [main INFO] target: net.minecraft.class_972, mixin: customskinloader.mixin.MixinLayerCape, result: true
+[2021-09-27 05:19:36] [main INFO] target: net.minecraft.class_310, mixin: customskinloader.mixin.MixinMinecraft, result: true
+[2021-09-27 05:19:36] [main INFO] target: net.minecraft.class_1007, mixin: customskinloader.mixin.MixinRenderPlayer, result: true
+[2021-09-27 05:19:36] [main INFO] target: net.minecraft.class_1071, mixin: customskinloader.mixin.MixinSkinManager, result: true
+[2021-09-27 05:19:36] [main INFO] target: net.minecraft.class_1060, mixin: customskinloader.mixin.MixinTextureManager, result: true
+[2021-09-27 05:19:36] [main INFO] target: net.minecraft.class_1046, mixin: customskinloader.mixin.MixinThreadDownloadImageDataV2, result: false
+[2021-09-27 05:19:36] [main INFO] target: net.minecraft.class_1046, mixin: customskinloader.mixin.MixinThreadDownloadImageDataV3, result: true
+[2021-09-27 05:19:36] [main INFO] target: net.minecraft.class_2631, mixin: customskinloader.mixin.MixinTileEntitySkull, result: false

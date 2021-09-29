@@ -2,7 +2,6 @@ package com.github.zhuaidadaya.MCH;
 
 import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
-import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
@@ -18,18 +17,18 @@ import com.github.zhuaidadaya.MCH.lib.*;
 
 import javax.swing.*;
 import java.io.File;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Locale;
 
 import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.lang;
 
 public class Community {
+    public static boolean launcher = false;
 
-    public static int ColorID = 0;
-    public static int ColorSetID = 0;
+    public static int ColorID = 1;
+    public static int ColorSetID = 1;
     public static int LangID = 1;
     public static int LangSetID = 2;
     public static boolean exitButtonWillExit = true;
@@ -70,8 +69,9 @@ public class Community {
 
     public static boolean toWiki = false;
 
-    public static HashMap<Object, Object> conf = new HashMap<>();
-    public static HashMap<Object, Object> extraConf = new HashMap<>();
+    public static LinkedHashMap<Object, Object> conf = new LinkedHashMap<>();
+    public static LinkedHashMap<Object, Object> extraConf = new LinkedHashMap<>();
+    public static LinkedHashMap<Object, Object> launcherConf = new LinkedHashMap<>();
 
     public static String os = System.getProperty("os.name");
 
@@ -100,7 +100,7 @@ public class Community {
 
         Config.path = System.getProperty("user.home").replace("\\", "/") + "/" + Config.path;
 
-        if (args.contains("developing"))
+        if(args.contains("developing"))
             Config.path = "/MCH_testing_path/";
         Config.resPath = Config.path + Config.resPath;
         Config.runLogsPath = Config.path + Config.runLogsPath;
@@ -126,6 +126,14 @@ public class Community {
         LangID = 0;
         new Resources.initLanguage();
 
+        if(args.contains("launcher")) {
+            launcher = true;
+            new Thread(() -> {
+                MinecraftLauncher.UI();
+                MinecraftLauncher.show();
+            }).start();
+        }
+
         if(args.contains("ex-tes")) {
             lis.showWindow();
 
@@ -137,6 +145,9 @@ public class Community {
             if(args.contains("PTEST-rabbit")) {
                 new Thread(PTEST :: rabbitTest).start();
             } else {
+                displaySets.Color();
+                displaySets.Color();
+
                 loadingWindow.ui();
 
                 LoadAssembly.loadAssembly("[Main Thread/INFO] Loading for Mch(" + verID + ") - " + UPD_ID, lang.get("loading_color"), false);
@@ -174,8 +185,8 @@ public class Community {
                         Community.LangID = 1;
                     }
 
-                    Resources.initLanguage.initFromSelf("languages.json", "/com/github/zhuaidadaya/resources/resource_files/", "",this.getClass());
-                    Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "",this.getClass());
+                    Resources.initLanguage.initFromSelf("languages.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
+                    Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
 
                     displaySets.Color();
 
@@ -235,25 +246,30 @@ public class Community {
 
                     URLs.checkUPD = true;
 
+                    new MenuUI();
+                    new MenuUI2();
+                    new ExtraUI();
 
-                    Events.menu();
-
-//                    new ExtraLoader().LoadExtra();
+                    //                    new ExtraLoader().LoadExtra();
                     new Thread(() -> new ExtraLoader().LoadExtra()).start();
 
-                    new Thread(() -> {
-                        //        显示UI
-                        LoadAssembly.loadAssembly("[Main Thread/INFO] Loading UI", lang.get("loading_MchUI"), false);
-                        if(Config.canStartUI) {
-                            new MchUI();
-                            loadingWindow.jFrame.setVisible(false);
-                        } else {
-                            LoadAssembly.badLoadAssembly("[Main Thread/WARN] Cannot Load UI", lang.get("loading_MchUI_fail"));
-                        }
+                    if(! args.contains("noc")) {
+                        new Thread(() -> {
+                            //        显示UI
+                            LoadAssembly.loadAssembly("[Main Thread/INFO] Loading UI", lang.get("loading_MchUI"), false);
+                            if(Config.canStartUI) {
+                                new MchUI();
+                                loadingWindow.jFrame.setVisible(false);
+                            } else {
+                                LoadAssembly.badLoadAssembly("[Main Thread/WARN] Cannot Load UI", lang.get("loading_MchUI_fail"));
+                            }
 
-                    }).start();
+                        }).start();
 
-                    started = true;
+                        started = true;
+                    } else {
+                        loadingWindow.jFrame.setVisible(false);
+                    }
 
                     isDaemons = false;
                 } catch (Exception e) {
@@ -264,5 +280,14 @@ public class Community {
 
         if(perf)
             new perf_UI();
+
+        if(Community.started)
+            MinecraftLauncher.jFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        else
+            MinecraftLauncher.jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        if(args.contains("menu")) {
+            MenuUI.jFrame.setVisible(true);
+        }
     }
 }

@@ -28,29 +28,30 @@ if lost then cannot load this extra
 > if you do not <a href="https://github.com/zhuaidadaya/MCH/blob/main/mds/means.md#def">def</a> entrance, program do not know where are you star with
 
 > "Declare" are not must be that name<br>
-> that just a <a >std</a> name它只是一个标准化名称,如果要使用其他名称则需要在extra.json文件声明<br>
-> 但在不设定extra.json的前提下,不可以使用其他名称或位置
+> that just a <a href="https://github.com/zhuaidadaya/MCH/blob/main/mds/means.md#std">std</a> name
+> you need declare in extra.json<br>
+> if did not have extra.json, cannot use other name
 <hr>
-加载扩展时会采用一个完全独立的线程<br>
-因此不用担心加载会拖慢启动速度<br>
-不过在未加载完全之前,扩展内容无法正常进行使用<br>
+MCH will create new thread for load extra<br>
+so do not worry to load be slow<br>
+but extra will cannot use when load not completed<br>
 
-> 这么说,可以在里面 ```while(true)``` 了（不是
+> so, we can ```while(true)``` in code(don't
 
-我们并没有为扩展完善线程安全<br>
-请不要在扩展内做出以上或其他作死操作
+we did safe thread in extra modules<br>
+so please do not do danger things in extra
 
 <hr>
 
-# Dev包
+# Dev package
 
-使用dev包以改变MCH原有的UI或是处理逻辑
+use dev package to change UI or process logics of MCH
 
-但是在前段并不讲到,先从基础的开始
+but not in here, we need start with some basically
 
-### 注册插件
+### regis for extra
 
-使用 ```r()``` 让MCH知道你是一个已注册的扩展文件
+use ```r()``` let MCH know your extra registered
 
 ```java
 package Mex;

@@ -1,21 +1,14 @@
 package com.github.zhuaidadaya.MCH.Events;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.UI.loadingWindow;
 import com.github.zhuaidadaya.MCH.lib.Log;
 
 import java.awt.*;
-import java.io.File;
-import java.io.FileWriter;
-import java.nio.charset.StandardCharsets;
 
 public class LoadAssembly {
 
     public static void loadAssembly(Object Assembly, Object status, Color statusColor, boolean warn) {
-        File f = new File(Config.path + "logs/run/latest.log");
-
         try {
-            loadingWindow.loading.setText(Assembly + "\n" + loadingWindow.loading.getText());
             loadingWindow.status.setText(status.toString());
             loadingWindow.status.setForeground(statusColor);
         } catch (Exception e) {
@@ -23,16 +16,16 @@ public class LoadAssembly {
         }
 
         try {
-            Log.writeLog(f.getPath(), true, StandardCharsets.UTF_8, Assembly, warn);
+            Log.writeLog(Assembly);
         } catch (Exception e) {
             Errors.errors(null, e, false, "loadAssembly", "", 700, 520, false);
         }
 
-        //        try {
-        //            Thread.sleep(10);
-        //        } catch (InterruptedException e) {
-        //            e.printStackTrace();
-        //        }
+        //try {
+        //    Thread.sleep(40);
+        //} catch (InterruptedException e) {
+        //    e.printStackTrace();
+        //}
     }
 
     public static void loadAssembly(Object Assembly, Object status, boolean warn) {

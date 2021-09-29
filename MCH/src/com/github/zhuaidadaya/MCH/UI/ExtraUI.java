@@ -37,6 +37,10 @@ public class ExtraUI extends Community {
         extraUI();
     }
 
+    public static void show() {
+        jFrame.setVisible(true);
+    }
+
     public static void extraUI() {
 
         //        Launcher

@@ -34,11 +34,13 @@ public class MenuUI extends Community {
     public static JButton deleteMCH = new JButton();
 
     public MenuUI() {
-        uiSizeMap.put(jFrame, new Dimension(640, 360));
-
         Log.writeLog("[Main Thread/INFO] Reloading configs by MenuUI");
         OpenMenu = true;
         menuUI();
+    }
+
+    public static void show() {
+        jFrame.setVisible(true);
     }
 
     public static void menuUI() {
@@ -48,7 +50,7 @@ public class MenuUI extends Community {
 
         jFrame.setResizable(false);
 
-        jFrame.setSize(uiSizeMap.getDimension(jFrame));
+        jFrame.setSize(640, 360);
 
         //        窗口初始化设置
         //获得屏幕大小
@@ -85,8 +87,6 @@ public class MenuUI extends Community {
 
             @Override
             public void layoutContainer(Container parent) {
-                jFrame.setSize(uiSizeMap.getDimension(jFrame));
-
                 announcement.setBounds(5, 5, 630, 170);
 
                 restart.setBounds(0, 40 + 35 + 100 + 30 + 40 + 30 + 10, 110, 30);
@@ -128,12 +128,8 @@ public class MenuUI extends Community {
 
         settings.addActionListener(e -> {
             if(! Community.isDaemons) {
-                try {
-                    Events.menu();
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
                 MenuUI2.jFrame.setVisible(true);
+                MenuUI.jFrame.setVisible(false);
             }
         });
 

@@ -18,12 +18,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class Events {
-    public static void menu() throws InterruptedException {
-        new MenuUI();
-        new MenuUI2();
-        new ExtraUI();
-    }
-
     public static void Copy() {
         StringSelection selection = new StringSelection(inputUI.inputArea.getText().replace("\r", "").replace("\n", ""));
 //        StringSelection selection = new StringSelection(MchUI.input_Command.getText().replace("\r", "").replace("\n", ""));
@@ -367,6 +361,24 @@ public class Events {
             Config.toWiki = "toWiki@on";
         } else {
             Config.toWiki = "toWiki@off";
+        }
+    }
+
+    public static void switchCheckResource(boolean check) {
+        MinecraftLauncher.checkResource = check;
+
+        if(check) {
+            MinecraftLauncher.checkResource_config = "checkResource@check";
+        } else {
+            MinecraftLauncher.checkResource_config = "checkResource@ignored";
+        }
+
+        MinecraftLauncher.uploadConfig();
+
+        try {
+            Config.WriteIni();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

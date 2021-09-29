@@ -401,7 +401,7 @@ public class CommandParsing extends Thread {
                                 }
                             } catch (Exception e) {
                                 steps++;
-//                                displayJson = new JSONObject((resources.get(jsa.get(commandSteps).toString()).toString()));
+                                //displayJson = new JSONObject((resources.get(jsa.get(commandSteps).toString()).toString()));
                             }
 
                             commandSteps++;
@@ -928,7 +928,7 @@ public class CommandParsing extends Thread {
         new Thread(() -> {
             while(! Errors.CannotHandle) {
                 //                Resources.initLanguage.initLang("commands/commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
-                Resources.initLanguage.initFromSelf("commands/commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
+                Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {

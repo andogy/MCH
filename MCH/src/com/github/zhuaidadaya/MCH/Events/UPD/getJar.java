@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 public class getJar {
 
-    public String getJarName(Class c) {
+    public String getJarName(Class<?> c) {
         try {
             File file = getFile(c);
 
@@ -26,7 +26,7 @@ public class getJar {
         }
     }
 
-    public String getOldPath(Class c) {
+    public String getOldPath(Class<?> c) {
         File file = getFile(c);
 
         assert file != null;
@@ -34,7 +34,7 @@ public class getJar {
         return file.getAbsolutePath();
     }
 
-    private File getFile(Class c) {
+    private File getFile(Class<?> c) {
         String path = c.getProtectionDomain().getCodeSource().getLocation().getFile();
 
         try {

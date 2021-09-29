@@ -2,10 +2,8 @@ package com.github.zhuaidadaya.MCH.Command;
 
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
-import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.UI.*;
-import com.github.zhuaidadaya.MCH.lib.Resources;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +29,7 @@ public class Config {
     public static String checking = "";
     public static int checkCode = - 1;
 
-    public static String colorSet = "Color@White";
+    public static String colorSet = "Color@Black";
     public static String languageSet = "Language@Auto";
     public static String exButtonSet = "Button@Ex.exit";
     public static String fastLoadSet = "Load@Fast";
@@ -80,10 +78,18 @@ public class Config {
 
         boolean hasIni = create();
 
-        if(hasIni) {
-            parsing(true);
+        if(!Community.launcher) {
+            if(hasIni) {
+                parsing(true);
+            } else {
+                LoadAssembly.badLoadAssembly("[Main Thread/WARN] Cannot Load configs Assembly", lang.get("loading_ini_fail"));
+            }
         } else {
-            LoadAssembly.badLoadAssembly("[Main Thread/WARN] Cannot Load configs Assembly", lang.get("loading_ini_fail"));
+            try {
+                new File(path + "settings.ini").createNewFile();
+            } catch(Exception ex) {
+
+            }
         }
 
         if(iniOneMOre)
@@ -115,9 +121,14 @@ public class Config {
             loadingWindow.progress.setValue(0);
             loadingWindow.progress.setMaximum(Math.toIntExact(br_line.lines().count()) * 3);
 
-            checkCode = Integer.parseInt(String.valueOf(br.readLine().chars().toArray()[0]));
+            try {
+                checkCode = Integer.parseInt(String.valueOf(br.readLine().chars().toArray()[0]));
+            } catch (Exception e) {
+
+            }
 
             boolean exConf = false;
+            boolean launcherConf = false;
 
             if(! saveAllLog)
                 LoadAssembly.loadAssembly("[Recode Thread/INFO] recoding config", lang.get("conf-recoding"), false);
@@ -127,18 +138,20 @@ public class Config {
 
                 StringBuilder s1 = new StringBuilder();
                 int lim = s.length() > 1 ? s.charAt(0) : 0;
-                s = s.length() > 1 ? s.substring(1): "";
+                s = s.length() > 1 ? s.substring(1) : "";
 
                 for(Object o : s.chars().toArray())
                     s1.append((char) (Integer.parseInt(o.toString()) - lim - checkCode));
+
+                loadingWindow.progress.setValue(loadingWindow.progress.getValue() + 1);
 
                 long encoding = - 1;
                 for(Integer i : s.chars().toArray())
                     encoding += i + lim + checkCode;
 
                 if(saveAllLog) {
-                    System.out.println(s.chars());
                     LoadAssembly.loadAssembly("[Recode Thread/INFO] recoding <ConfigEncoder$" + s.length() + "@" + encoding + "> to <" + s1 + ">", lang.get("conf-recoding") + s, false);
+                    LoadAssembly.loadAssembly("[Recode Thread/INFO] recode from <" + s.chars() + ">", lang.get("conf-recoding") + s, false);
                 }
 
                 s = s1.toString();
@@ -148,11 +161,21 @@ public class Config {
                 if(s.equals("//$Extra_settings"))
                     exConf = true;
 
+                if(s.equals("//$Launcher_settings")) {
+                    exConf = false;
+                    launcherConf = true;
+                }
+
                 if(! s.contains("//") & s.contains("@")) {
-                    if(! exConf)
-                        Community.conf.put(s.substring(0, s.indexOf("@")), s.substring(s.indexOf("@") + 1));
-                    else
+                    if(! exConf) {
+                        if(!launcherConf) {
+                            Community.conf.put(s.substring(0, s.indexOf("@")), s.substring(s.indexOf("@") + 1));
+                        } else {
+                            Community.launcherConf.put(s.substring(0, s.indexOf("@")), s.substring(s.indexOf("@") + 1));
+                        }
+                    } else {
                         Community.extraConf.put(s.substring(0, s.indexOf("@")), s.substring(s.indexOf("@") + 1));
+                    }
 
                     if(saveAllLog)
                         LoadAssembly.loadAssembly("[Config Thread/INFO] Loading for config: " + s, lang.get("loading") + s, false);
@@ -160,8 +183,6 @@ public class Config {
                     if(saveAllLog)
                         LoadAssembly.loadAssembly("[Config Thread/INFO] Skip for config notes: " + s, lang.get("loading") + s, false);
                 }
-
-                loadingWindow.progress.setValue(loadingWindow.progress.getValue() + 1);
             }
 
             br.close();
@@ -170,8 +191,7 @@ public class Config {
 
             LoadAssembly.loadAssembly("[Config Thread/INFO] Config load finished");
         } catch (Exception e) {
-            Errors.errors(e, false, "Config Reading", "");
-            parsing(saveAllLog);
+
         }
     }
 
@@ -252,9 +272,9 @@ public class Config {
 
             continues.addActionListener(e1 -> {
                 settingIni = true;
-                Community.uiSizeMap.put(MenuUI2.setting_command, new Rectangle(160, 280, 100, 34));
+                Community.uiSizeMap.put(MenuUI2.setting_command, new Rectangle());
                 try {
-                    Events.menu();
+                    MenuUI2.jFrame.setVisible(true);
                 } catch (Exception ex) {
 
                 }
@@ -266,7 +286,11 @@ public class Config {
                 continues.setVisible(false);
                 autoSet.setVisible(false);
 
-                new Resources().fixResource("/com/github/zhuaidadaya/resources/resource_files/settings_default.ini", path + "settings.ini", true);
+                try {
+                    new File(path + "settings.ini").createNewFile();
+                } catch (IOException ex) {
+
+                }
 
                 parsing(false);
                 defaultIniSetOver();
@@ -287,7 +311,7 @@ public class Config {
         jFrame.setVisible(false);
         iniHas = true;
         if(MenuUI.OpenMenu) {
-            new MenuUI();
+            MenuUI.show();
         }
     }
 
@@ -299,6 +323,7 @@ public class Config {
         StringBuilder write = new StringBuilder();
         StringBuilder conf = new StringBuilder();
         StringBuilder exConf = new StringBuilder();
+        StringBuilder launcherConf = new StringBuilder();
 
         write.append("//$MCH_Settings\n");
 
@@ -310,7 +335,12 @@ public class Config {
         for(Object s : Community.extraConf.keySet())
             exConf.append(s).append("@").append(Community.extraConf.get(s)).append("\n");
 
-        write.append(exConf);
+        write.append(exConf).append("//$Launcher_settings\n");
+
+        for(Object s : Community.launcherConf.keySet())
+            launcherConf.append(s).append("@").append(Community.launcherConf.get(s)).append("\n");
+
+        write.append(launcherConf);
 
         Random r = new Random();
         int cheekingCode = r.nextInt(1024);

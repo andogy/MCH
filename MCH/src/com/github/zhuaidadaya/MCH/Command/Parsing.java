@@ -12,6 +12,7 @@ import com.github.zhuaidadaya.MCH.Exits;
 import com.github.zhuaidadaya.MCH.Times.times;
 import com.github.zhuaidadaya.MCH.UI.*;
 
+import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
 
@@ -52,6 +53,11 @@ public class Parsing extends Thread {
                             Exits.small = false;
                         }
                     }
+
+                    if (Community.started)
+                        MinecraftLauncher.jFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+                    else
+                        MinecraftLauncher.jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 //                    String allStr = MchUI.input_Command.getText();
                     String allStr = inputUI.inputArea.getText();

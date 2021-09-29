@@ -99,6 +99,10 @@ public class MenuUI2 extends Community {
         UI();
     }
 
+    public static void show() {
+        jFrame.setVisible(true);
+    }
+
     public static void UI() {
         uiSizeMap.put(jFrame, new Dimension(650, 350));
 
@@ -533,9 +537,20 @@ public class MenuUI2 extends Community {
 
         MenuUI2.deleteData.addActionListener(e -> {
             if(! Community.isDaemons) {
-                File[] caches = new File(Config.path + "logs/").listFiles();
+                new Thread(() -> {
+                    File[] caches = new File(Config.path + "logs/").listFiles();
 
-                filesOperator.DeleteFiles(caches);
+                    filesOperator.fileCount = 0;
+                    filesOperator.countFiles(caches);;
+
+                    loadingWindow.ui();
+
+                    loadingWindow.progress.setMaximum(Math.toIntExact(filesOperator.fileCount));
+
+                    filesOperator.DeleteFiles(caches);
+
+                    loadingWindow.jFrame.setVisible(false);
+                }).start();
             }
         });
     }

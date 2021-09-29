@@ -1,7 +1,7 @@
 package com.github.zhuaidadaya.MCH.Events.UPD;
 
-import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Times.times;
 import com.github.zhuaidadaya.MCH.UI.MchUI;
@@ -53,14 +53,14 @@ public class URLs extends Thread {
         }
 
         //        如果获取不到符合规格的更新代码,则返回false,拒绝下载更新包
-        if(result.toString().length() < 3) {
+        if (result.toString().length() < 3) {
             return false;
         }
 
         timeOut = false;
         //        如果本地ID和网络ID不一致,则有更新
         //        因为网络ID始终是最新版,本地ID除非是开发人员,不然不可能比网络ID更新
-        return ! result.toString().equals(Community.UPD_ID);
+        return !result.toString().equals(Community.UPD_ID);
     }
 
     public void UPD(boolean check, boolean getUpdInfo) {

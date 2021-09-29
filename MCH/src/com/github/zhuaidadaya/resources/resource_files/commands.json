@@ -113,6 +113,7 @@
                     "@lost_command": "未证实命令",
                     "@clear_data": "<物品特殊值 : 整数>",
                     "@item_count": "<数量 : 整数>",
+                    "@item_data": "<物品特殊值 : 整数>",
                     "@count": "数量",
                     "@command_clear": "清除玩家物品栏的的物品",
                     "@command_clone": "将一个区域克隆到另一个区域",
@@ -317,7 +318,8 @@
                     "@command_kick": "将玩家踢出服务器",
                     "@kick_reason": "<原因 : 字符串>",
                     "@reason": "原因",
-                    "@double_valueErr": "是一个错误的双精浮点数"
+                    "@double_valueErr": "是一个错误的双精浮点数",
+                    "@item_special_data": "特殊值"
                 }
             ]
         },
@@ -428,7 +430,7 @@
                     "@hard": "hard mode",
                     "@lost_command": "unconfirmed command",
                     "@clear_data": "<item data : Integer>",
-                    "@item_data": "<count : Integer>",
+                    "@item_data": "<item data : Integer>",
                     "@count": "count",
                     "@command_clear": "clear items in players item list",
                     "@command_clearspawnpoint": "clear spawn point of player",
@@ -634,7 +636,8 @@
                     "@command_kick": "kick players from your server",
                     "@kick_reason": "<reason : String>",
                     "@reason": "reason",
-                    "@double_valueErr": "is a error double number"
+                    "@double_valueErr": "is a error double number",
+                    "@item_special_data": "special data"
                 }
             ]
         },
@@ -750,6 +753,7 @@
                     "@hard_be": "困难模式(仅基岩版)",
                     "@lost_command": "未证实命令",
                     "@clear_data": "<物品特殊值 : 整数>",
+                    "@item_data": "<物品特殊值 : 整数>",
                     "@item_count": "<数量 : 整数>",
                     "@count": "数量",
                     "@command_clear": "清除玩家物品栏的的物品",
@@ -953,7 +957,8 @@
                     "@current_position_wikiTips": "当前位置",
                     "@coordinates_wikiTips": "坐标",
                     "@reason": "<原因 : 字符串>",
-                    "@double_valueErr": "是一个错误的双精浮点数"
+                    "@double_valueErr": "是一个错误的双精浮点数",
+                    "@item_special_data": "特殊值"
                 }
             ]
         }
@@ -1784,7 +1789,7 @@
                             "@sel",
                             "@all_items",
                             "@item_count",
-                            "@RESOURCE_WRAP",
+                            "@item_data",
                             "@json",
                             "@end"
                         ]
@@ -1794,7 +1799,7 @@
                             "@sel",
                             "@all_items",
                             "@item_count",
-                            "@null",
+                            "@RESOURCE_WRAP",
                             "@json",
                             "@end"
                         ]
@@ -1888,6 +1893,17 @@
             }
         },
         "resource": {
+            "@item_data": {
+                "": {
+                    "description": "@item_data"
+                },
+                "@Integer": {
+                    "description": "@item_special_data",
+                    "limited":2147483647,
+                    "valueErr":"@Integer_valueErr",
+                    "valueOutLimited":"@valueOutLimited"
+                }
+            },
             "@item_operator": {
                 "modify": {
                     "description": "@acacia_boat"

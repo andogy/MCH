@@ -76,6 +76,7 @@ public class Errors extends Throwable {
                             MenuUI2.jFrame.setVisible(false);
                             Config.jFrame.setVisible(false);
                             ExtraUI.jFrame.setVisible(false);
+                            inputUI.jFrame.setVisible(false);
                             loadingWindow.jFrame.setVisible(false);
 
                             jFrame.setVisible(true);
@@ -130,9 +131,12 @@ public class Errors extends Throwable {
                     }
                     Log.writeLog(file, true, StandardCharsets.UTF_8, "[ERROR Thread/INFO] " + er + "\nSourceAt:" + exceptionSource, false);
                 } else {
-                    jTextArea.setText(String.format(Resources.initLanguage.lang.get("err-cannot-handle"), er));
+                    if (cannotHandle)
+                        jTextArea.setText(String.format(Resources.initLanguage.lang.get("err-cannot-handle"), er));
+                    else
+                        jTextArea.setText(String.format(Resources.initLanguage.lang.get("err"), er));
 
-                    Log.outLog(er,true);
+                    Log.outLog(er, true);
                     jTextArea.setText(jTextArea.getText() + "\n" + String.format(Resources.initLanguage.lang.get("SourceAt"), exceptionSource) + String.format(Resources.initLanguage.lang.get("message"), message));
                 }
 
