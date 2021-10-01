@@ -65,4 +65,9 @@
 Release地址: [Github](https://github.com/zhuaidadaya/MCH/releases)<br>
 反馈:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr)、[邮箱](mailto:1501917367@qq.com)、[Issue](https://github.com/zhuaidadaya/MCH/issues)
 <hr>
-协议版本: 1.32
+协议版本: 1.32<br>
+<br>
+<b>
+Copyright © 2021. MCH@Zhuaidadaya<br>
+Copyright © 2021. MCH
+</b>
