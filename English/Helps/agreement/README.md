@@ -92,8 +92,10 @@ feedback from:
 <hr>
 agreement version: 1.32
 
-Copyright © 2021. MCH@Zhuaidadaya
+<b>
+Copyright © 2021. MCH@Zhuaidadaya<br>
 Copyright © 2021. MCH
+</b>
 
 ## - translation -
 
