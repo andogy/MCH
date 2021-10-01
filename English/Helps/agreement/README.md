@@ -90,8 +90,8 @@ feedback from:
 [mail](mailto:1501917367@qq.com) and 
 [Issue](https://github.com/zhuaidadaya/MCH/issues)
 <hr>
-agreement version: 1.32
-
+agreement version: 1.32<br>
+<br>
 <b>
 Copyright © 2021. MCH@Zhuaidadaya<br>
 Copyright © 2021. MCH
