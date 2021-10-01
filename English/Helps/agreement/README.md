@@ -92,6 +92,9 @@ feedback from:
 <hr>
 agreement version: 1.32
 
+Copyright © 2021. MCH@Zhuaidadaya
+Copyright © 2021. MCH
+
 ## - translation -
 
 ["zhuaidadaya"](https://github.com/zhuaidadaya) translated all about MCH texts<br>
