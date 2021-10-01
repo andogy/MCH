@@ -21,6 +21,23 @@ if MCH is changed so that no one in the family can recognize it...
 it has been developed by yourself. you can feel free to it
 ```
 
+### Community
+```
+you can apply we to accumulate modify MCH or MCH resource by you
+
+if your code are safe, no virusand substantiality to modify
+we will allow accumulate if have not accident
+
+accumulate resource will show and can download in official MCH
+（in the future）
+
+of course
+if you do not want accumulate with we
+we will not be mandatory you
+but please declara official source in you community release
+（your official ver page and MCH official source）
+```
+
 ### close source
 ```
 we do not allow any person or thing to close source of MCH
@@ -73,7 +90,7 @@ feedback from:
 [mail](mailto:1501917367@qq.com) and 
 [Issue](https://github.com/zhuaidadaya/MCH/issues)
 <hr>
-agreement version: 1.31
+agreement version: 1.32
 
 ## - translation -
 
