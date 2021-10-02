@@ -1,0 +1,5 @@
+{
+    "name": "@exn",
+    "description": "this is a example extra",
+    "loader": "Mex.Declared"
+}

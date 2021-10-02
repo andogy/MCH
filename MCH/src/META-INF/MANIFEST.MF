@@ -1,9 +1,10 @@
 Manifest-Version: 1.0
 Main-Class: com.github.zhuaidadaya.MCH.Community
 Class-Path: gson-2.8.7.jar log4j-1.2.17.jar dnsjava-2.0.8.jar ezmorph-1.
- 0.3.jar json-20210307.jar commons-logging.jar zip4j-2.7.0 (1).jar annot
- ations-20.1.0.jar json-lib-2.1-jdk15.jar commons-lang-2.5(1).jar Java-W
- ebSocket-1.5.2.jar slf4j-api-2.0.0-alpha1.jar commons-beanutils-1.7.0.j
- ar commons-collections-3.1.jar javax.websocket-api-1.1.jar slf4j-log4j1
- 2-2.0.0-alpha1.jar json-20210307.jar
+ 0.3.jar json-20210307.jar commons-logging.jar zip4j-2.7.0 annotations-2
+ 0.1.0.jar json-lib-2.1-jdk15.jar commons-lang-2.5(1).jar Java-WebSocket
+ -1.5.2.jar slf4j-api-2.0.0-alpha1.jar commons-beanutils-1.7.0.jar commo
+ ns-collections-3.1.jar javax.websocket-api-1.1.jar slf4j-log4j12-2.0.0-
+ alpha1.jar json-20210307.jar oshi-core-5.8.2.jar jna-5.9.0.jar jna-plat
+ form-5.9.0.jar
 

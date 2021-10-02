@@ -203,6 +203,9 @@ public class displaySets extends Thread {
         MinecraftLauncher.removeJava.setBorderPainted(false);
         MinecraftLauncher.removeJava.setFocusPainted(false);
 
+        MinecraftLauncher.forceStopMinecraft.setBorderPainted(false);
+        MinecraftLauncher.forceStopMinecraft.setFocusPainted(false);
+
         loadingWindow.progress.setBorderPainted(false);
 
         Color foregroundColor = new Color(214, 214, 214);
@@ -234,6 +237,8 @@ public class displaySets extends Thread {
         MinecraftLauncher.javaScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
         MinecraftLauncher.minecraftAreaList.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
 
+        MinecraftLauncher.downloadName.setCaretColor(caretColor);
+
         MinecraftLauncher.launch.setBackground(buttonColor);
 
         MinecraftLauncher.downloadName.setForeground(foregroundColor);
@@ -248,6 +253,14 @@ public class displaySets extends Thread {
         MinecraftLauncher.setUsingJava.setForeground(foregroundColor);
         MinecraftLauncher.importJava.setBackground(buttonColor);
         MinecraftLauncher.importJava.setForeground(foregroundColor);
+        MinecraftLauncher.removeJava.setBackground(buttonColor);
+        MinecraftLauncher.removeJava.setForeground(foregroundColor);
+
+        MinecraftLauncher.minecraftAreaSwitchWarning.setBackground(backgroundColor);
+        MinecraftLauncher.minecraftAreaSwitchWarning.setForeground(foregroundColor);
+
+        MinecraftLauncher.forceStopMinecraft.setBackground(buttonColor);
+        MinecraftLauncher.forceStopMinecraft.setForeground(foregroundColor);
 
         //        固定颜色配置界面(初始化引导)
         Config.jt.setForeground(foregroundColor);
@@ -755,6 +768,8 @@ public class displaySets extends Thread {
         MinecraftLauncher.minecraftAreaList.setBackground(inputBoxColor);
         MinecraftLauncher.minecraftAreaList.setForeground(foregroundColor);
 
+        MinecraftLauncher.runningMinecraftStatus.setBackground(backgroundColor);
+        MinecraftLauncher.runningMinecraftStatus.setForeground(foregroundColor);
         //        MinecraftLauncher.showSelect
 
         //        使用线程休眠减少CPU负担,45ms时间可以减少相当大的CPU负载,且用户无法察觉延迟

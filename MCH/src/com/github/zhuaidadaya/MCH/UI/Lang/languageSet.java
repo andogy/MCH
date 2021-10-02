@@ -165,6 +165,8 @@ public class languageSet extends Thread {
 
             MinecraftLauncher.removeJava.setText(lang.get("remove"));
 
+            MinecraftLauncher.forceStopMinecraft.setText(lang.get("force_stop"));
+
             try {
                 new JSONObject(MinecraftLauncher.minecraftVersions.get(MinecraftLauncher.verList.getSelectedValue().toString()).toString()).get("path");
 
@@ -175,7 +177,7 @@ public class languageSet extends Thread {
 
                 }
 
-                boolean deleting = false;
+                boolean deleting= false;
                 try {
                     downloading = MinecraftLauncher.deletingMinecraft.contains(MinecraftLauncher.verList.getSelectedValue());
                 } catch (Exception ex) {

@@ -6,8 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/MCH/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="library" exported="" name="libs" level="project" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="library" exported="" scope="PROVIDED" name="libs" level="project" />
+    <orderEntry type="module-library" exported="" scope="PROVIDED">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/gson-2.8.7.jar!/" />

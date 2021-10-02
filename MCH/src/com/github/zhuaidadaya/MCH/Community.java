@@ -1,6 +1,5 @@
 package com.github.zhuaidadaya.MCH;
 
-import ch.randelshofer.quaqua.QuaquaLookAndFeel;
 import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
@@ -93,7 +92,6 @@ public class Community {
     }
 
     public void startMch(String... arg) {
-
         HashSet<String> args = new HashSet<>(Arrays.asList(arg));
 
         saveErrorLog = true;

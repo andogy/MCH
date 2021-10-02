@@ -1,0 +1,3362 @@
+{
+    "languages": [
+        {
+            "chinese": [
+                {
+                    "canToWiki": "同时按下Ctrl与W可以前往 \"%s\" 的Wiki页面",
+                    "jsonErr": "%s 是一个错误的json",
+                    "noComplete": "未完成的命令:",
+                    "@gugul": "咕咕了，以后做这个",
+                    "@command_help": "查找命令用法",
+                    "@command_gamemode": "设定游戏模式",
+                    "@command_gamerule": "设定或查询游戏规则",
+                    "@comamnd_ability": "给予或清除玩家能力",
+                    "@command_achievenment": "给予或清除玩家的成就(已失效)",
+                    "@command_advancement": "添加、清除、查询玩家的进度",
+                    "@command_agent": "操作吉祥物",
+                    "@command_bossbar": "操作boss栏",
+                    "commandNotFound": "无法找到此命令的这种用法",
+                    "commandOver": "命令已经结束",
+                    "pageOut": "页码超出限制",
+                    "@page": "页码",
+                    "@boolean_true": "启用",
+                    "@boolean_false": "禁用",
+                    "@appointName": "指定名称",
+                    "@sel_s": "执行命令的实体",
+                    "@sel_r": "随机玩家",
+                    "@sel_p": "最近的玩家",
+                    "@sel_e": "所有实体",
+                    "@sel_a": "所有玩家",
+                    "@adventure": "冒险",
+                    "@default": "默认",
+                    "@creative": "创造",
+                    "@survival": "生存",
+                    "@spectator": "旁观 (仅java版可用)",
+                    "@ability_worldbuilder": "给予玩家成为世界建造者的能力",
+                    "@ability_mayfly": "给予玩家飞行能力",
+                    "@ability_mute": "禁言玩家",
+                    "@grant": "给予成就",
+                    "@revoke": "清除成就",
+                    "@advancement_only": "指定一个成就",
+                    "@advancement_everything": "所有成就",
+                    "@advancement_condition": "条件",
+                    "@advancement_through": "指定进度及其全部上游和下游进度",
+                    "@advancement_from": "指定进度及其下游进度",
+                    "@advancement_until": "指定进度及其上游进度",
+                    "@alwaysday": "是否启用昼夜更替",
+                    "@attribute": "修改、查询玩家和生物的属性",
+                    "@ban_player": "封禁一个玩家",
+                    "@ban_ip": "封禁一个IP",
+                    "@ban_reason": "原因",
+                    "@ban_reason_text": "<封禁原因 : 字符串>",
+                    "@ban_ip_reason_text": "<IP : 字符串>",
+                    "@null": "",
+                    "@ban_strings": "字符串",
+                    "@ban_list": "封禁列表",
+                    "@ban_ip_list": "IP列表",
+                    "@ban_players_list": "玩家列表",
+                    "@bossbar_add": "创建一个新boss栏",
+                    "@bossbar_list": "显示已有的bossbar",
+                    "@bossbar_remove": "清除一个已有的bossbar",
+                    "@bossbar_set": "设置一个bossbar的属性",
+                    "@bossbar_get": "获取一个bossbar的属性",
+                    "@namespace": "<命名空间 : 字符串>",
+                    "@name_space": "命名空间",
+                    "@json": "<json : String>",
+                    "@bossbar_get_max": "获得boosbar的最大值",
+                    "@bossbar_get_players": "获得可以看到此bossbar的玩家",
+                    "@bossbar_get_value": "获得bossbar的值",
+                    "@bossbar_get_visible": "获得bossbar的显示状态",
+                    "@color": "设置颜色",
+                    "@blue": "蓝色",
+                    "@green": "绿色",
+                    "@pink": "粉色",
+                    "@purple": "紫色",
+                    "@red": "红色",
+                    "@white": "白色",
+                    "@yellow": "黄色",
+                    "@bossbar_max_set": "<最大值 : 整数>",
+                    "@Integer_valueErr": "是一个错误的整数",
+                    "@help_valueOutLimited": "页数超出限制",
+                    "@valueOutLimited": "值超出限制",
+                    "@bossbar_max_set_value": "最大值",
+                    "bossbar_set_max": "设置最大值",
+                    "@bossbar_set_name": "设置bossbar名称",
+                    "@bossbar_set_players": "设置可以看见bossbar的玩家",
+                    "@bossbar_set_style": "设置bossbar的样式",
+                    "@bossbar_style_progress": "默认样式",
+                    "@bossbar_style_notched_6": "分为六截显示",
+                    "@bossbar_style_notched_10": "分为十截显示",
+                    "@bossbar_style_notched_12": "分为十二截显示",
+                    "@bossbar_style_notched_20": "分为二十截显示",
+                    "@bossbar_set_value": "设置bossbar的值",
+                    "@bossbar_value_set": "<值 : 整数>",
+                    "@bossbar_value_sey_value": "值",
+                    "@bossbar_set_visible": "设置bossbar显示状态",
+                    "@command_camerashake": "设置镜头抖动效果",
+                    "@camerashake_add": "添加一个镜头摇晃",
+                    "@camerashake_stop": "停止镜头摇晃",
+                    "@banip": "封禁一个IP(已失效)",
+                    "@advancement_conditions": "<条件 : 字符串>",
+                    "@all": "所有",
+                    "@command_changesettin": "在bds运行时更改设置",
+                    "@allow-cheats": "允许玩家作弊",
+                    "@difficulty": "更改游戏难度",
+                    "@peaceful": "和平模式",
+                    "@easy": "简单模式",
+                    "@normal": "一般模式",
+                    "@hard": "困难模式",
+                    "@peaceful_be": "和平模式(仅基岩版)",
+                    "@easy_be": "简单模式(仅基岩版)",
+                    "@normal_be": "一般模式(仅基岩版)",
+                    "@hard_be": "困难模式(仅基岩版)",
+                    "@lost_command": "未证实命令",
+                    "@clear_data": "<物品特殊值 : 整数>",
+                    "@item_count": "<数量 : 整数>",
+                    "@item_data": "<物品特殊值 : 整数>",
+                    "@count": "数量",
+                    "@command_clear": "清除玩家物品栏的的物品",
+                    "@command_clone": "将一个区域克隆到另一个区域",
+                    "@command_clearspawnpoint": "清除玩家的重生点",
+                    "@x_position_integer": "<X轴坐标 : 整数>",
+                    "@x": "x轴坐标",
+                    "@y_position_integer": "<y轴坐标 : 整数>",
+                    "@y": "y轴坐标",
+                    "@z_position_integer": "<z轴坐标 : 整数>",
+                    "@z": "z轴坐标",
+                    "@current_position": "当前位置",
+                    "@clone_x_start_position_integer": "<区域起始坐标(X轴): 整数>",
+                    "@clone_y_start_position_integer": "<区域起始坐标(Y轴) : 整数>",
+                    "@clone_z_start_position_integer": "<区域起始坐标(Z轴) : 整数>",
+                    "@clone_x_diagonally_position_integer": "<区域对角坐标(X轴) : 整数>",
+                    "@clone_y_diagonally_position_integer": "<区域对角坐标(Y轴) : 整数>",
+                    "@clone_z_diagonally_position_integer": "<区域对角坐标(Z轴) : 整数>",
+                    "@clone_x_position_target": "<目标坐标(X轴) : 整数>",
+                    "@clone_y_position_target": "<目标坐标(Y轴) : 整数>",
+                    "@clone_z_position_target": "<目标坐标(Z轴) : 整数>",
+                    "@clone_replace": "直接替换方块",
+                    "@clone_replace_normal": "默认替换方式",
+                    "@clone_replace_force": "强制替换",
+                    "@clone_replace_move": "替换后清除源区域的方块",
+                    "@clone_masked": "克隆非空气方块",
+                    "@clone_filtered": "克隆选定的方块",
+                    "mayErrNamespace": "是一个不正确的命名空间",
+                    "@command_closechat": "关闭聊天框(已失效)",
+                    "@command_closewebsocket": "断开wsserver的连接",
+                    "@command_closewebsocket_description": "此命令用于断开游戏与websocket的连接，仅限websocket服务器主动发送",
+                    "@command_code": "启用代码编辑器",
+                    "@command_lost": "这个命令来自于Minecraft Wiki，上面没用给出任何有关此命令的其他信息\n并且此命令暂时无法被我们确认是否属实",
+                    "@command_codebuilder": "设置玩家的代码编辑状态",
+                    "@command_connect": "连接到websocket服务器",
+                    "@connect_out": "断开websocket服务器的连接",
+                    "@connect_URL": "<URL : 字符串>",
+                    "@URL": "URL",
+                    "@command_data": "获取、合并、移除实体或方块的数据标签",
+                    "@command_datapack": "控制加载的数据包",
+                    "@disable_datapack": "禁用指定数据包",
+                    "@enable_datapack": "启用指定数据包",
+                    "@list_datapack": "显示数据包列表",
+                    "@datapack_list_available": "显示可用数据包列表",
+                    "@datapack_list_enable": "显示启用数据包列表",
+                    "@datapack_name": "<数据包名称 : 字符串>",
+                    "@dataapckname": "数据包名称",
+                    "@vanilla_datapack": "原版数据包",
+                    "@datapack_first": "最低优先级",
+                    "@datapack_last": "最高优先级",
+                    "@datapack_after": "优先级高于指定数据包",
+                    "@datapack_before": "优先级低于指定数据包",
+                    "@command_daylock": "是否锁定时间",
+                    "@command_debug": "设置调试状态",
+                    "@start_debug": "开始调试",
+                    "@stop_debug": "停止调试",
+                    "@adventure_bedrock": "冒险(仅基岩版)",
+                    "@creative_bedrock": "创造(基岩版)",
+                    "@survival_bedrock": "生存(仅基岩版)",
+                    "@default_bedrock": "默认(仅基岩版)",
+                    "@command_defaultgamemode": "设置默认游戏模式",
+                    "@command_deop": "去除玩家的操作员权限",
+                    "@command_dialogue": "打开一个玩家的NPC对话框",
+                    "@command_difficulty": "设置游戏难度",
+                    "@command_effect": "添加或清除状态效果",
+                    "@command_enableencryption": "为wsserver连接进行加密",
+                    "@command_enchant": "附魔玩家的物品",
+                    "@effect_clear_je": "为目清除指定或全部效果",
+                    "@effect_clear": "为目标清除所有效果",
+                    "@effect_give": "给予目标一个效果",
+                    "@effect_time": "<有效时间 : 整数>",
+                    "@effect_times": "持续时间(秒)",
+                    "@effect_amplifier": "<效果等级 : 整数>",
+                    "@effect_amplifiers": "效果等级",
+                    "@effect_no_particle": "隐藏粒子",
+                    "@effect_have_particle": "显示粒子",
+                    "@websocketserver_public_key": "<公钥 : 字符串>",
+                    "@public_key": "公钥",
+                    "@salt_value": "<盐值 : 整数>",
+                    "@salt": "盐值",
+                    "@enchant_level": "<附魔等级 : 整数>",
+                    "@enchant_levels": "附魔等级",
+                    "@command_event": "触发实体事件",
+                    "@event_entity": "实体目标",
+                    "@command_execute": "代表实体执行一个命令",
+                    "@execute_detect": "判断指定位置的方块,与目标方块一致才执行命令",
+                    "@blockdata": "<特殊值 : 整数>",
+                    "@block_datas": "特殊值",
+                    "@acacia_boat": "金合欢木船",
+                    "@bat_spawn_egg": "生成蝙蝠",
+                    "@bat": "蝙蝠",
+                    "@spawn_egg": "刷怪蛋",
+                    "@bee_spawn_egg": "生成蜜蜂",
+                    "@bee": "蜜蜂",
+                    "@blaze_spawn_egg": "生成烈焰人",
+                    "@blaze": "烈焰人",
+                    "@cat_spawn_egg": "生成猫",
+                    "@cat": "猫",
+                    "@cave_spider_spawn_egg": "生成洞穴蜘蛛",
+                    "@cave_spider": "洞穴蜘蛛",
+                    "@chicken_spawn_egg": "生成鸡",
+                    "@chicken": "鸡",
+                    "@cod_spawn_egg": "生成鳕鱼",
+                    "@cod": "鳕鱼",
+                    "@cow_spawn_egg": "生成牛",
+                    "@cow": "牛",
+                    "@creeper_spawn_egg": "生成苦力怕",
+                    "@creeper": "苦力怕",
+                    "@dolphin_spawn_egg": "生成海豚",
+                    "@dolphin": "海豚",
+                    "@donkey_spawn_egg": "生成驴",
+                    "@donkey": "驴",
+                    "@drowned_spawn_egg": "生成溺尸",
+                    "@drowned": "溺尸",
+                    "@elder_guardian_spawn_egg": "生成远古守卫者",
+                    "@elder_guardian": "远古守卫者",
+                    "@enderman_spawn_egg": "生成末影人",
+                    "@enderman": "末影人",
+                    "@endermite_spawn_egg": "生成末影螨",
+                    "@endermite": "末影螨",
+                    "@evoker_spawn_egg": "生成唤魔者",
+                    "@evoker": "唤魔者",
+                    "@fox_spawn_egg": "生成狐狸",
+                    "fox": "狐狸",
+                    "@ghast_spawn_egg": "生成恶魂",
+                    "@ghast": "恶魂",
+                    "@glow_squid_spawn_egg": "生成发光鱿鱼",
+                    "@glow_squid": "发光鱿鱼",
+                    "@goat_spawn_egg": "生成山羊",
+                    "@goat": "山羊",
+                    "@guardian_spawn_egg": "生成守卫者",
+                    "@guardian": "守卫者",
+                    "@hoglin_spawn_egg": "生成疣猪兽",
+                    "@hoglin": "疣猪兽",
+                    "@horse_spawn_egg": "生成马",
+                    "@house": "马",
+                    "@husk_spawn_egg": "生成尸壳",
+                    "@husk": "尸壳",
+                    "@llama_spawn_egg": "生成羊驼",
+                    "@llama": "羊驼",
+                    "@magma_cube_spawn_egg": "生成岩浆怪",
+                    "@magma_cube": "岩浆怪",
+                    "@mooshroom_spawn_egg": "生成哞菇",
+                    "@mooshroom": "哞菇",
+                    "@mule_spawn_egg": "生成骡",
+                    "@mule": "骡",
+                    "@ocelot_spawn_egg": "生成豹猫",
+                    "@ocelot": "豹猫",
+                    "@panda_spawn_egg": "生成熊猫",
+                    "@panda": "熊猫",
+                    "@parrot_spawn_egg": "生成鹦鹉",
+                    "@parrot": "鹦鹉",
+                    "@phantom_spawn_egg": "生成幻翼",
+                    "@phantom": "幻翼",
+                    "@pig_spawn_egg": "生成猪",
+                    "@pig": "猪",
+                    "@piglin_brute_spawn_egg": "生成猪灵蛮兵",
+                    "@pihlin_brute": "猪灵蛮兵",
+                    "@piglin_spawn_egg": "生成猪灵",
+                    "@pihlin": "猪灵",
+                    "@pillager_spawn_egg": "生成掠夺者",
+                    "@pillager": "掠夺者",
+                    "@polar_bear_spawn_egg": "生成北极熊",
+                    "@pufferfish_spawn_egg": "生成河豚",
+                    "@rabbit_spawn_egg": "生成兔子",
+                    "@ravager_spawn_egg": "生成劫掠兽",
+                    "@ravager": "劫掠兽",
+                    "@salmon_spawn_egg": "生成绵羊",
+                    "@shulker_spawn_egg": "生成潜影贝",
+                    "@silverfish_spawn_egg": "生成蠹虫",
+                    "@skeleton_horse_spawn_egg": "生成骷髅马",
+                    "@skeleton_spawn_egg": "生成骷髅",
+                    "@slime_spawn_egg": "生成史莱姆",
+                    "@spider_spawn_egg": "生成蜘蛛",
+                    "@squid_spawn_egg": "生成鱿鱼",
+                    "@stray_spawn_egg": "生成流浪者",
+                    "@strider_spawn_egg": "生成炽足兽",
+                    "@tropical_fish_spawn_egg": "生成热带鱼",
+                    "@turtle_spawn_egg": "生成海龟",
+                    "@vex_spawn_egg": "生成恼鬼",
+                    "@villager_spawn_egg": "生成村民",
+                    "@vindicator_spawn_egg": "生成卫道士",
+                    "@wandering_trader_spawn_egg": "生成流浪商人",
+                    "@witch_spawn_egg": "生成女巫",
+                    "@wither_skeleton_spawn_egg": "生成凋零骷髅",
+                    "@wolf_spawn_egg": "生成狼",
+                    "@zoglin_spawn_egg": "生成僵尸疣猪兽",
+                    "@zombie_horse_spawn_egg": "生成僵尸马",
+                    "@zombie_pigman_spawn_egg": "生成僵尸猪灵",
+                    "@zombie_spawn_egg": "生成僵尸",
+                    "@zombie_villager_spawn_egg": "生成僵尸村民",
+                    "@npc_spawn_egg": "生成NPC",
+                    "@command_give": "给予玩家物品",
+                    "@command_globalpause": "查询或设置所有玩家的世界暂停状态(已失效)",
+                    "@command_immutableworld": "设置世界的不可变状态(已失效)",
+                    "@immutable": "不可变",
+                    "@mutable": "可变",
+                    "@command_item": "修改方块或实体的物品栏",
+                    "@ender_pearl": "末影珍珠",
+                    "@tnt_minecart": "TNT矿车",
+                    "@current_position_wikiTips": "当前位置",
+                    "@coordinates_wikiTips": "坐标",
+                    "@command_kick": "将玩家踢出服务器",
+                    "@kick_reason": "<原因 : 字符串>",
+                    "@reason": "原因",
+                    "@double_valueErr": "是一个错误的双精浮点数",
+                    "@item_special_data": "特殊值"
+                }
+            ]
+        },
+        {
+            "english": [
+                {
+                    "canToWiki": "press Ctrl and W at the same time can go Wiki page of \"%s\"",
+                    "noComplete": "there command not complete:",
+                    "@gugul": "this will complete, but not now",
+                    "@command_help": "find usage of command",
+                    "@command_gamemode": "set gamemode",
+                    "@command_gamerule": "set or query gamerule",
+                    "@comamnd_ability": "give or clear players ability",
+                    "@command_achievenment": "give or clear players achievement(invalid)",
+                    "@command_advancement": "add、clear、query players advancement",
+                    "@command_agent": "operation agent",
+                    "@command_bossbar": "operation boss bar",
+                    "commandNotFound": "This usage of this command cannot be found",
+                    "commandOver": "command is over",
+                    "pageOut": "page out of max",
+                    "@page": "page",
+                    "@boolean_true": "enable",
+                    "@boolean_false": "disable",
+                    "appointName": "specify name",
+                    "@sel_s": "entity that execute command",
+                    "@sel_r": "random player",
+                    "@sel_p": "nearly player",
+                    "@sel_e": "all entities",
+                    "@sel_a": "all players",
+                    "@adventure": "adventure mode",
+                    "@default": "default mode",
+                    "@creative": "creative mode",
+                    "@survival": "survival mode",
+                    "@spectator": "spectator mode (only java edition)",
+                    "@ability_worldbuilder": "give player builder world ability",
+                    "@ability_mayfly": "give player fly ability",
+                    "@ability_mute": "mute for player",
+                    "@grant": "give advancement",
+                    "@revoke": "clear advancement",
+                    "@advancement_only": "specify advancement",
+                    "@advancement_everything": "all advancement",
+                    "@advancement_through": "advancement and its upstream and downstream",
+                    "@advancement_from": "advancement and its downstream",
+                    "@advancement_until": "advancement and its upstream",
+                    "@alwaysday": "enable day night alternation or not",
+                    "@attribute": "modify and query attribute of player and biology",
+                    "@ban_player": "ban a player",
+                    "@ban_ip": "ban a IP",
+                    "@ban_reason": "reason",
+                    "@ban_reason_text": "<reason : Staring>",
+                    "@ban_ip_reason_text": "<IP : String>",
+                    "@null": "",
+                    "@ban_strings": "a string",
+                    "@ban_list": "list of ban",
+                    "@ban_ip_list": "list of ip",
+                    "@ban_players_list": "list of players",
+                    "@bossbar_add": "create new boss bar",
+                    "@bossbar_list": "show existing bossbar",
+                    "@bossbar_remove": "remove a exitsing bossbar",
+                    "@bossbar_set": "set attribute of a bossbar",
+                    "@bossbar_get": "get attributeof a bossbar",
+                    "@namespace": "<name space : String>",
+                    "@aname_space": "name space",
+                    "@json": "<json : String>",
+                    "@bossbar_get_max": "get max value of boosbar",
+                    "@bossbar_get_value": "get value of bossbar",
+                    "@bossbar_get_visible": "get visible status of bossbar",
+                    "@color": "set color",
+                    "@blue": "blue",
+                    "@green": "green",
+                    "@pink": "pink",
+                    "@purple": "purple",
+                    "@red": "red",
+                    "@white": "white",
+                    "@yellow": "yellow",
+                    "@bossbar_max_set": "<max : Integer>",
+                    "@Integer_valueErr": "is a error integer",
+                    "@help_valueOutLimited": "the page is out of limited",
+                    "@valueOutLimited": "the number is out of limited",
+                    "@bossbar_max_set_value": "max value",
+                    "bossbar_set_max": "set max value",
+                    "@bossbar_set_name": "set bossbar name",
+                    "@bossbar_set_players": "set who can see bossbar",
+                    "@bossbar_set_style": "set style of bossbar",
+                    "@bossbar_style_progress": "default style",
+                    "@bossbar_style_notched_6": "shown as six sections",
+                    "@bossbar_style_notched_10": "shown as ten sections",
+                    "@bossbar_style_notched_12": "shown as twelve sections",
+                    "@bossbar_style_notched_20": "shown as twenty sections",
+                    "@bossbar_set_value": "set value of bossbar",
+                    "@bossbar_value_set": "<value : Integer>",
+                    "@bossbar_value_sey_value": "value",
+                    "@bossbar_set_visible": "set visible status of bossbar",
+                    "@command_camerashake": "set shake of camera",
+                    "@camerashake_add": "add a camera shake effect",
+                    "@camerashake_stop": "stop a camera shake effect",
+                    "@banip": "ban a IP(invalid)",
+                    "@achievenment_give": "give achievement",
+                    "@achievenment_take": "remove achievenment",
+                    "@advancement_conditions": "<condition : String>",
+                    "@all": "all",
+                    "@command_changesettin": "change settings at bds running",
+                    "@allow-cheats": "allow player cheats",
+                    "@difficulty": "changed game difficulty",
+                    "@peaceful": "peaceful mode",
+                    "@easy": "easy mdoe",
+                    "@normal": "normal mode",
+                    "@hard": "hard mode",
+                    "@lost_command": "unconfirmed command",
+                    "@clear_data": "<item data : Integer>",
+                    "@item_data": "<item data : Integer>",
+                    "@count": "count",
+                    "@command_clear": "clear items in players item list",
+                    "@command_clearspawnpoint": "clear spawn point of player",
+                    "@command_clone": "clone the area from position to other position",
+                    "@x_position_integer": "<X-axis : Integer>",
+                    "@x": "X-axis",
+                    "@y_position_integer": "<Z-axis : Integer>",
+                    "@y": "Y-axis",
+                    "@z_position_integer": "<Z-axis : Integer>",
+                    "@z": "Z-axis",
+                    "@current_position": "current position",
+                    "@clone_x_start_position_integer": "<area start position(X-axis): Integer>",
+                    "@clone_y_start_position_integer": "<area start position(Y-axis) : Integer>",
+                    "@clone_z_start_position_integer": "<area start position(Z-axis) : Integer>",
+                    "@clone_x_diagonally_position_integer": "<area diagonally position(X-axis): Integer>",
+                    "@clone_y_diagonally_position_integer": "<area diagonally position(Y-axis): Integer>",
+                    "@clone_z_diagonally_position_integer": "<area diagonally position(Z-axis): Integer>",
+                    "@clone_x_position_target": "<target position(X-axis> : Integer",
+                    "@clone_y_position_target": "<target position(Y-axis> : Integer",
+                    "@clone_z_position_target": "<target position(Z-axis> : Integer",
+                    "@clone_replace": "direct replace the blocks",
+                    "@clone_replace_normal": "default replace type",
+                    "@clone_replace_force": "force replace",
+                    "@clone_replace_move": "clear blocks in source area after replace",
+                    "@clone_masked": "clone non air blocks",
+                    "@clone_filtered": "clone filtered block",
+                    "mayErrNamespace": "not is a correct namespace",
+                    "@command_closechat": "close chat box(invalid)",
+                    "@command_closewebsocket": "close connect of wsserver",
+                    "@command_closewebsocket_description": "this command usage close connect of websocket，only can execute on websocket",
+                    "@command_code": "enable code editor",
+                    "@command_lost": "this command from Minecraft Wiki,it not give any info about this command\nand this command temporary can not be confirmed is true have by us",
+                    "@command_codebuilder": "set code builder status of player",
+                    "@command_connect": "connect to websocket server",
+                    "@connect_out": "close connect of websocket server",
+                    "@connect_URL": "<URL : String>",
+                    "@URL": "URL",
+                    "@command_data": "get、merge、remove tag data of entity or block",
+                    "@command_datapack": "control loaded data packs",
+                    "@disable_datapack": "disable appoint datapack",
+                    "@enable_datapack": "enable appoint datapack",
+                    "@list_datapack": "show list of datapacks",
+                    "@datapack_list_available": "show list of available datapacks",
+                    "@datapack_list_enable": "show list of enable datapacks",
+                    "@datapack_name": "<pack name : String>",
+                    "@dataapckname": "pack name",
+                    "@vanilla_datapack": "minecraft datapack",
+                    "@datapack_first": "lowest priority",
+                    "@datapack_last": "highest priority",
+                    "@datapack_after": "priority higher than appoint packet",
+                    "@datapack_before": "priority lower than appoint packet",
+                    "@command_daylock": "lock the time",
+                    "@command_debug": "set debug status",
+                    "@start_debug": "start debug",
+                    "@stop_debug": "stop debug",
+                    "@adventure_bedrock": "adventure mode(only bedrock edition)",
+                    "@creative_bedrock": "creative mode(only bedrock edition)",
+                    "@survival_bedrock": "survival mode(only bedrock edition)",
+                    "@default_bedrock": "default mdoe(only bedrock edition)",
+                    "@command_defaultgamemode": "set default game mode",
+                    "@command_deop": "remove operator authority of player",
+                    "@command_dialogue": "open NCP dialogue box of player",
+                    "@command_difficulty": "set difficulty of game",
+                    "@command_effect": "add or clear effect",
+                    "@command_enableencryption": "encryption connect for wsserver",
+                    "@command_enchant": "enchant item for player",
+                    "@effect_clear_je": "clear one or all effect for target",
+                    "@effect_clear": "clear all effect for target",
+                    "@effect_give": "give a effect for target",
+                    "@effect_time": "<effect time : Integer>",
+                    "@effect_times": "effect time(second5)",
+                    "@effect_amplifier": "<effect level : Inteer>",
+                    "@effect_amplifiers": "effect level",
+                    "@effect_no_particle": "hide particle",
+                    "@effect_have_particle": "show particle",
+                    "@websocketserver_public_key": "<public key : String>",
+                    "@public_key": "public key",
+                    "@salt_value": "<salt value : Integer>",
+                    "@salt": "salt value",
+                    "@enchant_level": "<enchant level : Integer>",
+                    "@enchant_levels": "enchant level",
+                    "@command_event": "trigger entity event",
+                    "@event_entity": "entity target",
+                    "@command_execute": "run command behalf of entity",
+                    "@execute_detect": "Judge block in specified position, and execute the command only when it is consistent with the target block",
+                    "@blockdata": "<block data : Integer>",
+                    "@block_datas": "block data",
+                    "@acacia_boat": "acacia boat",
+                    "@bat_spawn_egg": "spawn egg of bat",
+                    "@bat": "bat",
+                    "@spawn_egg": "spawn egg",
+                    "@bee_spawn_egg": "spawn egg of bee",
+                    "@bee": "bee",
+                    "@blaze_spawn_egg": "spawn egg of blaze",
+                    "@blaze": "blaze",
+                    "@cat_spawn_egg": "spawn egg of cat",
+                    "@cat": "cat",
+                    "@cave_spider_spawn_egg": "spawn egg of cave spider",
+                    "@cave_spider": "cave spider",
+                    "@chicken_spawn_egg": "spawn egg of chicken",
+                    "@chicken": "chicken",
+                    "@cod_spawn_egg": "spawn egg of cod",
+                    "@cod": "cod",
+                    "@cow_spawn_egg": "spawn egg of cow",
+                    "@cow": "cow",
+                    "@creeper_spawn_egg": "spawn egg of creeper",
+                    "@creeper": "creeper",
+                    "@dolphin_spawn_egg": "spawn egg of dolphin",
+                    "@dolphin": "dolphin",
+                    "@donkey_spawn_egg": "spawn egg of donkey",
+                    "@donkey": "donkey",
+                    "@drowned_spawn_egg": "spawn egg of drowned",
+                    "@drowned": "drowned",
+                    "@elder_guardian_spawn_egg": "spawn egg of elder guardian",
+                    "@elder_guardian": "elder guardian",
+                    "@enderman_spawn_egg": "spawn egg of enderman",
+                    "@enderman": "ender man",
+                    "@endermite_spawn_egg": "spawn egg of endermite",
+                    "@endermite": "ender mite",
+                    "@evoker_spawn_egg": "spawn egg of evoker",
+                    "@evoker": "evoker",
+                    "@fox_spawn_egg": "spawn egg of fox",
+                    "fox": "fox",
+                    "@ghast_spawn_egg": "spawn egg of ghast",
+                    "@ghast": "ghast",
+                    "@glow_squid_spawn_egg": "spawn egg of glow squid",
+                    "@glow_squid": "glow_squid",
+                    "@goat_spawn_egg": "spawn egg of goat",
+                    "@goat": "goat",
+                    "@guardian_spawn_egg": "spawn egg of guardian",
+                    "@guardian": "guardian",
+                    "@hoglin_spawn_egg": "spawn egg of hoglin",
+                    "@hoglin": "hoglin",
+                    "@horse_spawn_egg": "spawn egg of horse",
+                    "@house": "house",
+                    "@husk_spawn_egg": "spawn egg of husk",
+                    "@husk": "husk",
+                    "@llama_spawn_egg": "spawn egg of llama",
+                    "@llama": "llama",
+                    "@magma_cube_spawn_egg": "spawn egg of magma cube",
+                    "@magma_cube": "magma_cube",
+                    "@mooshroom_spawn_egg": "spawn egg of mooshroom",
+                    "@mooshroom": "mooshroom",
+                    "@mule_spawn_egg": "spawn egg of mule",
+                    "@mule": "mule",
+                    "@ocelot_spawn_egg": "spawn egg of ocelot",
+                    "@ocelot": "ocelot",
+                    "@panda_spawn_egg": "spawn egg of panda",
+                    "@panda": "panda",
+                    "@parrot_spawn_egg": "spawn egg of parrot",
+                    "@parrot": "parrot",
+                    "@phantom_spawn_egg": "spawn egg of phantom",
+                    "@phantom": "phantom",
+                    "@pig_spawn_egg": "spawn egg of pig",
+                    "@pig": "pig",
+                    "@piglin_brute_spawn_egg": "spawn egg of piglin brute",
+                    "@pihlin_brute": "pihlin brute",
+                    "@piglin_spawn_egg": "spawn egg of piglin",
+                    "@pihlin": "piglin",
+                    "@pillager_spawn_egg": "spawn egg of pillager",
+                    "@pillager": "pillager",
+                    "@polar_bear_spawn_egg": "spawn egg of polar bear",
+                    "@pufferfish_spawn_egg": "spwan egg of pufferfish",
+                    "@rabbit_spawn_egg": "spawn egg of pufferfish rabbit",
+                    "@ravager_spawn_egg": "spawn egg of ravager",
+                    "@ravager": "ravager",
+                    "@salmon_spawn_egg": "spawn egg of salmon",
+                    "@sheep_spawn_egg": "spawn egg of sheep",
+                    "@shulker_spawn_egg": "spawn egg of shulker",
+                    "@silverfish_spawn_egg": "spawn egg of silverfish",
+                    "@skeleton_horse_spawn_egg": "spawn egg of skeleton horse",
+                    "@skeleton_spawn_egg": "spawn egg of skeleton",
+                    "@slime_spawn_egg": "spawn egg of slime",
+                    "@spider_spawn_egg": "spawn egg of spider",
+                    "@squid_spawn_egg": "spawn egg of squid",
+                    "@stray_spawn_egg": "spawn egg of stray",
+                    "@strider_spawn_egg": "spawn egg of strider",
+                    "@tropical_fish_spawn_egg": "spawn egg of tropical fish",
+                    "@turtle_spawn_egg": "spawn egg of turtle",
+                    "@vex_spawn_egg": "spawn egg of vex",
+                    "@villager_spawn_egg": "spawn egg of villager",
+                    "@vindicator_spawn_egg": "spawn egg of vindicator",
+                    "@wandering_trader_spawn_egg": "spawn egg of wandering trader",
+                    "@witch_spawn_egg": "spawn egg of witch",
+                    "@wither_skeleton_spawn_egg": "spawn egg of wither skeleton",
+                    "@wolf_spawn_egg": "spawn egg of wolf",
+                    "@zoglin_spawn_egg": "spawn egg of zoglin",
+                    "@zombie_horse_spawn_egg": "spawn egg of zombie horse",
+                    "@zombie_pigman_spawn_egg": "spawn egg of zombie pigman",
+                    "@zombie_spawn_egg": "spawn egg of zombie",
+                    "@zombie_villager_spawn_egg": "spawn egg of zombie villager",
+                    "@npc_spawn_egg": "spawn egg of NPC",
+                    "@command_give": "give item to player",
+                    "@command_globalpause": "query or set pause status of all players(invalid)",
+                    "@command_immutableworld": "set immutable status of world(invalid)",
+                    "@immutable": "immutable",
+                    "@mutable": "mutable",
+                    "@command_item": "change items of player or block",
+                    "@ender_pearl": "pearl of ender man",
+                    "@tnt_minecart": "TNT minecart",
+                    "@current_position_wikiTips": "current position",
+                    "@coordinates_wikiTips": "coordinates",
+                    "@command_kick": "kick players from your server",
+                    "@kick_reason": "<reason : String>",
+                    "@reason": "reason",
+                    "@double_valueErr": "is a error double number",
+                    "@item_special_data": "special data"
+                }
+            ]
+        },
+        {
+            "chinese_tw": [
+                {
+                    "canToWiki": "同时按下Ctrl与W可以前往 \"%s\" 的Wiki页面",
+                    "jsonErr": "%s 是一个错误的json",
+                    "noComplete": "未完成的命令:",
+                    "@gugul": "咕咕了，以后做这个",
+                    "@command_help": "查找命令用法",
+                    "@command_gamemode": "设定游戏模式",
+                    "@command_gamerule": "设定或查询游戏规则",
+                    "@comamnd_ability": "给予或清除玩家能力",
+                    "@command_achievenment": "给予或清除玩家的成就(已失效)",
+                    "@command_advancement": "添加、清除、查询玩家的进度",
+                    "@command_agent": "操作吉祥物",
+                    "@command_bossbar": "操作boss栏",
+                    "commandNotFound": "无法找到此命令的这种用法",
+                    "commandOver": "命令已经结束",
+                    "pageOut": "页码超出限制",
+                    "@page": "页码",
+                    "@boolean_true": "启用",
+                    "@boolean_false": "禁用",
+                    "@appointName": "指定名称",
+                    "@sel_s": "执行命令的实体",
+                    "@sel_r": "随机玩家",
+                    "@sel_p": "最近的玩家",
+                    "@sel_e": "所有实体",
+                    "@sel_a": "所有玩家",
+                    "@adventure": "冒险",
+                    "@default": "默认",
+                    "@creative": "创造",
+                    "@survival": "生存",
+                    "@spectator": "旁观 (仅java版可用)",
+                    "@ability_worldbuilder": "给予玩家成为世界建造者的能力",
+                    "@ability_mayfly": "给予玩家飞行能力",
+                    "@ability_mute": "禁言玩家",
+                    "@grant": "给予成就",
+                    "@revoke": "清除成就",
+                    "@advancement_only": "指定一个成就",
+                    "@advancement_everything": "所有成就",
+                    "@advancement_condition": "条件",
+                    "@advancement_through": "指定进度及其全部上游和下游进度",
+                    "@advancement_from": "指定进度及其下游进度",
+                    "@advancement_until": "指定进度及其上游进度",
+                    "@alwaysday": "是否启用昼夜更替",
+                    "@attribute": "修改、查询玩家和生物的属性",
+                    "@ban_player": "封禁一个玩家",
+                    "@ban_ip": "封禁一个IP",
+                    "@ban_reason": "原因",
+                    "@ban_reason_text": "<封禁原因 : 字符串>",
+                    "@ban_ip_reason_text": "<IP : 字符串>",
+                    "@null": "",
+                    "@ban_strings": "字符串",
+                    "@ban_list": "封禁列表",
+                    "@ban_ip_list": "IP列表",
+                    "@ban_players_list": "玩家列表",
+                    "@bossbar_add": "创建一个新boss栏",
+                    "@bossbar_list": "显示已有的bossbar",
+                    "@bossbar_remove": "清除一个已有的bossbar",
+                    "@bossbar_set": "设置一个bossbar的属性",
+                    "@bossbar_get": "获取一个bossbar的属性",
+                    "@namespace": "<命名空间 : 字符串>",
+                    "@name_space": "命名空间",
+                    "@json": "<json : String>",
+                    "@bossbar_get_max": "获得boosbar的最大值",
+                    "@bossbar_get_players": "获得可以看到此bossbar的玩家",
+                    "@bossbar_get_value": "获得bossbar的值",
+                    "@bossbar_get_visible": "获得bossbar的显示状态",
+                    "@color": "设置颜色",
+                    "@blue": "蓝色",
+                    "@green": "绿色",
+                    "@pink": "粉色",
+                    "@purple": "紫色",
+                    "@red": "红色",
+                    "@white": "白色",
+                    "@yellow": "黄色",
+                    "@bossbar_max_set": "<最大值 : 整数>",
+                    "@Integer_valueErr": "是一个错误的整数",
+                    "@help_valueOutLimited": "页数超出限制",
+                    "@valueOutLimited": "值超出限制",
+                    "@bossbar_max_set_value": "最大值",
+                    "bossbar_set_max": "设置最大值",
+                    "@bossbar_set_name": "设置bossbar名称",
+                    "@bossbar_set_players": "设置可以看见bossbar的玩家",
+                    "@bossbar_set_style": "设置bossbar的样式",
+                    "@bossbar_style_progress": "默认样式",
+                    "@bossbar_style_notched_6": "分为六截显示",
+                    "@bossbar_style_notched_10": "分为十截显示",
+                    "@bossbar_style_notched_12": "分为十二截显示",
+                    "@bossbar_style_notched_20": "分为二十截显示",
+                    "@bossbar_set_value": "设置bossbar的值",
+                    "@bossbar_value_set": "<值 : 整数>",
+                    "@bossbar_value_sey_value": "值",
+                    "@bossbar_set_visible": "设置bossbar显示状态",
+                    "@command_camerashake": "设置镜头抖动效果",
+                    "@camerashake_add": "添加一个镜头摇晃",
+                    "@camerashake_stop": "停止镜头摇晃",
+                    "@banip": "封禁一个IP(已失效)",
+                    "@advancement_conditions": "<条件 : 字符串>",
+                    "@all": "所有",
+                    "@command_changesettin": "在bds运行时更改设置",
+                    "@allow-cheats": "允许玩家作弊",
+                    "@difficulty": "更改游戏难度",
+                    "@peaceful": "和平模式",
+                    "@easy": "简单模式",
+                    "@normal": "一般模式",
+                    "@hard": "困难模式",
+                    "@peaceful_be": "和平模式(仅基岩版)",
+                    "@easy_be": "简单模式(仅基岩版)",
+                    "@normal_be": "一般模式(仅基岩版)",
+                    "@hard_be": "困难模式(仅基岩版)",
+                    "@lost_command": "未证实命令",
+                    "@clear_data": "<物品特殊值 : 整数>",
+                    "@item_data": "<物品特殊值 : 整数>",
+                    "@item_count": "<数量 : 整数>",
+                    "@count": "数量",
+                    "@command_clear": "清除玩家物品栏的的物品",
+                    "@command_clone": "将一个区域克隆到另一个区域",
+                    "@command_clearspawnpoint": "清除玩家的重生点",
+                    "@x_position_integer": "<X轴坐标 : 整数>",
+                    "@x": "x轴坐标",
+                    "@y_position_integer": "<y轴坐标 : 整数>",
+                    "@y": "y轴坐标",
+                    "@z_position_integer": "<z轴坐标 : 整数>",
+                    "@z": "z轴坐标",
+                    "@current_position": "当前位置",
+                    "@clone_x_start_position_integer": "<区域起始坐标(X轴): 整数>",
+                    "@clone_y_start_position_integer": "<区域起始坐标(Y轴) : 整数>",
+                    "@clone_z_start_position_integer": "<区域起始坐标(Z轴) : 整数>",
+                    "@clone_x_diagonally_position_integer": "<区域对角坐标(X轴) : 整数>",
+                    "@clone_y_diagonally_position_integer": "<区域对角坐标(Y轴) : 整数>",
+                    "@clone_z_diagonally_position_integer": "<区域对角坐标(Z轴) : 整数>",
+                    "@clone_x_position_target": "<目标坐标(X轴) : 整数>",
+                    "@clone_y_position_target": "<目标坐标(Y轴) : 整数>",
+                    "@clone_z_position_target": "<目标坐标(Z轴) : 整数>",
+                    "@clone_replace": "直接替换方块",
+                    "@clone_replace_normal": "默认替换方式",
+                    "@clone_replace_force": "强制替换",
+                    "@clone_replace_move": "替换后清除源区域的方块",
+                    "@clone_masked": "克隆非空气方块",
+                    "@clone_filtered": "克隆选定的方块",
+                    "mayErrNamespace": "是一个不正确的命名空间",
+                    "@command_closechat": "关闭聊天框(已失效)",
+                    "@command_closewebsocket": "断开wsserver的连接",
+                    "@command_closewebsocket_description": "此命令用于断开游戏与websocket的连接，仅限websocket服务器主动发送",
+                    "@command_code": "启用代码编辑器",
+                    "@command_lost": "这个命令来自于Minecraft Wiki，上面没用给出任何有关此命令的其他信息\n并且此命令暂时无法被我们确认是否属实",
+                    "@command_codebuilder": "设置玩家的代码编辑状态",
+                    "@command_connect": "连接到websocket服务器",
+                    "@connect_out": "断开websocket服务器的连接",
+                    "@connect_URL": "<URL : 字符串>",
+                    "@URL": "URL",
+                    "@command_data": "获取、合并、移除实体或方块的数据标签",
+                    "@command_datapack": "控制加载的数据包",
+                    "@disable_datapack": "禁用指定数据包",
+                    "@enable_datapack": "启用指定数据包",
+                    "@list_datapack": "显示数据包列表",
+                    "@datapack_list_available": "显示可用数据包列表",
+                    "@datapack_list_enable": "显示启用数据包列表",
+                    "@datapack_name": "<数据包名称 : 字符串>",
+                    "@dataapckname": "数据包名称",
+                    "@vanilla_datapack": "原版数据包",
+                    "@datapack_first": "最低优先级",
+                    "@datapack_last": "最高优先级",
+                    "@datapack_after": "优先级高于指定数据包",
+                    "@datapack_before": "优先级低于指定数据包",
+                    "@command_daylock": "是否锁定时间",
+                    "@command_debug": "设置调试状态",
+                    "@start_debug": "开始调试",
+                    "@stop_debug": "停止调试",
+                    "@adventure_bedrock": "冒险(仅基岩版)",
+                    "@creative_bedrock": "创造(基岩版)",
+                    "@survival_bedrock": "生存(仅基岩版)",
+                    "@default_bedrock": "默认(仅基岩版)",
+                    "@command_defaultgamemode": "设置默认游戏模式",
+                    "@command_deop": "去除玩家的操作员权限",
+                    "@command_dialogue": "打开一个玩家的NPC对话框",
+                    "@command_difficulty": "设置游戏难度",
+                    "@command_effect": "添加或清除状态效果",
+                    "@command_enableencryption": "为wsserver连接进行加密",
+                    "@command_enchant": "附魔玩家的物品",
+                    "@effect_clear_je": "为目清除指定或全部效果",
+                    "@effect_clear": "为目标清除所有效果",
+                    "@effect_give": "给予目标一个效果",
+                    "@effect_time": "<有效时间 : 整数>",
+                    "@effect_times": "持续时间(秒)",
+                    "@effect_amplifier": "<效果等级 : 整数>",
+                    "@effect_amplifiers": "效果等级",
+                    "@effect_no_particle": "隐藏粒子",
+                    "@effect_have_particle": "显示粒子",
+                    "@websocketserver_public_key": "<公钥 : 字符串>",
+                    "@public_key": "公钥",
+                    "@salt_value": "<盐值 : 整数>",
+                    "@salt": "盐值",
+                    "@enchant_level": "<附魔等级 : 整数>",
+                    "@enchant_levels": "附魔等级",
+                    "@command_event": "触发实体事件",
+                    "@event_entity": "实体目标",
+                    "@command_execute": "代表实体执行一个命令",
+                    "@execute_detect": "判断指定位置的方块,与目标方块一致才执行命令",
+                    "@blockdata": "<特殊值 : 整数>",
+                    "@block_datas": "特殊值",
+                    "@acacia_boat": "金合欢木船",
+                    "@bat_spawn_egg": "生成蝙蝠",
+                    "@bat": "蝙蝠",
+                    "@spawn_egg": "刷怪蛋",
+                    "@bee_spawn_egg": "生成蜜蜂",
+                    "@bee": "蜜蜂",
+                    "@blaze_spawn_egg": "生成烈焰人",
+                    "@blaze": "烈焰人",
+                    "@cat_spawn_egg": "生成猫",
+                    "@cat": "猫",
+                    "@cave_spider_spawn_egg": "生成洞穴蜘蛛",
+                    "@cave_spider": "洞穴蜘蛛",
+                    "@chicken_spawn_egg": "生成鸡",
+                    "@chicken": "鸡",
+                    "@cod_spawn_egg": "生成鳕鱼",
+                    "@cod": "鳕鱼",
+                    "@cow_spawn_egg": "生成牛",
+                    "@cow": "牛",
+                    "@creeper_spawn_egg": "生成苦力怕",
+                    "@creeper": "苦力怕",
+                    "@dolphin_spawn_egg": "生成海豚",
+                    "@dolphin": "海豚",
+                    "@donkey_spawn_egg": "生成驴",
+                    "@donkey": "驴",
+                    "@drowned_spawn_egg": "生成溺尸",
+                    "@drowned": "溺尸",
+                    "@elder_guardian_spawn_egg": "生成远古守卫者",
+                    "@elder_guardian": "远古守卫者",
+                    "@enderman_spawn_egg": "生成末影人",
+                    "@enderman": "末影人",
+                    "@endermite_spawn_egg": "生成末影螨",
+                    "@endermite": "末影螨",
+                    "@evoker_spawn_egg": "生成唤魔者",
+                    "@evoker": "唤魔者",
+                    "@fox_spawn_egg": "生成狐狸",
+                    "fox": "狐狸",
+                    "@ghast_spawn_egg": "生成恶魂",
+                    "@ghast": "恶魂",
+                    "@glow_squid_spawn_egg": "生成发光鱿鱼",
+                    "@glow_squid": "发光鱿鱼",
+                    "@goat_spawn_egg": "生成山羊",
+                    "@goat": "山羊",
+                    "@guardian_spawn_egg": "生成守卫者",
+                    "@guardian": "守卫者",
+                    "@hoglin_spawn_egg": "生成疣猪兽",
+                    "@hoglin": "疣猪兽",
+                    "@horse_spawn_egg": "生成马",
+                    "@house": "马",
+                    "@husk_spawn_egg": "生成尸壳",
+                    "@husk": "尸壳",
+                    "@llama_spawn_egg": "生成羊驼",
+                    "@llama": "羊驼",
+                    "@magma_cube_spawn_egg": "生成岩浆怪",
+                    "@magma_cube": "岩浆怪",
+                    "@mooshroom_spawn_egg": "生成哞菇",
+                    "@mooshroom": "哞菇",
+                    "@mule_spawn_egg": "生成骡",
+                    "@mule": "骡",
+                    "@ocelot_spawn_egg": "生成豹猫",
+                    "@ocelot": "豹猫",
+                    "@panda_spawn_egg": "生成熊猫",
+                    "@panda": "熊猫",
+                    "@parrot_spawn_egg": "生成鹦鹉",
+                    "@parrot": "鹦鹉",
+                    "@phantom_spawn_egg": "生成幻翼",
+                    "@phantom": "幻翼",
+                    "@pig_spawn_egg": "生成猪",
+                    "@pig": "猪",
+                    "@piglin_brute_spawn_egg": "生成猪灵蛮兵",
+                    "@pihlin_brute": "猪灵蛮兵",
+                    "@piglin_spawn_egg": "生成猪灵",
+                    "@pihlin": "猪灵",
+                    "@pillager_spawn_egg": "生成掠夺者",
+                    "@pillager": "掠夺者",
+                    "@polar_bear_spawn_egg": "生成北极熊",
+                    "@pufferfish_spawn_egg": "生成河豚",
+                    "@rabbit_spawn_egg": "生成兔子",
+                    "@ravager_spawn_egg": "生成劫掠兽",
+                    "@ravager": "劫掠兽",
+                    "@salmon_spawn_egg": "生成绵羊",
+                    "@shulker_spawn_egg": "生成潜影贝",
+                    "@silverfish_spawn_egg": "生成蠹虫",
+                    "@skeleton_horse_spawn_egg": "生成骷髅马",
+                    "@skeleton_spawn_egg": "生成骷髅",
+                    "@slime_spawn_egg": "生成史莱姆",
+                    "@spider_spawn_egg": "生成蜘蛛",
+                    "@squid_spawn_egg": "生成鱿鱼",
+                    "@stray_spawn_egg": "生成流浪者",
+                    "@strider_spawn_egg": "生成炽足兽",
+                    "@tropical_fish_spawn_egg": "生成热带鱼",
+                    "@turtle_spawn_egg": "生成海龟",
+                    "@vex_spawn_egg": "生成恼鬼",
+                    "@villager_spawn_egg": "生成村民",
+                    "@vindicator_spawn_egg": "生成卫道士",
+                    "@wandering_trader_spawn_egg": "生成流浪商人",
+                    "@witch_spawn_egg": "生成女巫",
+                    "@wither_skeleton_spawn_egg": "生成凋零骷髅",
+                    "@wolf_spawn_egg": "生成狼",
+                    "@zoglin_spawn_egg": "生成僵尸疣猪兽",
+                    "@zombie_horse_spawn_egg": "生成僵尸马",
+                    "@zombie_pigman_spawn_egg": "生成僵尸猪灵",
+                    "@zombie_spawn_egg": "生成僵尸",
+                    "@zombie_villager_spawn_egg": "生成僵尸村民",
+                    "@npc_spawn_egg": "生成NPC",
+                    "@command_give": "给予玩家物品",
+                    "@command_globalpause": "查询或设置所有玩家的世界暂停状态(已失效)",
+                    "@command_immutableworld": "设置世界的不可变状态(已失效)",
+                    "@immutable": "不可变",
+                    "@mutable": "可变",
+                    "@command_item": "修改方块或实体的物品栏",
+                    "@ender_pearl": "末影珍珠",
+                    "@tnt_minecart": "TNT矿车",
+                    "@current_position_wikiTips": "当前位置",
+                    "@coordinates_wikiTips": "坐标",
+                    "@reason": "<原因 : 字符串>",
+                    "@double_valueErr": "是一个错误的双精浮点数",
+                    "@item_special_data": "特殊值"
+                }
+            ]
+        }
+    ],
+    "resources": {
+        "commands": {
+            "detect": {
+                "description": "@execute_detect",
+                "tips": "This is not a command, it is in /execute",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "$execute": true,
+                "noshow": "detect",
+                "usage": [
+                    {
+                        "tree": [
+                            "@x",
+                            "@y",
+                            "@z",
+                            "@blocks",
+                            "@block_data",
+                            "@commands"
+                        ]
+                    }
+                ]
+            },
+            "?": {
+                "description": "@command_help",
+                "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/help",
+                "limited": [
+                    "normal",
+                    "player"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@?",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "ability": {
+                "description": "@comamnd_ability",
+                "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/ability",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@ability",
+                            "@boolean",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "achievement": {
+                "description": "@command_achievenment",
+                "$invalid": true,
+                "usage": [
+                    {
+                        "tree": [
+                            "@achievement_operator",
+                            "@advancements",
+                            "@sel",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "advancement": {
+                "description": "@command_advancement",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@advancement_operator",
+                            "@sel",
+                            "@advancement_type",
+                            "@advancements",
+                            "@advancement_condition",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "agent": {
+                "description": "@command_agent",
+                "limited": [
+                    "bedrock",
+                    "wsserver"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@gugu"
+                        ]
+                    }
+                ]
+            },
+            "alwaysday": {
+                "description": "@alwaysday",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@boolean",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "attribute": {
+                "description": "@attribute",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel_one",
+                            "@gugu"
+                        ]
+                    }
+                ]
+            },
+            "ban": {
+                "description": "@ban_player",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@ban_reason",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "ban-ip": {
+                "description": "@ban_ip",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@ip",
+                            "@ban_reason",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "banip": {
+                "description": "@banip",
+                "$invalid": true,
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@ip",
+                            "@ban_reason",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "banlist": {
+                "description": "@ban_list",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@banlist_lists",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "bossbar": {
+                "description": "@command_bossbar",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@boolean"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@json",
+                            "@end"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_gets"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@bossbar_colors"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@bossbar_set_max"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@json"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@sel"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@bossbar_styles"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@bossbar_value"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@bossbars",
+                            "@namespace",
+                            "@bossbar_sets",
+                            "@boolean"
+                        ]
+                    }
+                ]
+            },
+            "camerashake": {
+                "description": "@command_camerashake",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@camerashake_operation",
+                            "@sel"
+                        ]
+                    },
+                    {
+                        "tree": "camerashake add @sel @float;limit=4) @float @camerashake_type"
+                    },
+                    {
+                        "tree": "camerashake stop @sel"
+                    }
+                ]
+            },
+            "changesetting": {
+                "description": "@command_changesettin",
+                "limited": [
+                    "bds",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@settings_bds",
+                            "@boolean"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@settings_bds",
+                            "@difficultys"
+                        ]
+                    },
+                    {
+                        "tree": "changesetting allow-cheats @boolean"
+                    },
+                    {
+                        "tree": "changesetting difficulty @difficulty"
+                    }
+                ]
+            },
+            "classroommode": {
+                "description": "@lost_command",
+                "limited": [
+                    "edu",
+                    "player"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@calssroommode"
+                        ]
+                    }
+                ]
+            },
+            "clear": {
+                "description": "@command_clear",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "forks": [
+                    {
+                        "fork": "bedrock"
+                    },
+                    {
+                        "fork": "java"
+                    }
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@all_items",
+                            "@RESOURCE_WRAP",
+                            "@item_count",
+                            "@end"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@sel",
+                            "@all_items",
+                            "@item_count",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "clearspawnpoint": {
+                "description": "@command_clearspawnpoint",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel"
+                        ]
+                    }
+                ]
+            },
+            "clone": {
+                "description": "@command_clone",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "forks": [
+                    {
+                        "fork": "bedrock"
+                    },
+                    {
+                        "fork": "java"
+                    }
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@clone_x_start",
+                            "@clone_y_start",
+                            "@clone_z_start",
+                            "@clone_x_diagonally",
+                            "@clone_y_diagonally",
+                            "@clone_z_diagonally",
+                            "@clone_x_target",
+                            "@clone_y_target",
+                            "@clone_z_target",
+                            "@clone_type",
+                            "@clone_replace_type",
+                            "@blocks",
+                            "@end"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@clone_x_start",
+                            "@clone_y_start",
+                            "@clone_z_start",
+                            "@clone_x_diagonally",
+                            "@clone_y_diagonally",
+                            "@clone_z_diagonally",
+                            "@clone_x_target",
+                            "@clone_y_target",
+                            "@clone_z_target",
+                            "@clone_type",
+                            "@blocks",
+                            "@clone_replace_type",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "closechat": {
+                "description": "@command_closechat",
+                "limited": [
+                    "bedrock",
+                    "player"
+                ],
+                "$invalid": true
+            },
+            "closewebsocket": {
+                "description": "@command_closewebsocket",
+                "limited": [
+                    "wsserver",
+                    "player"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@over_/closewebsocket",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "code": {
+                "description": "@command_code",
+                "limited": [
+                    "edu",
+                    "player"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@lost_command"
+                        ]
+                    }
+                ]
+            },
+            "codebuilder": {
+                "description": "@command_codebuilder",
+                "limited": [
+                    "edu",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@lost_command"
+                        ]
+                    }
+                ]
+            },
+            "connect": {
+                "description": "@command_connect",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@connect"
+                        ]
+                    }
+                ]
+            },
+            "data": {
+                "description": "@command_data",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@gugu"
+                        ]
+                    }
+                ]
+            },
+            "datapack": {
+                "description": "@command_datapack",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@datapacks",
+                            "@datapacks_operator"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@datapacks",
+                            "@datapacks_list"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@datapacks",
+                            "@datapacks_operator_enable",
+                            "@datapack_priority",
+                            "@datapacks_operator"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@datapacks",
+                            "@datapacks_operator_enable",
+                            "@datapack_priority"
+                        ]
+                    }
+                ]
+            },
+            "daylock": {
+                "description": "@command_daylock",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@boolean"
+                        ]
+                    }
+                ]
+            },
+            "debug": {
+                "description": "@command_debug",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@debug_operators"
+                        ]
+                    }
+                ]
+            },
+            "defaultgamemode": {
+                "description": "@command_defaultgamemode",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@mode"
+                        ]
+                    }
+                ]
+            },
+            "deop": {
+                "description": "@command_deop",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel"
+                        ]
+                    }
+                ]
+            },
+            "dialogue": {
+                "description": "@command_dialogue",
+                "limited": [
+                    "@duc",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@lost_command"
+                        ]
+                    }
+                ]
+            },
+            "difficulty": {
+                "description": "@command_difficulty",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@difficultys"
+                        ]
+                    }
+                ]
+            },
+            "effect": {
+                "description": "@command_effect",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "forks": [
+                    {
+                        "fork": "bedrock"
+                    },
+                    {
+                        "fork": "java"
+                    }
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@effects",
+                            "@effect_second",
+                            "@effect_amplifier",
+                            "@effect_particle",
+                            "@end"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@effect_operator",
+                            "@sel",
+                            "@effects",
+                            "@effect_second",
+                            "@effect_amplifier",
+                            "@effect_particle",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "enableencryption": {
+                "description": "@command_enableencryption",
+                "limited": [
+                    "wsserver",
+                    "player"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@wsserver_pulic_key",
+                            "@salt_value"
+                        ]
+                    }
+                ]
+            },
+            "enchant": {
+                "description": "@command_enchant",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@enchants",
+                            "@enchants_level"
+                        ]
+                    }
+                ]
+            },
+            "event": {
+                "description": "@command_event",
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@event_target",
+                            "@sel",
+                            "@events"
+                        ]
+                    }
+                ]
+            },
+            "execute": {
+                "description": "@command_execute",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "forks": [
+                    {
+                        "fork": "bedrock"
+                    },
+                    {
+                        "fork": "java"
+                    }
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@x",
+                            "@y",
+                            "@z",
+                            "@commands"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@gugu",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "gamemode": {
+                "description": "@command_gamemode",
+                "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/gamemode",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@mode",
+                            "@sel",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "gamerule": {
+                "description": "@command_gamerule",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@rule",
+                            "@boolean",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "give": {
+                "description": "@command_give",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "forks": [
+                    {
+                        "fork": "bedrock"
+                    },
+                    {
+                        "fork": "bedrock"
+                    },
+                    {
+                        "fork": "java"
+                    }
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@all_items",
+                            "@item_count",
+                            "@item_data",
+                            "@json",
+                            "@end"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@sel",
+                            "@all_items",
+                            "@item_count",
+                            "@RESOURCE_WRAP",
+                            "@json",
+                            "@end"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@sel",
+                            "@all_items",
+                            "@item_count",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "globalpause": {
+                "description": "@command_globalpause",
+                "$invalid": true,
+                "limited": [
+                    "bedrock",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@boolean"
+                        ]
+                    }
+                ]
+            },
+            "help": {
+                "description": "@command_help",
+                "limited": [
+                    "normal",
+                    "player"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@?",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "immutableworld": {
+                "description": "@command_immutableworld",
+                "$invalid": true,
+                "limited": [
+                    "edu",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@boolean_immutableworld",
+                            "@end"
+                        ]
+                    }
+                ]
+            },
+            "item": {
+                "description": "@command_item",
+                "limited": [
+                    "java",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@item_operator",
+                            "@item_operator_target"
+                        ]
+                    }
+                ]
+            },
+            "kick": {
+                "description": "@command_kick",
+                "limited": [
+                    "normal",
+                    "op"
+                ],
+                "usage": [
+                    {
+                        "tree": [
+                            "@sel",
+                            "@kick_reason",
+                            "@end"
+                        ]
+                    }
+                ]
+            }
+        },
+        "resource": {
+            "@item_data": {
+                "": {
+                    "description": "@item_data"
+                },
+                "@Integer": {
+                    "description": "@item_special_data",
+                    "limited":2147483647,
+                    "valueErr":"@Integer_valueErr",
+                    "valueOutLimited":"@valueOutLimited"
+                }
+            },
+            "@item_operator": {
+                "modify": {
+                    "description": "@acacia_boat"
+                },
+                "replace": {
+                    "description": "@null"
+                }
+            },
+            "@item_operator_target": {
+                "entity": {
+                    "description": "@null"
+                },
+                "block": {
+                    "description": "@null"
+                }
+            },
+            "@boolean_immutableworld": {
+                "true": {
+                    "description": "@immutable"
+                },
+                "false": {
+                    "description": "@mutable"
+                }
+            },
+            "@all_items": {
+                "spawn_egg": {
+                    "description": "@spawn_egg",
+                    "$invalid": true,
+                    "catchLimited": "bedrock",
+                    "toResource": "@spawn_egg_datas"
+                },
+                "acacia_boat": {
+                    "description": "@acacia_boat",
+                    "toResource": "@acacia_boat_datas"
+                },
+                "ender_pearl": {
+                    "description": "@ender_pearl"
+                },
+                "tnt_minecart": {
+                    "description": "@tnt_minecart"
+                },
+                "bat_spawn_egg": {
+                    "descriptoin": "@bat_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%9D%99%E8%9D%A0",
+                    "wikiTips": "@bat"
+                },
+                "bee_spawn_egg": {
+                    "description": "@bee_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%9C%9C%E8%9C%82",
+                    "wikiTips": "@bee"
+                },
+                "blaze_spawn_egg": {
+                    "description": "@blaze_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%83%88%E7%84%B0%E4%BA%BA",
+                    "wikiTips": "@blaze"
+                },
+                "cat_spawn_egg": {
+                    "description": "@cat_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8C%AB",
+                    "wikiTips": "@cat"
+                },
+                "cave_spider_spawn_egg": {
+                    "description": "@cave_spider_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%B4%9E%E7%A9%B4%E8%9C%98%E8%9B%9B",
+                    "wikiTips": "@cave_spider"
+                },
+                "chicken_spawn_egg": {
+                    "description": "@chicken_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%B8%A1",
+                    "wikiTips": "@chicken"
+                },
+                "cod_spawn_egg": {
+                    "description": "@cod_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%B3%95%E9%B1%BC",
+                    "wikiTips": "@cod"
+                },
+                "cow_spawn_egg": {
+                    "description": "@cow_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%89%9B",
+                    "wikiTips": "@cow"
+                },
+                "creeper_spawn_egg": {
+                    "description": "@creeper_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%8B%A6%E5%8A%9B%E6%80%95",
+                    "wikiTips": "@creeper"
+                },
+                "dolphin_spawn_egg": {
+                    "description": "@dolphin_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%B5%B7%E8%B1%9A",
+                    "wikiTips": "@dolphin"
+                },
+                "donkey_spawn_egg": {
+                    "description": "@donkey_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%A9%B4",
+                    "wikiTips": "@donkey"
+                },
+                "drowned_spawn_egg": {
+                    "description": "@drowned_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%BA%BA%E5%B0%B8",
+                    "wikiTips": "@drowned"
+                },
+                "elder_guardian_spawn_egg": {
+                    "description": "@elder_guardian_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%BF%9C%E5%8F%A4%E5%AE%88%E5%8D%AB%E8%80%85",
+                    "wikiTips": "@elder_guardian"
+                },
+                "enderman_spawn_egg": {
+                    "description": "@enderman_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%9C%AB%E5%BD%B1%E4%BA%BA",
+                    "wikiTips": "@enderman"
+                },
+                "endermite_spawn_egg": {
+                    "description": "@endermite_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%9C%AB%E5%BD%B1%E8%9E%A8",
+                    "wikiTips": "@endermite"
+                },
+                "evoker_spawn_egg": {
+                    "description": "@evoker_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%94%A4%E9%AD%94%E8%80%85",
+                    "wikiTips": "@evoker"
+                },
+                "fox_spawn_egg": {
+                    "description": "@fox_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8B%90%E7%8B%B8",
+                    "wikiTips": "@fox"
+                },
+                "ghast_spawn_egg": {
+                    "description": "@ghast_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%81%B6%E9%AD%82",
+                    "wikiTips": "@ghast"
+                },
+                "glow_squid_spawn_egg": {
+                    "description": "@glow_squid_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%8F%91%E5%85%89%E9%B1%BF%E9%B1%BC",
+                    "wikiTips": "@glow_squid"
+                },
+                "goat_spawn_egg": {
+                    "description": "@goat_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B1%B1%E7%BE%8A",
+                    "wikiTips": "@goat"
+                },
+                "guardian_spawn_egg": {
+                    "description": "@guardian_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%AE%88%E5%8D%AB%E8%80%85",
+                    "wikiTips": "@guardian"
+                },
+                "hoglin_spawn_egg": {
+                    "description": "@hoglin_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%96%A3%E7%8C%AA%E5%85%BD",
+                    "wikiTips": "@hoglin"
+                },
+                "horse_spawn_egg": {
+                    "description": "@horse_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%A9%AC",
+                    "wikiTips": "@house"
+                },
+                "husk_spawn_egg": {
+                    "description": "@husk_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B0%B8%E5%A3%B3",
+                    "wikiTips": "@husk"
+                },
+                "llama_spawn_egg": {
+                    "description": "@llama_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%BE%8A%E9%A9%BC",
+                    "wikiTips": "@llama"
+                },
+                "magma_cube_spawn_egg": {
+                    "description": "@magma_cube_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B2%A9%E6%B5%86%E6%80%AA",
+                    "wikiTips": "@magma_cube"
+                },
+                "mooshroom_spawn_egg": {
+                    "description": "@mooshroom_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%93%9E%E8%8F%87",
+                    "wikiTips": "@mooshroom"
+                },
+                "mule_spawn_egg": {
+                    "description": "@mule_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%AA%A1",
+                    "wikiTips": "@mule"
+                },
+                "ocelot_spawn_egg": {
+                    "description": "@ocelot_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%B1%B9%E7%8C%AB",
+                    "wikiTips": "@ocelot"
+                },
+                "panda_spawn_egg": {
+                    "description": "@panda_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%86%8A%E7%8C%AB",
+                    "wikiTips": "@panda"
+                },
+                "parrot_spawn_egg": {
+                    "description": "@parrot_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%B9%A6%E9%B9%89",
+                    "wikiTips": "@parrot"
+                },
+                "phantom_spawn_egg": {
+                    "description": "@phantom_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B9%BB%E7%BF%BC",
+                    "wikiTips": "@phantom"
+                },
+                "pig_spawn_egg": {
+                    "description": "@pig_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8C%AA",
+                    "wikiTips": "@pig"
+                },
+                "piglin_brute_spawn_egg": {
+                    "description": "@piglin_brute_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8C%AA%E7%81%B5%E8%9B%AE%E5%85%B5",
+                    "wikiTips": "@pihlin_brute"
+                },
+                "piglin_spawn_egg": {
+                    "description": "@piglin_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8C%AA%E7%81%B5",
+                    "wikiTips": "@pihlin"
+                },
+                "pillager_spawn_egg": {
+                    "description": "@pillager_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%8E%A0%E5%A4%BA%E8%80%85",
+                    "wikiTips": "@pillager"
+                },
+                "polar_bear_spawn_egg": {
+                    "description": "@polar_bear_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%8C%97%E6%9E%81%E7%86%8A",
+                    "wikiTips": "@polar"
+                },
+                "pufferfish_spawn_egg": {
+                    "description": "@pufferfish_spawn_egg"
+                },
+                "rabbit_spawn_egg": {
+                    "description": "@rabbit_spawn_egg"
+                },
+                "ravager_spawn_egg": {
+                    "description": "@ravager_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%8A%AB%E6%8E%A0%E5%85%BD",
+                    "wikiTips": "@ravager"
+                },
+                "salmon_spawn_egg": {
+                    "description": "@salmon_spawn_egg"
+                },
+                "sheep_spawn_egg": {
+                    "description": "@sheep_spawn_egg"
+                },
+                "shulker_spawn_egg": {
+                    "description": "@shulker_spawn_egg"
+                },
+                "skeleton_horse_spawn_egg": {
+                    "description": "@skeleton_horse_spawn_egg"
+                },
+                "skeleton_spawn_egg": {
+                    "description": "@skeleton_spawn_egg"
+                },
+                "slime_spawn_egg": {
+                    "description": "@slime_spawn_egg"
+                },
+                "spider_spawn_egg": {
+                    "description": "@spider_spawn_egg"
+                },
+                "squid_spawn_egg": {
+                    "description": "@squid_spawn_egg"
+                },
+                "stray_spawn_egg": {
+                    "description": "@stray_spawn_egg"
+                },
+                "strider_spawn_egg": {
+                    "description": "@strider_spawn_egg"
+                },
+                "tropical_fish_spawn_egg": {
+                    "description": "@tropical_fish_spawn_egg"
+                },
+                "turtle_spawn_egg": {
+                    "description": "@turtle_spawn_egg"
+                },
+                "vex_spawn_egg": {
+                    "description": "@vex_spawn_egg"
+                },
+                "villager_spawn_egg": {
+                    "description": "@villager_spawn_egg"
+                },
+                "vindicator_spawn_egg": {
+                    "description": "@vindicator_spawn_egg"
+                },
+                "wandering_trader_spawn_egg": {
+                    "description": "@wandering_trader_spawn_egg"
+                },
+                "witch_spawn_egg": {
+                    "description": "@witch_spawn_egg"
+                },
+                "wither_skeleton_spawn_egg": {
+                    "description": "@wither_skeleton_spawn_egg"
+                },
+                "wolf_spawn_egg": {
+                    "description": "@wolf_spawn_egg"
+                },
+                "zoglin_spawn_egg": {
+                    "description": "@zoglin_spawn_egg"
+                },
+                "zombie_horse_spawn_egg": {
+                    "description": "@zombie_horse_spawn_egg"
+                },
+                "zombie_pigman_spawn_egg": {
+                    "description": "@zombie_pigman_spawn_egg"
+                },
+                "zombie_spawn_egg": {
+                    "description": "@zombie_spawn_egg"
+                },
+                "zombie_villager_spawn_egg": {
+                    "description": "@zombie_villager_spawn_egg"
+                },
+                "npc_spawn_egg": {
+                    "description": "@npc_spawn_egg"
+                }
+            },
+            "@spawn_egg_datas": {
+                "19": {
+                    "description": "@bat_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%9D%99%E8%9D%A0",
+                    "wikiTips": "@bat"
+                },
+                "122": {
+                    "description": "@bee_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%9C%9C%E8%9C%82",
+                    "wikiTips": "@bee"
+                },
+                "43": {
+                    "description": "@blaze_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%83%88%E7%84%B0%E4%BA%BA",
+                    "wikiTips": "@blaze"
+                },
+                "75": {
+                    "description": "@cat_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8C%AB",
+                    "wikiTips": "@cat"
+                },
+                "40": {
+                    "description": "@cave_spider_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%B4%9E%E7%A9%B4%E8%9C%98%E8%9B%9B",
+                    "wikiTips": "@cave_spider"
+                },
+                "10": {
+                    "description": "@chicken_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%B8%A1",
+                    "wikiTips": "@chicken"
+                },
+                "112": {
+                    "description": "@cod_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%B3%95%E9%B1%BC",
+                    "wikiTips": "@cod"
+                },
+                "11": {
+                    "description": "@cow_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%89%9B",
+                    "wikiTips": "@cow"
+                },
+                "33": {
+                    "description": "@creeper_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%8B%A6%E5%8A%9B%E6%80%95",
+                    "wikiTips": "@creeper"
+                },
+                "31": {
+                    "description": "@dolphin_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%B5%B7%E8%B1%9A",
+                    "wikiTips": "@dolphin"
+                },
+                "24": {
+                    "description": "@donkey_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%A9%B4",
+                    "wikiTip": "@donkey"
+                },
+                "110": {
+                    "description": "@drowned_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%BA%BA%E5%B0%B8",
+                    "wikiTips": "@drowned"
+                },
+                "50": {
+                    "description": "@elder_guardian_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E8%BF%9C%E5%8F%A4%E5%AE%88%E5%8D%AB%E8%80%85",
+                    "wikiTips": "@elder_guardian"
+                },
+                "38": {
+                    "description": "@enderman_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%9C%AB%E5%BD%B1%E4%BA%BA",
+                    "wikiTips": "@enderman"
+                },
+                "55": {
+                    "description": "@endermite_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%9C%AB%E5%BD%B1%E8%9E%A8",
+                    "wikiTips": "@endermite"
+                },
+                "104": {
+                    "description": "@evoker_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%94%A4%E9%AD%94%E8%80%85",
+                    "wikiTips": "@evoker"
+                },
+                "121": {
+                    "description": "@fox_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%8B%90%E7%8B%B8",
+                    "wikiTips": "@fox"
+                },
+                "41": {
+                    "description": "@ghast_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E6%81%B6%E9%AD%82",
+                    "wikiTips": "@ghast"
+                },
+                "129": {
+                    "description": "@glow_squid_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%8F%91%E5%85%89%E9%B1%BF%E9%B1%BC",
+                    "wikiTips": "@glow_squid"
+                },
+                "128": {
+                    "description": "@goat_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B1%B1%E7%BE%8A",
+                    "wikiTips": "@goat"
+                },
+                "49": {
+                    "description": "@guardian_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%AE%88%E5%8D%AB%E8%80%85",
+                    "wikiTips": "@guardian"
+                },
+                "124": {
+                    "description": "@hoglin_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%96%A3%E7%8C%AA%E5%85%BD",
+                    "wikiTips": "@hoglin"
+                },
+                "23": {
+                    "description": "@horse_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E9%A9%AC",
+                    "wikiTips": "@house"
+                },
+                "47": {
+                    "description": "@husk_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B0%B8%E5%A3%B3",
+                    "wikiTips": "@husk"
+                },
+                "29": {
+                    "description": "@llama_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E7%BE%8A%E9%A9%BC",
+                    "wikiTips": "@llama"
+                },
+                "42": {
+                    "description": "@magma_cube_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%B2%A9%E6%B5%86%E6%80%AA",
+                    "wikiTips": "@magma_cube"
+                },
+                "16": {
+                    "description": "@mooshroom_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%93%9E%E8%8F%87",
+                    "wikiTips": "@mooshroom"
+                },
+                "25": {
+                    "description": "@mule_spawn_egg"
+                },
+                "22": {
+                    "description": "@ocelot_spawn_egg"
+                },
+                "113": {
+                    "description": "@panda_spawn_egg"
+                },
+                "30": {
+                    "description": "@prot_spawn_egg"
+                },
+                "58": {
+                    "description": "@phantom_spawn_egg"
+                },
+                "12": {
+                    "description": "@pig_spawn_egg"
+                },
+                "127": {
+                    "description": "@piglin_brute_spawn_egg"
+                },
+                "123": {
+                    "description": "@piglin_spawn_egg"
+                },
+                "114": {
+                    "description": "@pillager_spawn_egg"
+                },
+                "188": {
+                    "description": "@polar_bear_spawn_egg"
+                },
+                "108": {
+                    "description": "@pufferfish_spawn_egg"
+                },
+                "18": {
+                    "description": "@rabbit_spawn_egg"
+                },
+                "59": {
+                    "description": "@ravager_spawn_egg",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%8A%AB%E6%8E%A0%E5%85%BD",
+                    "wikiTips": "@ravager"
+                },
+                "109": {
+                    "description": "@salmon_spawn_egg"
+                },
+                "13": {
+                    "description": "@sheep_spawn_egg"
+                },
+                "54": {
+                    "description": "@shulker_spawn_egg"
+                },
+                "39": {
+                    "description": "@silverfish_spawn_egg"
+                },
+                "26": {
+                    "description": "@skeleton_horse_spawn_egg"
+                },
+                "34": {
+                    "description": "@skeleton_spawn_egg"
+                },
+                "37": {
+                    "description": "@slime_spawn_egg"
+                },
+                "35": {
+                    "description": "@spider_spawn_egg"
+                },
+                "17": {
+                    "description": "@squid_spawn_egg"
+                },
+                "46": {
+                    "description": "@stray_spawn_egg"
+                },
+                "125": {
+                    "description": "@strider_spawn_egg"
+                },
+                "111": {
+                    "description": "@tropical_fish_spawn_egg"
+                },
+                "74": {
+                    "description": "@turtle_spawn_egg"
+                },
+                "105": {
+                    "description": "@vex_spawn_egg"
+                },
+                "15": {
+                    "description": "@villager_spawn_egg"
+                },
+                "115": {
+                    "description": "@villager_spawn_egg"
+                },
+                "57": {
+                    "description": "@vindicator_spawn_egg"
+                },
+                "118": {
+                    "description": "@wandering_trader_spawn_egg"
+                },
+                "45": {
+                    "description": "@witch_spawn_egg"
+                },
+                "48": {
+                    "description": "@wither_skeleton_spawn_egg"
+                },
+                "14": {
+                    "description": "@wolf_spawn_egg"
+                },
+                "126": {
+                    "description": "@zoglin_spawn_egg"
+                },
+                "27": {
+                    "description": "@zombie_horse_spawn_egg"
+                },
+                "36": {
+                    "description": "@zombie_pigman_spawn_egg"
+                },
+                "32": {
+                    "description": "@zombie_spawn_egg"
+                },
+                "44": {
+                    "description": "@zombie_villager_spawn_egg"
+                },
+                "116": {
+                    "description": "@zombie_villager_spawn_egg"
+                },
+                "51": {
+                    "description": "@npc_spawn_egg"
+                },
+                "@Integer": {
+                    "description": "@null",
+                    "limited": 2147483647,
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited"
+                }
+            },
+            "@acacia_boat_datas": {
+                "0": {
+                    "description": "@acacia_boat"
+                },
+                "@Integer": {
+                    "description": "@null",
+                    "limited": 2147483647,
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited"
+                }
+            },
+            "@blocks": {
+                "blocks1": {
+                    "description": "@ability_mayfly"
+                }
+            },
+            "@effects": {
+                "clear": {
+                    "description": "@effect_clear",
+                    "catchLimited": "bedrock",
+                    "over": true
+                },
+                "effect1": {
+                    "description": "@effect_clear"
+                }
+            },
+            "@enchants": {},
+            "@events": {},
+            "event_target": {
+                "entity": {
+                    "description": "@event_entity"
+                }
+            },
+            "@enchants_level": {
+                "": {
+                    "description": "@enchant_level"
+                },
+                "@Integer": {
+                    "description": "@enchant_levels",
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 256
+                }
+            },
+            "@effect_operator": {
+                "clear": {
+                    "description": "@effect_clear_je",
+                    "over": true
+                },
+                "give": {
+                    "description": "@effect_give"
+                }
+            },
+            "@effect_second": {
+                "": {
+                    "description": "@effect_time"
+                },
+                "@Integer": {
+                    "description": "@effect_times",
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@effect_amplifier": {
+                "": {
+                    "description": "@effect_amplifier"
+                },
+                "@Integer": {
+                    "description": "@effect_amplifiers",
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 256
+                }
+            },
+            "@effect_particle": {
+                "true": {
+                    "description": "@effect_no_particle"
+                },
+                "false": {
+                    "description": "@effect_have_particle"
+                }
+            },
+            "@wsserver_pulic_key": {
+                "": {
+                    "description": "@websocketserver_public_key"
+                },
+                "@String": {
+                    "description": "@public_key"
+                }
+            },
+            "@salt_value": {
+                "": {
+                    "description": "@salt_value"
+                },
+                "@Integer": {
+                    "description": "@salt",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@x": {
+                "": {
+                    "description": "@x_position_integer"
+                },
+                "~": {
+                    "description": "@current_position",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@x",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueErr": "@double_valueErr",
+                    "valueOutLimited": "@double_valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@y": {
+                "": {
+                    "description": "@y_position_integer"
+                },
+                "~": {
+                    "description": "@current_position",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@y",
+                    "valueErr": "@double_valueErr",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@z": {
+                "": {
+                    "description": "@z_position_integer"
+                },
+                "~": {
+                    "description": "@current_position",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@z",
+                    "valueErr": "@double_valueErr",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_x_start": {
+                "": {
+                    "description": "@clone_x_start_position_integer"
+                },
+                "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@x",
+                    "valueErr": "@double_valueErr",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_y_start": {
+                "": {
+                    "description": "@clone_y_start_position_integer"
+                },
+                "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@y",
+                    "valueErr": "@double_valueErr",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_z_start": {
+                "": {
+                    "description": "@clone_z_start_position_integer"
+                },
+                "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@z",
+                    "valueErr": "@double_valueErr",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_x_diagonally": {
+                "": {
+                    "description": "@clone_x_diagonally_position_integer"
+                },
+                "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@x",
+                    "valueErr": "@valueErr",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_y_diagonally": {
+                "": {
+                    "description": "@clone_y_diagonally_position_integer"
+                },
+                "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@y",
+                    "valueErr": "@valueErr",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_z_diagonally": {
+                "": {
+                    "description": "@clone_z_diagonally_position_integer"
+                },
+                "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@z",
+                    "valueErr": "@valueErr",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_x_target": {
+                "": {
+                    "description": "@clone_x_position_target"
+                },
+                "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@x",
+                    "valueErr": "@valueErr",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_y_target": {
+                "": {
+                    "description": "@clone_y_position_target"
+                },
+                "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@y",
+                    "valueErr": "@valueErr",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_z_target": {
+                "": {
+                    "description": "@clone_z_position_target"
+                },
+                "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "@Double": {
+                    "description": "@z",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                    "wikiTips": "@coordinates_wikiTips",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@clone_type": {
+                "replace": {
+                    "description": "@clone_replace"
+                },
+                "masked": {
+                    "description": "@clone_masked"
+                },
+                "filtered": {
+                    "description": "@clone_filtered"
+                }
+            },
+            "@clone_replace_type": {
+                "normal": {
+                    "description": "@clone_replace_normal"
+                },
+                "force": {
+                    "description": "@clone_replace_force"
+                },
+                "move": {
+                    "description": "@clone_replace_move"
+                }
+            },
+            "@ip": {
+                "": {
+                    "description": "@ban_ip_reason_text"
+                },
+                "@String": {
+                    "description": "@ban_strings"
+                }
+            },
+            "@ban_reason": {
+                "": {
+                    "description": "@ban_reason_text"
+                },
+                "@String": {
+                    "description": "@ban_reason"
+                }
+            },
+            "@strings": {
+                "<String>": {
+                    "description": "@null"
+                },
+                "@String": {
+                    "description": "@ban_strings"
+                }
+            },
+            "@gugu": {
+                "gugu": {
+                    "description": "@gugul"
+                }
+            },
+            "@?": {
+                "?": {
+                    "description": "@command_help"
+                },
+                "@Integer": {
+                    "description": "@page",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@help_valueOutLimited",
+                    "limited": 21
+                }
+            },
+            "@ability": {
+                "worldbuilder": {
+                    "description": "@ability_worldbuilder"
+                },
+                "mayfly": {
+                    "description": "@ability_mayfly"
+                },
+                "mute": {
+                    "description": "@ability_mute"
+                }
+            },
+            "@advancement_operator": {
+                "grant": {
+                    "description": "@grant"
+                },
+                "revoke": {
+                    "description": "@revoke"
+                }
+            },
+            "@advancement_type": {
+                "until": {
+                    "description": "@advancement_until",
+                    "will_over": 1
+                },
+                "from": {
+                    "description": "@advancement_from",
+                    "will_over": 1
+                },
+                "through": {
+                    "description": "@advancement_through",
+                    "will_over": 1
+                },
+                "only": {
+                    "description": "@advancement_only"
+                },
+                "everything": {
+                    "description": "@advancement_everything",
+                    "over": true
+                }
+            },
+            "@advancement_condition": {
+                "": {
+                    "description": "@advancement_conditions"
+                },
+                "@String": {
+                    "description": "@advancement_condition"
+                }
+            },
+            "@banlist_lists": {
+                "ips": {
+                    "description": "@ban_ip_list"
+                },
+                "players": {
+                    "description": "@ban_players_list"
+                }
+            },
+            "@achievement_operator": {
+                "give": {
+                    "description": "@grant"
+                },
+                "take": {
+                    "description": "@revoke"
+                }
+            },
+            "@advancements": {
+                "advancements1": {
+                    "description": "@revoke"
+                }
+            },
+            "@settings_bds": {
+                "allow-cheats": {
+                    "description": "@allow-cheats",
+                    "fork": 1
+                },
+                "difficulty": {
+                    "description": "@difficulty",
+                    "fork": 2
+                }
+            },
+            "@difficultys": {
+                "peaceful": {
+                    "description": "@peaceful"
+                },
+                "easy": {
+                    "description": "@easy"
+                },
+                "normal": {
+                    "description": "@normal"
+                },
+                "hard": {
+                    "description": "@hard"
+                },
+                "p": {
+                    "description": "@peaceful_be"
+                },
+                "e": {
+                    "description": "@easy_be"
+                },
+                "n": {
+                    "description": "@normal_be"
+                },
+                "h": {
+                    "description": "@hard_be"
+                },
+                "0": {
+                    "description": "@peaceful_be"
+                },
+                "1": {
+                    "description": "@easy_be"
+                },
+                "2": {
+                    "description": "@normal_be"
+                },
+                "3": {
+                    "description": "@hard_be"
+                }
+            },
+            "@clear_data": {
+                "": {
+                    "description": "@clear_data"
+                },
+                "@Integer": {
+                    "description": "@null",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@item_count": {
+                "": {
+                    "description": "@item_count"
+                },
+                "@Integer": {
+                    "description": "@count",
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@mode": {
+                "adventure": {
+                    "description": "@adventure"
+                },
+                "default": {
+                    "description": "@default"
+                },
+                "creative": {
+                    "description": "@creative"
+                },
+                "spectator": {
+                    "description": "@spectator"
+                },
+                "survival": {
+                    "description": "@survival"
+                },
+                "a": {
+                    "description": "@adventure_bedrock"
+                },
+                "c": {
+                    "description": "@creative_bedrock"
+                },
+                "d": {
+                    "description": "@default_bedrock"
+                },
+                "s": {
+                    "description": "@survival_bedrock"
+                },
+                "5": {
+                    "description": "@default_bedrock"
+                },
+                "0": {
+                    "description": "@survival_bedrock"
+                },
+                "1": {
+                    "description": "@creative_bedrock"
+                },
+                "2": {
+                    "description": "@adventure_bedrock"
+                }
+            },
+            "@rule": {
+                "rules1": {
+                    "description": "@ability_mute"
+                },
+                "rules2": {
+                    "description": "@ability_mute"
+                }
+            },
+            "@sel": {
+                "@a": {
+                    "description": "@sel_a"
+                },
+                "@e": {
+                    "description": "@sel_e"
+                },
+                "@p": {
+                    "description": "@sel_p"
+                },
+                "@r": {
+                    "description": "@sel_r"
+                },
+                "@s": {
+                    "description": "@sel_s"
+                },
+                "@String": {
+                    "description": "@appointName",
+                    "except": "[]"
+                },
+                "@sel_more": {
+                    "toResource": "@acacia_boat_datas",
+                    "contains": "[",
+                    "except": "]"
+                }
+            },
+            "@sel_one": {
+                "@s": {
+                    "description": "@sel_s"
+                },
+                "@p": {
+                    "description": "@sel_p"
+                },
+                "@r": {
+                    "description": "@sel_r"
+                },
+                "@String": {
+                    "description": "@appointName"
+                }
+            },
+            "@boolean": {
+                "true": {
+                    "description": "@boolean_true"
+                },
+                "false": {
+                    "description": "@boolean_false"
+                }
+            },
+            "@bossbars": {
+                "add": {
+                    "description": "@bossbar_add",
+                    "fork": 2
+                },
+                "get": {
+                    "description": "@bossbar_get",
+                    "fork": 4
+                },
+                "list": {
+                    "description": "@bossbar_list",
+                    "over": true
+                },
+                "remove": {
+                    "description": "@bossbar_remove",
+                    "will_over": 1
+                },
+                "set": {
+                    "description": "@bossbar_set",
+                    "fork": 3
+                }
+            },
+            "@bossbar_sets": {
+                "color": {
+                    "description": "@color",
+                    "fork": 5
+                },
+                "max": {
+                    "description": "bossbar_set_max",
+                    "fork": 6
+                },
+                "name": {
+                    "description": "@bossbar_set_name",
+                    "fork": 7
+                },
+                "players": {
+                    "description": "@bossbar_set_players",
+                    "fork": 8
+                },
+                "style": {
+                    "description": "@bossbar_set_style",
+                    "fork": 9
+                },
+                "value": {
+                    "description": "@bossbar_set_value",
+                    "fork": 10
+                },
+                "visible": {
+                    "description": "@bossbar_set_visible",
+                    "fork": 11
+                }
+            },
+            "@bossbar_value": {
+                "": {
+                    "description": "@bossbar_value_set"
+                },
+                "@Integer": {
+                    "description": "@bossbar_value_sey_value",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@bossbar_styles": {
+                "progress": {
+                    "description": "@bossbar_style_progress"
+                },
+                "notched_6": {
+                    "description": "@bossbar_style_notched_6"
+                },
+                "notched_10": {
+                    "description": "@bossbar_style_notched_10"
+                },
+                "notched_12": {
+                    "description": "@bossbar_style_notched_12"
+                },
+                "notched_20": {
+                    "description": "@bossbar_style_notched_20"
+                }
+            },
+            "@bossbar_set_max": {
+                "": {
+                    "description": "@bossbar_max_set"
+                },
+                "@Integer": {
+                    "description": "@bossbar_max_set_value",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 2147483647
+                }
+            },
+            "@bossbar_colors": {
+                "blue": {
+                    "description": "@blue"
+                },
+                "green": {
+                    "description": "@green"
+                },
+                "pink": {
+                    "description": "@pink"
+                },
+                "purple": {
+                    "description": "@purple"
+                },
+                "red": {
+                    "description": "@red"
+                },
+                "white": {
+                    "description": "@white"
+                },
+                "yellow": {
+                    "description": "@yellow"
+                }
+            },
+            "@bossbar_gets": {
+                "max": {
+                    "description": "@bossbar_get_max"
+                },
+                "players": {
+                    "description": "@bossbar_get_players"
+                },
+                "value": {
+                    "description": "@bossbar_get_value"
+                },
+                "visible": {
+                    "description": "@bossbar_get_visible"
+                }
+            },
+            "@camerashake_operation": {
+                "add": {
+                    "description": "@camerashake_add",
+                    "fork": 2
+                },
+                "stop": {
+                    "description": "@camerashake_stop"
+                }
+            },
+            "@connect": {
+                "": {
+                    "description": "@connect_URL"
+                },
+                "out": {
+                    "description": "@connect_out"
+                },
+                "@String": {
+                    "description": "@URL"
+                }
+            },
+            "@datapacks": {
+                "disable": {
+                    "description": "@disable_datapack",
+                    "fork": 1
+                },
+                "enable": {
+                    "description": "@enable_datapack",
+                    "fork": 3
+                },
+                "list": {
+                    "description": "@list_datapack",
+                    "fork": 2
+                }
+            },
+            "@datapacks_list": {
+                "available": {
+                    "description": "@datapack_list_available"
+                },
+                "enable": {
+                    "description": "@datapack_list_enable"
+                }
+            },
+            "@datapack_priority": {
+                "first": {
+                    "description": "@datapack_first",
+                    "over": true
+                },
+                "last": {
+                    "description": "@datapack_last",
+                    "over": true
+                },
+                "after": {
+                    "description": "@datapack_after"
+                },
+                "before": {
+                    "description": "@datapack_before"
+                }
+            },
+            "@datapacks_operator": {
+                "": {
+                    "description": "@datapack_name"
+                },
+                "vanilla": {
+                    "description": "@vanilla_datapack"
+                },
+                "@String": {
+                    "description": "@dataapckname"
+                }
+            },
+            "@datapacks_operator_enable": {
+                "": {
+                    "description": "@datapack_name"
+                },
+                "@String": {
+                    "description": "@dataapckname"
+                }
+            },
+            "@debug_operators": {
+                "start": {
+                    "description": "@start_debug"
+                }
+            },
+            "@json": {
+                "": {
+                    "description": "@json"
+                },
+                "@String": {
+                    "description": "@null"
+                }
+            },
+            "@namespace": {
+                "": {
+                    "description": "@namespace"
+                },
+                "@String": {
+                    "description": "@name_space"
+                }
+            },
+            "@over_/closewebsocket": {
+                "": {
+                    "description": "@command_closewebsocket_description"
+                }
+            },
+            "@lost_command": {
+                "": {
+                    "description": "@command_lost"
+                }
+            },
+            "@execute_operator": {},
+            "@block_data": {
+                "": {
+                    "description": "@blockdata"
+                },
+                "@Integer": {
+                    "description": "@block_datas",
+                    "valueErr": "@valueErr",
+                    "valueOutLimited": "@valueOutLimited",
+                    "limited": 255
+                }
+            },
+            "@kick_reason": {
+                "": {
+                    "description": "@kick_reason"
+                },
+                "@String": {
+                    "description": "@reason"
+                }
+            }
+        }
+    }
+}
