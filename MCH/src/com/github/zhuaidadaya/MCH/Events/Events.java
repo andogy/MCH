@@ -7,6 +7,7 @@ import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
 import com.github.zhuaidadaya.MCH.Events.UPD.countTime;
 import com.github.zhuaidadaya.MCH.UI.*;
+import com.github.zhuaidadaya.MCH.UI.Lang.languageSet;
 import com.github.zhuaidadaya.MCH.lib.Resources;
 
 import java.awt.*;
@@ -103,6 +104,8 @@ public class Events {
                     Config.languageSet = "Language@Chinese_TW";
                 }
             }
+
+            languageSet.Language();
 
             try {
                 Config.WriteIni();

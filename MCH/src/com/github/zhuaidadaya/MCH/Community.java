@@ -98,7 +98,6 @@ public class Community {
 
         saveErrorLog = true;
         saveRunLog = true;
-
         Config.path = System.getProperty("user.home").replace("\\", "/") + "/" + Config.path;
 
         if(args.contains("developing"))
@@ -169,9 +168,10 @@ public class Community {
                     }).start();
                 }
 
+
                 try {
                     try {
-                        UIManager.setLookAndFeel(new QuaquaLookAndFeel());
+                        UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
                     } catch (Exception e) {
 
                     }
@@ -217,32 +217,34 @@ public class Community {
 
                     new exit();
 
-                    //        读取历史记录的线程
-                    new historyReader().start();
+                    if (!args.contains("launcher")) {
+                        //        读取历史记录的线程
+                        new historyReader().start();
 
-                    //        处理URL请求的线程
-                    new URLs().start();
+                        //        处理URL请求的线程
+                        new URLs().start();
 
-                    //        计时线程,这是在UPD时用于计算连接服务器的时间的
-                    new countTime().start();
+                        //        计时线程,这是在UPD时用于计算连接服务器的时间的
+                        new countTime().start();
 
-                    //        keyboard监听线程
-                    new listener().start();
+                        //        keyboard监听线程
+                        new listener().start();
 
-                    //        开启minecraft监听线程,给启动器使用预留准备
-                    new ExtraUI.minecraftListener().start();
+                        //        开启minecraft监听线程,给启动器使用预留准备
+                        new ExtraUI.minecraftListener().start();
 
-                    //        开启websocket监听线程,给wsServer使用预留准备
-                    //        new webSocket.webSocketListener().start();
+                        //        开启websocket监听线程,给wsServer使用预留准备
+                        //        new webSocket.webSocketListener().start();
 
-                    //        这个线程用于计算MCH文件夹大小
-                    new dirSize().start();
+                        //        这个线程用于计算MCH文件夹大小
+                        new dirSize().start();
+                    }
 
                     new daemons().start();
 
-                    if(Community.LangID == 0) {
+                    if (Community.LangID == 0) {
                         MenuUI2.mchDirSize.setText("MCH文件占用: 计算中      UPD缓存: 计算中");
-                    } else if(Community.LangID == 1) {
+                    } else if (Community.LangID == 1) {
                         MenuUI2.mchDirSize.setText("MCH File Size: counting      UPD cache: counting");
                     }
 

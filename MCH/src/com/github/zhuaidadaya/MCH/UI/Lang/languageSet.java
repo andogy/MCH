@@ -163,6 +163,8 @@ public class languageSet extends Thread {
             MinecraftLauncher.minecraftAreaDescription.setText(lang.get("area_description"));
             MinecraftLauncher.minecraftAreaSwitchWarning.setText(lang.get("switch_area_warning"));
 
+            MinecraftLauncher.removeJava.setText(lang.get("remove"));
+
             try {
                 new JSONObject(MinecraftLauncher.minecraftVersions.get(MinecraftLauncher.verList.getSelectedValue().toString()).toString()).get("path");
 
@@ -218,13 +220,11 @@ public class languageSet extends Thread {
         while(! Errors.CannotHandle) {
             if(! Community.isDaemons) {
                 try {
-                    Thread.sleep(20);
+                    Thread.sleep(250);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
-                for(String s : langFile.keySet())
-                    initFromSelf(s, langFile.get(s), "", this.getClass());
                 Language();
             } else {
                 try {

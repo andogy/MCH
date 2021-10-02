@@ -5,8 +5,37 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/MCH/src" isTestSource="false" />
     </content>
-    <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="library" exported="" name="libs" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/gson-2.8.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/log4j-1.2.17.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/Quaqua-7.3.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/dnsjava-2.0.8.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/ezmorph-1.0.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/gnujaxp-1.0.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/jcommon-1.0.24.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/mail-1.5.0-b01.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/commons-logging.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/zip4j-2.7.0 (1).jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/activation-1.1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/jfreechart-1.5.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/annotations-20.1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/json-lib-2.1-jdk15.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/commons-lang-2.5(1).jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/Java-WebSocket-1.5.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/slf4j-api-2.0.0-alpha1.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/commons-beanutils-1.7.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/commons-collections-3.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/javax.websocket-api-1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/slf4j-log4j12-2.0.0-alpha1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

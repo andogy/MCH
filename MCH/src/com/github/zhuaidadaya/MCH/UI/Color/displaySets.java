@@ -200,6 +200,8 @@ public class displaySets extends Thread {
         MinecraftLauncher.setUsingJava.setFocusPainted(false);
         MinecraftLauncher.importJava.setBorderPainted(false);
         MinecraftLauncher.importJava.setFocusPainted(false);
+        MinecraftLauncher.removeJava.setBorderPainted(false);
+        MinecraftLauncher.removeJava.setFocusPainted(false);
 
         loadingWindow.progress.setBorderPainted(false);
 
@@ -1402,7 +1404,7 @@ public class displaySets extends Thread {
                         extraDisplay();
                         counts = 0;
                     }
-                    Thread.sleep(15);
+                    Thread.sleep(250);
                 } else {
                     counts = 100;
                     Thread.sleep(500);
