@@ -167,6 +167,12 @@ public class languageSet extends Thread {
 
             MinecraftLauncher.forceStopMinecraft.setText(lang.get("force_stop"));
 
+            MinecraftLauncher.removeInstance.setText(lang.get("remove_instance"));
+
+            MinecraftLauncher.logs.setText(lang.get("logs"));
+
+            MinecraftLauncher.exportLogs.setText(MinecraftLauncher.exportingLogs ? lang.get("exporting") : lang.get("export"));
+
             try {
                 new JSONObject(MinecraftLauncher.minecraftVersions.get(MinecraftLauncher.verList.getSelectedValue().toString()).toString()).get("path");
 

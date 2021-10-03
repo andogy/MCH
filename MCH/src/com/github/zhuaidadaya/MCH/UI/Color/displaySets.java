@@ -205,6 +205,12 @@ public class displaySets extends Thread {
 
         MinecraftLauncher.forceStopMinecraft.setBorderPainted(false);
         MinecraftLauncher.forceStopMinecraft.setFocusPainted(false);
+        MinecraftLauncher.removeInstance.setBorderPainted(false);
+        MinecraftLauncher.removeInstance.setFocusPainted(false);
+        MinecraftLauncher.logs.setBorderPainted(false);
+        MinecraftLauncher.logs.setFocusPainted(false);
+        MinecraftLauncher.exportLogs.setBorderPainted(false);
+        MinecraftLauncher.exportLogs.setFocusPainted(false);
 
         loadingWindow.progress.setBorderPainted(false);
 
@@ -231,6 +237,8 @@ public class displaySets extends Thread {
         MinecraftLauncher.deleteVersion.setBackground(buttonColor);
         MinecraftLauncher.deleteVersion.setForeground(foregroundColor);
 
+        MinecraftLauncher.runningMinecraftLogsScrollPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
+        MinecraftLauncher.selectedMinecraftLogsScrollPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
         MinecraftLauncher.verScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
         MinecraftLauncher.downloadScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
         MinecraftLauncher.runningScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
@@ -770,6 +778,25 @@ public class displaySets extends Thread {
 
         MinecraftLauncher.runningMinecraftStatus.setBackground(backgroundColor);
         MinecraftLauncher.runningMinecraftStatus.setForeground(foregroundColor);
+
+        MinecraftLauncher.removeInstance.setBackground(buttonColor);
+        MinecraftLauncher.removeInstance.setForeground(foregroundColor);
+
+        MinecraftLauncher.logs.setBackground(buttonColor);
+        MinecraftLauncher.logs.setForeground(foregroundColor);
+        MinecraftLauncher.exportLogs.setBackground(buttonColor);
+        MinecraftLauncher.exportLogs.setForeground(foregroundColor);
+
+        MinecraftLauncher.runningMinecraftLogs.setBackground(backgroundColor);
+        MinecraftLauncher.runningMinecraftLogs.setForeground(foregroundColor);
+
+        MinecraftLauncher.selectedMinecraftLogs.setBackground(backgroundColor);
+        MinecraftLauncher.selectedMinecraftLogs.setForeground(foregroundColor);
+
+        MinecraftLauncher.logsPanel.setBackground(backgroundColor);
+
+        MinecraftLauncher.selectedMinecraft.setForeground(foregroundColor);
+
         //        MinecraftLauncher.showSelect
 
         //        使用线程休眠减少CPU负担,45ms时间可以减少相当大的CPU负载,且用户无法察觉延迟

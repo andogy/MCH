@@ -3,6 +3,13 @@
         {
             "chinese": [
                 {
+                    "export": "导出",
+                    "exporting": "导出中",
+                    "no_selected_instance": "没有选择实例",
+                    "logs": "日志",
+                    "remove_instance": "移除",
+                    "running": "运行中",
+                    "stopped": "已停止",
                     "no_running": "无实例",
                     "launch_to_manager": "error-instance-not-found未找到运行中的Minecraft实例\n从\"启动器\"启动一个Minecraft以获取实例控制\n\n(MCH仅支持控制由MCH启动的Minecraft)",
                     "force_stop": "终止进程",
@@ -208,6 +215,13 @@
         {
             "english": [
                 {
+                    "export": "export",
+                    "exporting": "exporting",
+                    "no_selected_instance": "no selection instance",
+                    "logs": "logs",
+                    "remove_instance": "remove",
+                    "running": "running",
+                    "stopped": "stopped",
                     "no_running": "no instance",
                     "launch_to_manager": "error-instance-not-foundcannot found running Minecraft\nlaunch Minecraft from \"launcher\" to get instance control\n\n(MCH only support control Minecraft launch by MCH)",
                     "force_stop": "stop it",
@@ -409,6 +423,13 @@
         {
             "chinese_tw": [
                 {
+                    "export": "导出",
+                    "exporting": "导出中",
+                    "no_selected_instance": "没有选择实例",
+                    "logs": "日志",
+                    "remove_instance": "移除",
+                    "running": "运行中",
+                    "stopped": "已停止",
                     "launch_to_manager": "error-instance-not-found未找到运行中的Minecraft实例\n从\"启动器\"启动一个Minecraft以获取实例控制\n\n(MCH仅支持控制由MCH启动的Minecraft)",
                     "no_running": "无实例",
                     "force_stop": "终止进程",

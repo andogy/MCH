@@ -35,6 +35,7 @@ public class listener extends Thread {
         new mainFrame();
         new switchTip();
         new functionEditor();
+        new minecraftLauncher_instance();
     }
 
     public static class switchTip {
@@ -441,7 +442,7 @@ class inputs {
                 }
             });
         } catch (Error er) {
-            Errors.errors(er, null, false, "KeyListener", "", 700, 520, false);
+            Errors.errors(er, null, false, "KeyListener", "", 700, 520, false,false);
         }
     }
 
@@ -586,9 +587,6 @@ class errorFrame {
                     String s = Arrays.toString(c.toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
 
                     if(c.size() > 1) {
-
-                        System.out.println(s);
-
                         normallyKeyP.p(s);
 
                         if(s.contains("|76|") & s.contains("|18|")) {
@@ -601,6 +599,49 @@ class errorFrame {
 
                         c.clear();
                     }
+
+                } catch (Exception ignored) {
+
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                c.clear();
+            }
+        });
+    }
+}
+
+class minecraftLauncher_instance {
+    public static Set<Integer> c = new HashSet<>();
+
+    public minecraftLauncher_instance() {
+        MinecraftLauncher.logsFrame.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                try {
+                    c.add(e.getKeyCode());
+
+                    String s = Arrays.toString(c.toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
+
+                    System.out.println(s);
+
+                    normallyKeyP.p(s);
+
+                    if(s.contains("|76|") & s.contains("|18|")) {
+                        if(Community.LangID == 0) {
+                            Events.switchLanguage(1);
+                        } else if(Community.LangID == 1) {
+                            Events.switchLanguage(0);
+                        }
+                    }
+
 
                 } catch (Exception ignored) {
 

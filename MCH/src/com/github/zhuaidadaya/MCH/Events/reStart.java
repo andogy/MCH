@@ -52,7 +52,7 @@ public class reStart {
             }
         } catch (Exception e) {
 //            Errors.tips(400, 220,  Resources.initLanguage.lang.get("restart-failed"),Resources.initLanguage.lang.get("restart-failed-title"));
-            Errors.errors(null,e,false, Resources.initLanguage.lang.get("restart"), Resources.initLanguage.lang.get("restart-failed"),700,1080,true);
+            Errors.errors(null,e,false, Resources.initLanguage.lang.get("restart"), Resources.initLanguage.lang.get("restart-failed"),700,1080,true,false);
         }
     }
 }

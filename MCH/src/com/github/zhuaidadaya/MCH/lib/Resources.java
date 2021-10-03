@@ -186,7 +186,7 @@ public class Resources extends Thread {
                 //修复语言文件
                 new Resources().fixResource(resourceRoot + langFile, languagesPath, false);
 
-                Errors.errors(null, e, false, "languageInit", "null", 700, 520, false);
+                Errors.errors(null, e, false, "languageInit", "null", 700, 520, false,false);
 
             } catch (Exception e) {
                 Config.languageSet = "Language@Auto";
@@ -195,7 +195,7 @@ public class Resources extends Thread {
                 new Resources().fixResource(resourceRoot + langFile, languagesPath, false);
 
                 loadingWindow.loading.append(Arrays.toString(e.getStackTrace()).replace(", ", "\n") + "\n");
-                Errors.errors(null, e, false, json.toString(), "null", 700, 520, false);
+                Errors.errors(null, e, false, json.toString(), "null", 700, 520, false,false);
 
             } catch (Error error) {
 
@@ -270,9 +270,9 @@ public class Resources extends Thread {
             } catch (Exception | Error e) {
                 Config.languageSet = "Language@Auto";
                 if(e instanceof Exception) {
-                    Errors.errors(null, (Exception) e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true);
+                    Errors.errors(null, (Exception) e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true,false);
                 } else {
-                    Errors.errors((Error) e, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true);
+                    Errors.errors((Error) e, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true,false);
                 }
             }
         }

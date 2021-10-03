@@ -18,7 +18,7 @@ public class LoadAssembly {
         try {
             Log.writeLog(Assembly);
         } catch (Exception e) {
-            Errors.errors(null, e, false, "loadAssembly", "", 700, 520, false);
+            Errors.errors(null, e, false, "loadAssembly", "", 700, 520, false,false);
         }
 
         //try {

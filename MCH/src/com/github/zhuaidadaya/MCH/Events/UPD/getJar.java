@@ -21,7 +21,7 @@ public class getJar {
             else
                 return full.substring(full.lastIndexOf("/") + 1);
         } catch (Error var1) {
-            Errors.errors(var1, null, false, "UPD", "", 700, 520, false);
+            Errors.errors(var1, null, false, "UPD", "", 700, 520, false,false);
             return null;
         }
     }

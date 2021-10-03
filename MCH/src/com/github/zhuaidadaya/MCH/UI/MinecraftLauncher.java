@@ -5,6 +5,11 @@ import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
+import com.github.zhuaidadaya.MCH.Times.timeType;
+import com.github.zhuaidadaya.MCH.Times.times;
+import com.github.zhuaidadaya.MCH.UI.Color.displaySets;
+import com.github.zhuaidadaya.MCH.UI.Lang.languageSet;
+import com.github.zhuaidadaya.MCH.lib.Log;
 import com.github.zhuaidadaya.MCH.lib.json.JSONArray;
 import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
 import test.forceFound;
@@ -77,7 +82,12 @@ public class MinecraftLauncher {
     public static JList<Object> runningList = new JList<>();
     public static JScrollPane runningScrollPane = new JScrollPane();
     public static JTextPane runningMinecraftStatus = new JTextPane();
+    public static JTextPane runningMinecraftLogs = new JTextPane();
+    public static JScrollPane runningMinecraftLogsScrollPanel = new JScrollPane();
+    public static JPanel runningMinecraftLogsPanel = new JPanel();
     public static JButton forceStopMinecraft = new JButton();
+    public static JButton removeInstance = new JButton();
+    public static JButton logs = new JButton();
 
     public static JPanel minecraftAreaPanel = new JPanel();
     public static JList<Object> minecraftAreaList = new JList<>();
@@ -96,12 +106,20 @@ public class MinecraftLauncher {
     public static JButton switchAccountPanel = new JButton();
     public static JPanel menuPanel = new JPanel();
 
+    public static JFrame logsFrame = new JFrame();
+    public static JPanel logsPanel = new JPanel();
+    public static JLabel selectedMinecraft = new JLabel();
+    public static JButton exportLogs = new JButton();
+    public static JTextPane selectedMinecraftLogs = new JTextPane();
+    public static JScrollPane selectedMinecraftLogsScrollPanel = new JScrollPane();
+
     //-1 = all, 0 = release, 1 = snapshot, 2 = old alpha/beta
     public static int downloadListDisplay = - 1;
     public static String versionPath = Config.path + "minecraft/versions/";
     public static String gamePath = Config.path + "minecraft";
 
     public static LinkedHashMap<Object, Object> runningMinecraft = new LinkedHashMap<>();
+    public static LinkedHashMap<Object, Object> runningMinecraft_Display = new LinkedHashMap<>();
     public static LinkedHashMap<Object, Object> runningLogs = new LinkedHashMap<>();
     public static LinkedHashMap<Object, Object> minecraftDownloadVersions = getDownloadVersions("", false);
     public static LinkedHashMap<Object, Object> downloadingMinecraft = new LinkedHashMap<>();
@@ -123,6 +141,8 @@ public class MinecraftLauncher {
     public static LinkedHashSet<Object> breakPIDs = new LinkedHashSet<>();
 
     public static boolean fastLauncher = false;
+
+    public static boolean exportingLogs = false;
 
     //public static boolean
 
@@ -506,8 +526,12 @@ public class MinecraftLauncher {
     }
 
     public static void runMinecraft(String gamePath, String gameVersionName, boolean fastLaunch) {
+        boolean javaCheck1 = false;
+        Log.writeLog("[Launcher Thread/INFO] \"" + gameVersionName + "\" now launching in " + (fastLaunch ? "fast launch mode" : "safe launch mode"));
 
-        boolean check1 = false;
+        Log.writeLog("[Launcher Thread/INFO] checking java...");
+
+        stepNow.setText(lang.get("check_java"));
 
         try {
             Process p = Runtime.getRuntime().exec(java);
@@ -515,7 +539,7 @@ public class MinecraftLauncher {
             BufferedReader br = new BufferedReader(new InputStreamReader(p.getErrorStream(), Charset.forName("GBk")));
 
             while(br.readLine() != null) {
-                check1 = true;
+                javaCheck1 = true;
             }
 
             if(Community.os.contains("Linux"))
@@ -526,28 +550,46 @@ public class MinecraftLauncher {
 
         }
 
-        boolean check = false;
+        boolean javaCheck = false;
         try {
-            check = new File(java).isFile();
+            javaCheck = new File(java).isFile();
         } catch (Exception ignored) {
 
         }
 
-        if(check | check1) {
+        if(javaCheck | javaCheck1) {
             gamePath = gamePath.replace("\\", "/");
-            boolean canUse = true;
 
-            stepNow.setText(lang.get("check_java"));
+            BufferedReader versionReader;
+            StringBuilder json = new StringBuilder();
+            try {
+                versionReader = new BufferedReader(new FileReader(gamePath + "/" + gamePath.substring(gamePath.lastIndexOf("/") + 1) + ".json"));
+
+                json = new StringBuilder();
+                String readVer;
+                while((readVer = versionReader.readLine()) != null)
+                    json.append(readVer);
+
+                versionReader.close();
+            } catch (Exception e) {
+
+            }
+
+            JSONObject source = new JSONObject(json.toString());
+
+            boolean minecraftCanUse = true;
+
+            Log.writeLog("[Launcher Thread/INFO] checking minecraft...");
 
             try {
-                Process p = Runtime.getRuntime().exec("\"" + java + "\" -cp \"" + gamePath + "/client.jar" + "\" net.minecraft.client.main.Main");
+                Process p = Runtime.getRuntime().exec("\"" + java + "\" -cp \"" + gamePath + "/client.jar" + "\" " + source.get("mainClass").toString());
 
                 BufferedReader br = new BufferedReader(new InputStreamReader(p.getErrorStream(), Charset.forName("GBk")));
                 String info;
 
                 while((info = br.readLine()) != null) {
                     if(info.replace(" ", "").replace("\t", "").startsWith("java.lang.UnsupportedClassVersionError")) {
-                        canUse = false;
+                        minecraftCanUse = false;
                     }
                 }
 
@@ -559,33 +601,19 @@ public class MinecraftLauncher {
 
             }
 
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            if(canUse) {
+            if(minecraftCanUse) {
                 String nativePath = gamePath + "/natives";
                 String nativeArg = "-Djava.library.path=\"" + nativePath + "\"";
 
                 StringBuilder cpPath = new StringBuilder();
 
                 try {
-                    BufferedReader versionReader = new BufferedReader(new FileReader(gamePath + "/" + gamePath.substring(gamePath.lastIndexOf("/") + 1) + ".json"));
-
-                    StringBuilder json = new StringBuilder();
-                    String readVer;
-                    while((readVer = versionReader.readLine()) != null)
-                        json.append(readVer);
-
-                    versionReader.close();
-
-                    JSONObject source = new JSONObject(json.toString());
                     JSONArray libs = new JSONArray(source.getJSONArray("libraries").toString());
                     JSONObject assetIndex = new JSONObject(source.get("assetIndex").toString());
 
                     stepNow.setText(lang.get("check_res"));
+
+                    Log.writeLog("[Launcher Thread/INFO] checking resources...");
 
                     if(! fastLaunch) {
                         new downloadMinecraft().startOneMinecraftDownload(gamePath.substring(gamePath.lastIndexOf("/") + 1), source.get("id").toString(), true);
@@ -604,6 +632,7 @@ public class MinecraftLauncher {
                     for(Object o : libs) {
                         if(breakLaunch.contains(gameVersionName)) {
                             launching = false;
+                            Log.writeLog("[Launcher Thread/INFO] launch break");
                             return;
                         }
 
@@ -659,6 +688,7 @@ public class MinecraftLauncher {
                                     else if(Community.os.contains("Macos"))
                                         nativeJson = new JSONObject(natives.get("natives-macos").toString());
 
+                                    Log.writeLog("[Launcher Thread/INFO] replace native libs \"" + "minecraft/libs/" + nativeJson.get("path").toString() + "\"");
                                     unZipFiles(Config.path + "minecraft/libs/" + nativeJson.get("path").toString(), nativePath + "/");
                                 } catch (Exception e) {
 
@@ -667,6 +697,7 @@ public class MinecraftLauncher {
                                 try {
                                     JSONObject artifact = new JSONObject(lib.get("artifact").toString());
 
+                                    Log.writeLog("[Launcher Thread/INFO] add classpath for \"" + "minecraft/libs/" + artifact.get("path").toString() + "\"");
                                     cpPath.append(Config.path).append("minecraft/libs/").append(artifact.get("path").toString()).append(Community.os.contains("Windows") ? ";" : ":");
                                 } catch (Exception ex) {
 
@@ -683,6 +714,8 @@ public class MinecraftLauncher {
 
                     String javaUsed = java.equals("java") ? "java" : "\"" + java + "\"";
                     String CompleteLauncher = javaUsed + " -XX:+UseG1GC -XX:-UseAdaptiveSizePolicy -XX:-OmitStackTraceInFastThrow -Dfml.ignoreInvalidMinecraftCertificates=True -Dfml.ignorePatchDiscrepancies=True -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump " + nativeArg + " -Dminecraft.launcher.brand=MCH -Dminecraft.launcher.version=10 -cp \"" + cpPath + "\" " + source.get("mainClass").toString() + " --username zhuaidada --version \"" + gameVersionName + "\" --gameDir \"" + gamePath + "\" --assetsDir \"" + Config.path + "minecraft/assets\" --assetIndex " + assetIndex.get("id").toString() + " --uuid 0000000000000009AB3A8C5C95DDD7C8 --accessToken 0000000000000009AB3A8C5C95DDD7C8 --userProperties {} --userType Legacy --width 854 --height 480";
+
+                    Log.writeLog("[Launcher Thread/INFO] launch parameter: " + CompleteLauncher);
 
                     //                    String starterType = "bat";
                     //                    if (Community.os.contains("Linux"))
@@ -711,6 +744,7 @@ public class MinecraftLauncher {
                     try {
                         if(breakLaunch.contains(gameVersionName)) {
                             launching = false;
+                            Log.writeLog("[Launcher Thread/INFO] launch break");
                             return;
                         }
 
@@ -736,12 +770,16 @@ public class MinecraftLauncher {
                         runningStatus.put("type", source.get("type").toString());
                         runningStatus.put("path", gamePath);
 
-                        runningMinecraft.put(process.pid() + " - " + gameVersionName, runningStatus);
+                        String instanceName = process.pid() + " - " + gameVersionName;
+                        Log.writeLog("[Launcher Thread/INFO] created new Instance: " + instanceName);
+                        Log.writeLog("[Launcher Thread/INFO] Instance format: <" + instanceName + ">" + runningStatus);
+                        runningMinecraft.put(instanceName, runningStatus);
+
+                        StringBuilder err = new StringBuilder();
 
                         String finalGamePath = gamePath;
                         new Thread(() -> {
                             try {
-
                                 //                                new Thread(() -> {
                                 //                                    while (new JSONObject(runningMinecraft.get(process.pid()).toString()).get("status").toString().equals("running")) {
                                 //                                        try {
@@ -755,45 +793,84 @@ public class MinecraftLauncher {
                                 downloadingMinecraft.remove(gameVersionName);
                                 downloads.remove(gameVersionName);
 
-                                BufferedReader minecraftListener = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                                new Thread(() -> {
+                                    try {
+                                        BufferedReader minecraftListener = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
-                                String readLog;
-                                StringBuilder log = new StringBuilder();
+                                        String readLog;
+                                        StringBuilder log = new StringBuilder();
 
-                                while((readLog = minecraftListener.readLine()) != null) {
-                                    System.out.println(log);
-                                    log.insert(0, readLog);
-                                    runningLogs.put(process.pid() + " - " + gameVersionName, log.toString());
-                                }
+                                        new File(Config.path + "cache/minecraftLogs/" + instanceName + "/" + times.getTime(timeType.AS_DAY) + "/").mkdirs();
+                                        BufferedWriter cacheWriter = new BufferedWriter(new FileWriter(Config.path + "cache/minecraftLogs/" + instanceName + "/" + times.getTime(timeType.AS_DAY) + "/cache_" + instanceName + ".cache"));
+                                        while((readLog = minecraftListener.readLine()) != null) {
+                                            log.insert(log.length(), readLog + "\n");
+                                            if(log.length() > 1024 * 50) {
+                                                cacheWriter.write(log.toString());
+                                                cacheWriter.flush();
+                                                log = new StringBuilder(readLog + "\n");
+                                            }
+                                            runningLogs.put(instanceName, log);
 
-                                JSONObject nowSelectMinecraft = new JSONObject(minecraftVersions.get(verList.getSelectedValue()).toString());
-                                if(nowSelectMinecraft.get("path").toString().replace("\\", "/").equals(finalGamePath)) {
-                                    runningStatus.put("status", "stopped");
-                                    runningMinecraft.put(process.pid() + " - " + gameVersionName, runningStatus);
-                                }
+                                            Runtime.getRuntime().gc();
+                                        }
 
+                                        cacheWriter.write(runningLogs.get(instanceName).toString());
+
+                                        cacheWriter.close();
+
+                                    } catch (Exception e) {
+
+                                    }
+
+                                    Log.writeLog("[Launcher Thread/INFO] Instance stopped: " + instanceName);
+
+                                    JSONObject nowSelectMinecraft = new JSONObject(minecraftVersions.get(verList.getSelectedValue()).toString());
+                                    if(nowSelectMinecraft.get("path").toString().replace("\\", "/").equals(finalGamePath)) {
+                                        runningStatus.put("status", "stopped");
+                                        Log.writeLog("[Launcher Thread/INFO] Instance format: <" + instanceName + ">" + runningStatus);
+                                        runningMinecraft.put(instanceName, runningStatus);
+                                    }
+                                }).start();
+
+                                new Thread(() -> {
+                                    try {
+                                        BufferedReader minecraftListener = new BufferedReader(new InputStreamReader(process.getErrorStream(), Charset.forName("GBK")));
+
+                                        String readLog;
+
+                                        while((readLog = minecraftListener.readLine()) != null) {
+                                            err.append(readLog).append("\n");
+                                        }
+
+                                    } catch (Exception e) {
+
+                                    }
+                                }).start();
                             } catch (Exception ignored) {
 
                             }
                         }).start();
 
-                        Thread.sleep(6000);
-                        if(new JSONObject(runningMinecraft.get(process.pid() + " - " + gameVersionName).toString()).get("status").toString().equals("running"))
+                        Thread.sleep(5000);
+                        if(new JSONObject(runningMinecraft.get(instanceName).toString()).get("status").toString().equals("running")) {
+                            Log.writeLog("[Launcher Thread/INFO] \"" + gameVersionName + "\" are launched");
                             stepNow.setText(lang.get("launched"));
-                        else
+                        } else {
+                            Log.writeLog("[Launcher Thread/INFO] \"" + gameVersionName + "\" launch failed, here is error logs: \n" + err);
                             stepNow.setText(lang.get("launch_fail"));
+                        }
                     } catch (Exception e) {
-                        e.printStackTrace();
                         stepNow.setText(lang.get("launch_fail"));
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
                     stepNow.setText(lang.get("launch_fail"));
                 }
             } else {
+                Log.writeLog("[Launcher Thread/INFO] \"" + gameVersionName + "\" fail to launch: unsupported java version");
                 stepNow.setText(lang.get("java_cannot_use"));
             }
         } else {
+            Log.writeLog("[Launcher Thread/INFO] \"" + gameVersionName + "\" fail to launch: java not found");
             stepNow.setText(lang.get("java_not_found"));
         }
 
@@ -868,6 +945,23 @@ public class MinecraftLauncher {
 
         }
         return hashMap;
+    }
+
+    public static void exportLog(String fileTo, String parentDir, File logFile) {
+        try {
+            new File(parentDir).mkdirs();
+            BufferedWriter bw = new BufferedWriter(new FileWriter(fileTo));
+            BufferedReader br = new BufferedReader(new FileReader(logFile));
+            String write;
+            while((write = br.readLine()) != null) {
+                bw.write(write + "\n");
+            }
+            bw.write(selectedMinecraftLogs.getText());
+            bw.close();
+            br.close();
+        } catch (Exception e) {
+
+        }
     }
 
     public static LinkedHashMap<Object, Object> getDownloadVersions(String type, boolean fresh) {
@@ -962,6 +1056,9 @@ public class MinecraftLauncher {
 
         minecraftAreaDescription.setEditable(false);
         minecraftAreaSwitchWarning.setEditable(false);
+
+        runningMinecraftLogs.setEditable(false);
+        selectedMinecraftLogs.setEditable(false);
 
         jFrame.setResizable(false);
 
@@ -1089,12 +1186,8 @@ public class MinecraftLauncher {
                         }
 
                         setLoadingStatus(launching);
-                    }
 
-                    try {
-                        Thread.sleep(30);
-                    } catch (InterruptedException e) {
-
+                        Runtime.getRuntime().gc();
                     }
 
                     if(javaPanel.isVisible()) {
@@ -1124,12 +1217,8 @@ public class MinecraftLauncher {
                         }
 
                         setJavaStatus();
-                    }
 
-                    try {
-                        Thread.sleep(30);
-                    } catch (InterruptedException e) {
-
+                        Runtime.getRuntime().gc();
                     }
 
                     if(minecraftAreaPanel.isVisible()) {
@@ -1143,19 +1232,15 @@ public class MinecraftLauncher {
                         }
 
                         setAreaStatus();
+
+                        Runtime.getRuntime().gc();
                     }
 
-                    try {
-                        Thread.sleep(30);
-                    } catch (InterruptedException e) {
-
-                    }
-
-                    if(runningPanel.isVisible()) {
+                    if(runningPanel.isVisible() | logsFrame.isVisible()) {
                         try {
-                            runningMinecraft = getRunningMinecraftStatus();
+                            runningMinecraft_Display = getRunningMinecraftStatus();
                             int selected = Math.max(runningList.getSelectedIndex(), 0);
-                            runningList.setListData(runningMinecraft.keySet().toArray());
+                            runningList.setListData(runningMinecraft_Display.keySet().toArray());
                             runningList.setSelectedIndex(selected);
                         } catch (Exception e) {
 
@@ -1165,17 +1250,41 @@ public class MinecraftLauncher {
 
                         try {
                             showForceStop = new JSONObject(runningMinecraft.get(runningList.getSelectedValue().toString()).toString()).get("status").toString().equals("running");
-                        } catch(Exception ex) {
+                        } catch (Exception ex) {
                             showForceStop = false;
                         }
 
                         forceStopMinecraft.setVisible(showForceStop);
 
+                        boolean showRemove;
+
+                        try {
+                            new JSONObject(runningMinecraft.get(runningList.getSelectedValue().toString()).toString()).get("pid");
+                            showRemove = true;
+                        } catch (Exception ex) {
+                            showRemove = false;
+                        }
+
+                        removeInstance.setVisible(showRemove);
+
+                        boolean showLogs;
+
+                        try {
+                            showLogs = runningLogs.containsKey(runningList.getSelectedValue().toString());
+                        } catch (Exception ex) {
+                            showLogs = false;
+                        }
+
+                        logs.setVisible(showLogs);
+                        exportLogs.setVisible(showLogs);
+
                         setRunningStatus();
+
+                        Runtime.getRuntime().gc();
                     }
 
                     try {
-                        Thread.sleep(30);
+                        Thread.sleep(150);
                     } catch (InterruptedException e) {
 
                     }
@@ -1183,14 +1292,18 @@ public class MinecraftLauncher {
                     try {
                         Thread.sleep(500);
                     } catch (Exception e) {
+
                     }
                 }
             }
         }).start();
 
+        runningMinecraftLogs.setFont(new Font("", Font.PLAIN, 10));
+
         verList_download.setListData(minecraftDownloadVersions.keySet().toArray());
 
         jFrame.setSize(796, 488);
+        logsFrame.setSize(796, 533);
 
         jFrame.getContentPane().setBackground(Color.white);
 
@@ -1214,6 +1327,14 @@ public class MinecraftLauncher {
         minecraftAreaScrollPane.getHorizontalScrollBar().setValue(0);
         minecraftAreaScrollPane.setViewportView(minecraftAreaList);
 
+        selectedMinecraftLogsScrollPanel.getVerticalScrollBar().setValue(0);
+        selectedMinecraftLogsScrollPanel.getHorizontalScrollBar().setValue(0);
+        selectedMinecraftLogsScrollPanel.setViewportView(selectedMinecraftLogs);
+
+        runningMinecraftLogsScrollPanel.getVerticalScrollBar().setValue(0);
+        runningMinecraftLogsScrollPanel.getHorizontalScrollBar().setValue(0);
+        runningMinecraftLogsScrollPanel.setViewportView(runningMinecraftLogs);
+
         //        窗口初始化设置
         //获得屏幕大小
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -1222,6 +1343,7 @@ public class MinecraftLauncher {
         int height = screenSize.height;
 
         jFrame.setLocation(width / 2 - jFrame.getWidth() / 2, height / 2 - jFrame.getHeight() / 2);
+        logsFrame.setLocation(width / 2 - logsFrame.getWidth() / 2, height / 2 - logsFrame.getHeight() / 2);
 
         LayoutManager layoutManager = new LayoutManager() {
             @Override
@@ -1246,13 +1368,21 @@ public class MinecraftLauncher {
 
             @Override
             public void layoutContainer(Container parent) {
+                runningMinecraftLogsScrollPanel.setBounds(0, 0, runningMinecraftLogsPanel.getWidth() + 30, runningMinecraftLogsPanel.getHeight() + 18);
+                selectedMinecraft.setBounds(0, 0, logsFrame.getWidth() / 2, 40);
+                exportLogs.setBounds(logsFrame.getWidth() - 130, 0, 122, 40);
+                selectedMinecraftLogsScrollPanel.setBounds(0, 40, logsFrame.getWidth() + 30, logsFrame.getHeight() - 70);
+
                 verScrollPane.setBounds(jFrame.getWidth() - jFrame.getWidth() / 3 + 10, 0, jFrame.getWidth(), launchPanel.getHeight());
                 loadingProgress.setBounds(150, 0, jFrame.getWidth() / 3 + 120, 20);
                 loadingStatus.setBounds(150, 20, jFrame.getWidth() / 3 + 120, jFrame.getHeight());
 
                 runningScrollPane.setBounds(jFrame.getWidth() - jFrame.getWidth() / 3 + 10, 0, jFrame.getWidth() / 3, runningPanel.getHeight());
                 forceStopMinecraft.setBounds(5, 100, 122, 40);
-                runningMinecraftStatus.setBounds(150, 0, jFrame.getWidth() / 3 + 120, jFrame.getHeight());
+                removeInstance.setBounds(5, 150, 122, 40);
+                logs.setBounds(5, 200, 122, 40);
+                runningMinecraftStatus.setBounds(150, 0, runningPanel.getWidth() / 3 + 120, runningPanel.getHeight() / 2);
+                runningMinecraftLogsPanel.setBounds(150, runningPanel.getHeight() / 2, runningPanel.getWidth() / 3 + 120, runningPanel.getHeight() / 2);
 
                 javaScrollPane.setBounds(0, - 2, jFrame.getWidth() + 10, javaPanel.getHeight() / 2);
                 removeJava.setBounds(5, javaPanel.getHeight() / 2 + 60, 122, 30);
@@ -1414,6 +1544,10 @@ public class MinecraftLauncher {
         runningPanel.add(runningScrollPane);
         runningPanel.add(runningMinecraftStatus);
         runningPanel.add(forceStopMinecraft);
+        runningPanel.add(removeInstance);
+        runningPanel.add(logs);
+        runningPanel.add(runningMinecraftLogsPanel);
+        runningMinecraftLogsPanel.add(runningMinecraftLogsScrollPanel);
         jFrame.add(runningPanel);
 
         minecraftAreaPanel.add(minecraftAreaList);
@@ -1429,9 +1563,15 @@ public class MinecraftLauncher {
         javaPanel.setVisible(false);
         runningPanel.setVisible(false);
         minecraftAreaPanel.setVisible(false);
-
         launch.setVisible(false);
+        logsFrame.setVisible(false);
 
+        logsPanel.add(selectedMinecraftLogsScrollPanel);
+        logsPanel.add(selectedMinecraft);
+        logsPanel.add(exportLogs);
+        logsFrame.add(logsPanel);
+
+        logsPanel.setLayout(layoutManager);
         menuPanel.setLayout(layoutManager);
         downloadPanel.setLayout(layoutManager);
         launchPanel.setLayout(layoutManager);
@@ -1440,6 +1580,54 @@ public class MinecraftLauncher {
         settingsPanel.setLayout(layoutManager);
         javaPanel.setLayout(layoutManager);
         minecraftAreaPanel.setLayout(layoutManager);
+        runningMinecraftLogsPanel.setLayout(layoutManager);
+
+        exportLogs.addActionListener(e -> {
+            if(! exportingLogs) {
+                new Thread(() -> {
+                    exportingLogs = true;
+
+                    languageSet.Language();
+
+                    try {
+
+                        String savePath = Config.path + "export/" + selectedMinecraft.getText() + "/" + times.getTime(timeType.AS_SECOND) + "/";
+                        String fileName = savePath + "latest.log";
+
+                        exportLog(fileName, savePath, new File(Config.path + "cache/minecraftLogs/" + selectedMinecraft.getText() + "/" + times.getTime(timeType.AS_DAY) + "/cache_" + selectedMinecraft.getText() + ".cache"));
+
+                        if(Community.os.equals("Linux")) {
+                            try {
+                                Runtime.getRuntime().exec("nautilus \"" + savePath + "\"");
+                            } catch (Exception exception) {
+
+                            }
+                        } else {
+                            try {
+                                Runtime.getRuntime().exec("explorer.exe \"" + savePath.replace("/", "\\") + "\"");
+                            } catch (Exception exception) {
+
+                            }
+                        }
+                    } catch (Exception v1) {
+
+                    }
+
+                    exportingLogs = false;
+                }).start();
+            }
+        });
+
+        logs.addActionListener(e -> {
+            try {
+                if(! logsFrame.isVisible()) {
+                    selectedMinecraftLogs.setText(selectedMinecraftLogs.getText());
+                    selectedMinecraftLogs.setCaretPosition(selectedMinecraftLogs.getText().length());
+                }
+                logsFrame.setVisible(true);
+            } catch (Exception v1) {
+            }
+        });
 
         forceStopMinecraft.addActionListener(e -> {
             try {
@@ -1527,6 +1715,35 @@ public class MinecraftLauncher {
             freshDownloadList();
         });
 
+        removeInstance.addActionListener(e -> {
+            new Thread(() -> {
+                String select = runningList.getSelectedValue().toString();
+                try {
+                    ForceStopMinecraft(new JSONObject(runningMinecraft.get(select).toString()).getInt("pid"));
+                } catch (Exception ignored) {
+
+                }
+
+                try {
+                    if(new JSONObject(runningMinecraft.get(select).toString()).get("status").toString().equals("running"))
+                        Thread.sleep(1000);
+                } catch (Exception ignored) {
+
+                }
+
+                try {
+                    while(true) {
+                        deleteFiles(Config.path + "/cache/minecraftLogs/" + select);
+                    }
+                } catch(Exception ex) {
+
+                }
+
+                runningMinecraft.remove(select);
+                runningLogs.remove(select);
+            }).start();
+        });
+
         startDownload.addActionListener(e -> {
             new Thread(() -> {
                 new downloadMinecraft().startOneMinecraftDownload();
@@ -1542,6 +1759,7 @@ public class MinecraftLauncher {
                 if(! (downloadingMinecraft.get(gameName) == null)) {
                     visible("launcher");
                     runMinecraft(gamePath, gameVersion, false);
+                    Runtime.getRuntime().gc();
                 }
             }).start();
         });
@@ -1555,6 +1773,7 @@ public class MinecraftLauncher {
                 if(! (downloadingMinecraft.get(gameName) == null)) {
                     visible("launcher");
                     runMinecraft(gamePath, gameVersion, true);
+                    Runtime.getRuntime().gc();
                 }
             }).start();
         });
@@ -1860,17 +2079,38 @@ public class MinecraftLauncher {
 
     public static void setRunningStatus() {
         try {
-            ListModel<?> listModel = runningList.getModel();
-
             String source;
 
-            source = runningMinecraft.get(runningList.getSelectedValue().toString()).toString();
+            source = runningMinecraft_Display.get(runningList.getSelectedValue().toString()).toString();
 
             JSONObject json = new JSONObject();
             try {
                 json = new JSONObject(source);
             } catch (Exception v1) {
 
+            }
+
+            if(runningList.getSelectedValue().toString().equals(lang.get("no_running"))) {
+                selectedMinecraft.setText(lang.get("no_selected_instance"));
+            } else {
+                selectedMinecraft.setText(runningList.getSelectedValue().toString());
+            }
+
+            try {
+                String logs = runningLogs.get(runningList.getSelectedValue().toString()).toString();
+                try {
+                    if(! logs.equals(selectedMinecraftLogs.getText())) {
+                        runningMinecraftLogs.setText(logs + "\n");
+                        selectedMinecraftLogs.setText(logs);
+                        runningMinecraftLogs.setCaretPosition(runningMinecraftLogs.getText().length());
+                        selectedMinecraftLogs.setCaretPosition(selectedMinecraftLogs.getText().length());
+                    }
+                } catch (OutOfMemoryError oom) {
+                    Errors.errors(oom, null, true, "Minecraft Manager", "Your log too large, we trying abandon process log and restart", 500, 800, true, true);
+                }
+            } catch (Exception e) {
+                runningMinecraftLogs.setText("");
+                selectedMinecraftLogs.setText("");
             }
 
             Document doc = runningMinecraftStatus.getDocument();
@@ -1939,6 +2179,7 @@ public class MinecraftLauncher {
             case "running" -> runningPanel.setVisible(true);
             case "areas" -> minecraftAreaPanel.setVisible(true);
         }
+        displaySets.Color();
     }
 
     public static void launchMinecraft(String ver) {
@@ -1951,6 +2192,7 @@ public class MinecraftLauncher {
                 } catch (Exception e) {
                     launching = false;
                 }
+                Runtime.getRuntime().gc();
             }).start();
         }
     }
@@ -2512,6 +2754,8 @@ public class MinecraftLauncher {
             } else {
                 downloadStatus.setText("may internet error");
             }
+
+            Runtime.getRuntime().gc();
         }
     }
 

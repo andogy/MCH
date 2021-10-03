@@ -46,7 +46,7 @@ public class Events {
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (OutOfMemoryError e) {
-                Errors.errors(e, null, true, "Copy","",700,520,true);
+                Errors.errors(e, null, true, "Copy","",700,520,true,false);
             }
         }
     }

@@ -96,7 +96,7 @@ public class Community {
 
         saveErrorLog = true;
         saveRunLog = true;
-        Config.path = System.getProperty("user.home").replace("\\", "/") + "/" + Config.path;
+        Config.path = System.getProperty("user.home").replace("\\", "/") + "/AppData/Roaming/" + Config.path;
 
         if(args.contains("developing"))
             Config.path = "/MCH_testing_path/";
@@ -215,6 +215,9 @@ public class Community {
 
                     new exit();
 
+                    //        keyboard监听线程
+                    new listener().start();
+
                     if (!args.contains("launcher")) {
                         //        读取历史记录的线程
                         new historyReader().start();
@@ -224,9 +227,6 @@ public class Community {
 
                         //        计时线程,这是在UPD时用于计算连接服务器的时间的
                         new countTime().start();
-
-                        //        keyboard监听线程
-                        new listener().start();
 
                         //        开启minecraft监听线程,给启动器使用预留准备
                         new ExtraUI.minecraftListener().start();
