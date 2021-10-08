@@ -254,7 +254,7 @@ public class Parsing extends Thread {
                     allStr = allStr.replace("\r", "").replace("\n", "");
 
                     Config.input_command = "Input@" + allStr;
-                    Config.WriteIni();
+                    Config.WriteConfig();
                     //                    }
                 } catch (Exception ex) {
                     //                ex.printStackTrace();

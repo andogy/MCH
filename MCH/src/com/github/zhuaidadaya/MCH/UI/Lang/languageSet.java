@@ -134,7 +134,7 @@ public class languageSet extends Thread {
             loadingWindow.loadingTip.setText(lang.get("resource_loading"));
             loadingWindow.loadStatus.setText(lang.get("load_status"));
 
-            MinecraftLauncher.switchDownloadPanel.setText(lang.get("downloads"));
+            MinecraftLauncher.switchDownloadPanel.setText(lang.get("download_vanilla"));
             MinecraftLauncher.switchLauncherPanel.setText(lang.get("launcher"));
 
             MinecraftLauncher.showSelect.setText(lang.get("version_show_select"));
@@ -170,6 +170,18 @@ public class languageSet extends Thread {
             MinecraftLauncher.removeInstance.setText(lang.get("remove_instance"));
 
             MinecraftLauncher.logs.setText(lang.get("logs"));
+
+            MinecraftLauncher.switchAccountPanel.setText(lang.get("account"));
+            MinecraftLauncher.addAccount.setText(lang.get("addAccount"));
+            MinecraftLauncher.removeAccount.setText(lang.get("removeAccount"));
+            MinecraftLauncher.selectAccount.setText(MinecraftLauncher.selected ? lang.get("selected") : lang.get("selectAccount"));
+
+            MinecraftLauncher.accountNameTip.setText(MinecraftLauncher.addAccountType.equals("mojang") ? lang.get("account_email") : lang.get("account_name"));
+            MinecraftLauncher.accountPasswordTip.setText(MinecraftLauncher.addAccountType.equals("mojang") ? lang.get("account_password") : "UUID");
+
+            MinecraftLauncher.addThisAccount.setText(lang.get("addAccount"));
+            MinecraftLauncher.addOfflineAccount.setText(lang.get("offline_account"));
+            MinecraftLauncher.addMojangAccount.setText(lang.get("mojang_account"));
 
             MinecraftLauncher.exportLogs.setText(MinecraftLauncher.exportingLogs ? lang.get("exporting") : lang.get("export"));
 

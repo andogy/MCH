@@ -23,7 +23,7 @@ public class connect extends Thread {
             //设置请求方式
             httpURLConnection.setRequestMethod("POST");
 
-            // 设置字符编码0
+            // 设置字符编码
             httpURLConnection.setRequestProperty("Charset", "UTF-8");
 
             long time = System.currentTimeMillis();

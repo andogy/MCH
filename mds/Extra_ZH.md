@@ -370,6 +370,7 @@ MCH在写入以及读取配置文件时会对其加密<br>
 
 需要使用MCH提供的HashMap来保存配置文件<br>
 用以下代码来存储配置文件
+
 ```java
 package Mex;
 
@@ -379,7 +380,7 @@ import com.github.zhuaidadaya.MCH.Community;
 public class Declared() {
     public void onLoad() {
         Community.extraConf.put("config-name", "config-value");
-        Config.WriteIni();
+        Config.WriteConfig();
     }
 }
 ```

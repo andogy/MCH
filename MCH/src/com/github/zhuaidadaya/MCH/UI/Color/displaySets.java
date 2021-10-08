@@ -166,6 +166,8 @@ public class displaySets extends Thread {
         MinecraftLauncher.switchRunningPanel.setFocusPainted(false);
         MinecraftLauncher.switchMinecraftAreaPanel.setBorderPainted(false);
         MinecraftLauncher.switchMinecraftAreaPanel.setFocusPainted(false);
+        MinecraftLauncher.switchAccountPanel.setBorderPainted(false);
+        MinecraftLauncher.switchAccountPanel.setFocusPainted(false);
 
         MinecraftLauncher.showAll.setBorderPainted(false);
         MinecraftLauncher.showAll.setFocusPainted(false);
@@ -212,6 +214,26 @@ public class displaySets extends Thread {
         MinecraftLauncher.exportLogs.setBorderPainted(false);
         MinecraftLauncher.exportLogs.setFocusPainted(false);
 
+        MinecraftLauncher.addAccount.setBorderPainted(false);
+        MinecraftLauncher.addAccount.setFocusPainted(false);
+        MinecraftLauncher.removeAccount.setBorderPainted(false);
+        MinecraftLauncher.removeAccount.setFocusPainted(false);
+        MinecraftLauncher.selectAccount.setBorderPainted(false);
+        MinecraftLauncher.selectAccount.setFocusPainted(false);
+
+        MinecraftLauncher.addOfflineAccount.setBorderPainted(false);
+        MinecraftLauncher.addOfflineAccount.setFocusPainted(false);
+        MinecraftLauncher.addMojangAccount.setBorderPainted(false);
+        MinecraftLauncher.addMojangAccount.setFocusPainted(false);
+        //        MinecraftLauncher.addMicrosoftAccount.setBorderPainted(false);
+        //        MinecraftLauncher.addMicrosoftAccount.setFocusPainted(false);
+        MinecraftLauncher.addThisAccount.setBorderPainted(false);
+        MinecraftLauncher.addThisAccount.setFocusPainted(false);
+        MinecraftLauncher.addMinecraftArea.setBorderPainted(false);
+        MinecraftLauncher.addMinecraftArea.setFocusPainted(false);
+        MinecraftLauncher.selectThisArea.setBorderPainted(false);
+        MinecraftLauncher.selectThisArea.setFocusPainted(false);
+
         loadingWindow.progress.setBorderPainted(false);
 
         Color foregroundColor = new Color(214, 214, 214);
@@ -244,6 +266,7 @@ public class displaySets extends Thread {
         MinecraftLauncher.runningScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
         MinecraftLauncher.javaScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
         MinecraftLauncher.minecraftAreaList.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
+        MinecraftLauncher.userListScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
 
         MinecraftLauncher.downloadName.setCaretColor(caretColor);
 
@@ -529,7 +552,7 @@ public class displaySets extends Thread {
             MenuUI2.toWikiNot.setBackground(buttonColor);
         }
 
-        if(!MinecraftLauncher.checkResource) {
+        if(! MinecraftLauncher.checkResource) {
             MinecraftLauncher.noCheckRes.setBackground(backgroundColor);
             MinecraftLauncher.checkRes.setBackground(buttonColor);
         } else {
@@ -559,28 +582,34 @@ public class displaySets extends Thread {
             MinecraftLauncher.switchLauncherPanel.setBackground(backgroundColor);
         }
 
-        if(!MinecraftLauncher.settingsPanel.isVisible()) {
+        if(! MinecraftLauncher.settingsPanel.isVisible()) {
             MinecraftLauncher.switchSettingsPanel.setBackground(buttonColor);
         } else {
             MinecraftLauncher.switchSettingsPanel.setBackground(backgroundColor);
         }
 
-        if(!MinecraftLauncher.javaPanel.isVisible()) {
+        if(! MinecraftLauncher.javaPanel.isVisible()) {
             MinecraftLauncher.switchJavaPanel.setBackground(buttonColor);
         } else {
             MinecraftLauncher.switchJavaPanel.setBackground(backgroundColor);
         }
 
-        if(!MinecraftLauncher.runningPanel.isVisible()) {
+        if(! MinecraftLauncher.runningPanel.isVisible()) {
             MinecraftLauncher.switchRunningPanel.setBackground(buttonColor);
-        }else  {
+        } else {
             MinecraftLauncher.switchRunningPanel.setBackground(backgroundColor);
         }
 
-        if(!MinecraftLauncher.minecraftAreaPanel.isVisible()) {
+        if(! MinecraftLauncher.minecraftAreaPanel.isVisible()) {
             MinecraftLauncher.switchMinecraftAreaPanel.setBackground(buttonColor);
         } else {
             MinecraftLauncher.switchMinecraftAreaPanel.setBackground(backgroundColor);
+        }
+
+        if(! MinecraftLauncher.accountPanel.isVisible()) {
+            MinecraftLauncher.switchAccountPanel.setBackground(buttonColor);
+        } else {
+            MinecraftLauncher.switchAccountPanel.setBackground(backgroundColor);
         }
 
         if(MinecraftLauncher.downloadListDisplay == - 1) {
@@ -603,6 +632,18 @@ public class displaySets extends Thread {
             MinecraftLauncher.showRelease.setBackground(buttonColor);
             MinecraftLauncher.showSnapshot.setBackground(buttonColor);
             MinecraftLauncher.showAlpha.setBackground(backgroundColor);
+        }
+
+        if(MinecraftLauncher.addAccountType.equals("offline")) {
+            MinecraftLauncher.addOfflineAccount.setBackground(backgroundColor);
+        } else {
+            MinecraftLauncher.addOfflineAccount.setBackground(buttonColor);
+        }
+
+        if(MinecraftLauncher.addAccountType.equals("mojang")) {
+            MinecraftLauncher.addMojangAccount.setBackground(backgroundColor);
+        } else {
+            MinecraftLauncher.addMojangAccount.setBackground(buttonColor);
         }
 
         MchUI.tips.setForeground(foregroundColor);
@@ -796,6 +837,49 @@ public class displaySets extends Thread {
         MinecraftLauncher.logsPanel.setBackground(backgroundColor);
 
         MinecraftLauncher.selectedMinecraft.setForeground(foregroundColor);
+
+        MinecraftLauncher.accountPanel.setBackground(backgroundColor);
+
+        MinecraftLauncher.addAccount.setBackground(buttonColor);
+        MinecraftLauncher.addAccount.setForeground(foregroundColor);
+        MinecraftLauncher.removeAccount.setBackground(buttonColor);
+        MinecraftLauncher.removeAccount.setForeground(foregroundColor);
+        MinecraftLauncher.selectAccount.setBackground(buttonColor);
+        MinecraftLauncher.selectAccount.setForeground(foregroundColor);
+        MinecraftLauncher.userStatus.setBackground(backgroundColor);
+        MinecraftLauncher.userStatus.setForeground(foregroundColor);
+
+        MinecraftLauncher.userList.setBackground(inputBoxColor);
+
+        MinecraftLauncher.switchAccountPanel.setForeground(foregroundColor);
+
+        MinecraftLauncher.addAccountPanel.setBackground(backgroundColor);
+
+        MinecraftLauncher.addThisAccount.setBackground(buttonColor);
+        MinecraftLauncher.addThisAccount.setForeground(foregroundColor);
+
+        MinecraftLauncher.accountNameTip.setForeground(MinecraftLauncher.invalidName ? Color.red : foregroundColor);
+        MinecraftLauncher.accountPasswordTip.setForeground(MinecraftLauncher.invalidUUID ? Color.red : foregroundColor);
+
+        MinecraftLauncher.accountName.setBackground(tipColor);
+        MinecraftLauncher.accountName.setForeground(foregroundColor);
+        MinecraftLauncher.accountName.setCaretColor(foregroundColor);
+        MinecraftLauncher.accountPassword.setBackground(tipColor);
+        MinecraftLauncher.accountPassword.setForeground(foregroundColor);
+        MinecraftLauncher.accountPassword.setCaretColor(foregroundColor);
+
+        MinecraftLauncher.addOfflineAccount.setForeground(foregroundColor);
+        MinecraftLauncher.addMojangAccount.setForeground(foregroundColor);
+
+        MinecraftLauncher.userList.setForeground(foregroundColor);
+
+        MinecraftLauncher.accountUsing.setBackground(backgroundColor);
+        MinecraftLauncher.accountUsing.setForeground(foregroundColor);
+
+        MinecraftLauncher.addMinecraftArea.setBackground(buttonColor);
+        MinecraftLauncher.addMinecraftArea.setForeground(foregroundColor);
+        MinecraftLauncher.selectThisArea.setBackground(buttonColor);
+        MinecraftLauncher.selectThisArea.setForeground(foregroundColor);
 
         //        MinecraftLauncher.showSelect
 
@@ -1440,7 +1524,8 @@ public class displaySets extends Thread {
                     } else {
                         //
                     }
-                    colorCode();
+                    if(! Community.launcher)
+                        colorCode();
                     if(counts >= 120) {
                         settingsDisplay();
                         extraDisplay();

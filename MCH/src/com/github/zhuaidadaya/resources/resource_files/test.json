@@ -1,0 +1,60 @@
+{
+    "id": "fabric-loader-0.12.0-1.17.1",
+    "inheritsFrom": "1.17.1",
+    "releaseTime": "2021-10-07T04:25:35+0000",
+    "time": "2021-10-07T04:25:35+0000",
+    "type": "release",
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotClient",
+    "arguments": {
+        "game": [],
+        "jvm": [
+            "-DFabricMcEmu= net.minecraft.client.main.Main "
+        ]
+    },
+    "libraries": [
+        {
+            "name": "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+            "url": "https://maven.fabricmc.net/"
+        },
+        {
+            "name": "net.fabricmc:sponge-mixin:0.10.2+mixin.0.8.4",
+            "url": "https://maven.fabricmc.net/"
+        },
+        {
+            "name": "net.fabricmc:tiny-remapper:0.6.0",
+            "url": "https://maven.fabricmc.net/"
+        },
+        {
+            "name": "net.fabricmc:access-widener:2.0.0",
+            "url": "https://maven.fabricmc.net/"
+        },
+        {
+            "name": "org.ow2.asm:asm:9.2",
+            "url": "https://maven.fabricmc.net/"
+        },
+        {
+            "name": "org.ow2.asm:asm-analysis:9.2",
+            "url": "https://maven.fabricmc.net/"
+        },
+        {
+            "name": "org.ow2.asm:asm-commons:9.2",
+            "url": "https://maven.fabricmc.net/"
+        },
+        {
+            "name": "org.ow2.asm:asm-tree:9.2",
+            "url": "https://maven.fabricmc.net/"
+        },
+        {
+            "name": "org.ow2.asm:asm-util:9.2",
+            "url": "https://maven.fabricmc.net/"
+        },
+        {
+            "name": "net.fabricmc:intermediary:1.17.1",
+            "url": "https://maven.fabricmc.net/"
+        },
+        {
+            "name": "net.fabricmc:fabric-loader:0.12.0",
+            "url": "https://maven.fabricmc.net/"
+        }
+    ]
+}

@@ -319,7 +319,7 @@ public class Config {
         }
     }
 
-    public static void WriteIni() throws Exception {
+    public static void WriteConfig() throws Exception {
         updateConf();
 
         FileWriter fl = new FileWriter(path + sets, Charset.forName("unicode"), false);

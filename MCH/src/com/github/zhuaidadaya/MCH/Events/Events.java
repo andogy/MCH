@@ -69,7 +69,7 @@ public class Events {
             }
 
             try {
-                Config.WriteIni();
+                Config.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -108,7 +108,7 @@ public class Events {
             languageSet.Language();
 
             try {
-                Config.WriteIni();
+                Config.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -130,7 +130,7 @@ public class Events {
             }
 
             try {
-                Config.WriteIni();
+                Config.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -148,7 +148,7 @@ public class Events {
             }
 
             try {
-                Config.WriteIni();
+                Config.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -166,7 +166,7 @@ public class Events {
             }
 
             try {
-                Config.WriteIni();
+                Config.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -184,7 +184,7 @@ public class Events {
             }
 
             try {
-                Config.WriteIni();
+                Config.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -202,7 +202,7 @@ public class Events {
             }
 
             try {
-                Config.WriteIni();
+                Config.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -220,7 +220,7 @@ public class Events {
             }
 
             try {
-                Config.WriteIni();
+                Config.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -238,7 +238,7 @@ public class Events {
             }
 
             try {
-                Config.WriteIni();
+                Config.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -261,7 +261,7 @@ public class Events {
             }
 
             try {
-                Config.WriteIni();
+                Config.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -282,7 +282,7 @@ public class Events {
         }
 
         try {
-            Config.WriteIni();
+            Config.WriteConfig();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -300,7 +300,7 @@ public class Events {
         }
 
         try {
-            Config.WriteIni();
+            Config.WriteConfig();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -333,7 +333,7 @@ public class Events {
         }
 
         try {
-            Config.WriteIni();
+            Config.WriteConfig();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -351,7 +351,7 @@ public class Events {
         }
 
         try {
-            Config.WriteIni();
+            Config.WriteConfig();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -379,7 +379,7 @@ public class Events {
         MinecraftLauncher.uploadConfig();
 
         try {
-            Config.WriteIni();
+            Config.WriteConfig();
         } catch (Exception e) {
             e.printStackTrace();
         }
