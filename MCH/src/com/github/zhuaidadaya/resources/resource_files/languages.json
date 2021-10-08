@@ -3,6 +3,11 @@
         {
             "chinese": [
                 {
+                    "in_area": "所属域 ",
+                    "select_minecraft_area": "选择",
+                    "add_minecraft_area": "添加域",
+                    "remove_minecraft_area": "移除",
+                    "rename_minecraft_area": "重命名",
                     "minecraft_type": "minecraft类型",
                     "using_account": "使用账户",
                     "no_account_selected": "没有选择账号",
@@ -30,7 +35,6 @@
                     "no_running": "无实例",
                     "launch_to_manager": "error-instance-not-found未找到运行中的Minecraft实例\n从\"启动器\"启动一个Minecraft以获取实例控制\n\n(MCH仅支持控制由MCH启动的Minecraft)",
                     "force_stop": "终止进程",
-                    "switch_area_warning": "切换域后将无法\n在\"实例\"控制其他域运行中的实例\n即使换回原来的域也无法恢复\n\"启动器\"显示的版本会随着域变化",
                     "default_area": "默认域",
                     "area_description": "域可以让MCH工作在多个Minecraft目录\n通过切换域来选择其他目录下的Minecraft\n而非仅MCH默认目录",
                     "area": "域",
@@ -232,6 +236,11 @@
         {
             "english": [
                 {
+                    "in_area": "in area",
+                    "select_minecraft_area": "select",
+                    "add_minecraft_area": "add area",
+                    "remove_minecraft_area": "remove",
+                    "rename_minecraft_area": "rename",
                     "minecraft_type": "minecraft type",
                     "using_account": "using account",
                     "no_account_selected": "no account selected",
@@ -259,7 +268,6 @@
                     "no_running": "no instance",
                     "launch_to_manager": "error-instance-not-foundcannot found running Minecraft\nlaunch Minecraft from \"launcher\" to get instance control\n\n(MCH only support control Minecraft launch by MCH)",
                     "force_stop": "stop it",
-                    "switch_area_warning": "cannot contrl area instance after switch area\nif you switch back is same cannot\nversions in \"Launcher\" will changed follow area",
                     "default_area": "Default Area",
                     "area_description": "area can to work in multi Minecraft directory\nswitch area to select minecraft in other directory\nit not MCH directory only",
                     "area": "area",
@@ -457,6 +465,11 @@
         {
             "chinese_tw": [
                 {
+                    "in_area": "所属域",
+                    "select_minecraft_area": "选择",
+                    "add_minecraft_area": "添加域",
+                    "remove_minecraft_area": "移除域",
+                    "rename_minecraft_area": "重命名域",
                     "minecraft_type": "minecraft类型",
                     "using_account": "使用账户",
                     "no_account_selected": "没有选择账号",
@@ -484,7 +497,6 @@
                     "launch_to_manager": "error-instance-not-found未找到运行中的Minecraft实例\n从\"启动器\"启动一个Minecraft以获取实例控制\n\n(MCH仅支持控制由MCH启动的Minecraft)",
                     "no_running": "无实例",
                     "force_stop": "终止进程",
-                    "switch_area_warning": "切换域后将无法\n在\"实例\"控制其他域运行中的实例\n即使换回原来的域也无法恢复\n\"启动器\"显示的版本会随着域变化",
                     "default_area": "默认域",
                     "area_description": "域可以让MCH工作在多个Minecraft目录\n通过切换域来选择其他目录下的Minecraft\n而非仅MCH默认目录",
                     "area": "域",

@@ -287,9 +287,6 @@ public class displaySets extends Thread {
         MinecraftLauncher.removeJava.setBackground(buttonColor);
         MinecraftLauncher.removeJava.setForeground(foregroundColor);
 
-        MinecraftLauncher.minecraftAreaSwitchWarning.setBackground(backgroundColor);
-        MinecraftLauncher.minecraftAreaSwitchWarning.setForeground(foregroundColor);
-
         MinecraftLauncher.forceStopMinecraft.setBackground(buttonColor);
         MinecraftLauncher.forceStopMinecraft.setForeground(foregroundColor);
 

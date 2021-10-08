@@ -14,17 +14,17 @@ public class daemons extends Thread {
     String str_extra = "";
 
     public void run() {
-        while (!Errors.CannotHandle) {
-            if (!Community.launcher) {
-                if (!MinecraftLauncher.jFrame.isVisible()) {
+        while(! Errors.CannotHandle) {
+            if(! Community.launcher) {
+                if(! MinecraftLauncher.jFrame.isVisible()) {
                     try {
                         Community.isDaemons = MchUI.jFrame.getExtendedState() == 1;
 
-                        if (Community.isDaemons) {
+                        if(Community.isDaemons) {
 
                             //                    MenuUI
                             {
-                                if (!setTit_MenuUI) {
+                                if(! setTit_MenuUI) {
                                     str_MenuUI = MenuUI.jFrame.getTitle() + "(";
                                 }
                                 if(! MenuUI.jFrame.getTitle().equals(str_MenuUI)) {
@@ -81,8 +81,9 @@ public class daemons extends Thread {
             }
 
             try {
-                Thread.sleep(300);
+                Thread.sleep(500);
             } catch (Exception e) {
+
             }
         }
     }

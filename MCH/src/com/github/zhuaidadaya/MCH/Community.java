@@ -218,7 +218,7 @@ public class Community {
                     //        keyboard监听线程
                     new listener().start();
 
-                    if (!args.contains("launcher")) {
+                    if(! args.contains("launcher")) {
                         //        读取历史记录的线程
                         new historyReader().start();
 
@@ -240,9 +240,9 @@ public class Community {
 
                     new daemons().start();
 
-                    if (Community.LangID == 0) {
+                    if(Community.LangID == 0) {
                         MenuUI2.mchDirSize.setText("MCH文件占用: 计算中      UPD缓存: 计算中");
-                    } else if (Community.LangID == 1) {
+                    } else if(Community.LangID == 1) {
                         MenuUI2.mchDirSize.setText("MCH File Size: counting      UPD cache: counting");
                     }
 

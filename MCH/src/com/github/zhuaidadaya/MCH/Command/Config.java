@@ -76,22 +76,22 @@ public class Config {
 
         jFrame.setAlwaysOnTop(true);
 
-        if(!Community.launcher) {
+        if(! Community.launcher) {
             boolean hasIni = create();
 
-            if (hasIni) {
+            if(hasIni) {
                 parsing(true);
             } else {
                 LoadAssembly.badLoadAssembly("[Main Thread/WARN] Cannot Load configs Assembly", lang.get("loading_ini_fail"));
             }
         } else {
-            if (!new File(path + "settings.ini").isFile()) {
+            if(! new File(path + "settings.ini").isFile()) {
                 try {
                     new File(path + "settings.ini").createNewFile();
                 } catch (Exception ex) {
 
                 }
-            }else {
+            } else {
                 parsing(true);
             }
         }
@@ -126,9 +126,10 @@ public class Config {
             loadingWindow.progress.setMaximum(Math.toIntExact(br_line.lines().count()) * 3);
 
             try {
+                br.readLine();
                 checkCode = Integer.parseInt(String.valueOf(br.readLine().chars().toArray()[0]));
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
 
             boolean exConf = false;
@@ -172,7 +173,7 @@ public class Config {
 
                 if(! s.contains("//") & s.contains("@")) {
                     if(! exConf) {
-                        if(!launcherConf) {
+                        if(! launcherConf) {
                             Community.conf.put(s.substring(0, s.indexOf("@")), s.substring(s.indexOf("@") + 1));
                         } else {
                             Community.launcherConf.put(s.substring(0, s.indexOf("@")), s.substring(s.indexOf("@") + 1));
@@ -347,20 +348,22 @@ public class Config {
         write.append(launcherConf);
 
         Random r = new Random();
-        int cheekingCode = r.nextInt(1024);
-        int lim = r.nextInt(1024);
-        fl.write(cheekingCode);
+        int checkingCodeMax = 1024;
+        int checkingCode = r.nextInt(checkingCodeMax);
+        int lim = r.nextInt(checkingCode / 8);
+        fl.write("MCHF CONFIG_VERSION=1 HEADER_CODE=" + checkingCode + " ENCODER=MCH_ConfigEncoder CONFIG_STREAM_HASH=" + fl.hashCode() + " CONFIG_LENGTH=" + write.length() + " CODE_RANGE= " + checkingCode + " -> " + checkingCode / 8 + "\t\n");
+        fl.write(checkingCode);
         fl.write(10);
         fl.write(lim);
 
         for(Object o : write.chars().toArray()) {
             if(Integer.parseInt(o.toString()) == 10) {
-                int rand = r.nextInt(1024);
+                int rand = r.nextInt(checkingCode / 8);
                 fl.write(10);
                 lim = rand > 10 ? rand : 11;
                 fl.write(lim);
             } else {
-                fl.write((Integer.parseInt(o.toString()) + lim + cheekingCode));
+                fl.write((Integer.parseInt(o.toString()) + lim + checkingCode));
             }
         }
 

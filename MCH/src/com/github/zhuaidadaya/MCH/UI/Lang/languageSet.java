@@ -8,7 +8,6 @@ import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
 
 import java.util.HashMap;
 
-import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.initFromSelf;
 import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.lang;
 
 public class languageSet extends Thread {
@@ -161,7 +160,6 @@ public class languageSet extends Thread {
 
             MinecraftLauncher.switchMinecraftAreaPanel.setText(lang.get("area"));
             MinecraftLauncher.minecraftAreaDescription.setText(lang.get("area_description"));
-            MinecraftLauncher.minecraftAreaSwitchWarning.setText(lang.get("switch_area_warning"));
 
             MinecraftLauncher.removeJava.setText(lang.get("remove"));
 
@@ -174,7 +172,7 @@ public class languageSet extends Thread {
             MinecraftLauncher.switchAccountPanel.setText(lang.get("account"));
             MinecraftLauncher.addAccount.setText(lang.get("addAccount"));
             MinecraftLauncher.removeAccount.setText(lang.get("removeAccount"));
-            MinecraftLauncher.selectAccount.setText(MinecraftLauncher.selected ? lang.get("selected") : lang.get("selectAccount"));
+            MinecraftLauncher.selectAccount.setText(MinecraftLauncher.userSelected ? lang.get("selected") : lang.get("selectAccount"));
 
             MinecraftLauncher.accountNameTip.setText(MinecraftLauncher.addAccountType.equals("mojang") ? lang.get("account_email") : lang.get("account_name"));
             MinecraftLauncher.accountPasswordTip.setText(MinecraftLauncher.addAccountType.equals("mojang") ? lang.get("account_password") : "UUID");
@@ -182,6 +180,11 @@ public class languageSet extends Thread {
             MinecraftLauncher.addThisAccount.setText(lang.get("addAccount"));
             MinecraftLauncher.addOfflineAccount.setText(lang.get("offline_account"));
             MinecraftLauncher.addMojangAccount.setText(lang.get("mojang_account"));
+
+            MinecraftLauncher.addMinecraftArea.setText(lang.get("add_minecraft_area"));
+            MinecraftLauncher.removeMinecraftArea.setText(lang.get("remove_minecraft_area"));
+            MinecraftLauncher.renameMinecraftArea.setText(lang.get("rename_minecraft_area"));
+            MinecraftLauncher.selectThisArea.setText(MinecraftLauncher.areaSelected ? lang.get("selected") : lang.get("select_minecraft_area"));
 
             MinecraftLauncher.exportLogs.setText(MinecraftLauncher.exportingLogs ? lang.get("exporting") : lang.get("export"));
 

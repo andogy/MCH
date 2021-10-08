@@ -12,7 +12,6 @@ import com.github.zhuaidadaya.MCH.UI.Lang.languageSet;
 import com.github.zhuaidadaya.MCH.lib.Log;
 import com.github.zhuaidadaya.MCH.lib.json.JSONArray;
 import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
-import test.fabric_test.fab;
 import test.forceFound;
 
 import javax.swing.*;
@@ -69,6 +68,9 @@ public class MinecraftLauncher {
     public static JLabel checkResOption = new JLabel();
     public static JButton checkRes = new JButton();
     public static JButton noCheckRes = new JButton();
+    public static JLabel runMinecraftType = new JLabel();
+    public static JButton runMinecraftClient = new JButton();
+    public static JButton runMinecraftServer = new JButton();
 
     public static JPanel javaPanel = new JPanel();
     public static JList<Object> javaList = new JList<>();
@@ -95,7 +97,6 @@ public class MinecraftLauncher {
     public static JScrollPane minecraftAreaScrollPane = new JScrollPane();
     public static JTextPane minecraftAreaDescription = new JTextPane();
     public static JTextPane minecraftAreaStatus = new JTextPane();
-    public static JTextPane minecraftAreaSwitchWarning = new JTextPane();
     public static JButton selectThisArea = new JButton();
     public static JButton addMinecraftArea = new JButton();
     public static JButton renameMinecraftArea = new JButton();
@@ -138,15 +139,17 @@ public class MinecraftLauncher {
 
     //-1 = all, 0 = release, 1 = snapshot, 2 = old alpha/beta
     public static int downloadListDisplay = - 1;
-    public static String versionPath = Config.path + "minecraft/versions/";
-    public static String gamePath = Config.path + "minecraft";
+    public static String DEFAULT_VERSIONS_PATH = Config.path + "minecraft/versions/";
+    public static String DEFAULT_GAME_PATH = Config.path + "minecraft/";
+    public static String versionsPath = "";
+    public static String gamePath = "";
 
     public static LinkedHashMap<Object, Object> runningMinecraft = new LinkedHashMap<>();
     public static LinkedHashMap<Object, Object> runningMinecraft_Display = new LinkedHashMap<>();
     public static LinkedHashMap<Object, Object> runningLogs = new LinkedHashMap<>();
     public static LinkedHashMap<Object, Object> minecraftDownloadVersions = getDownloadVersions("", false);
     public static LinkedHashMap<Object, Object> downloadingMinecraft = new LinkedHashMap<>();
-    public static LinkedHashMap<Object, Object> minecraftVersions = getVersions(versionPath);
+    public static LinkedHashMap<Object, Object> minecraftVersions = getVersions(DEFAULT_VERSIONS_PATH);
     public static LinkedHashMap<Object, Object> downloads = new LinkedHashMap<>();
     public static LinkedHashMap<Object, Object> javaPaths = new LinkedHashMap<>();
     public static LinkedHashMap<Object, Object> users = new LinkedHashMap<>();
@@ -164,12 +167,15 @@ public class MinecraftLauncher {
     public static LinkedHashSet<Object> breakLaunch = new LinkedHashSet<>();
     public static LinkedHashSet<Object> breakPIDs = new LinkedHashSet<>();
 
+    public static String selectedAreaName = lang.get("default_area");
+
     public static boolean fastLauncher = false;
 
     public static boolean exportingLogs = false;
 
     public static String addAccountType = "offline";
-    public static boolean selected = false;
+    public static boolean userSelected = false;
+    public static boolean areaSelected = false;
 
     public static int selectionIndex = - 1;
 
@@ -339,9 +345,6 @@ public class MinecraftLauncher {
 
     public static boolean customDownLoad(String res, String toFile, boolean showProgress, long length, boolean launchPro, int reTryCount, String download_Name, boolean noGui) {
         try {
-            System.out.println(res);
-            System.out.println(toFile);
-
             File file = new File(toFile);
 
             if(! (length == 0)) {
@@ -360,8 +363,6 @@ public class MinecraftLauncher {
             httpURLConnection.setRequestProperty("Content-Type", "application/json");
             httpURLConnection.connect();
             int fileLength = httpURLConnection.getContentLength();
-
-            System.out.println(fileLength);
 
             if(showProgress)
                 downloadProgress.setMaximum(fileLength);
@@ -550,7 +551,7 @@ public class MinecraftLauncher {
         }
 
         JSONObject info = new JSONObject();
-        info.put("path", gamePath);
+        info.put("path", DEFAULT_GAME_PATH);
         info.put("name", lang.get("default_area"));
         hashMap.put(lang.get("default_area"), info);
 
@@ -607,7 +608,7 @@ public class MinecraftLauncher {
 
     }
 
-    public static void runMinecraft(String gamePath, String gameVersionName, boolean fastLaunch,String launchType) {
+    public static void runMinecraft(String gamePath, String gameVersionName, boolean fastLaunch, String launchType) {
         boolean javaCheck1 = false;
         Log.writeLog("[Launcher Thread/INFO] \"" + gameVersionName + "\" now launching in " + (fastLaunch ? "fast launch mode" : "safe launch mode"));
 
@@ -869,6 +870,7 @@ public class MinecraftLauncher {
                         runningStatus.put("status", "running");
                         runningStatus.put("type", source.get("type").toString());
                         runningStatus.put("path", gamePath);
+                        runningStatus.put("in_area",selectedAreaName);
 
                         String instanceName = process.pid() + " - " + gameVersionName;
                         Log.writeLog("[Launcher Thread/INFO] created new Instance: " + instanceName);
@@ -1068,6 +1070,10 @@ public class MinecraftLauncher {
             bw.write(selectedMinecraftLogs.getText());
             bw.close();
             br.close();
+
+            Log.fileToZip(fileTo, parentDir + "/" + new File(fileTo).getParentFile().getName() + "_export.zip", logFile.getName());
+
+            new File(fileTo).delete();
         } catch (Exception e) {
 
         }
@@ -1145,8 +1151,9 @@ public class MinecraftLauncher {
         String usingJava = "java@" + java;
         String usedUser = "user@" + user;
         String usedUUID = "userUUID@" + uuid;
+        String usedArea = "minecraftArea@" + selectedAreaName;
 
-        for(String s : Arrays.asList(checkResource_config, javas.toString(), usingJava, areas.toString(), usedUser, usedUUID, usersBuilder.toString())) {
+        for(String s : Arrays.asList(checkResource_config, javas.toString(), usingJava, areas.toString(), usedUser, usedUUID, usersBuilder.toString(), usedArea)) {
             Community.launcherConf.put(s.substring(0, s.indexOf("@")), s.substring(s.indexOf("@") + 1));
         }
     }
@@ -1183,7 +1190,6 @@ public class MinecraftLauncher {
         deleteWarning.setEditable(false);
 
         minecraftAreaDescription.setEditable(false);
-        minecraftAreaSwitchWarning.setEditable(false);
 
         runningMinecraftLogs.setEditable(false);
         selectedMinecraftLogs.setEditable(false);
@@ -1213,7 +1219,7 @@ public class MinecraftLauncher {
 
                             downloadingMinecraft.put(download_Name, status);
 
-                            FileOutputStream statusWriter = new FileOutputStream(versionPath + download_Name + "/" + download_Name + "_status.json", false);
+                            FileOutputStream statusWriter = new FileOutputStream(DEFAULT_VERSIONS_PATH + download_Name + "/" + download_Name + "_status.json", false);
 
                             statusWriter.write(status.toString().getBytes());
                         } catch (Exception e) {
@@ -1333,7 +1339,12 @@ public class MinecraftLauncher {
                     try {
                         if(launchPanel.isVisible()) {
                             try {
-                                minecraftVersions = getVersions(versionPath);
+                                minecraftAreas = getMinecraftAreas();
+                                selectedAreaName = Community.launcherConf.get("minecraftArea").toString();
+                                JSONObject json = new JSONObject(minecraftAreas.get(selectedAreaName).toString());
+                                versionsPath = json.get("path").toString().replace("\\","/") + "/versions/";
+                                gamePath = json.get("path").toString().replace("\\","/") + "/";
+                                minecraftVersions = getVersions(versionsPath);
                                 int select = Math.max(verList.getSelectedIndex(), 0);
                                 verList.setListData(minecraftVersions.keySet().toArray());
                                 verList.setSelectedIndex(select);
@@ -1452,6 +1463,8 @@ public class MinecraftLauncher {
 
                             }
 
+                            areaSelected = minecraftAreaList.getSelectedValue().toString().equals(selectedAreaName);
+
                             setAreaStatus();
 
                             Runtime.getRuntime().gc();
@@ -1471,7 +1484,7 @@ public class MinecraftLauncher {
 
                             }
 
-                            selected = userList.getSelectedValue().toString().equals(user);
+                            userSelected = userList.getSelectedValue().toString().equals(user);
 
                             boolean showOperators = ! userList.getSelectedValue().toString().equals(lang.get("no_user"));
                             selectAccount.setVisible(showOperators);
@@ -1666,7 +1679,6 @@ public class MinecraftLauncher {
                 minecraftAreaList.setBounds(jFrame.getWidth() - jFrame.getWidth() / 3 + 10, 0, jFrame.getWidth(), minecraftAreaPanel.getHeight());
                 minecraftAreaDescription.setBounds(10, 300, 200, 150);
                 minecraftAreaStatus.setBounds(200, 0, jFrame.getWidth() / 3 + 70, jFrame.getHeight());
-                minecraftAreaSwitchWarning.setBounds(0, 0, 200, 100);
                 addMinecraftArea.setBounds(10, 100, 122, 40);
                 selectThisArea.setBounds(10, 150, 122, 40);
                 renameMinecraftArea.setBounds(10, 200, 122, 40);
@@ -1682,6 +1694,9 @@ public class MinecraftLauncher {
                 checkResOption.setBounds(5, 5, 100, 30);
                 checkRes.setBounds(110, 5, 100, 30);
                 noCheckRes.setBounds(220, 5, 100, 30);
+                runMinecraftType.setBounds(5, 45, 100, 30);
+                runMinecraftClient.setBounds(110, 45, 100, 30);
+                runMinecraftServer.setBounds(220, 45, 100, 30);
 
                 stepNow.setBounds(10, 70, 140, 30);
                 launch.setBounds(10, 100, 122, 40);
@@ -1818,6 +1833,9 @@ public class MinecraftLauncher {
         settingsPanel.add(checkResOption);
         settingsPanel.add(checkRes);
         settingsPanel.add(noCheckRes);
+        settingsPanel.add(runMinecraftType);
+        settingsPanel.add(runMinecraftClient);
+        settingsPanel.add(runMinecraftServer);
         jFrame.add(settingsPanel);
 
         javaPanel.add(javaScrollPane);
@@ -1841,7 +1859,6 @@ public class MinecraftLauncher {
         minecraftAreaPanel.add(minecraftAreaScrollPane);
         minecraftAreaPanel.add(minecraftAreaDescription);
         minecraftAreaPanel.add(minecraftAreaStatus);
-        minecraftAreaPanel.add(minecraftAreaSwitchWarning);
         minecraftAreaPanel.add(addMinecraftArea);
         minecraftAreaPanel.add(selectThisArea);
         minecraftAreaPanel.add(renameMinecraftArea);
@@ -1898,13 +1915,8 @@ public class MinecraftLauncher {
             selectMinecraftArea("");
         });
 
-        renameMinecraftArea.addActionListener(e -> {
-            String renameTarget = minecraftAreaList.getSelectedValue().toString();
-            JSONObject rename = new JSONObject(minecraftAreas.get(renameTarget).toString());
-            rename.put("name", "r");
-            minecraftAreas.remove(renameTarget);
-            minecraftAreas.put("r", rename);
-
+        selectThisArea.addActionListener(e -> {
+            selectedAreaName = minecraftAreaList.getSelectedValue().toString();
             uploadConfig();
 
             try {
@@ -1912,8 +1924,43 @@ public class MinecraftLauncher {
             } catch (Exception v1) {
 
             }
+        });
 
-            minecraftAreaList.setSelectedIndex(0);
+        renameMinecraftArea.addActionListener(e -> {
+//            String renameTarget = minecraftAreaList.getSelectedValue().toString();
+//            if(! renameTarget.equals(lang.get("default_area"))) {
+//                JSONObject rename = new JSONObject(minecraftAreas.get(renameTarget).toString());
+//                rename.put("name", "r");
+//                minecraftAreas.remove(renameTarget);
+//                minecraftAreas.put("r", rename);
+//
+//                uploadConfig();
+//
+//                try {
+//                    Config.WriteConfig();
+//                } catch (Exception v1) {
+//
+//                }
+//
+//                minecraftAreaList.setSelectedIndex(0);
+//            }
+        });
+
+        removeMinecraftArea.addActionListener(e -> {
+            String removeTarget = minecraftAreaList.getSelectedValue().toString();
+            if(! removeTarget.equals(lang.get("default_area"))) {
+                minecraftAreas.remove(removeTarget);
+
+                uploadConfig();
+
+                try {
+                    Config.WriteConfig();
+                } catch (Exception v1) {
+
+                }
+
+                minecraftAreaList.setSelectedIndex(0);
+            }
         });
 
         addThisAccount.addActionListener(e -> {
@@ -2146,7 +2193,7 @@ public class MinecraftLauncher {
                 new downloadMinecraft().startOneMinecraftDownload(gameName, gameVersion, false, true);
                 if(! (downloadingMinecraft.get(gameName) == null)) {
                     visible("launcher");
-                    runMinecraft(info.get("path").toString(), gameVersion, true,info.get("minecraft_type").toString());
+                    runMinecraft(info.get("path").toString(), gameVersion, true, info.get("minecraft_type").toString());
                     Runtime.getRuntime().gc();
                 }
             }).start();
@@ -2166,7 +2213,7 @@ public class MinecraftLauncher {
                 new downloadMinecraft().startOneMinecraftDownload(gameName, gameVersion, false, true);
                 if(! (downloadingMinecraft.get(gameName) == null)) {
                     visible("launcher");
-                    runMinecraft(info.get("path").toString(), gameVersion, true,info.get("minecraft_type").toString());
+                    runMinecraft(info.get("path").toString(), gameVersion, true, info.get("minecraft_type").toString());
                     Runtime.getRuntime().gc();
                 }
             }).start();
@@ -2799,8 +2846,7 @@ public class MinecraftLauncher {
             new Thread(() -> {
                 try {
                     JSONObject info = new JSONObject(minecraftVersions.get(ver).toString());
-                    System.out.println(info);
-                    runMinecraft(info.get("path").toString(), ver, ! checkResource,info.get("minecraft_type").toString());
+                    runMinecraft(info.get("path").toString(), ver, ! checkResource, info.get("minecraft_type").toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                     launching = false;
@@ -2962,10 +3008,20 @@ public class MinecraftLauncher {
         }
 
         {
-            boolean javas = s.startsWith("minecraftAreas@");
+            boolean areas = s.startsWith("minecraftAreas@");
 
-            if(javas) {
+            if(areas) {
                 Community.launcherConf.put("minecraftAreas", s.substring(s.indexOf("@") + 1));
+                s = "";
+            }
+        }
+
+        {
+            boolean area = s.startsWith("minecraftArea@");
+
+            if(area) {
+                Community.launcherConf.put("minecraftArea", s.substring(s.indexOf("@") + 1));
+                selectedAreaName = Community.launcherConf.get("minecraftArea").toString();
                 s = "";
             }
         }
@@ -3067,34 +3123,34 @@ public class MinecraftLauncher {
                 status.put("name", download_Name);
                 status.put("target", downloadTarget);
             }
-            status.put("minecraft_type","vanilla");
+            status.put("minecraft_type", "vanilla");
 
             LinkedHashMap<Object, Integer> downloadingMap = new LinkedHashMap<>();
             downloadingMap.put("max", 0);
             downloadingMap.put("value", 0);
             downloads.put(download_Name, downloadingMap);
 
-            String libsPath = Config.path + "minecraft/libraries/";
-            String indexesPath = Config.path + "minecraft/assets/indexes/";
-            String objectsPath = Config.path + "minecraft/assets/objects/";
+            String libsPath = gamePath + "/libraries/";
+            String indexesPath = gamePath + "minecraft/assets/indexes/";
+            String objectsPath = gamePath + "minecraft/assets/objects/";
 
             downloadingMinecraft.put(download_Name, status);
 
             minecraftDownloadVersions = getDownloadVersions("", true);
 
-            if(customDownLoad(new JSONObject(minecraftDownloadVersions.get(downloadTarget).toString()).get("url").toString(), versionPath + download_Name + "/" + download_Name + ".json", false, - 1, "")) {
+            if(customDownLoad(new JSONObject(minecraftDownloadVersions.get(downloadTarget).toString()).get("url").toString(), versionsPath + download_Name + "/" + download_Name + ".json", false, - 1, "")) {
 
                 try {
                     FileOutputStream statusWriter = null;
                     if(! launchPro) {
-                        statusWriter = new FileOutputStream(versionPath + download_Name + "/" + download_Name + "_status.json", false);
+                        statusWriter = new FileOutputStream(versionsPath + download_Name + "/" + download_Name + "_status.json", false);
 
                         statusWriter.write(status.toString().getBytes());
 
                         statusWriter.close();
                     }
 
-                    BufferedReader br = new BufferedReader(new FileReader(versionPath + download_Name + "/" + download_Name + ".json"));
+                    BufferedReader br = new BufferedReader(new FileReader(versionsPath + download_Name + "/" + download_Name + ".json"));
 
                     StringBuilder json = new StringBuilder();
                     String s;
@@ -3208,13 +3264,13 @@ public class MinecraftLauncher {
 
                             JSONObject download = new JSONObject(clientAndServer.get(o.toString()).toString());
 
-                            if(! (new File(versionPath + download_Name + "/" + o + ".jar").length() == download.getLong("size"))) {
+                            if(! (new File(versionsPath + download_Name + "/" + o + ".jar").length() == download.getLong("size"))) {
                                 new Thread(() -> {
                                     try {
                                         String res = download.get("url").toString();
                                         while(true) {
                                             downloadList.add(res);
-                                            boolean downloaded = downloadFileByMThread(res, versionPath + download_Name + "/" + o + ".jar", false, download.getLong("size"), launchPro, download_Name);
+                                            boolean downloaded = downloadFileByMThread(res, versionsPath + download_Name + "/" + o + ".jar", false, download.getLong("size"), launchPro, download_Name);
                                             if(downloaded) {
                                                 downloadedList.add(res);
                                                 break;
@@ -3226,7 +3282,7 @@ public class MinecraftLauncher {
                                 }).start();
                             } else {
                                 try {
-                                    setTextByCustomDownload(new File(versionPath + download_Name + "/" + o + ".jar"), download.getLong("size"), launchPro, download.get("url").toString());
+                                    setTextByCustomDownload(new File(versionsPath + download_Name + "/" + o + ".jar"), download.getLong("size"), launchPro, download.get("url").toString());
                                     LinkedHashMap<Object, Integer> v = ((LinkedHashMap<Object, Integer>) downloads.get(download_Name));
                                     v.put("value", Integer.parseInt(String.valueOf(((LinkedHashMap) downloads.get(download_Name)).get("value"))) + 1);
                                     downloads.put(download_Name, v);
@@ -3312,7 +3368,7 @@ public class MinecraftLauncher {
 
                             downloadingMinecraft.put(download_Name, status);
 
-                            statusWriter = new FileOutputStream(versionPath + download_Name + "/" + download_Name + "_status.json", false);
+                            statusWriter = new FileOutputStream(versionsPath + download_Name + "/" + download_Name + "_status.json", false);
 
                             statusWriter.write(status.toString().getBytes());
 
@@ -3347,7 +3403,7 @@ public class MinecraftLauncher {
 
                             downloadingMinecraft.put(download_Name, status);
 
-                            statusWriter = new FileOutputStream(versionPath + download_Name + "/" + download_Name + "_status.json", false);
+                            statusWriter = new FileOutputStream(versionsPath + download_Name + "/" + download_Name + "_status.json", false);
 
                             statusWriter.write(status.toString().getBytes());
 
@@ -3383,7 +3439,7 @@ public class MinecraftLauncher {
                     }
 
                     if(! launchPro) {
-                        statusWriter = new FileOutputStream(versionPath + download_Name + "/" + download_Name + "_status.json", false);
+                        statusWriter = new FileOutputStream(versionsPath + download_Name + "/" + download_Name + "_status.json", false);
 
                         statusWriter.write(status.toString().getBytes());
                     }
