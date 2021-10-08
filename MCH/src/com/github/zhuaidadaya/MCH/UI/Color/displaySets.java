@@ -233,6 +233,10 @@ public class displaySets extends Thread {
         MinecraftLauncher.addMinecraftArea.setFocusPainted(false);
         MinecraftLauncher.selectThisArea.setBorderPainted(false);
         MinecraftLauncher.selectThisArea.setFocusPainted(false);
+        MinecraftLauncher.renameMinecraftArea.setBorderPainted(false);
+        MinecraftLauncher.renameMinecraftArea.setFocusPainted(false);
+        MinecraftLauncher.removeMinecraftArea.setBorderPainted(false);
+        MinecraftLauncher.removeMinecraftArea.setFocusPainted(false);
 
         loadingWindow.progress.setBorderPainted(false);
 
@@ -877,6 +881,10 @@ public class displaySets extends Thread {
         MinecraftLauncher.addMinecraftArea.setForeground(foregroundColor);
         MinecraftLauncher.selectThisArea.setBackground(buttonColor);
         MinecraftLauncher.selectThisArea.setForeground(foregroundColor);
+        MinecraftLauncher.renameMinecraftArea.setBackground(buttonColor);
+        MinecraftLauncher.renameMinecraftArea.setForeground(foregroundColor);
+        MinecraftLauncher.removeMinecraftArea.setBackground(buttonColor);
+        MinecraftLauncher.removeMinecraftArea.setForeground(foregroundColor);
 
         //        MinecraftLauncher.showSelect
 
