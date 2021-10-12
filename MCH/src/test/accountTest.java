@@ -2,6 +2,7 @@ package test;
 
 import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
 
+import javax.swing.text.html.HTML;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -117,7 +118,8 @@ public class accountTest {
         Map<Object, Object> data = Map.of("client_id", "00000000402b5328", // 还是Minecraft客户端id
                 "code", "82945523-78b8-de2d-d4aa-76f531417eef&lc=2052", // 第一步中获取的代码
                 "grant_type", "authorization_code", "redirect_uri", "https://login.live.com/oauth20_desktop.srf", "scope", "service::user.auth.xboxlive.com::MBI_SSL");
-
-        microsoftAccount("https://login.live.com/oauth20_token.srf?redirect_uri=" + data.get("redirect_uri") + "&scope=" + data.get("scope") + "&grant_type=" + data.get("grant_type") + "&client_id=" + data.get("client_id") + "&code=" + data.get("code"), "".getBytes());
+        //https://login.live.com/oauth20_authorize.srf?client_id=00000000402b5328&response_type=code&scope=service%3A%3Auser.auth.xboxlive.com%3A%3AMBI_SSL &redirect_uri=https%3A%2F%2Flogin.live.com%2Foauth20_desktop.srf
+        microsoftAccount("https://login.live.com/oauth20_authorize.srf?client_id=00000000402b5328&response_type=code&scope=service%3A%3Auser.auth.xboxlive.com%3A%3AMBI_SSL&redirect_uri=https%3A%2F%2Flogin.live.com%2Foauth20_desktop.srf", "".getBytes());
+        //        microsoftAccount("https://login.live.com/oauth20_token.srf?redirect_uri=" + data.get("redirect_uri") + "&scope=" + data.get("scope") + "&grant_type=" + data.get("grant_type") + "&client_id=" + data.get("client_id") + "&code=" + data.get("code"), "".getBytes());
     }
 }

@@ -188,6 +188,10 @@ public class languageSet extends Thread {
 
             MinecraftLauncher.exportLogs.setText(MinecraftLauncher.exportingLogs ? lang.get("exporting") : lang.get("export"));
 
+            MinecraftLauncher.runMinecraftType.setText(lang.get("run_type"));
+            MinecraftLauncher.runMinecraftClient.setText(lang.get("client"));
+            MinecraftLauncher.runMinecraftServer.setText(lang.get("server"));
+
             try {
                 new JSONObject(MinecraftLauncher.minecraftVersions.get(MinecraftLauncher.verList.getSelectedValue().toString()).toString()).get("path");
 
@@ -243,7 +247,7 @@ public class languageSet extends Thread {
         while(! Errors.CannotHandle) {
             if(! Community.isDaemons) {
                 try {
-                    Thread.sleep(250);
+                    Thread.sleep(200);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

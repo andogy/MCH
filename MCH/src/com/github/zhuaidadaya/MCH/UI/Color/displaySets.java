@@ -238,6 +238,11 @@ public class displaySets extends Thread {
         MinecraftLauncher.removeMinecraftArea.setBorderPainted(false);
         MinecraftLauncher.removeMinecraftArea.setFocusPainted(false);
 
+        MinecraftLauncher.runMinecraftClient.setBorderPainted(false);
+        MinecraftLauncher.runMinecraftClient.setFocusPainted(false);
+        MinecraftLauncher.runMinecraftServer.setBorderPainted(false);
+        MinecraftLauncher.runMinecraftServer.setFocusPainted(false);
+
         loadingWindow.progress.setBorderPainted(false);
 
         Color foregroundColor = new Color(214, 214, 214);
@@ -885,6 +890,13 @@ public class displaySets extends Thread {
         MinecraftLauncher.renameMinecraftArea.setForeground(foregroundColor);
         MinecraftLauncher.removeMinecraftArea.setBackground(buttonColor);
         MinecraftLauncher.removeMinecraftArea.setForeground(foregroundColor);
+
+        MinecraftLauncher.runMinecraftType.setForeground(foregroundColor);
+        MinecraftLauncher.runMinecraftClient.setBackground(MinecraftLauncher.launchType.equals("client") ? backgroundColor : buttonColor);
+        MinecraftLauncher.runMinecraftServer.setBackground(MinecraftLauncher.launchType.equals("server") ? backgroundColor : buttonColor);
+
+        MinecraftLauncher.runMinecraftClient.setForeground(foregroundColor);
+        MinecraftLauncher.runMinecraftServer.setForeground(foregroundColor);
 
         //        MinecraftLauncher.showSelect
 
@@ -1536,7 +1548,7 @@ public class displaySets extends Thread {
                         extraDisplay();
                         counts = 0;
                     }
-                    Thread.sleep(250);
+                    Thread.sleep(200);
                 } else {
                     counts = 100;
                     Thread.sleep(500);

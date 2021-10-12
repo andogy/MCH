@@ -97,6 +97,7 @@ public class Community {
         saveErrorLog = true;
         saveRunLog = true;
         Config.path = System.getProperty("user.home").replace("\\", "/") + "/AppData/Roaming/" + Config.path;
+//        Config.path = "D:/normal/MCH/";
 
         if(args.contains("developing"))
             Config.path = "/MCH_testing_path/";
@@ -107,7 +108,6 @@ public class Community {
 
         Log.defErrPath = new File(Config.errLogsPath);
         Log.defRunPath = new File(Config.runLogsPath);
-
 
         /*
         封装文件部分

@@ -3,6 +3,9 @@
         {
             "chinese": [
                 {
+                    "server": "服务端",
+                    "client": "客户端",
+                    "run_type": "运行类型",
                     "in_area": "所属域 ",
                     "select_minecraft_area": "选择",
                     "add_minecraft_area": "添加域",
@@ -81,7 +84,7 @@
                     "releaseTime": "发布时间",
                     "id": "版本id",
                     "time": "更新时间",
-                    "type": "类型",
+                    "game_type": "游戏类型",
                     "release": "正式版",
                     "snapshot": "快照版",
                     "old_alpha": "远古Alpha版本",
@@ -123,7 +126,7 @@
                     "fastLoad": "快速加载:",
                     "disable": "禁用",
                     "enable": "启用",
-                    "version": "版本:",
+                    "version": "版本",
                     "versionID": "版本ID:",
                     "onTop": "置于顶层:",
                     "deleteData": "删除数据",
@@ -236,6 +239,9 @@
         {
             "english": [
                 {
+                    "server": "server",
+                    "client": "client",
+                    "run_type": "run type",
                     "in_area": "in area",
                     "select_minecraft_area": "select",
                     "add_minecraft_area": "add area",
@@ -314,7 +320,7 @@
                     "releaseTime": "release time",
                     "id": "version id",
                     "time": "update time",
-                    "type": "type",
+                    "game_type": "game type",
                     "release": "release",
                     "snapshot": "snapshot",
                     "old_alpha": "Alpha version",
@@ -356,7 +362,7 @@
                     "fastLoad": "fast load:",
                     "disable": "disable",
                     "enable": "enable",
-                    "version": "version:",
+                    "version": "version",
                     "versionID": "version ID:",
                     "onTop": "on top:",
                     "deleteData": "delete",
@@ -465,6 +471,9 @@
         {
             "chinese_tw": [
                 {
+                    "server": "服务端",
+                    "client": "客户端",
+                    "run_type": "运行类型",
                     "in_area": "所属域",
                     "select_minecraft_area": "选择",
                     "add_minecraft_area": "添加域",
@@ -541,7 +550,7 @@
                     "releaseTime": "发布时间",
                     "id": "版本id",
                     "time": "更新时间",
-                    "type": "类型",
+                    "game_type": "游戏类型",
                     "release": "正式版",
                     "snapshot": "快照版",
                     "old_alpha": "远古Alpha版本",
@@ -583,7 +592,7 @@
                     "fastLoad": "快速加載:",
                     "disable": "禁用",
                     "enable": "啟用",
-                    "version": "版本:",
+                    "version": "",
                     "versionID": "版本ID:",
                     "onTop": "置於頂層:",
                     "deleteData": "刪除數據",

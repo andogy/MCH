@@ -5,13 +5,12 @@ import java.util.Objects;
 
 public class structure {
     public static void main(String[] args) {
-        File target = new File("G:\\zip");
+        File target = new File("C:\\normal\\Codes\\");
         File[] list = target.listFiles();
         showFiles(list, "");
     }
 
     public static void showFiles(File[] list, String indent) {
-
         for (File f : list) {
             if (f.isFile()) {
                 System.out.println(indent + f.getName());
@@ -22,5 +21,4 @@ public class structure {
         }
 
     }
-
 }

@@ -262,10 +262,7 @@ public class Log {
                     while ((read = bis.read(b)) != -1) {
                         zos.write(b, 0, read);
                     }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    throw new RuntimeException(e);
+                } catch (Exception ignored) {
                 } finally {
                     try {
                         if (null != bis) {
@@ -274,9 +271,8 @@ public class Log {
                         if (null != zos) {
                             zos.close();
                         }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        throw new RuntimeException(e);
+                    } catch (IOException ignored) {
+
                     }
                 }
             }

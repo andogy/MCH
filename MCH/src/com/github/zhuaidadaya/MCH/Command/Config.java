@@ -348,20 +348,24 @@ public class Config {
         write.append(launcherConf);
 
         Random r = new Random();
-        int checkingCodeMax = 1024;
+        int checkingCodeMax = 1024 * 8;
         int checkingCode = r.nextInt(checkingCodeMax);
-        int lim = r.nextInt(checkingCode / 8);
+        int lim = r.nextInt((checkingCode / 8) > 0 ? checkingCode / 8 : 16);
         fl.write("MCHF CONFIG_VERSION=1 HEADER_CODE=" + checkingCode + " ENCODER=MCH_ConfigEncoder CONFIG_STREAM_HASH=" + fl.hashCode() + " CONFIG_LENGTH=" + write.length() + " CODE_RANGE= " + checkingCode + " -> " + checkingCode / 8 + "\t\n");
         fl.write(checkingCode);
         fl.write(10);
         fl.write(lim);
 
-        for(Object o : write.chars().toArray()) {
+        int[] charArray = write.chars().toArray();
+        int count = 0;
+        for(Object o : charArray) {
+            count++;
             if(Integer.parseInt(o.toString()) == 10) {
-                int rand = r.nextInt(checkingCode / 8);
+                int rand = r.nextInt((checkingCode / 8) > 0 ? checkingCode / 8 : 16);
                 fl.write(10);
-                lim = rand > 10 ? rand : 11;
-                fl.write(lim);
+                lim = rand > 13 ? rand : 14;
+                if(count != charArray.length)
+                    fl.write(lim);
             } else {
                 fl.write((Integer.parseInt(o.toString()) + lim + checkingCode));
             }
