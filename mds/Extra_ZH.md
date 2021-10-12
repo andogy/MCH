@@ -311,15 +311,22 @@ Errors类是一个保存错误以方便反馈的类<br>
 ```java
 package com.github.zhuaidadaya.MCH.Events;
 
-import com.github.zhuaidadaya.MCH.Command.Config; import com.github.zhuaidadaya.MCH.Community; import
-com.github.zhuaidadaya.MCH.UI.*; import com.github.zhuaidadaya.MCH.lib.Log; import
-com.github.zhuaidadaya.MCH.lib.Resources;
+import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Community;
+import com.github.zhuaidadaya.MCH.UI.*;
+import com.github.zhuaidadaya.MCH.lib.Log;
+import com.github.zhuaidadaya.MCH.lib.Resources;
 
-import javax.swing.*; import java.awt.*; import java.io.File; import java.io.FileWriter; import
-java.nio.charset.StandardCharsets; import java.util.Arrays;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
-public class Errors extends Throwable { public static JFrame jFrame = new JFrame(); public static JTextArea jTextArea =
-new JTextArea();
+public class Errors extends Throwable {
+    public static JFrame jFrame = new JFrame();
+    public static JTextArea jTextArea = new JTextArea();
 
     public static boolean CannotHandle = false;
 
@@ -356,6 +363,7 @@ new JTextArea();
 }
 
 ```
+
 </pre>
 </details>
 
