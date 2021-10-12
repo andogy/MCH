@@ -66,10 +66,9 @@ public class Log {
     public static void writeLog(Object log, String type) {
         loadingWindow.loading.setText(log.toString() + "\n" + loadingWindow.loading.getText());
 
-
         if (type.equals("error") & Community.saveErrorLog)
             writeLog(defErrPath, defAppend, defCharset, log, true);
-        else if (type.equals("log"))
+        else if (type.equals("log") & Community.saveRunLog)
             writeLog(defRunPath, defAppend, defCharset, log, false);
     }
 

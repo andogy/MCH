@@ -287,10 +287,10 @@ public class Declared() {
 }
 ```
 
-``` Errors.errors() ``` 可以有八个参数
+``` Errors.errors() ``` 可以有七个参数
 
 ```
-Error/Exception  -必须在首位,可以只有一个,也可以有两个
+Error/Exception  -必须在首位,只有一个传递
 CannotHandle     -在Err/Exce后面,true时会尝试重启MCH
 exceptionSource  -错误源,如果没有会被记录为Unknow
 message          -错误时的提示信息
@@ -299,34 +299,27 @@ h                -错误窗口的高度
 show             -发生错误时是否显示错误窗口
 ```
 
-以上只有列出七行,因为Error/Exception可以同时传递,算作两个
-
 Errors类是一个保存错误以方便反馈的类<br>
 当然你也可以选择使用Log类和JFrame自己完成
 
 在无关紧要的地方不建议保存错误,否则可能意外增大错误日志
 
-> Errors.class
+<details>
+<summary>Errors.class</summary>
+<pre>
 
 ```java
 package com.github.zhuaidadaya.MCH.Events;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
-import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.UI.*;
-import com.github.zhuaidadaya.MCH.lib.Log;
-import com.github.zhuaidadaya.MCH.lib.Resources;
+import com.github.zhuaidadaya.MCH.Command.Config; import com.github.zhuaidadaya.MCH.Community; import
+com.github.zhuaidadaya.MCH.UI.*; import com.github.zhuaidadaya.MCH.lib.Log; import
+com.github.zhuaidadaya.MCH.lib.Resources;
 
-import javax.swing.*;
-import java.awt.*;
-import java.io.File;
-import java.io.FileWriter;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import javax.swing.*; import java.awt.*; import java.io.File; import java.io.FileWriter; import
+java.nio.charset.StandardCharsets; import java.util.Arrays;
 
-public class Errors extends Throwable {
-    public static JFrame jFrame = new JFrame();
-    public static JTextArea jTextArea = new JTextArea();
+public class Errors extends Throwable { public static JFrame jFrame = new JFrame(); public static JTextArea jTextArea =
+new JTextArea();
 
     public static boolean CannotHandle = false;
 
@@ -359,8 +352,12 @@ public class Errors extends Throwable {
     public static void errors(Error error, Exception exception, boolean cannotHandle, String exceptionSource, String message, int w, int h, boolean show) {
         //......
     }
+
 }
+
 ```
+</pre>
+</details>
 
 <hr>
 
