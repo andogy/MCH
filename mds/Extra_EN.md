@@ -369,8 +369,7 @@ public class Errors extends Throwable {
 ### 配置文件
 
 MCH在写入以及读取配置文件时会对其加密<br>
-使用每行的首位字符对后面所有字符进行char的偏移
-这是随机的
+加密结果是随机的
 
 需要使用MCH提供的HashMap来保存配置文件<br>
 用以下代码来存储配置文件

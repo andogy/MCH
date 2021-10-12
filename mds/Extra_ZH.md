@@ -171,16 +171,18 @@ public class Declared() {
 }
 
 ```
+
 去掉注释以后的样子
+
 ```java
 package Mex;
 
-        import com.github.zhuaidadaya.MCH.Command.Config;
-        import com.github.zhuaidadaya.MCH.lib.Log;
+import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.lib.Log;
 
-        import java.io.File;
-        import java.nio.charset.Charset;
-        import java.nio.charset.StandardCharsets;
+import java.io.File;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class Declared() {
     public void onLoad() {
@@ -262,7 +264,7 @@ public class Declared() {
 
 > ``` Log.writeLog(Object) ``` 或 ``` Log.writeErr(Object) ``` <br>
 > 会进行自动检查,也就是说如果使用默认日志参数,则不需要手动检查
-> 
+>
 > 除了默认以外的日志方法都不支持自动检查
 
 <hr>
@@ -365,8 +367,7 @@ public class Errors extends Throwable {
 ### 配置文件
 
 MCH在写入以及读取配置文件时会对其加密<br>
-使用每行的首位字符对后面所有字符进行char的偏移
-这是随机的
+加密结果是随机的
 
 需要使用MCH提供的HashMap来保存配置文件<br>
 用以下代码来存储配置文件
@@ -380,7 +381,11 @@ import com.github.zhuaidadaya.MCH.Community;
 public class Declared() {
     public void onLoad() {
         Community.extraConf.put("config-name", "config-value");
-        Config.WriteConfig();
+        try {
+            Config.WriteConfig();
+        } catch (Exception ignored) {
+            // 使用try来捕捉写入失败时抛出的错误
+        }
     }
 }
 ```
