@@ -106,7 +106,7 @@ public class Config {
         iniOneMOre = true;
     }
 
-    public static void updateConf() {
+    public static void uploadConfig() {
         for(String s : Arrays.asList(Config.colorSet, Config.languageSet, Config.exButtonSet, Config.fastLoadSet, Config.onTopSet, Config.saveCache, Config.saveErrorLog, Config.saveRunLog, Config.autoPUDSet, Config.saveHistorySet, Config.input_command, Config.minecraftListenFlushSpeedLevel, Config.showInvalidCommand, Config.showCommands, Config.priorityDisplay, Config.toWiki)) {
             Community.conf.put(s.substring(0, s.indexOf("@")), s.substring(s.indexOf("@") + 1));
         }
@@ -321,7 +321,7 @@ public class Config {
     }
 
     public static void WriteConfig() throws Exception {
-        updateConf();
+        uploadConfig();
 
         FileWriter fl = new FileWriter(path + sets, Charset.forName("unicode"), false);
 

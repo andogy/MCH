@@ -395,7 +395,11 @@ public class Declared() {
 }
 ```
 
-以下来读取配置文件
+每次启动时或进行某些操作时都会去读取配置文件<br>
+在使用 ``` Config.Reads() ``` 后使用以下操作来获取配置文件<br>
+
+> 初始化时无需使用上面的方法<br>
+> 因为MCH会在启动时进行一次调用
 
 ```java
 package Mex;
@@ -410,4 +414,87 @@ public class Declared() {
 }
 ```
 
+MCH将主配置和启动器配置以及扩展配置分开存储<br>
+获取时不要搞错了配置所处的位置
+
+```java
+package Mex;
+
+import com.github.zhuaidadaya.MCH.Community;
+
+import java.util.LinkedHashMap;
+
+public class Declared() {
+    public void onLoad() {
+        //        主配置
+        LinkedHashMap<Object, Object> communityConfig = Community.conf;
+        //        扩展配置
+        LinkedHashMap<Object, Object> extraConfig = Community.extraConf;
+        //        启动器配置
+        LinkedHashMap<Object, Object> launcherConfig = Community.launcherConf;
+    }
+}
+```
+
+### 配置加密
+
+MCH的加密方式非常基础
+
+仅仅是使用随机数将字符打乱<br>
+目的很简单<br>
+只是防止配置文件被手动修改而已
+
+<details>
+<summary>
+Config.class
+</summary>
+<pre>
+
+```java
+public class Config {
+    public static void WriteConfig() throws Exception {
+        uploadConfig();
+
+        FileWriter fl = new FileWriter(path + sets, Charset.forName("unicode"), false);
+
+        StringBuilder write = new StringBuilder();
+        StringBuilder conf = new StringBuilder();
+        StringBuilder exConf = new StringBuilder();
+        StringBuilder launcherConf = new StringBuilder();
+
+        //......
+
+        Random r = new Random();
+        int checkingCodeMax = 1024 * 8;
+        int checkingCode = r.nextInt(checkingCodeMax);
+        int lim = r.nextInt((checkingCode / 8) > 0 ? checkingCode / 8 : 16);
+        fl.write("MCHF CONFIG_VERSION=1 HEADER_CODE=" + checkingCode + " ENCODER=MCH_ConfigEncoder " + "CONFIG_STREAM_HASH=" + fl.hashCode() + " CONFIG_LENGTH=" + write.length() + " CODE_RANGE= " + checkingCode + " -> " + checkingCode / 8 + "\t\n");
+        fl.write(checkingCode);
+        fl.write(10);
+        fl.write(lim);
+
+        int[] charArray = write.chars().toArray();
+        int count = 0;
+        for(Object o : charArray) {
+            count++;
+            if(Integer.parseInt(o.toString()) == 10) {
+                int rand = r.nextInt((checkingCode / 8) > 0 ? checkingCode / 8 : 16);
+                fl.write(10);
+                lim = rand > 13 ? rand : 14;
+                if(count != charArray.length)
+                    fl.write(lim);
+            } else {
+                fl.write((Integer.parseInt(o.toString()) + lim + checkingCode));
+            }
+        }
+
+        fl.close();
+    }
+}
+```
+
+</pre>
+</details>
+
+<hr>
 

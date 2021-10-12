@@ -84,7 +84,7 @@ public class Community {
     public static extraLists lis = new extraLists();
 
     public Community() {
-        Config.updateConf();
+        Config.uploadConfig();
     }
 
     public static void main(String[] args) {
@@ -154,7 +154,7 @@ public class Community {
 
                 new Config();
                 try {
-                    Config.updateConf();
+                    Config.uploadConfig();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
