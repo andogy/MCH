@@ -1,11 +1,8 @@
 <component name="ArtifactManager">
-  <artifact build-on-make="true" name="MCH.jar">
+  <artifact name="MCH.jar">
     <output-path>$PROJECT_DIR$/out/artifacts/MCH_jar</output-path>
     <root id="root">
       <element id="archive" name="MCH.jar">
-        <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/MCH/src/META-INF/MANIFEST.MF" />
-        </element>
         <element id="module-output" name="MCH" />
       </element>
     </root>

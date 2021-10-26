@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: com.github.zhuaidadaya.MCH.Community
-Class-Path: lib/src.zip
-

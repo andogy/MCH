@@ -192,6 +192,9 @@ public class languageSet extends Thread {
             MinecraftLauncher.runMinecraftClient.setText(lang.get("client"));
             MinecraftLauncher.runMinecraftServer.setText(lang.get("server"));
 
+            MinecraftLauncher.nextPage.setText(lang.get("next_page"));
+            MinecraftLauncher.lastPage.setText(lang.get("last_page"));
+
             try {
                 new JSONObject(MinecraftLauncher.minecraftVersions.get(MinecraftLauncher.verList.getSelectedValue().toString()).toString()).get("path");
 
@@ -202,7 +205,7 @@ public class languageSet extends Thread {
 
                 }
 
-                boolean deleting= false;
+                boolean deleting = false;
                 try {
                     downloading = MinecraftLauncher.deletingMinecraft.contains(MinecraftLauncher.verList.getSelectedValue());
                 } catch (Exception ex) {
@@ -245,6 +248,7 @@ public class languageSet extends Thread {
         langFile.put("languages.json", "/com/github/zhuaidadaya/resources/resource_files/");
 
         while(! Errors.CannotHandle) {
+
             if(! Community.isDaemons) {
                 try {
                     Thread.sleep(200);
@@ -252,7 +256,7 @@ public class languageSet extends Thread {
                     e.printStackTrace();
                 }
 
-                Language();
+                    Language();
             } else {
                 try {
                     Thread.sleep(500);

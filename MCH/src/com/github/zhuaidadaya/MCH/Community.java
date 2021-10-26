@@ -2,6 +2,7 @@ package com.github.zhuaidadaya.MCH;
 
 import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
+import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
@@ -77,9 +78,9 @@ public class Community {
 
     public static UiSizeMap uiSizeMap = new UiSizeMap();
 
-    public static String UPD_ID = "157";
-    public static String verID = "11445010154/0-0-1-54";
-    public static String ver = "ah-54";
+    public static String UPD_ID;
+    public static String verID;
+    public static String ver;
 
     public static extraLists lis = new extraLists();
 
@@ -152,6 +153,10 @@ public class Community {
                 new Resources.initLanguage();
                 languageSet.Language();
 
+                UPD_ID = lang.get("UPD_ID");
+                verID = lang.get("VER_ID");
+                ver = lang.get("ver");
+
                 new Config();
                 try {
                     Config.uploadConfig();
@@ -164,6 +169,10 @@ public class Community {
                         MinecraftLauncher.UI();
                         MinecraftLauncher.show();
                     }).start();
+                }
+
+                if(args.contains("console")) {
+                    new Thread(console :: aCnsole).start();
                 }
 
 
@@ -218,12 +227,12 @@ public class Community {
                     //        keyboard监听线程
                     new listener().start();
 
+                    //        处理URL请求的线程
+                    new URLs().start();
+
                     if(! args.contains("launcher")) {
                         //        读取历史记录的线程
                         new historyReader().start();
-
-                        //        处理URL请求的线程
-                        new URLs().start();
 
                         //        计时线程,这是在UPD时用于计算连接服务器的时间的
                         new countTime().start();
@@ -284,9 +293,9 @@ public class Community {
             new perf_UI();
 
         if(Community.started)
-            MinecraftLauncher.jFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+            MinecraftLauncher.mainFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         else
-            MinecraftLauncher.jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            MinecraftLauncher.mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         if(args.contains("menu")) {
             MenuUI.jFrame.setVisible(true);

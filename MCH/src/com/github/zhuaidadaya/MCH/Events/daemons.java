@@ -16,7 +16,7 @@ public class daemons extends Thread {
     public void run() {
         while(! Errors.CannotHandle) {
             if(! Community.launcher) {
-                if(! MinecraftLauncher.jFrame.isVisible()) {
+                if(! MinecraftLauncher.mainFrame.isVisible()) {
                     try {
                         Community.isDaemons = MchUI.jFrame.getExtendedState() == 1;
 
@@ -77,7 +77,7 @@ public class daemons extends Thread {
                     }
                 }
             } else {
-                Community.isDaemons = MinecraftLauncher.jFrame.getExtendedState() == 1;
+                Community.isDaemons = MinecraftLauncher.mainFrame.getExtendedState() == 1;
             }
 
             try {

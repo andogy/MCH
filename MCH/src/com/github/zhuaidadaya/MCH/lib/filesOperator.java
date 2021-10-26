@@ -12,8 +12,8 @@ public class filesOperator {
     public static long fileCount = 0;
 
     public static void countFiles(File[] files) {
-        for (File f : files) {
-            if (f.isDirectory())
+        for(File f : files) {
+            if(f.isDirectory())
                 countFiles(f.listFiles());
             fileCount++;
         }
@@ -21,15 +21,15 @@ public class filesOperator {
 
     public static void DeleteFiles(File[] path) {
         try {
-            for (File f : path) {
-                if (f.isFile()) {
-                    if (!f.getName().equals("settings.ini") & !f.getName().equals("run.log") & !f.getName().equals("languages.json") & !f.getName().equals("commands.json")) {
+            for(File f : path) {
+                if(f.isFile()) {
+                    if(! f.getName().equals("settings.ini") & ! f.getName().equals("run.log") & ! f.getName().equals("languages.json") & ! f.getName().equals("commands.json")) {
                         LoadAssembly.loadAssembly("[Main Thread/INFO] Delete File: " + f.getName(), "", false);
                         f.delete();
                         loadingWindow.progress.setValue(loadingWindow.progress.getValue() + 1);
                     }
                 }
-                if (f.isDirectory()) {
+                if(f.isDirectory()) {
                     DeleteFiles(f.listFiles());
                     f.delete();
                     loadingWindow.progress.setValue(loadingWindow.progress.getValue() + 1);
@@ -49,20 +49,20 @@ public class filesOperator {
 
     public static long READ(File[] path, String slow, boolean out) {
         try {
-            for (File f : path) {
-                if (! Community.isDaemons) {
-                    if (slow.equals("slow")) {
+            for(File f : path) {
+                if(! Community.isDaemons) {
+                    if(slow.equals("slow")) {
                         Thread.sleep(1);
-                        if (!Community.fastLoad) {
+                        if(! Community.fastLoad) {
                             Thread.sleep(1);
                         }
                     }
-                    if (f.isFile()) {
+                    if(f.isFile()) {
                         fileSize += f.length();
-                        if (out) {
+                        if(out) {
                             System.out.println(f.getPath() + ";");
                         }
-                    } else if (f.isDirectory()) {
+                    } else if(f.isDirectory()) {
                         READ(f.listFiles(), slow, out);
                     }
                 } else {

@@ -129,7 +129,6 @@ public class Config {
                 br.readLine();
                 checkCode = Integer.parseInt(String.valueOf(br.readLine().chars().toArray()[0]));
             } catch (Exception e) {
-                e.printStackTrace();
             }
 
             boolean exConf = false;

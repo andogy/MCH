@@ -243,10 +243,17 @@ public class displaySets extends Thread {
         MinecraftLauncher.runMinecraftServer.setBorderPainted(false);
         MinecraftLauncher.runMinecraftServer.setFocusPainted(false);
 
+        MinecraftLauncher.nextPage.setBorderPainted(false);
+        MinecraftLauncher.nextPage.setFocusPainted(false);
+        MinecraftLauncher.lastPage.setBorderPainted(false);
+        MinecraftLauncher.lastPage.setFocusPainted(false);
+
         loadingWindow.progress.setBorderPainted(false);
 
         Color foregroundColor = new Color(214, 214, 214);
+        Color foregroundColor_dark = new Color(214, 214, 214);
         Color backgroundColor = new Color(43, 43, 43);
+        Color backgroundColor_dark = new Color(43, 43, 43);
         Color inputBoxColor = new Color(49, 51, 53);
         Color buttonColor = new Color(60, 63, 65);
         Color tipColor = new Color(58, 58, 58);
@@ -358,6 +365,8 @@ public class displaySets extends Thread {
         MenuUI2.iniFinished.setBackground(buttonColor);
         MenuUI2.iniHelper.setBackground(buttonColor);
         MenuUI.deleteMCH.setBackground(buttonColor);
+
+        Errors.jTextArea.setBackground(backgroundColor);
 
         ExtraUI.functionEdit.setBackground(tipColor);
         ExtraUI.saveFunc.setBackground(buttonColor);
@@ -898,14 +907,13 @@ public class displaySets extends Thread {
         MinecraftLauncher.runMinecraftClient.setForeground(foregroundColor);
         MinecraftLauncher.runMinecraftServer.setForeground(foregroundColor);
 
-        //        MinecraftLauncher.showSelect
+        MinecraftLauncher.nextPage.setBackground(buttonColor);
+        MinecraftLauncher.nextPage.setForeground(foregroundColor);
+        MinecraftLauncher.lastPage.setBackground(buttonColor);
+        MinecraftLauncher.lastPage.setForeground(foregroundColor);
 
-        //        使用线程休眠减少CPU负担,45ms时间可以减少相当大的CPU负载,且用户无法察觉延迟
-        try {
-            Thread.sleep(45);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Errors.jTextArea.setBackground(backgroundColor_dark);
+        Errors.jTextArea.setForeground(foregroundColor_dark);
     }
 
     public static void hadesColor() {
@@ -1533,7 +1541,8 @@ public class displaySets extends Thread {
     public void run() {
         int counts = 0;
         while(! Errors.CannotHandle) {
-            counts++;
+            if(! Community.launcher)
+                counts++;
             try {
                 if(! Community.isDaemons) {
                     if(Community.ColorSetID != 3) {
@@ -1541,12 +1550,13 @@ public class displaySets extends Thread {
                     } else {
                         //
                     }
-                    if(! Community.launcher)
+                    if(! Community.launcher) {
                         colorCode();
-                    if(counts >= 120) {
-                        settingsDisplay();
-                        extraDisplay();
-                        counts = 0;
+                        if(counts >= 120) {
+                            settingsDisplay();
+                            extraDisplay();
+                            counts = 0;
+                        }
                     }
                     Thread.sleep(200);
                 } else {

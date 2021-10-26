@@ -3,6 +3,15 @@
         {
             "chinese": [
                 {
+                    "reported": "已反馈此次崩溃",
+                    "press_ctrl_r_to_report": "按下Ctrl键与R键发送反馈",
+                    "to_downloading": "\"%s\" 已加入下载",
+                    "log_too_large": "你的日志太大了, MCH正在尝试放弃处理此日志并重启\n可用堆大小: %s | 已格式日志大小: %s (STD: 204800)\n尝试减少日志或增加堆内存",
+                    "unsupported_game_type": "不支持此游戏类型",
+                    "#Unknown": "未知",
+                    "type": "类型",
+                    "next_page": "下一页",
+                    "last_page": "上一页",
                     "server": "服务端",
                     "client": "客户端",
                     "run_type": "运行类型",
@@ -72,8 +81,8 @@
                     "check_res": "正在检查资源完整性",
                     "launch_fail": "启动失败",
                     "java_version_need": "Java版本要求",
-                    "get_ver_error_internet": "error-internet版本列表无法获取\n错误代码：%s\n无法从网络资源获取版本列表\n当前列表为上一次下载的缓存",
-                    "get_ver_error": "error-internet版本列表无法获取\n错误代码：%s\n无法从网络资源获取版本列表\n也无法找到任何已缓存的列表",
+                    "get_ver_error_internet": "error-internet版本列表无法获取\n错误如下: %s\n无法从网络资源获取版本列表\n当前列表为上一次下载的缓存\n\n尝试刷新列表或许可以解决此问题",
+                    "get_ver_error": "error-internet版本列表无法获取\n错误如下: %s\n无法从网络资源获取版本列表\n也无法找到任何已缓存的列表\n\n尝试刷新列表或许可以解决此问题",
                     "game_are_not_found_here": "error-game-not-found无法获取本地版本列表\n可以从底部的\"Vanilla\"获取原版Minecraft游戏\n或是从下一页的\"Fabric\"与\"Forge\"获取(未来)",
                     "java_are_not_found_here": "error-java-not-found无法获取Java列表\n可以从\"导入\"添加Java",
                     "game_not_found": "游戏版本未找到",
@@ -232,13 +241,25 @@
                     "reg": "已注册"
                 },
                 {
-                    "nowFeature": "修复execute命令过长会无法解析的问题\n"
+                    "nowFeature": "NPL模块优化下载功能\nNPL模块支持启动服务端\n稍微更改配置文件写入, 现在不会写入多余字符\n更改版本ID算法\n",
+                    "UPD_ID": "157",
+                    "VER_ID": "138890100156",
+                    "ver": "test-56"
                 }
             ]
         },
         {
             "english": [
                 {
+                    "reported": "reported this crash",
+                    "press_ctrl_r_to_report": "press \"Ctrl\" and \"R\" to deliver this crash",
+                    "to_downloading": "\"%s\" join to download task",
+                    "log_too_large": "your log too large, we trying abandon process log and restart\nfree heap size: %s | logs format size: %s (STD: 204800)\ntry reduce log or increase heap memory",
+                    "unsupported_game_type": "unsupported game",
+                    "#Unknown": "Unknown",
+                    "type": "type",
+                    "next_page": "next page",
+                    "last_page": "last page",
                     "server": "server",
                     "client": "client",
                     "run_type": "run type",
@@ -308,8 +329,8 @@
                     "check_res": "checking resource",
                     "launch_fail": "launch fail",
                     "java_version_need": "require Java version",
-                    "get_ver_error_internet": "error-internetversion list cannot get\nerror code：%s\ncannot get version list from internet\nnow list are latest download cached",
-                    "get_ver_error": "error-internetversion list cannot get\nerror code：%s\ncannot get version list from internet\nalso cannot found any cached version list",
+                    "get_ver_error_internet": "error-internetversion list cannot get\nerror here: %s\ncannot get version list from internet\nnow list are latest download cached\n\ncan try refresh list to solve this problem",
+                    "get_ver_error": "error-internetversion list cannot get\nerror here:%s\ncannot get version list from internet\nalso cannot found any cached version list\n\ncan try refresh list to solve this problem",
                     "game_are_not_found_here": "error-game-not-foundcannot get local version list\ncan get Vanilla Minecraft games in \"Vanilla\" page\nor get from \"Fabric\" and \"Forge\" in next page(future)",
                     "java_are_not_found_here": "error-java-not-foundcannot get java list\ncan import java from \"import\"",
                     "game_not_found": "games not found",
@@ -332,7 +353,7 @@
                     "show_release_ver": "release",
                     "show_snapshot_ver": "snapshot",
                     "show_alpha_ver": "alpha",
-                    "fresh_list": "fresh list",
+                    "fresh_list": "refresh",
                     "version_show_select": "select what version need to show",
                     "downloads": "download",
                     "downloads_safe_launch": "download/safe launch",
@@ -464,13 +485,23 @@
                     "reg": "regin"
                 },
                 {
-                    "nowFeature": "fixed bug of cannot parse execute command when it too large\n"
+                    "nowFeature": "optimized download for NPL\nNPL can launch minecraft server\nchange config write, now will not write redundant character\nchange algorithm of version ID\n",
+                    "UPD_ID": "157",
+                    "VER_ID": "138890100156",
+                    "ver": "test-56"
                 }
             ]
         },
         {
             "chinese_tw": [
                 {
+                    "reported": "已反馈此次崩溃",
+                    "press_ctrl_r_to_report": "按下Ctrl键与R键发送反馈",
+                    "to_downloading": "\"%s\" 已加入下载",
+                    "log_too_large": "你的日志太大了, MCH正在尝试放弃处理此日志并重启\n可用堆大小: %s | 已格式日志大小: %s (STD: 204800)\n尝试减少日志或增加堆内存",
+                    "unsupported_game_type": "不支持此游戏类型",
+                    "#Unknown": "未知",
+                    "type": "类型",
                     "server": "服务端",
                     "client": "客户端",
                     "run_type": "运行类型",
@@ -538,8 +569,8 @@
                     "check_res": "正在检查资源完整性",
                     "launch_fail": "启动失败",
                     "java_version_need": "Java版本要求",
-                    "get_ver_error_internet": "error-internet版本列表无法获取\n错误代码：%s\n无法从网络资源获取版本列表\n当前列表为上一次下载的缓存",
-                    "get_ver_error": "error-internet版本列表无法获取\n错误代码：%s\n无法从网络资源获取版本列表\n也无法找到任何已缓存的列表",
+                    "get_ver_error_internet": "error-internet版本列表无法获取\n错误如下: %s\n无法从网络资源获取版本列表\n当前列表为上一次下载的缓存\n\n尝试刷新列表或许可以解决此问题",
+                    "get_ver_error": "error-internet版本列表无法获取\n错误如下: %s\n无法从网络资源获取版本列表\n也无法找到任何已缓存的列表\n\n尝试刷新列表或许可以解决此问题",
                     "game_are_not_found_here": "error-game-not-found无法获取本地版本列表\n可以从底部的\"Vanilla\"获取原版Minecraft游戏\n或是从下一页的\"Fabric\"与\"Forge\"获取(未来)",
                     "java_are_not_found_here": "error-java-not-found无法获取Java列表\n可以从\"导入\"添加Java",
                     "game_not_found": "游戏版本未找到",
@@ -695,7 +726,10 @@
                     "reg": "已注册"
                 },
                 {
-                    "nowFeature": "修復無法解析過大execute命令的問題\n"
+                    "nowFeature": "NPL模块优化下载功能\nNPL模块支持启动服务端\n稍微更改配置文件写入, 现在不会写入多余字符\n更改版本ID算法\n",
+                    "UPD_ID": "157",
+                    "VER_ID": "138890100156",
+                    "ver": "test-56"
                 }
             ]
         }

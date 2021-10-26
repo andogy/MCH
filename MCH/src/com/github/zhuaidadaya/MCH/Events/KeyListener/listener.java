@@ -8,6 +8,7 @@ import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
 import com.github.zhuaidadaya.MCH.Events.reStart;
 import com.github.zhuaidadaya.MCH.Help.Helps;
 import com.github.zhuaidadaya.MCH.UI.*;
+import com.github.zhuaidadaya.MCH.lib.Resources;
 
 import javax.swing.text.*;
 import java.awt.*;
@@ -442,7 +443,7 @@ class inputs {
                 }
             });
         } catch (Error er) {
-            Errors.errors(er, null, false, "KeyListener", "", 700, 520, false,false);
+            Errors.errors(er, null, false, "KeyListener", "", 700, 520, false, false);
         }
     }
 
@@ -589,12 +590,33 @@ class errorFrame {
                     if(c.size() > 1) {
                         normallyKeyP.p(s);
 
+                        System.out.println(s);
+
                         if(s.contains("|76|") & s.contains("|18|")) {
                             if(Community.LangID == 0) {
                                 Events.switchLanguage(1);
                             } else if(Community.LangID == 1) {
                                 Events.switchLanguage(0);
                             }
+                        }
+
+//                        if(s.contains("|82|") & s.contains("|17|")) {
+//                            if(Errors.CannotHandle) {
+//                                if(! Errors.reportCrash_onceOnly) {
+//                                    Errors.reportCrash_onceOnly = true;
+//                                    System.out.println("report bugs");
+//                                }
+//                            } else {
+//                                if(!Errors.reportCrash) {
+//                                    Errors.reportCrash = true;
+//                                    System.out.println("report bugs");
+//                                }
+//                            }
+//                            Errors.jTextArea.setText(Errors.jTextArea.getText().replace(Resources.initLanguage.lang.get("press_ctrl_r_to_report"),Resources.initLanguage.lang.get("reported")));
+//                        }
+
+                        if(s.contains("|69|") & s.contains("|17|")) {
+                            System.exit(- 1);
                         }
 
                         c.clear();

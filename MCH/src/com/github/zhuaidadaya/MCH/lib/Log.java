@@ -26,22 +26,24 @@ public class Log {
     }
 
     public static void writeLog(File logFile, boolean append, Charset charset, Object log, boolean WARN) {
-        writeLog(logFile.getAbsolutePath(), append, charset, log, WARN);
+        writeLog(logFile == null ? null : logFile.getAbsolutePath(), append, charset, log, WARN);
     }
 
     public static void writeLog(String logFile, boolean append, Charset charset, Object log, boolean WARN) {
         try {
-            logFile = logFile.replace("\\", "/");
-            File logF = new File(logFile);
-            try {
-                if (!logF.exists()) {
-                    new File(logFile.substring(0, logFile.lastIndexOf("/"))).mkdirs();
-                    logF.createNewFile();
-                }
-            } catch (Exception e) {
+            if(logFile != null) {
+                logFile = logFile.replace("\\", "/");
+                File logF = new File(logFile);
+                try {
+                    if(! logF.exists()) {
+                        new File(logFile.substring(0, logFile.lastIndexOf("/"))).mkdirs();
+                        logF.createNewFile();
+                    }
+                } catch (Exception e) {
 
+                }
             }
-            writeLog(new BufferedWriter(new FileWriter(logFile, charset, append)), log, WARN, null);
+            writeLog(logFile == null ? null : new BufferedWriter(new FileWriter(logFile, charset, append)), log, WARN, null);
         } catch (Exception e) {
 
         }
@@ -56,8 +58,10 @@ public class Log {
             else
                 System.out.println(log);
 
-            logger.write(log + "\n");
-            logger.close();
+            if(logger != null) {
+                logger.write(log + "\n");
+                logger.close();
+            }
         } catch (Exception e) {
 
         }
@@ -66,10 +70,10 @@ public class Log {
     public static void writeLog(Object log, String type) {
         loadingWindow.loading.setText(log.toString() + "\n" + loadingWindow.loading.getText());
 
-        if (type.equals("error") & Community.saveErrorLog)
-            writeLog(defErrPath, defAppend, defCharset, log, true);
-        else if (type.equals("log") & Community.saveRunLog)
-            writeLog(defRunPath, defAppend, defCharset, log, false);
+        if (type.equals("error"))
+            writeLog(Community.saveErrorLog ? defErrPath : null, defAppend, defCharset, log, true);
+        else if (type.equals("log"))
+            writeLog(Community.saveRunLog ? defRunPath : null, defAppend, defCharset, log, false);
     }
 
     public static void writeLog(Object log) {
@@ -244,7 +248,7 @@ public class Log {
 
     public static void fileToZip(String sourceFilePath, String fileOutPath, String inZipFileName) {
         File sourceFile = new File(sourceFilePath);
-        byte[] b = new byte[1024 * 1024 * 12];
+        byte[] b = new byte[1024 * 16];
 
         if (!sourceFile.isDirectory()) {
             BufferedInputStream sourceReader;

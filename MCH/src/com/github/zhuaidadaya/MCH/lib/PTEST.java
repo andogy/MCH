@@ -16,7 +16,6 @@ public class PTEST {
         HashMap<Integer, Integer> rabbits = new HashMap<>();
         HashMap<Integer, Integer> cacheRabbits = new HashMap<>();
         HashMap<Integer, Integer> reproduction = new HashMap<>();
-        HashMap<Integer, Integer> cacheReproduction = new HashMap<>();
 
         rabbitOver = false;
 

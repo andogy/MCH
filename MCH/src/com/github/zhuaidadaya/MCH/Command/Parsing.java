@@ -55,9 +55,9 @@ public class Parsing extends Thread {
                     }
 
                     if(Community.started)
-                        MinecraftLauncher.jFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+                        MinecraftLauncher.mainFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
                     else
-                        MinecraftLauncher.jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                        MinecraftLauncher.mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
                     //                    String allStr = MchUI.input_Command.getText();
                     String allStr = inputUI.inputArea.getText();

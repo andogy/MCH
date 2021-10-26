@@ -448,9 +448,9 @@
                     "@clone_x_diagonally_position_integer": "<area diagonally position(X-axis): Integer>",
                     "@clone_y_diagonally_position_integer": "<area diagonally position(Y-axis): Integer>",
                     "@clone_z_diagonally_position_integer": "<area diagonally position(Z-axis): Integer>",
-                    "@clone_x_position_target": "<target position(X-axis> : Integer",
-                    "@clone_y_position_target": "<target position(Y-axis> : Integer",
-                    "@clone_z_position_target": "<target position(Z-axis> : Integer",
+                    "@clone_x_position_target": "<target position(X-axis)> : Integer",
+                    "@clone_y_position_target": "<target position(Y-axis)> : Integer",
+                    "@clone_z_position_target": "<target position(Z-axis)> : Integer",
                     "@clone_replace": "direct replace the blocks",
                     "@clone_replace_normal": "default replace type",
                     "@clone_replace_force": "force replace",
@@ -1789,17 +1789,16 @@
                             "@sel",
                             "@all_items",
                             "@item_count",
-                            "@item_data",
+                            "@RESOURCE_WRAP",
                             "@json",
                             "@end"
                         ]
-                    },
-                    {
+                    },{
                         "tree": [
                             "@sel",
                             "@all_items",
                             "@item_count",
-                            "@RESOURCE_WRAP",
+                            "@item_data",
                             "@json",
                             "@end"
                         ]
@@ -1902,6 +1901,12 @@
                     "limited":2147483647,
                     "valueErr":"@Integer_valueErr",
                     "valueOutLimited":"@valueOutLimited"
+                }
+            },
+            "@items_datas": {
+                "spwan_eggs": {
+                    "to": "",
+                    "available_when_last_data_eqaul": "spawn_egg"
                 }
             },
             "@item_operator": {
@@ -3072,11 +3077,6 @@
                 "@String": {
                     "description": "@appointName",
                     "except": "[]"
-                },
-                "@sel_more": {
-                    "toResource": "@acacia_boat_datas",
-                    "contains": "[",
-                    "except": "]"
                 }
             },
             "@sel_one": {
