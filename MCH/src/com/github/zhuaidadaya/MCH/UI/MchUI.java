@@ -21,7 +21,7 @@ public class MchUI extends Community {
 
     public static JScrollPane command_scrollPane = new JScrollPane(commandDisplay);
 //    public static JScrollPane input_scrollPane = new JScrollPane(input_Command);
-    public static JScrollPane tip_scrollPane = new JScrollPane(switchTip);
+public static JScrollPane tip_scrollPane = new JScrollPane(switchTip);
 
     public MchUI() {
         //        解析输入

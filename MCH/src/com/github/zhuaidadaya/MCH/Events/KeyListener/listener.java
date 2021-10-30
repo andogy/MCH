@@ -2,20 +2,21 @@ package com.github.zhuaidadaya.MCH.Events.KeyListener;
 
 import com.github.zhuaidadaya.MCH.Command.CommandParsing;
 import com.github.zhuaidadaya.MCH.Community;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
 import com.github.zhuaidadaya.MCH.Events.reStart;
 import com.github.zhuaidadaya.MCH.Help.Helps;
 import com.github.zhuaidadaya.MCH.UI.*;
+import com.github.zhuaidadaya.MCH.lib.OpenInExplore;
 import com.github.zhuaidadaya.MCH.lib.Resources;
 
 import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedReader;
-import java.io.StringReader;
+import java.io.*;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -37,6 +38,7 @@ public class listener extends Thread {
         new switchTip();
         new functionEditor();
         new minecraftLauncher_instance();
+        new minecraftLauncher_instanceManager();
     }
 
     public static class switchTip {
@@ -56,7 +58,6 @@ public class listener extends Thread {
                     try {
                         String s = Arrays.toString(getC().toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
 
-                        //                        System.out.println(s);
                         if(s.equals("|32|")) {
                             MchUI.switchTip.setText(MchUI.switchTip.getText() + " ");
                         }
@@ -348,7 +349,6 @@ class inputs {
                         getC().add(e.getKeyCode());
 
                         if(getC().size() > 1) {
-                            //                            System.out.println(c);
                             String s = Arrays.toString(getC().toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
 
                             if((s.contains("|18|") & s.contains("|47|")) || (s.contains("|17|") & s.contains("|47|"))) {
@@ -399,6 +399,7 @@ class inputs {
 
                             if(s.contains("|17|") & s.contains("|87|")) {
                                 CommandParsing.toWiki();
+                                CommandParsing.canToWiki = false;
                             }
 
                         } else if(getC().size() == 1) {
@@ -439,6 +440,7 @@ class inputs {
 
                 @Override
                 public void keyReleased(KeyEvent e) {
+                    CommandParsing.canToWiki = true;
                     c.clear();
                 }
             });
@@ -590,30 +592,45 @@ class errorFrame {
                     if(c.size() > 1) {
                         normallyKeyP.p(s);
 
-                        System.out.println(s);
-
-                        if(s.contains("|76|") & s.contains("|18|")) {
-                            if(Community.LangID == 0) {
-                                Events.switchLanguage(1);
-                            } else if(Community.LangID == 1) {
-                                Events.switchLanguage(0);
-                            }
+                        if(s.contains("|83|") & s.contains("|17|")) {
+                            new reStart().restart();
                         }
 
-//                        if(s.contains("|82|") & s.contains("|17|")) {
-//                            if(Errors.CannotHandle) {
-//                                if(! Errors.reportCrash_onceOnly) {
-//                                    Errors.reportCrash_onceOnly = true;
-//                                    System.out.println("report bugs");
-//                                }
-//                            } else {
-//                                if(!Errors.reportCrash) {
-//                                    Errors.reportCrash = true;
-//                                    System.out.println("report bugs");
-//                                }
-//                            }
-//                            Errors.jTextArea.setText(Errors.jTextArea.getText().replace(Resources.initLanguage.lang.get("press_ctrl_r_to_report"),Resources.initLanguage.lang.get("reported")));
-//                        }
+                        if(s.contains("|79|") & s.contains("|17|")) {
+                            System.exit(- 1);
+                        }
+
+                        if(s.contains("|82|") & s.contains("|17|")) {
+                            if(Errors.CannotHandle) {
+                                if(! Errors.reportCrash_onceOnly) {
+                                    Errors.reportCrash_onceOnly = true;
+                                }
+                            } else {
+                                if(! Errors.reportCrash) {
+                                    Errors.reportCrash = true;
+                                }
+                            }
+
+                            String reportFile = ConfigUtil.path + "logs/reports/report" + Errors.latestErrorReport.hashCode() + "/report.log";
+                            File parent = new File(new File(reportFile).getParent());
+                            parent.mkdirs();
+                            BufferedWriter bw = new BufferedWriter(new FileWriter(reportFile));
+
+                            bw.write(Errors.latestErrorReport);
+
+                            bw.close();
+
+                            Helps.openInBrowse("https://github.com/zhuaidadaya/MCH/issues/new?title=Error_Report_" + Errors.latestErrorReport.hashCode() + "&body=Crash Report<br><br>Some errors were encountered, here is errors detailed information:<br><>".replace(" ", "%20").replace("<", "%3C").replace(">", "%3E"));
+                            //                            Helps.openInBrowse("https://github.com/zhuaidadaya/MCH/issues/new?title=Error_Report_" + Errors.latestErrorReport.hashCode() + "&body=" + Errors.latestErrorReport.replace("\n", "<br>").replace(" ", "%20").replace("<", "%3C").replace(">", "%3E").replace("/","%2F").replace("\\","%5C"));
+
+                            OpenInExplore.open(parent.toString());
+
+                            Errors.jTextArea.setText(Errors.jTextArea.getText().replace(Resources.initLanguage.lang.get("press_ctrl_r_to_report"), Resources.initLanguage.lang.get("please_drop_logs")));
+
+                            Thread.sleep(500);
+
+                            Errors.jFrame.setAlwaysOnTop(false);
+                        }
 
                         if(s.contains("|69|") & s.contains("|17|")) {
                             System.exit(- 1);
@@ -652,18 +669,48 @@ class minecraftLauncher_instance {
 
                     String s = Arrays.toString(c.toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
 
-                    System.out.println(s);
-
                     normallyKeyP.p(s);
 
                     if(s.contains("|76|") & s.contains("|18|")) {
-                        if(Community.LangID == 0) {
-                            Events.switchLanguage(1);
-                        } else if(Community.LangID == 1) {
-                            Events.switchLanguage(0);
-                        }
+
                     }
 
+
+                } catch (Exception ignored) {
+
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                c.clear();
+            }
+        });
+    }
+}
+
+class minecraftLauncher_instanceManager {
+    public static Set<Integer> c = new HashSet<>();
+
+    public minecraftLauncher_instanceManager() {
+        MinecraftLauncher.runningList.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                try {
+                    c.add(e.getKeyCode());
+
+                    String s = Arrays.toString(c.toArray()).replace("[", "|").replace("]", "|").replace(",", "|").replace(" ", "");
+
+                    if(s.equals("|127|")) {
+                        MinecraftLauncher.removeMinecraftInstance();
+                    }
+
+                    normallyKeyP.p(s);
 
                 } catch (Exception ignored) {
 
@@ -716,6 +763,7 @@ class normallyKeyP {
 
         if(s.contains("|17|") & s.contains("|87|")) {
             CommandParsing.toWiki();
+            CommandParsing.canToWiki = false;
         }
     }
 }

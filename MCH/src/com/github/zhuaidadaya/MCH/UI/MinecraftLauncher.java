@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.UI;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.Events;
@@ -142,8 +142,8 @@ public class MinecraftLauncher {
 
     //-1 = all, 0 = release, 1 = snapshot, 2 = old alpha/beta
     public static int downloadListDisplay = - 1;
-    public static String DEFAULT_VERSIONS_PATH = Config.path + "minecraft/versions/";
-    public static String DEFAULT_GAME_PATH = Config.path + "minecraft/";
+    public static String DEFAULT_VERSIONS_PATH = ConfigUtil.path + "minecraft/versions/";
+    public static String DEFAULT_GAME_PATH = ConfigUtil.path + "minecraft/";
     public static String versionsPath = "";
     public static String gamePath = "";
 
@@ -259,7 +259,7 @@ public class MinecraftLauncher {
 
                 uploadConfig();
 
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             }
         } catch (Exception ignored) {
 
@@ -296,7 +296,7 @@ public class MinecraftLauncher {
 
                 uploadConfig();
 
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             }
         } catch (Exception ignored) {
 
@@ -855,7 +855,7 @@ public class MinecraftLauncher {
 
                     String CompleteLauncher;
                     if(launchType.equals("client")) {
-                        CompleteLauncher = javaUsed + vmOption + nativeArg + " -cp \"" + cpPath + "\" " + mainClass + " --username " + account + " --version \"" + gameVersionName + "\" --gameDir \"" + gamePath_instance + "\" --assetsDir \"" + Config.path + "minecraft/assets\" --assetIndex " + assetIndex.get("id").toString() + " --uuid " + accountUUID + " --accessToken " + accountUUID + " --userProperties {} --userType Legacy --width 854 --height 480";
+                        CompleteLauncher = javaUsed + vmOption + nativeArg + " -cp \"" + cpPath + "\" " + mainClass + " --username " + account + " --version \"" + gameVersionName + "\" --gameDir \"" + gamePath_instance + "\" --assetsDir \"" + ConfigUtil.path + "minecraft/assets\" --assetIndex " + assetIndex.get("id").toString() + " --uuid " + accountUUID + " --accessToken " + accountUUID + " --userProperties {} --userType Legacy --width 854 --height 480";
                     } else {
                         if(new File(gamePath_instance + "/eula.txt").createNewFile()) {
                             FileWriter fw = new FileWriter(gamePath_instance + "/eula.txt");
@@ -1017,8 +1017,8 @@ public class MinecraftLauncher {
                             String splitTime = times.getTime(timeType.LONG_LOG);
                             long split = 0;
 
-                            new File(Config.path + (instanceType.equals("minecraft") ? "cache/minecraftLogs/" : "cache/customInstanceLogs/") + finalInstanceName + "/" + times.getTime(timeType.AS_DAY) + "/").mkdirs();
-                            BufferedWriter cacheWriter = new BufferedWriter(new FileWriter(Config.path + (instanceType.equals("minecraft") ? "cache/minecraftLogs/" : "cache/customInstanceLogs/") + finalInstanceName + "/" + times.getTime(timeType.AS_DAY) + "/cache_" + finalInstanceName + ".cache"));
+                            new File(ConfigUtil.path + (instanceType.equals("minecraft") ? "cache/minecraftLogs/" : "cache/customInstanceLogs/") + finalInstanceName + "/" + times.getTime(timeType.AS_DAY) + "/").mkdirs();
+                            BufferedWriter cacheWriter = new BufferedWriter(new FileWriter(ConfigUtil.path + (instanceType.equals("minecraft") ? "cache/minecraftLogs/" : "cache/customInstanceLogs/") + finalInstanceName + "/" + times.getTime(timeType.AS_DAY) + "/cache_" + finalInstanceName + ".cache"));
                             while((readLog = minecraftListener.readLine()) != null) {
                                 log.insert(log.length(), readLog + "\n");
                                 if(log.length() > 1024 * 200) {
@@ -1090,7 +1090,7 @@ public class MinecraftLauncher {
             StringBuilder json = new StringBuilder();
 
             try {
-                BufferedReader br = new BufferedReader(new FileReader(Config.path + "/minecraft/versions/ver.json"));
+                BufferedReader br = new BufferedReader(new FileReader(ConfigUtil.path + "/minecraft/versions/ver.json"));
 
                 String s;
                 while((s = br.readLine()) != null)
@@ -1174,9 +1174,9 @@ public class MinecraftLauncher {
 
     public static LinkedHashMap<Object, Object> getDownloadVersions(String type, boolean fresh) {
         LinkedHashMap<Object, Object> hashMap = new LinkedHashMap<>();
-        File f = new File(Config.path + "/minecraft/versions/ver.json");
+        File f = new File(ConfigUtil.path + "/minecraft/versions/ver.json");
         if(! f.isFile() | fresh) {
-            if(! customDownLoad("https://launchermeta.mojang.com/mc/game/version_manifest.json", Config.path + "/minecraft/versions/ver.json", true, - 1, "")) {
+            if(! customDownLoad("https://launchermeta.mojang.com/mc/game/version_manifest.json", ConfigUtil.path + "/minecraft/versions/ver.json", true, - 1, "")) {
                 if(! f.isFile() | f.length() <= 0) {
                     hashMap.put("error", String.format(lang.get("get_ver_error"), """
 
@@ -1280,7 +1280,7 @@ public class MinecraftLauncher {
         uploadConfig();
 
         try {
-            Config.WriteConfig();
+            ConfigUtil.WriteConfig();
         } catch (Exception e) {
 
         }
@@ -2072,7 +2072,7 @@ public class MinecraftLauncher {
             uploadConfig();
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception v1) {
 
             }
@@ -2084,7 +2084,7 @@ public class MinecraftLauncher {
             uploadConfig();
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception v1) {
 
             }
@@ -2099,7 +2099,7 @@ public class MinecraftLauncher {
             uploadConfig();
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception v1) {
 
             }
@@ -2133,7 +2133,7 @@ public class MinecraftLauncher {
                 uploadConfig();
 
                 try {
-                    Config.WriteConfig();
+                    ConfigUtil.WriteConfig();
                 } catch (Exception v1) {
 
                 }
@@ -2152,7 +2152,7 @@ public class MinecraftLauncher {
             uploadConfig();
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception v1) {
 
             }
@@ -2167,7 +2167,7 @@ public class MinecraftLauncher {
 
                 uploadConfig();
 
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception v1) {
 
             }
@@ -2182,10 +2182,10 @@ public class MinecraftLauncher {
 
                     try {
 
-                        String savePath = Config.path + "export/" + selectedMinecraft.getText() + "/" + times.getTime(timeType.AS_SECOND) + "/";
+                        String savePath = ConfigUtil.path + "export/" + selectedMinecraft.getText() + "/" + times.getTime(timeType.AS_SECOND) + "/";
                         String fileName = savePath + "latest.log";
 
-                        exportLog(fileName, savePath, new File(Config.path + "cache/minecraftLogs/" + selectedMinecraft.getText() + "/" + times.getTime(timeType.AS_DAY) + "/cache_" + selectedMinecraft.getText() + ".cache"));
+                        exportLog(fileName, savePath, new File(ConfigUtil.path + "cache/minecraftLogs/" + selectedMinecraft.getText() + "/" + times.getTime(timeType.AS_DAY) + "/cache_" + selectedMinecraft.getText() + ".cache"));
 
                         if(Community.os.equals("Linux")) {
                             try {
@@ -2275,7 +2275,7 @@ public class MinecraftLauncher {
             uploadConfig();
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception ex) {
 
             }
@@ -2325,32 +2325,7 @@ public class MinecraftLauncher {
         });
 
         removeInstance.addActionListener(e -> {
-            new Thread(() -> {
-                String select = runningList.getSelectedValue().toString();
-                try {
-                    ForceStop(new JSONObject(runningMinecraft.get(select).toString()).getInt("pid"));
-                } catch (Exception ignored) {
-
-                }
-
-                try {
-                    if(new JSONObject(runningMinecraft.get(select).toString()).get("status").toString().equals("running"))
-                        Thread.sleep(1000);
-                } catch (Exception ignored) {
-
-                }
-
-                try {
-                    while(true) {
-                        deleteFiles(Config.path + "/cache/minecraftLogs/" + select);
-                    }
-                } catch (Exception ignored) {
-
-                }
-
-                runningMinecraft.remove(select);
-                runningLogs.remove(select);
-            }).start();
+            removeMinecraftInstance();
         });
 
         startDownload.addActionListener(e -> {
@@ -2512,6 +2487,35 @@ public class MinecraftLauncher {
         //        });
     }
 
+    public static void removeMinecraftInstance() {
+        new Thread(() -> {
+            String select = runningList.getSelectedValue().toString();
+            try {
+                ForceStop(new JSONObject(runningMinecraft.get(select).toString()).getInt("pid"));
+            } catch (Exception ignored) {
+
+            }
+
+            try {
+                if(new JSONObject(runningMinecraft.get(select).toString()).get("status").toString().equals("running"))
+                    Thread.sleep(1000);
+            } catch (Exception ignored) {
+
+            }
+
+            try {
+                while(true) {
+                    deleteFiles(ConfigUtil.path + "/cache/minecraftLogs/" + select);
+                }
+            } catch (Exception ignored) {
+
+            }
+
+            runningMinecraft.remove(select);
+            runningLogs.remove(select);
+        }).start();
+    }
+
     public static void createAccount() {
         invalidName = false;
         invalidUUID = false;
@@ -2576,7 +2580,7 @@ public class MinecraftLauncher {
                 uploadConfig();
 
                 try {
-                    Config.WriteConfig();
+                    ConfigUtil.WriteConfig();
                 } catch (Exception v1) {
 
                 }
@@ -2753,7 +2757,7 @@ public class MinecraftLauncher {
             uploadConfig();
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception e) {
 
             }

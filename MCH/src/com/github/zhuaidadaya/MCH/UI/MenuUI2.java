@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.UI;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
@@ -8,6 +8,7 @@ import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
 import com.github.zhuaidadaya.MCH.Help.Helps;
 import com.github.zhuaidadaya.MCH.UI.Color.displaySets;
+import com.github.zhuaidadaya.MCH.lib.OpenInExplore;
 import com.github.zhuaidadaya.MCH.lib.filesOperator;
 
 import javax.swing.*;
@@ -168,7 +169,7 @@ public class MenuUI2 extends Community {
             uiSizeMap.put(setting_display, new Rectangle(80, 280, 80, 34));
             uiSizeMap.put(setting_upd, new Rectangle(160, 280, 80, 34));
             uiSizeMap.put(setting_info, new Rectangle(240, 280, 80, 34));
-            if(! Config.settingIni) {
+            if(! ConfigUtil.settingIni) {
                 uiSizeMap.put(setting_command, new Rectangle(320, 280, 100, 34));
             } else {
                 uiSizeMap.put(setting_command, new Rectangle(160, 280, 100, 34));
@@ -219,10 +220,10 @@ public class MenuUI2 extends Community {
 
             uiSizeMap.put(deleteData, new Rectangle(0, 40 + 35 + 100 + 30 + 40, 110, 30));
 
-            setting_upd.setVisible(! Config.settingIni);
-            setting_info.setVisible(! Config.settingIni);
-            iniFinished.setVisible(Config.settingIni);
-            iniHelper.setVisible(Config.settingIni);
+            setting_upd.setVisible(! ConfigUtil.settingIni);
+            setting_info.setVisible(! ConfigUtil.settingIni);
+            iniFinished.setVisible(ConfigUtil.settingIni);
+            iniHelper.setVisible(ConfigUtil.settingIni);
         }
 
         {
@@ -411,10 +412,10 @@ public class MenuUI2 extends Community {
 
                     deleteData.setBounds(0, 40 + 35 + 100 + 30 + 40, 110, 30);
 
-                    setting_upd.setVisible(! Config.settingIni);
-                    setting_info.setVisible(! Config.settingIni);
-                    iniFinished.setVisible(Config.settingIni);
-                    iniHelper.setVisible(Config.settingIni);
+                    setting_upd.setVisible(! ConfigUtil.settingIni);
+                    setting_info.setVisible(! ConfigUtil.settingIni);
+                    iniFinished.setVisible(ConfigUtil.settingIni);
+                    iniHelper.setVisible(ConfigUtil.settingIni);
                 }
             });
         }
@@ -428,9 +429,9 @@ public class MenuUI2 extends Community {
 
         iniFinished.addActionListener(e -> {
             jFrame.setVisible(false);
-            Config.settingIni = false;
+            ConfigUtil.settingIni = false;
             jFrame.setAlwaysOnTop(Community.onTop);
-            Config.defaultIniSetOver();
+            ConfigUtil.defaultIniSetOver();
         });
         iniHelper.addActionListener(e -> {
             Helps.iniHelps();
@@ -480,19 +481,7 @@ public class MenuUI2 extends Community {
 
         showDir.addActionListener(e -> {
             if(! Community.isDaemons) {
-                if(Community.os.equals("Linux")) {
-                    try {
-                        Runtime.getRuntime().exec("nautilus " + Config.path);
-                    } catch (Exception exception) {
-                        Errors.tips(500, 300, "open-files-cannot", "");
-                    }
-                } else {
-                    try {
-                        Runtime.getRuntime().exec("explorer.exe \"" + Config.path.replace("/", "\\") + "\"");
-                    } catch (Exception exception) {
-                        Errors.tips(500, 300, "open-files-cannot", "");
-                    }
-                }
+                OpenInExplore.open(ConfigUtil.path);
             }
         });
 
@@ -538,7 +527,7 @@ public class MenuUI2 extends Community {
         MenuUI2.deleteData.addActionListener(e -> {
             if(! Community.isDaemons) {
                 new Thread(() -> {
-                    File[] caches = new File(Config.path + "logs/").listFiles();
+                    File[] caches = new File(ConfigUtil.path + "logs/").listFiles();
 
                     filesOperator.fileCount = 0;
                     filesOperator.countFiles(caches);;

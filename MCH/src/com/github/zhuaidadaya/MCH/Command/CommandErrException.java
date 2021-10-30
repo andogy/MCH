@@ -2,6 +2,7 @@ package com.github.zhuaidadaya.MCH.Command;
 
 import java.io.Serial;
 
+@Command
 public class CommandErrException extends Exception{
     @Serial
     private static final long serialVersionUID = 0L;

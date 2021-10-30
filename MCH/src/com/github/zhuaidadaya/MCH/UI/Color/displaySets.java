@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.UI.Color;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
@@ -146,10 +146,10 @@ public class displaySets extends Thread {
         ExtraUI.Level1OfMLSL.setBorderPainted(false);
         ExtraUI.Level1OfMLSL.setFocusPainted(false);
 
-        Config.continues.setBorderPainted(false);
-        Config.continues.setFocusPainted(false);
-        Config.autoSet.setBorderPainted(false);
-        Config.autoSet.setFocusPainted(false);
+        ConfigUtil.continues.setBorderPainted(false);
+        ConfigUtil.continues.setFocusPainted(false);
+        ConfigUtil.autoSet.setBorderPainted(false);
+        ConfigUtil.autoSet.setFocusPainted(false);
 
         MinecraftLauncher.launch.setBorderPainted(false);
         MinecraftLauncher.launch.setFocusPainted(false);
@@ -307,14 +307,14 @@ public class displaySets extends Thread {
         MinecraftLauncher.forceStopMinecraft.setForeground(foregroundColor);
 
         //        固定颜色配置界面(初始化引导)
-        Config.jt.setForeground(foregroundColor);
-        Config.continues.setForeground(foregroundColor);
-        Config.autoSet.setForeground(foregroundColor);
+        ConfigUtil.jt.setForeground(foregroundColor);
+        ConfigUtil.continues.setForeground(foregroundColor);
+        ConfigUtil.autoSet.setForeground(foregroundColor);
 
-        Config.jFrame.getContentPane().setBackground(backgroundColor);
-        Config.jt.setBackground(backgroundColor);
-        Config.continues.setBackground(buttonColor);
-        Config.autoSet.setBackground(buttonColor);
+        ConfigUtil.jFrame.getContentPane().setBackground(backgroundColor);
+        ConfigUtil.jt.setBackground(backgroundColor);
+        ConfigUtil.continues.setBackground(buttonColor);
+        ConfigUtil.autoSet.setBackground(buttonColor);
 
         loadingWindow.jFrame.getContentPane().setBackground(backgroundColor);
         loadingWindow.loadingTip.setForeground(foregroundColor);

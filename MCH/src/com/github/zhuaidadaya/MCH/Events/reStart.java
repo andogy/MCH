@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.Events;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Events.UPD.getJar;
 import com.github.zhuaidadaya.MCH.UI.exit;
 import com.github.zhuaidadaya.MCH.lib.Resources;
@@ -25,7 +25,7 @@ public class reStart {
         try {
             Runtime r = Runtime.getRuntime();
             String str = r.exec("%JAVA_HOME%\\bin\\java.exe " + jvmConf + " -jar \"" + new getJar().getOldPath(this.getClass()) + "\" " + Arrays.toString(args)).toString();
-            File file = new File(Config.path + "res.cache");
+            File file = new File(ConfigUtil.path + "res.cache");
             FileWriter fw = new FileWriter(file);
             fw.write(file.hashCode());
             fw.close();
@@ -33,12 +33,12 @@ public class reStart {
             long startRestart = System.currentTimeMillis();
 
             do {
-                FileReader fr = new FileReader(Config.path + "res.cache");
+                FileReader fr = new FileReader(ConfigUtil.path + "res.cache");
                 fr.close();
                 Thread.sleep(1);
             } while (System.currentTimeMillis() - startRestart <= 2000);
 
-            boolean restart = new File(Config.path + "res.cache").delete();
+            boolean restart = new File(ConfigUtil.path + "res.cache").delete();
 
 //            exit.Ex();
             if (restart) {
@@ -52,7 +52,7 @@ public class reStart {
             }
         } catch (Exception e) {
 //            Errors.tips(400, 220,  Resources.initLanguage.lang.get("restart-failed"),Resources.initLanguage.lang.get("restart-failed-title"));
-            Errors.errors(null,e,false, Resources.initLanguage.lang.get("restart"), Resources.initLanguage.lang.get("restart-failed"),700,1080,true,false);
+            Errors.errors(null,e,false, "restart", Resources.initLanguage.lang.get("restart-failed"),700,1080,true,false);
         }
     }
 }

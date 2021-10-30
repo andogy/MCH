@@ -1,7 +1,9 @@
 package com.github.zhuaidadaya.MCH.Command;
 
+@Command
 public record CommandError<I extends String, EP extends Integer, CL extends Integer>(I INFO, EP ERR_POS,
                                                                                      CL COMMAND_LENGTH) implements CommandStats {
+
     @Override
     public CommandStats getCommandStats() {
         return this;

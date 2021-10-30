@@ -141,7 +141,7 @@ public class Declared() {
 ```java
 package Mex;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.lib.Log;
 
 import java.io.File;
@@ -151,7 +151,7 @@ import java.nio.charset.StandardCharsets;
 public class Declared() {
     public void onLoad() {
         //将日志存储到MCH的默认位置,有需要可以自行更改        
-        File logSaveTo = new File(Config.runLogsPath + "latest.log");
+        File logSaveTo = new File(ConfigUtil.runLogsPath + "latest.log");
 
         //如果是false则写入前删除文件内容
         //不建议设为false
@@ -176,19 +176,20 @@ public class Declared() {
 
 ```
 去掉注释以后的样子
+
 ```java
 package Mex;
 
-        import com.github.zhuaidadaya.MCH.Command.Config;
-        import com.github.zhuaidadaya.MCH.lib.Log;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.lib.Log;
 
-        import java.io.File;
-        import java.nio.charset.Charset;
-        import java.nio.charset.StandardCharsets;
+import java.io.File;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class Declared() {
     public void onLoad() {
-        File logSaveTo = new File(Config.runLogsPath + "latest.log");
+        File logSaveTo = new File(ConfigUtil.runLogsPath + "latest.log");
         boolean append = true;
         Charset charset = StandardCharsets.UTF_8;
         String log = "this is a log";
@@ -204,7 +205,7 @@ public class Declared() {
 ```java
 package Mex;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.lib.Log;
 
 import java.nio.charset.StandardCharsets;
@@ -212,7 +213,7 @@ import java.nio.charset.StandardCharsets;
 public class Declared() {
     public void onLoad() {
         //直接在给参数时临时建立参数        
-        Log.writeLog(Config.runLogsPath + "latest.log", true, StandardCharsets.UTF_8, "this is a log", false);
+        Log.writeLog(ConfigUtil.runLogsPath + "latest.log", true, StandardCharsets.UTF_8, "this is a log", false);
     }
 }
 ```
@@ -313,18 +314,8 @@ Errors类是一个保存错误以方便反馈的类<br>
 ```java
 package com.github.zhuaidadaya.MCH.Events;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
-import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.UI.*;
-import com.github.zhuaidadaya.MCH.lib.Log;
-import com.github.zhuaidadaya.MCH.lib.Resources;
-
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.FileWriter;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 public class Errors extends Throwable {
     public static JFrame jFrame = new JFrame();
@@ -377,13 +368,13 @@ MCH在写入以及读取配置文件时会对其加密<br>
 ```java
 package Mex;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Community;
 
 public class Declared() {
     public void onLoad() {
         Community.extraConf.put("config-name", "config-value");
-        Config.WriteConfig();
+        ConfigUtil.WriteConfig();
     }
 }
 ```
@@ -393,7 +384,6 @@ public class Declared() {
 ```java
 package Mex;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Community;
 
 public class Declared() {

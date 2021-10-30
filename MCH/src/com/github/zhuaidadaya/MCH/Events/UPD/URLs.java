@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.Events.UPD;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Times.times;
@@ -339,7 +339,7 @@ public class URLs extends Thread {
                         }
 
                         if(UPD) {
-                            BufferedReader br = new BufferedReader(new FileReader(Config.path + "UPD.cache", StandardCharsets.UTF_8));
+                            BufferedReader br = new BufferedReader(new FileReader(ConfigUtil.path + "UPD.cache", StandardCharsets.UTF_8));
                             String string;
                             StringBuilder newly = new StringBuilder();
                             int line = 0;
@@ -372,9 +372,9 @@ public class URLs extends Thread {
                             MenuUI2.updateInfo.setText(newly.toString());
 
                             if(Community.saveCache) {
-                                filesOperator.saveCache(new File(Config.path + "UPD.cache"), new File(Config.path + "save/cache/"), "UPD_View");
+                                filesOperator.saveCache(new File(ConfigUtil.path + "UPD.cache"), new File(ConfigUtil.path + "save/cache/"), "UPD_View");
                             } else {
-                                new File(Config.path + "UPD.cache").delete();
+                                new File(ConfigUtil.path + "UPD.cache").delete();
                             }
 
                             MchUI.tips.setText(lang.get("MchHaveNewVer"));

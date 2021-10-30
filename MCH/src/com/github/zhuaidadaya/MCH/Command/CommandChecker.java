@@ -1,5 +1,6 @@
 package com.github.zhuaidadaya.MCH.Command;
 
+@Command
 public class CommandChecker<I extends String> implements CommandStats{
     public I INFO;
 

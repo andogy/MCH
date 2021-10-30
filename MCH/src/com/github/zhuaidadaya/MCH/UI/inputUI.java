@@ -8,15 +8,19 @@ import java.awt.*;
 public class inputUI extends Community {
     public static JFrame jFrame = new JFrame();
     public static JTextPane inputArea = new JTextPane();
+    public static JScrollPane inputArea_scrollPane = new JScrollPane(inputArea);
 
     public inputUI() {
-        uiSizeMap.put(jFrame, new Dimension(400, 570));
-        uiSizeMap.put(inputArea, new Rectangle(0, 0, 400, 600));
-
         InputUI();
     }
 
     public static void InputUI() {
+
+        inputArea_scrollPane.getVerticalScrollBar().setValue(0);
+        inputArea_scrollPane.setHorizontalScrollBar(null);
+        inputArea_scrollPane.setViewportView(inputArea);
+        inputArea_scrollPane.setBorder(null);
+
         LayoutManager layoutManager = new LayoutManager() {
             @Override
             public void addLayoutComponent(String name, Component comp) {
@@ -40,18 +44,18 @@ public class inputUI extends Community {
 
             @Override
             public void layoutContainer(Container parent) {
-                inputArea.setBounds(uiSizeMap.getRectangle(inputArea));
-                MchUI.tip_scrollPane.setBounds(uiSizeMap.getRectangle(inputArea));
+                inputArea_scrollPane.setBounds(0,0,jFrame.getWidth() - 10,jFrame.getHeight() - 20);
+                MchUI.tip_scrollPane.setBounds(inputArea.getBounds());
             }
         };
 
-        jFrame.setSize(uiSizeMap.getDimension(jFrame));
+        jFrame.setSize(400, 570);
 
         jFrame.setLayout(layoutManager);
 
         jFrame.add(MchUI.tip_scrollPane);
 
-        jFrame.add(inputArea);
+        jFrame.add(inputArea_scrollPane);
 
         jFrame.setVisible(true);
     }

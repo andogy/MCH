@@ -1,6 +1,9 @@
 package com.github.zhuaidadaya.MCH.Events;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Command.Command;
+import com.github.zhuaidadaya.MCH.Command.Test;
+import com.github.zhuaidadaya.MCH.Config.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
@@ -19,11 +22,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class Events {
-    public static void Copy() {
-        StringSelection selection = new StringSelection(inputUI.inputArea.getText().replace("\r", "").replace("\n", ""));
-//        StringSelection selection = new StringSelection(MchUI.input_Command.getText().replace("\r", "").replace("\n", ""));
+    public static void Copy(String copy) {
+        StringSelection selection = new StringSelection(copy);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(selection, null);
+    }
+        public static void Copy() {
+        Copy(inputUI.inputArea.getText().replace("\r", "").replace("\n", ""));
 
         if(Community.historySaveID != 2) {
             try {
@@ -51,25 +56,26 @@ public class Events {
         }
     }
 
+    @Config
     public static void switchColor(int ColorID) {
         if(! Community.isDaemons) {
             switch(ColorID) {
                 case 0 -> {
                     Community.ColorID = 0;
-                    Config.colorSet = "Color@White";
+                    ConfigUtil.colorSet = "Color@White";
                 }
                 case 1 -> {
                     Community.ColorID = 1;
-                    Config.colorSet = "Color@Black";
+                    ConfigUtil.colorSet = "Color@Black";
                 }
                 case 2 -> {
                     Community.ColorID = 2;
-                    Config.colorSet = "Color@Hades";
+                    ConfigUtil.colorSet = "Color@Hades";
                 }
             }
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -78,6 +84,7 @@ public class Events {
         }
     }
 
+    @Config
     public static void switchLanguage(int LangID) {
         if(! Community.isDaemons) {
 
@@ -87,28 +94,28 @@ public class Events {
                 case 0 -> {
                     Community.LangID = 0;
                     Community.LangSetID = 0;
-                    Config.languageSet = "Language@Chinese";
+                    ConfigUtil.languageSet = "Language@Chinese";
                 }
                 case 1 -> {
                     Community.LangID = 1;
                     Community.LangSetID = 1;
-                    Config.languageSet = "Language@English";
+                    ConfigUtil.languageSet = "Language@English";
                 }
                 case 2 -> {
                     Community.LangSetID = 2;
-                    Config.languageSet = "Language@Auto";
+                    ConfigUtil.languageSet = "Language@Auto";
                 }
                 case 3 -> {
                     Community.LangID = 3;
                     Community.LangSetID = 3;
-                    Config.languageSet = "Language@Chinese_TW";
+                    ConfigUtil.languageSet = "Language@Chinese_TW";
                 }
             }
 
             languageSet.Language();
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -119,254 +126,272 @@ public class Events {
         }
     }
 
+    @Config
     public static void switchExButtonWillExit(boolean exButton) {
         if(! Community.isDaemons) {
             if(exButton) {
                 Community.exitButtonWillExit = true;
-                Config.exButtonSet = "Button@Ex.Exit";
+                ConfigUtil.exButtonSet = "Button@Ex.Exit";
             } else {
                 Community.exitButtonWillExit = false;
-                Config.exButtonSet = "Button@Ex.Smaller";
+                ConfigUtil.exButtonSet = "Button@Ex.Smaller";
             }
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+    @Config
     public static void switchFastLoad(boolean fastLoad) {
         if(! Community.isDaemons) {
             if(fastLoad) {
                 Community.fastLoad = true;
-                Config.fastLoadSet = "Load@Fast";
+                ConfigUtil.fastLoadSet = "Load@Fast";
             } else {
                 Community.fastLoad = false;
-                Config.fastLoadSet = "Load@Safe";
+                ConfigUtil.fastLoadSet = "Load@Safe";
             }
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+    @Config
     public static void switchOnTop(boolean onTop) {
         if(! Community.isDaemons) {
             if(onTop) {
                 Community.onTop = true;
-                Config.onTopSet = "Display@OnTop";
+                ConfigUtil.onTopSet = "Display@OnTop";
             } else {
                 Community.onTop = false;
-                Config.onTopSet = "Display@Default";
+                ConfigUtil.onTopSet = "Display@Default";
             }
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+    @Config
     public static void switchSaveUpdCache(boolean save) {
         if(! Community.isDaemons) {
             if(save) {
                 Community.saveCache = true;
-                Config.saveCache = "Cache@Save";
+                ConfigUtil.saveCache = "Cache@Save";
             } else {
                 Community.saveCache = false;
-                Config.saveCache = "Cache@Delete";
+                ConfigUtil.saveCache = "Cache@Delete";
             }
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+    @Config
     public static void switchSaveRunLog(boolean save) {
         if(! Community.isDaemons) {
             if(save) {
                 Community.saveRunLog = true;
-                Config.saveRunLog = "RunLog@Save";
+                ConfigUtil.saveRunLog = "RunLog@Save";
             } else {
                 Community.saveRunLog = false;
-                Config.saveRunLog = "RunLog@Delete";
+                ConfigUtil.saveRunLog = "RunLog@Delete";
             }
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+@Config
     public static void switchSaveErrorLog(boolean save) {
         if(! Community.isDaemons) {
             if(save) {
                 Community.saveErrorLog = true;
-                Config.saveErrorLog = "ErrorLog@Save";
+                ConfigUtil.saveErrorLog = "ErrorLog@Save";
             } else {
                 Community.saveErrorLog = false;
-                Config.saveErrorLog = "ErrorLog@Delete";
+                ConfigUtil.saveErrorLog = "ErrorLog@Delete";
             }
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+    @Config
     public static void switchAutoUPD(boolean auto) {
         if(! Community.isDaemons) {
             if(auto) {
                 Community.autoUPD = true;
-                Config.autoPUDSet = "UPD@MCH";
+                ConfigUtil.autoPUDSet = "UPD@MCH";
             } else {
                 Community.autoUPD = false;
-                Config.autoPUDSet = "UPD@Self";
+                ConfigUtil.autoPUDSet = "UPD@Self";
             }
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+    @Config
     public static void switchHistorySaveID(int ID) {
         if(! Community.isDaemons) {
             if(ID == 0) {
                 Community.historySaveID = 0;
-                Config.saveHistorySet = "History@SaveAll";
+                ConfigUtil.saveHistorySet = "History@SaveAll";
             } else if(ID == 1) {
                 Community.historySaveID = 1;
-                Config.saveHistorySet = "History@SaveSome";
+                ConfigUtil.saveHistorySet = "History@SaveSome";
             } else if(ID == 2) {
                 Community.historySaveID = 2;
-                Config.saveHistorySet = "History@Delete";
+                ConfigUtil.saveHistorySet = "History@Delete";
             } else {
                 Community.historySaveID = 1;
             }
 
             try {
-                Config.WriteConfig();
+                ConfigUtil.WriteConfig();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+    @Config
     public static void switchMinecraftListenFlushSpeedLevel(int Levels) {
         if(! Community.isDaemons) {
             if(Levels == 0) {
                 Community.minecraftListenFlushSpeedLevels = 0;
-                Config.minecraftListenFlushSpeedLevel = "MinecraftListenFlushSpeedLevel@0";
+                ConfigUtil.minecraftListenFlushSpeedLevel = "MinecraftListenFlushSpeedLevel@0";
             }
 
             if(Levels == 1) {
                 Community.minecraftListenFlushSpeedLevels = 1;
-                Config.minecraftListenFlushSpeedLevel = "MinecraftListenFlushSpeedLevel@1";
+                ConfigUtil.minecraftListenFlushSpeedLevel = "MinecraftListenFlushSpeedLevel@1";
             }
         }
 
         try {
-            Config.WriteConfig();
+            ConfigUtil.WriteConfig();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @Config
+    @Command
     public static void switchInvalidCommandShow(boolean show) {
         if(! Community.isDaemons) {
             if(! show) {
                 Community.showInvalidCommand = false;
-                Config.showInvalidCommand = "InvalidCommand@Hide";
+                ConfigUtil.showInvalidCommand = "InvalidCommand@Hide";
             } else {
                 Community.showInvalidCommand = true;
-                Config.showInvalidCommand = "InvalidCommand@Show";
+                ConfigUtil.showInvalidCommand = "InvalidCommand@Show";
             }
         }
 
         try {
-            Config.WriteConfig();
+            ConfigUtil.WriteConfig();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @Config
+    @Command
     public static void switchShowCommands(limitedTypes limitedType) {
         if(limitedType.equals(limitedTypes.BEDROCK)) {
             Community.showCommands = limitedTypes.BEDROCK;
-            Config.showCommands = "Commands@Bedrock";
+            ConfigUtil.showCommands = "Commands@Bedrock";
         }
 
         if(limitedType.equals(limitedTypes.JAVA)) {
             Community.showCommands = limitedTypes.JAVA;
-            Config.showCommands = "Commands@Java";
+            ConfigUtil.showCommands = "Commands@Java";
         }
 
         if(limitedType.equals(limitedTypes.EDU)) {
             Community.showCommands = limitedTypes.EDU;
-            Config.showCommands = "Commands@EDU";
+            ConfigUtil.showCommands = "Commands@EDU";
         }
 
         if(limitedType.equals(limitedTypes.BDS)) {
             Community.showCommands = limitedTypes.BDS;
-            Config.showCommands = "Commands@BDS";
+            ConfigUtil.showCommands = "Commands@BDS";
         }
 
         if(limitedType.equals(limitedTypes.WS_SERVER)) {
             Community.showCommands = limitedTypes.WS_SERVER;
-            Config.showCommands = "Commands@WSS";
+            ConfigUtil.showCommands = "Commands@WSS";
         }
 
         try {
-            Config.WriteConfig();
+            ConfigUtil.WriteConfig();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @Config
+    @Command
     public static void switchCommandMethod(limitedTypes limitedType) {
         if(limitedType.equals(limitedTypes.BEDROCK)) {
             Community.showCommandMethod = limitedTypes.BEDROCK;
-            Config.priorityDisplay = "PriorityDisplay@Bedrock";
+            ConfigUtil.priorityDisplay = "PriorityDisplay@Bedrock";
         }
 
         if(limitedType.equals(limitedTypes.JAVA)) {
             Community.showCommandMethod = limitedTypes.JAVA;
-            Config.priorityDisplay = "PriorityDisplay@java";
+            ConfigUtil.priorityDisplay = "PriorityDisplay@java";
         }
 
         try {
-            Config.WriteConfig();
+            ConfigUtil.WriteConfig();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @Config
+    @Command
     public static void switchToWiki(boolean toWiki) {
         Community.toWiki = toWiki;
 
         if(toWiki) {
-            Config.toWiki = "toWiki@on";
+            ConfigUtil.toWiki = "toWiki@on";
         } else {
-            Config.toWiki = "toWiki@off";
+            ConfigUtil.toWiki = "toWiki@off";
         }
     }
 
+    @Config
     public static void switchCheckResource(boolean check) {
         MinecraftLauncher.checkResource = check;
 
@@ -379,12 +404,13 @@ public class Events {
         MinecraftLauncher.uploadConfig();
 
         try {
-            Config.WriteConfig();
+            ConfigUtil.WriteConfig();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @Config
     public static void checkUPD() {
         if(! Community.isDaemons) {
             URLs.checkUPD = true;
@@ -401,6 +427,7 @@ public class Events {
         }
     }
 
+    @Test
     public static void test() {
         System.out.println("test");
     }

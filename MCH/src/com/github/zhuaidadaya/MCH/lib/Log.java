@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.lib;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Times.timeType;
 import com.github.zhuaidadaya.MCH.Times.times;
@@ -18,8 +18,8 @@ import java.util.zip.ZipOutputStream;
 public class Log {
     public static boolean defAppend = true;
     public static Charset defCharset = StandardCharsets.UTF_8;
-    public static File defRunPath = new File(Config.runLogsPath);
-    public static File defErrPath = new File(Config.errLogsPath);
+    public static File defRunPath = new File(ConfigUtil.runLogsPath);
+    public static File defErrPath = new File(ConfigUtil.errLogsPath);
 
     public static void outLog(Object log, boolean WARN) {
         writeLog(null, log, WARN, null);

@@ -9,17 +9,15 @@ import java.net.URI;
 import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.lang;
 
 public class Helps {
-    public static void open(String url) {
+    public static void openInBrowse(String url) {
         try {
             URI uri = URI.create(url);
-            // 获取当前系统桌面扩展
             Desktop dp = Desktop.getDesktop();
-            // 判断系统桌面是否支持要执行的功能
             if(dp.isSupported(Desktop.Action.BROWSE)) {
-                dp.browse(uri);// 获取系统默认浏览器打开链接
+                dp.browse(uri);
             }
         } catch (Exception e) {
-            Errors.errors(null, e, false, "Helps", "", 700, 520, true, false);
+            Errors.errors(null, e, false, "Helps", "cannot open url", 700, 850, true, false);
         }
     }
 
@@ -31,7 +29,7 @@ public class Helps {
             } else if(Community.LangID == 1) {
                 url = "https://github.com/andogy/MCH/tree/main/English/Helps/Help";
             }
-            open(url);
+            openInBrowse(url);
         } catch (Exception e) {
             Errors.errors(null, e, false, "Helps", "", 700, 520, true, false);
         }
@@ -46,7 +44,7 @@ public class Helps {
             } else if(Community.LangID == 1) {
                 url = "https://github.com/andogy/MCH/tree/main/English/Helps/agreement";
             }
-            open(url);
+            openInBrowse(url);
         } catch (Exception e) {
             Errors.errors(null, e, false, "Helps", "", 700, 520, true, false);
         }
@@ -60,7 +58,7 @@ public class Helps {
             } else if(Community.LangID == 1) {
                 url = "https://github.com/andogy/MCH/tree/main/English";
             }
-            open(url);
+            openInBrowse(url);
         } catch (Exception e) {
             Errors.errors(null, e, false, "Helps", "", 700, 520, true, false);
         }
@@ -68,9 +66,8 @@ public class Helps {
 
     public static void feedback() {
         try {
-            String url = "mailto:1501917367@qq.com";
-            URI uri = URI.create(url);
-            open(url);
+            String url = "https://github.com/zhuaidadaya/MCH/issues";
+            openInBrowse(url);
         } catch (Exception e) {
             Errors.errors(null, e, false, "Helps", "", 700, 520, true, false);
         }
@@ -79,7 +76,7 @@ public class Helps {
     public static void iniHelps() {
         try {
             String url = lang.get("iniHelpLink");
-            open(url);
+            openInBrowse(url);
         } catch (Exception e) {
             Errors.errors(null, e, false, "Helps", "", 700, 520, true, false);
         }

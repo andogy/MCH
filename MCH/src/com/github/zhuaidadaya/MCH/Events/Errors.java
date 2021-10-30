@@ -1,8 +1,9 @@
 package com.github.zhuaidadaya.MCH.Events;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
 import com.github.zhuaidadaya.MCH.Community;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.UI.*;
+import com.github.zhuaidadaya.MCH.Unicode;
 import com.github.zhuaidadaya.MCH.lib.Log;
 import com.github.zhuaidadaya.MCH.lib.Resources;
 
@@ -18,6 +19,8 @@ public class Errors extends Throwable {
     public static JTextArea jTextArea = new JTextArea();
 
     public static boolean CannotHandle = false;
+
+    public static String latestErrorReport = "";
 
     public static Toolkit toolkit = Toolkit.getDefaultToolkit();
     public static Dimension screenSize = toolkit.getScreenSize();
@@ -53,124 +56,129 @@ public class Errors extends Throwable {
 
     public static void errors(Error error, Exception exception, boolean cannotHandle, String exceptionSource, String message, int w, int h, boolean show, boolean showNow) {
         try {
-            if(! CannotHandle) {
-                jFrame.setAlwaysOnTop(true);
+            jFrame.setAlwaysOnTop(true);
 
-                reportCrash = false;
-                reportCrash_onceOnly = false;
+            reportCrash = false;
+            reportCrash_onceOnly = false;
 
-//                jTextArea.requestFocus();
+            //                jTextArea.requestFocus();
 
-                CannotHandle = cannotHandle;
-                if(error != null) {
-                    jFrame.setTitle("Error Now");
-                    if(showNow) {
-                        jTextArea.setText(Arrays.toString(error.getStackTrace()).replace("[", "").replace("]", "").replace(", ", "\n    "));
-                        Log.writeErr("[Error Thread/ERROR] " + error.getMessage());
-                    }
+            CannotHandle = cannotHandle;
+            if(error != null) {
+                jFrame.setTitle("Error Now");
+                if(showNow) {
+                    jTextArea.setText(Arrays.toString(error.getStackTrace()).replace("[", "").replace("]", "").replace(", ", "\n    "));
+                    Log.writeErr("[Error Thread/ERROR] " + error.getMessage());
                 }
-                if(exception != null)
-                    jFrame.setTitle("Exception now");
-                if(exception != null & error != null)
-                    jFrame.setTitle("Exception and Error now");
+            }
+            if(exception != null)
+                jFrame.setTitle("Exception now");
+            if(exception != null & error != null)
+                jFrame.setTitle("Exception and Error now");
 
-                exit.jFrame.setVisible(false);
-                MchUI.jFrame.setVisible(false);
-                MenuUI.jFrame.setVisible(false);
-                MenuUI2.jFrame.setVisible(false);
-                Config.jFrame.setVisible(false);
-                ExtraUI.jFrame.setVisible(false);
-                inputUI.jFrame.setVisible(false);
-                loadingWindow.jFrame.setVisible(false);
-                MinecraftLauncher.mainFrame.setVisible(false);
-                MinecraftLauncher.logsFrame.setVisible(false);
+            exit.jFrame.setVisible(false);
+            MchUI.jFrame.setVisible(false);
+            MenuUI.jFrame.setVisible(false);
+            MenuUI2.jFrame.setVisible(false);
+            ConfigUtil.jFrame.setVisible(false);
+            ExtraUI.jFrame.setVisible(false);
+            inputUI.jFrame.setVisible(false);
+            loadingWindow.jFrame.setVisible(false);
+            MinecraftLauncher.mainFrame.setVisible(false);
+            MinecraftLauncher.logsFrame.setVisible(false);
 
-                jFrame.setVisible(true);
+            jFrame.setVisible(true);
 
-                jFrame.setSize(w, h);
-                jFrame.add(jTextArea);
+            jFrame.setSize(w, h);
+            jFrame.add(jTextArea);
 
-                jTextArea.setVisible(true);
-                jTextArea.setBounds(0, 0, 1000, 1000);
-                jTextArea.setEditable(false);
+            jTextArea.setVisible(true);
+            jTextArea.setBounds(0, 0, 1000, 1000);
+            jTextArea.setEditable(false);
 
-                historyReader.BreakRead = true;
-                historyReader.history = null;
+            historyReader.BreakRead = true;
+            historyReader.history = null;
 
-                jFrame.setResizable(false);
+            jFrame.setResizable(false);
 
-                if(cannotHandle)
-                    jFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-                else
-                    jFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+            if(cannotHandle)
+                jFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+            else
+                jFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 
-                jFrame.setLocation(width / 2 - jFrame.getWidth() / 2, height / 2 - jFrame.getHeight() / 2);
+            jFrame.setLocation(width / 2 - jFrame.getWidth() / 2, height / 2 - jFrame.getHeight() / 2);
 
-                Object o = exception != null ? exception : error;
+            Object o = exception != null ? exception : error;
 
-                String er;
-                if(exception != null)
-                    er = o + "\n" + Arrays.toString(exception.getStackTrace()).replace("  ", " ").replace("[", "    at ").replace("]", "").replace(",", "\n    at");
-                else if(error != null)
-                    er = o + "\n" + Arrays.toString(error.getStackTrace()).replace("  ", " ").replace("[", "    at ").replace("]", "").replace(",", "\n    at");
-                else
-                    er = "Unknown Error/Exception Source";
+            String er;
+            if(exception != null)
+                er = o + "\n" + Arrays.toString(exception.getStackTrace()).replace("  ", " ").replace("[", "    at ").replace("]", "").replace(",", "\n    at");
+            else if(error != null)
+                er = o + "\n" + Arrays.toString(error.getStackTrace()).replace("  ", " ").replace("[", "    at ").replace("]", "").replace(",", "\n    at");
+            else
+                er = "Unknown Error/Exception Source";
 
-                if(Community.saveErrorLog) {
-                    if(er.substring(er.indexOf("at")).equals("at "))
-                        er = er.replace("at ", "no local");
+            if(Community.saveErrorLog) {
+                if(er.substring(er.indexOf("at")).equals("at "))
+                    er = er.replace("at ", "no local");
 
-                    FileWriter fr;
-                    if(exceptionSource.equals("history")) {
-                        try {
-                            fr = new FileWriter(Config.path + "history.txt", false);
-                            fr.write("");
-                            fr.close();
-                        } catch (Exception ignored) {
-
-                        }
-                    }
-                    if(cannotHandle)
-                        jTextArea.setText(String.format(Resources.initLanguage.lang.get("err-cannot-handle"), er));
-                    else
-                        jTextArea.setText(String.format(Resources.initLanguage.lang.get("err"), er));
-
-                    jTextArea.setText(jTextArea.getText() + "\n" + String.format(Resources.initLanguage.lang.get("SourceAt"), exceptionSource) + String.format(Resources.initLanguage.lang.get("message"), message) + "\n\n" + String.format(Resources.initLanguage.lang.get("err-already-save"), Config.path + "logs/err/latest.log"));
-
-                    File file = new File(Config.path + "logs/err/latest.log");
-
-                    if(file.length() > 2048000) {
-                        file.delete();
-                    }
-                    Log.writeLog(file, true, StandardCharsets.UTF_8, "[ERROR Thread/INFO] " + er + "\nSourceAt:" + exceptionSource, false);
-                } else {
-                    Log.outLog(er, true);
-                    if(cannotHandle)
-                        jTextArea.setText(String.format(Resources.initLanguage.lang.get("err-cannot-handle"), er));
-                    else
-                        jTextArea.setText(String.format(Resources.initLanguage.lang.get("err"), er));
-
-                    jTextArea.setText(jTextArea.getText() + "\n" + String.format(Resources.initLanguage.lang.get("SourceAt"), exceptionSource) + String.format(Resources.initLanguage.lang.get("message"), message));
-                }
-
-                jTextArea.append("\n\n" + Resources.initLanguage.lang.get("press_ctrl_r_to_report"));
-
-                if(CannotHandle) {
-                    LoadAssembly.loadAssembly("[Main Thread/ERROR] Trying restart MCH", "", false);
-
+                FileWriter fr;
+                if(exceptionSource.equals("history")) {
                     try {
-                        Thread.sleep(6000);
+                        fr = new FileWriter(ConfigUtil.path + "history.txt", false);
+                        fr.write("");
+                        fr.close();
+                    } catch (Exception ignored) {
 
-                        new reStart().restart();
-
-                        Thread.sleep(10000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
-                    System.exit(- 1);
-
-                    jFrame.setVisible(show);
                 }
+                if(cannotHandle)
+                    jTextArea.setText(String.format(Resources.initLanguage.lang.get("err-cannot-handle"), er));
+                else
+                    jTextArea.setText(String.format(Resources.initLanguage.lang.get("err"), er));
+
+                jTextArea.setText(jTextArea.getText() + "\n" + String.format(Resources.initLanguage.lang.get("SourceAt"), exceptionSource) + String.format(Resources.initLanguage.lang.get("message"), message) + "\n\n" + String.format(Resources.initLanguage.lang.get("err-already-save"), ConfigUtil.path + "logs/err/latest.log"));
+
+                File file = new File(ConfigUtil.path + "logs/err/latest.log");
+
+                if(file.length() > 2048000) {
+                    file.delete();
+                }
+                if(! showNow)
+                    Log.writeLog(file, true, StandardCharsets.UTF_8, "[ERROR Thread/INFO] " + er + "\nSourceAt:" + exceptionSource, false);
+            } else {
+                if(! showNow)
+                    Log.outLog(er, true);
+                if(cannotHandle)
+                    jTextArea.setText(String.format(Resources.initLanguage.lang.get("err-cannot-handle"), er));
+                else
+                    jTextArea.setText(String.format(Resources.initLanguage.lang.get("err"), er));
+
+                jTextArea.setText(jTextArea.getText() + "\n" + String.format(Resources.initLanguage.lang.get("SourceAt"), exceptionSource) + String.format(Resources.initLanguage.lang.get("message"), message));
+            }
+
+            latestErrorReport = "---------ERROR REPORT----------\nError Level: " + (cannotHandle ? "2" : "1") + "\nError From: " + exceptionSource + "\nError Trace:\n" + er;
+
+            jTextArea.append("\n\n");
+            jTextArea.append(Resources.initLanguage.lang.get("press_ctrl_r_to_report"));
+            jTextArea.append("\n");
+            jTextArea.append(Resources.initLanguage.lang.get("press_ctrl_o_to_exit-ctrl_s_to_restart"));
+
+            if(CannotHandle) {
+                LoadAssembly.loadAssembly("[Main Thread/ERROR] Trying restart MCH", "", false);
+
+                try {
+                    Thread.sleep(6000);
+
+                    new reStart().restart();
+
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.exit(- 1);
+
+                jFrame.setVisible(show);
             }
         } catch (Exception | Error er) {
             //            Log.writeLog("[Error Thread/ERROR] Stopping MCH");

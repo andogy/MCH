@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.Events.mchDir;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.UI.MenuUI2;
@@ -27,8 +27,8 @@ public class dirSize extends Thread {
                 try {
                     Thread.sleep(100);
 
-                    File[] caches = new File(Config.path).listFiles();
-                    File[] UPD_caches = new File(Config.path + "logs/").listFiles();
+                    File[] caches = new File(ConfigUtil.path).listFiles();
+                    File[] UPD_caches = new File(ConfigUtil.path + "logs/").listFiles();
                     long Size = filesOperator.ReadFiles(caches, slow,false);
                     long updCacheSize = filesOperator.ReadFiles(UPD_caches, slow,false);
 

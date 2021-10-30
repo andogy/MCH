@@ -1,6 +1,7 @@
 package com.github.zhuaidadaya.MCH.Command;
 
 import com.github.zhuaidadaya.MCH.Community;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
@@ -103,13 +104,10 @@ public class Parsing extends Thread {
                     //                            MchUI.tips.setText("This Command is the Maximum Length,You Cannot input Any More\n");
                     //                        }
                     //                    } else {
-                    if(MchUI.tips.getText().equals("到达长度上限了,无法再进行输入")) {
-                        MchUI.tips.setText("");
-                    }
                     Community.commandLength = allStr.length();
                     Community.nowPoint = 0;
 
-                    Config.jFrame.setAlwaysOnTop(Community.onTop);
+                    ConfigUtil.jFrame.setAlwaysOnTop(Community.onTop);
                     MchUI.jFrame.setAlwaysOnTop(Community.onTop);
                     MenuUI.jFrame.setAlwaysOnTop(Community.onTop);
                     MenuUI2.jFrame.setAlwaysOnTop(Community.onTop);
@@ -143,7 +141,7 @@ public class Parsing extends Thread {
                     if(allStr.equals(".reload")) {
                         new Thread(() -> {
                             loadingWindow.ui();
-                            new Config();
+                            new ConfigUtil();
                             new ExtraLoader().LoadExtra();
                             loadingWindow.jFrame.setVisible(false);
                         }).start();
@@ -161,6 +159,7 @@ public class Parsing extends Thread {
                         Community.functionEditing = true;
                         displaySets.extraDisplay();
                         //                            MchUI.input_Command.setText("");
+                        ExtraUI.show();
                         inputUI.inputArea.setText("");
                         ExtraUI.functionEdit.setText("");
                     }
@@ -253,8 +252,8 @@ public class Parsing extends Thread {
 
                     allStr = allStr.replace("\r", "").replace("\n", "");
 
-                    Config.input_command = "Input@" + allStr;
-                    Config.WriteConfig();
+                    ConfigUtil.input_command = "Input@" + allStr;
+                    ConfigUtil.WriteConfig();
                     //                    }
                 } catch (Exception ex) {
                     //                ex.printStackTrace();

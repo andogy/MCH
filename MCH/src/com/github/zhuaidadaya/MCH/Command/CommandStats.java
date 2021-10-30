@@ -1,6 +1,7 @@
 package com.github.zhuaidadaya.MCH.Command;
 
-public interface CommandStats {
+@Command
+public interface CommandStats extends Commands {
     String getStats();
     CommandStats getCommandStats();
     String getInfo();

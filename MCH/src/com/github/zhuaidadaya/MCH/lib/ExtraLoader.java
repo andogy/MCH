@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.lib;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.UI.loadingWindow;
@@ -29,7 +29,7 @@ public class ExtraLoader {
     }
 
     public void LoadExtra() {
-        File f = new File(Config.path + "/extra/");
+        File f = new File(ConfigUtil.path + "/extra/");
 
         loadingWindow.progress.setValue(0);
         loadingWindow.progress.setMaximum(f.listFiles().length);

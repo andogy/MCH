@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.UI.Lang;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.UI.*;
@@ -27,7 +27,7 @@ public class languageSet extends Thread {
             exit.buttonEXIT.setText(lang.get("exit"));
             exit.buttonEXITNot.setText(lang.get("exitNot"));
 
-            MenuUI2.PATH.setText(lang.get("configPath") + Config.path);
+            MenuUI2.PATH.setText(lang.get("configPath") + ConfigUtil.path);
             MenuUI2.exButton.setText(lang.get("exButton"));
             MenuUI2.exButtonExit.setText(lang.get("exitMCH"));
             MenuUI2.exButtonNarrow.setText(lang.get("smallerMCH"));

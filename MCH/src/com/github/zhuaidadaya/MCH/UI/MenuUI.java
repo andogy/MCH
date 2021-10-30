@@ -1,9 +1,7 @@
 package com.github.zhuaidadaya.MCH.UI;
 
-import com.github.zhuaidadaya.MCH.Command.Config;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.Events.Events;
-import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.Events.reStart;
 import com.github.zhuaidadaya.MCH.Help.Helps;
 import com.github.zhuaidadaya.MCH.lib.Log;
@@ -44,7 +42,7 @@ public class MenuUI extends Community {
     }
 
     public static void menuUI() {
-        Config.parsing(false);
+        ConfigUtil.parsing(false);
 
         OpenMenu = false;
 

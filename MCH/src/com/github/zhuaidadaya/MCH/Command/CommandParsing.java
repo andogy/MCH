@@ -1,6 +1,7 @@
 package com.github.zhuaidadaya.MCH.Command;
 
 import com.github.zhuaidadaya.MCH.Community;
+import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
 import com.github.zhuaidadaya.MCH.Events.historyReader;
@@ -22,6 +23,7 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.UUID;
 
+@Command
 public class CommandParsing extends Thread {
     public static int willOver = 150;
     public static int steps = 0;
@@ -65,9 +67,6 @@ public class CommandParsing extends Thread {
         new CommandParsing().commands("help 12", true, "");
     }
 
-    public static void perf() {
-    }
-
     public static void command(String command) {
         command("", false, null, command);
     }
@@ -92,23 +91,11 @@ public class CommandParsing extends Thread {
                 completeCommand = completeCommand.replaceFirst("/", "");
             }
 
-            if(perf_command.indexOf("/") == 0) {
-                perf_command = perf_command.replaceFirst("/", "");
-            }
-
             String target;
             if(completeCommand.contains(" ")) {
                 target = completeCommand.substring(0, completeCommand.indexOf(" "));
             } else {
                 target = completeCommand;
-            }
-
-            if(perf) {
-                if(perf_command.contains(" ")) {
-                    target = perf_command.substring(0, perf_command.indexOf(" "));
-                } else {
-                    target = perf_command;
-                }
             }
 
             completeCommand = completeCommand.toLowerCase();
@@ -134,18 +121,13 @@ public class CommandParsing extends Thread {
 
             loadingWindow.percentage.setText(" " + completeCommand);
 
-            if(perf_command.equals("")) {
-                CommandStats stats = checkCommand(json, target, completeCommand, jsonResources, json, target, json, jsonResources);
-                comm = completeCommand;
+            CommandStats stats = checkCommand(json, target, completeCommand, jsonResources, json, target, json, jsonResources);
+            comm = completeCommand;
 
-                if(stats.getStats().equals("error")) {
-                    CommandError er = (CommandError) stats;
-                    listener.switchTip.setLightForInput(er.getErrPos(), er.getCommandLength(), false);
-                    MchUI.commandArea.setText(er.getInfo());
-                }
-            } else {
-                CommandStats stats = checkCommand(json, target, perf_command, jsonResources, json, target, json, jsonResources);
-                comm = perf_command;
+            if(stats.getStats().equals("error")) {
+                CommandError er = (CommandError) stats;
+                listener.switchTip.setLightForInput(er.getErrPos(), er.getCommandLength(), false);
+                MchUI.commandArea.setText(er.getInfo());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -194,7 +176,9 @@ public class CommandParsing extends Thread {
     public static CommandStats checkCommand(JSONObject commandJson, String target, String targetSource, JSONObject resources, JSONObject displayJson, String commandTarget, JSONObject sourceJson, JSONObject sourceResource) {
         er = false;
         //        boolean full = MchUI.input_Command.getText().length() == MchUI.input_Command.getCaretPosition() || MchUI.input_Command.getCaretPosition() == 0;
+        //
         //        boolean full = command.length() == inputUI.inputArea.getCaretPosition() || inputUI.inputArea.getCaretPosition() == 0;
+        target_save = target;
 
         try {
             if(willOver > 0) {
@@ -505,7 +489,6 @@ public class CommandParsing extends Thread {
                 }
             } else if(showElementsIsOne & ! wikis.equals("")) {
                 if(Community.toWiki) {
-                    target_save = target;
                     displayJson_save = displayJson;
                     try {
                         MchUI.commandArea.setText(lists + "\n\n\n" + String.format(languageSet.getCommandWord("canToWiki"), languageSet.getCommandWord(new JSONObject(displayJson_save.get(wikis).toString()).get("wikiTips").toString())));
@@ -534,10 +517,12 @@ public class CommandParsing extends Thread {
 
     public static void toWiki() {
         try {
-            String wiki = new JSONObject(displayJson_save.get(target_save).toString()).get("wiki").toString();
-            Helps.open(wiki);
+            if(canToWiki & Community.toWiki) {
+                String wiki = new JSONObject(displayJson_save.get(target_save).toString()).get("wiki").toString();
+                Helps.openInBrowse(wiki);
+            }
         } catch (Exception ex) {
-            ex.printStackTrace();
+
         }
     }
 
@@ -976,7 +961,7 @@ public class CommandParsing extends Thread {
             if(! Community.isDaemons) {
                 var input = inputUI.inputArea.getText();
                 if(! input.equals("") & ! input.contains("\n")) {
-                    initCommandJSON(Config.resPath);
+                    initCommandJSON(ConfigUtil.resPath);
                     Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
 
                     //                    if (MchUI.input_Command.getText().lastIndexOf("/") == 0 | !MchUI.input_Command.getText().contains("/")) {

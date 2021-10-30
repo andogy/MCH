@@ -3,6 +3,9 @@
         {
             "chinese": [
                 {
+                    "please_drop_logs": "已复制错误到导出文件夹\n请从打开的文件管理器拖动日志到github\n如果没有登录github, 请登录\n",
+                    "press_ctrl_o_to_exit-ctrl_s_to_restart": "按下Ctrl与O退出MCH, 按下Ctrl与S重启MCH",
+                    "copied_errors": "已复制错误至粘贴板",
                     "reported": "已反馈此次崩溃",
                     "press_ctrl_r_to_report": "按下Ctrl键与R键发送反馈",
                     "to_downloading": "\"%s\" 已加入下载",
@@ -251,6 +254,9 @@
         {
             "english": [
                 {
+                    "please_drop_logs": "copied errors to export directory\nplease drop it to github from opened explorer\nif not loggin to github, please loggin\n",
+                    "press_ctrl_o_to_exit-ctrl_s_to_restart": "press \"Ctrl\" and \"O\" to exit MCH, and press \"Ctrl\" and\"S\" to restart MCH",
+                    "copied_errors": "copied errors to clipboard",
                     "reported": "reported this crash",
                     "press_ctrl_r_to_report": "press \"Ctrl\" and \"R\" to deliver this crash",
                     "to_downloading": "\"%s\" join to download task",
@@ -495,6 +501,9 @@
         {
             "chinese_tw": [
                 {
+                    "please_drop_logs": "已复制错误到导出文件夹\n请从打开的文件管理器拖动日志到github\n如果没有登录github, 请登录\n",
+                    "press_ctrl_o_to_exit-ctrl_s_to_restart": "按下Ctrl与O退出MCH, 按下Ctrl与S重启MCH",
+                    "copied_errors": "已复制错误至粘贴板",
                     "reported": "已反馈此次崩溃",
                     "press_ctrl_r_to_report": "按下Ctrl键与R键发送反馈",
                     "to_downloading": "\"%s\" 已加入下载",

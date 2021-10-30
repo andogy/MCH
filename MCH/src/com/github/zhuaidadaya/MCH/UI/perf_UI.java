@@ -15,22 +15,22 @@ public class perf_UI {
     public static JProgressBar memBar = new JProgressBar();
 
     public perf_UI() {
-//        new Thread(() -> {
-//            memBar.setMaximum(OSUtils.memoryMax());
-//            while (! Errors.CannotHandle) {
+        new Thread(() -> {
+            memBar.setMaximum(OSUtils.memoryMax());
+            while (! Errors.CannotHandle) {
 //                String used = String.valueOf(OSUtils.cpuUsed());
 //                cpuBar.setValue(Integer.parseInt(used.substring(0, used.indexOf("."))));
-//                memBar.setValue(OSUtils.memoryUsed());
-//
-//                if (Community.perf & CommandParsing.command.equals(""))
-//                    jt.setText("CPU Used\n  -" + cpuBar.getValue() + "%" + "\n\nMemory Used\n  -max: " + memBar.getMaximum() / 1024 / 1024 + "G\n  -Used" + memBar.getValue() / 1024 + "MB");
-//                try {
-//                    Thread.sleep(50);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
+                memBar.setValue(OSUtils.memoryUsed());
+
+                if (Community.perf & CommandParsing.command.equals(""))
+                    jt.setText("CPU Used\n  -" + cpuBar.getValue() + "%" + "\n\nMemory Used\n  -max: " + memBar.getMaximum() / 1024 / 1024 + "G\n  -Used" + memBar.getValue() / 1024 + "MB");
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
         jFrame.setSize(640, 360);
         jFrame.setResizable(false);
