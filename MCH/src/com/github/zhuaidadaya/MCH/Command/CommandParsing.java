@@ -1,7 +1,7 @@
 package com.github.zhuaidadaya.MCH.Command;
 
 import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
 import com.github.zhuaidadaya.MCH.Events.historyReader;
@@ -17,17 +17,15 @@ import com.github.zhuaidadaya.MCH.lib.json.JSONException;
 import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
 
 import java.io.*;
-import java.net.URISyntaxException;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.UUID;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 @Command
 public class CommandParsing extends Thread {
     public static int willOver = 150;
     public static int steps = 0;
     public static int commandSteps = 0;
+    public static int commandSteps_inside = 0;
     public static int execute = 0;
     public static int lastExecute = 0;
     public static int allSteps = 0;
@@ -49,6 +47,8 @@ public class CommandParsing extends Thread {
     public static boolean showElementsIsOne = false;
     public static boolean hasWiki = false;
 
+    public static boolean changing = false;
+
     public static String target_save = "";
     public static JSONObject displayJson_save = new JSONObject();
     public static String wikis = "";
@@ -59,8 +59,8 @@ public class CommandParsing extends Thread {
     public static void main(String[] args) {
         new Resources.initLanguage();
         try {
-            new CommandParsing().initCommandJSON(new File(Resources.getResourceByFile("/com/github/zhuaidadaya/resources/resource_files/commands.json", CommandParsing.class).toURI()));
-        } catch (URISyntaxException e) {
+            new CommandParsing().initCommandJSON(Resources.getResource("/com/github/zhuaidadaya/resources/resource_files/commands.json", CommandParsing.class));
+        } catch (Exception e) {
 
         }
 
@@ -68,18 +68,18 @@ public class CommandParsing extends Thread {
     }
 
     public static void command(String command) {
-        command("", false, null, command);
+        command("", false, command);
     }
 
     public static void command(String perf_command, boolean perf) {
-        command(perf_command, true, null, "");
+        command(perf_command, true, "");
     }
 
     public static void command(String perf_command, String command, boolean perf) {
-        command(perf_command, perf, null, command);
+        command(perf_command, perf, command);
     }
 
-    public static void command(String perf_command, boolean perf, File command_f, String command_complete) {
+    public static void command(String perf_command, boolean perf, String command_complete) {
         String comm = "";
         long start = System.currentTimeMillis();
 
@@ -111,6 +111,7 @@ public class CommandParsing extends Thread {
             }
 
             commandSteps = 0;
+            commandSteps_inside = 0;
 
             willOver = 1500;
 
@@ -121,11 +122,14 @@ public class CommandParsing extends Thread {
 
             loadingWindow.percentage.setText(" " + completeCommand);
 
-            CommandStats stats = checkCommand(json, target, completeCommand, jsonResources, json, target, json, jsonResources);
+            MchUI.progressBar.setValue(0);
+            MchUI.progressBar.setMaximum(completeCommand.length());
+
+            CommandStats stats = checkCommand(json, target, completeCommand, jsonResources, json, target, json, jsonResources, new LinkedHashMap<>(), "", null);
             comm = completeCommand;
 
             if(stats.getStats().equals("error")) {
-                CommandError er = (CommandError) stats;
+                CommandError<?, ?, ?> er = (CommandError<?, ?, ?>) stats;
                 listener.switchTip.setLightForInput(er.getErrPos(), er.getCommandLength(), false);
                 MchUI.commandArea.setText(er.getInfo());
             }
@@ -173,7 +177,13 @@ public class CommandParsing extends Thread {
     //        return 0;
     //    }
 
-    public static CommandStats checkCommand(JSONObject commandJson, String target, String targetSource, JSONObject resources, JSONObject displayJson, String commandTarget, JSONObject sourceJson, JSONObject sourceResource) {
+    public static CommandStats checkCommand(JSONObject commandJson, String target, String targetSource, JSONObject resources, JSONObject displayJson, String commandTarget, JSONObject sourceJson, JSONObject sourceResource, LinkedHashMap<Object, Object> group, String groupType, JSONObject inCommandJson) {
+        MchUI.progressBar.setValue(MchUI.progressBar.getMaximum() - targetSource.length());
+
+        //        if(changing)
+        //            targetSource = "";
+        boolean inGroup = false;
+
         er = false;
         //        boolean full = MchUI.input_Command.getText().length() == MchUI.input_Command.getCaretPosition() || MchUI.input_Command.getCaretPosition() == 0;
         //
@@ -240,15 +250,15 @@ public class CommandParsing extends Thread {
 
             try {
                 CommandStats stats;
-                if(commandTarget.equals("?") | commandTarget.contains("help")) {
+                if(commandTarget.equals("?") | commandTarget.equals("help")) {
                     //                    if(full)
-                    stats = containsTarget(commandJson, target, commandJson, commandTarget, "");
+                    stats = containsTarget(commandJson, target, group, groupType, inCommandJson);
                     //                    else
                     //                        lists = containsTarget(commandJson, target, commandJson, inputUI.inputArea.getText().substring(0, getNealyStepPosByCaret()), "");
                     //                    lists = containsTarget(commandJson, target, commandJson, MchUI.input_Command.getText().substring(0, getNealyStepPosByCaret()));
                 } else {
                     //                    if(full)
-                    stats = containsTarget(displayJson, target, commandJson, commandTarget, "");
+                    stats = containsTarget(displayJson, target, group, groupType, inCommandJson);
                     //                    else
                     //                        lists = containsTarget(displayJson, target, commandJson, inputUI.inputArea.getText().substring(0, getNealyStepPosByCaret()), "");
                 }
@@ -277,12 +287,38 @@ public class CommandParsing extends Thread {
                 //                commandNotFound();
             }
 
+            try {
+                JSONObject gp = new JSONObject(jsa.get(commandSteps).toString());
+                inCommandJson = gp;
+                commandSteps_inside++;
+                groupType = gp.get("type").toString();
+                if(gp.getJSONArray("group").length() <= commandSteps_inside - 1) {
+                    commandSteps_inside = 0;
+                    commandSteps++;
+                    group.clear();
+                    groupType = "";
+                } else {
+                    inGroup = true;
+                }
+            } catch (Exception ex) {
+                groupType = "";
+            }
+
+            if(commandSteps_inside != 0) {
+                jsa = new JSONObject(jsa.get(commandSteps).toString()).getJSONArray("group");
+            }
+
+            int getStep = commandSteps_inside != 0 ? Math.max(0, commandSteps_inside - 1) : commandSteps;
 
             if(lists.equals("")) {
-                steps += 1;
+                if(steps >= jsa.length())
+                    return commandNotFound();
+
+                steps++;
+                return commandNotFound();
             } else if(targetSource.contains(" ") & ! lists.contains("\t\n")) {
                 try {
-                    if(! jsa.get(commandSteps).toString().equals("@end")) {
+                    if(! jsa.get(getStep).toString().equals("@end")) {
                         er = true;
                         return noCompletedCommand();
                     } else {
@@ -291,11 +327,13 @@ public class CommandParsing extends Thread {
                 } catch (Exception e) {
 
                 }
-
             } else if(targetSource.contains(" ") & lists.contains("\t\n")) {
-
                 try {
-                    String STP = jsa.get(commandSteps).toString();
+                    String STP = jsa.get(getStep).toString();
+
+                    if(inGroup & getStep > 0)
+                        group.put(group.size(), target);
+
                     if(! STP.equals("@end")) {
 
                         boolean err = false;
@@ -303,21 +341,21 @@ public class CommandParsing extends Thread {
                         stepNow = STP;
 
                         //        selector
-                        if(STP.equals("@sel")) {
-                            try {
-                                String sel = targetSource.substring(targetSource.indexOf("[") + 1, targetSource.indexOf("]"));
-
-                                if(! sel.equals("")) {
-                                    if(sel.contains(",")) {
-                                        containsTarget(displayJson, sel.substring(0, sel.indexOf(",")), commandJson, commandTarget, sel.substring(0, sel.indexOf(",")));
-                                    } else {
-                                        containsTarget(new JSONObject(resources.get("@sel").toString()), sel, commandJson, commandTarget, "@sel");
-                                    }
-                                }
-                            } catch (StringIndexOutOfBoundsException e) {
-
-                            }
-                        }
+                        //                        if(STP.equals("@sel")) {
+                        //                            try {
+                        //                                String sel = targetSource.substring(targetSource.indexOf("[") + 1, targetSource.indexOf("]"));
+                        //
+                        //                                if(! sel.equals("")) {
+                        //                                    if(sel.contains(",")) {
+                        //                                        containsTarget(displayJson, sel.substring(0, sel.indexOf(",")), commandJson, commandTarget, sel.substring(0, sel.indexOf(",")));
+                        //                                    } else {
+                        //                                        containsTarget(new JSONObject(resources.get("@sel").toString()), sel, commandJson, commandTarget, "@sel");
+                        //                                    }
+                        //                                }
+                        //                            } catch (StringIndexOutOfBoundsException e) {
+                        //
+                        //                            }
+                        //                        }
 
                         //        namespace
                         if(STP.equals("@namespace")) {
@@ -418,26 +456,26 @@ public class CommandParsing extends Thread {
 
                                 allSteps += 1;
 
-                                checkCommand(sourceJson, target, commandText, sourceResource, sourceJson, target, sourceJson, sourceResource);
-
-                                throw new IllegalStateException();
+                                return checkCommand(sourceJson, target, commandText, sourceResource, sourceJson, target, sourceJson, sourceResource, group, groupType, inCommandJson);
                             }
 
                             try {
-                                if(! toResource.equals("") & jsa.get(commandSteps).toString().equals("@RESOURCE_WRAP")) {
+                                if(! toResource.equals("") & jsa.get(getStep).toString().equals("@RESOURCE_WRAP")) {
                                     displayJson = new JSONObject((resources.get(toResource)).toString());
 
                                     toResource = "";
                                 } else {
-                                    displayJson = new JSONObject((resources.get(jsa.get(commandSteps).toString()).toString()));
+                                    displayJson = new JSONObject((resources.get(jsa.get(getStep).toString()).toString()));
                                 }
                             } catch (Exception e) {
                                 steps++;
                                 //displayJson = new JSONObject((resources.get(jsa.get(commandSteps).toString()).toString()));
                             }
 
-                            commandSteps++;
-
+                            if(! inGroup) {
+                                commandSteps++;
+                                commandSteps_inside = 0;
+                            }
                             if(targetSource.contains(" ")) {
                                 try {
                                     over = new JSONObject(displayJson.get(target).toString()).getBoolean("over");
@@ -458,30 +496,20 @@ public class CommandParsing extends Thread {
 
 
                         if(! over) {
-                            try {
-                                return checkCommand(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource);
-                            } catch (StackOverflowError ignored) {
-
-                            }
+                            return checkCommand(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, group, groupType, inCommandJson);
                         } else {
                             throw new CommandOverException();
                         }
-
                     } else {
                         throw new CommandOverException();
                     }
                 } catch (JSONException e) {
                     try {
                         if(steps + 1 == new JSONArray(new JSONObject(commandJson.get(commandTarget).toString()).get("usage").toString()).length()) {
-                            commandNotFound();
                             steps = 0;
                         } else if(steps + 1 < new JSONArray(new JSONObject(commandJson.get(commandTarget).toString()).get("usage").toString()).length()) {
                             steps += 1;
-                            try {
-                                checkCommand(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource);
-                            } catch (StackOverflowError error) {
-
-                            }
+                            return checkCommand(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, group, groupType, inCommandJson);
                         }
                     } catch (JSONException ignored) {
 
@@ -502,11 +530,9 @@ public class CommandParsing extends Thread {
                 MchUI.commandArea.setText(lists);
             }
         } catch (CommandErrException e) {
-            commandErr(e.getMessage());
+            return customCommandError(e.getMessage());
         } catch (CommandOverException e) {
-            commandOver();
-        } catch (IllegalStateException e) {
-
+            return commandOver();
         }
 
         if(! er)
@@ -529,7 +555,7 @@ public class CommandParsing extends Thread {
     public static CommandStats customCommandError(String message) {
         er = true;
 
-        int err = allSteps < 1 ? commandSteps : allSteps;
+        int err = allSteps < 1 ? (commandSteps_inside > 0 ? commandSteps_inside : commandSteps) : allSteps + 2;
         int errPos = 0;
 
         String cacheCommand = command;
@@ -559,7 +585,6 @@ public class CommandParsing extends Thread {
         try {
             return customCommandError(languageSet.getCommandWord("commandNotFound"));
         } catch (Exception e) {
-            e.printStackTrace();
             try {
                 Thread.sleep(10);
             } catch (InterruptedException ex) {
@@ -569,8 +594,8 @@ public class CommandParsing extends Thread {
         }
     }
 
-    public static void commandOver() {
-        MchUI.commandArea.setText(languageSet.getCommandWord("commandOver"));
+    public static CommandStats commandOver() {
+        return customCommandError(languageSet.getCommandWord("commandOver"));
     }
 
     public static void commandErr(String err) {
@@ -581,7 +606,7 @@ public class CommandParsing extends Thread {
     //        MchUI.command1.setText(languageSet.getCommandWord("commandEnd") + ": \"" + errPoint + "\"");
     //    }
 
-    public static CommandStats containsTarget(JSONObject displayJson, String target, JSONObject commandJson, String commandTarget, String commandParent) {
+    public static CommandStats containsTarget(JSONObject displayJson, String target, LinkedHashMap<Object, Object> group, String groupType, JSONObject inCommandJson) {
         showElementsIsOne = false;
         hasWiki = false;
         wikis = "";
@@ -600,15 +625,33 @@ public class CommandParsing extends Thread {
         //        获得所有的命令
         Iterator<String> iterator = displayJson.keys();
 
+        String groupFilter = "";
+
         StringBuilder allKey = new StringBuilder();
         while(iterator.hasNext()) {
             allKey.append(iterator.next()).append("\n");
+        }
+
+        if(group.size() > 0) {
+            if(groupType.equals("xyz")) {
+                try {
+                    for(Object o : group.values()) {
+                        if(o.toString().charAt(0) == '~')
+                            groupFilter = "~";
+                        else if(o.toString().charAt(0) == '^')
+                            groupFilter = "^";
+                    }
+                } catch (Exception e) {
+
+                }
+            }
         }
 
         String allKeys = sort(allKey.toString());
 
         BufferedReader br = new BufferedReader(new StringReader(allKeys));
         String next = null;
+        String saveNext = "";
 
         while(true) {
             try {
@@ -617,6 +660,9 @@ public class CommandParsing extends Thread {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            if(target.contains(next))
+                saveNext = next;
 
             try {
 
@@ -687,7 +733,6 @@ public class CommandParsing extends Thread {
                 if(invalid) {
                     //判断是否显示失效的命令
                     if(Community.showInvalidCommand) {
-
                         boolean Display = true;
                         try {
                             String noDisplayType;
@@ -697,6 +742,9 @@ public class CommandParsing extends Thread {
                                     Display = false;
                                 }
                             }
+
+                            if(! groupFilter.equals("") & ! next.equals(""))
+                                Display = next.equals(groupFilter);
                         } catch (Exception e) {
 
                         }
@@ -727,13 +775,16 @@ public class CommandParsing extends Thread {
 
                     boolean Display = true;
                     try {
-                        String noDisplayType = "";
+                        String noDisplayType;
                         BufferedReader noDisplay = new BufferedReader(new StringReader(noDisplayType()));
                         while((noDisplayType = noDisplay.readLine()) != null) {
                             if(noDisplayType.equals(next)) {
                                 Display = false;
                             }
                         }
+
+                        if(! groupFilter.equals("") & ! next.equals(""))
+                            Display = next.equals(groupFilter);
                     } catch (Exception e) {
 
                     }
@@ -764,6 +815,30 @@ public class CommandParsing extends Thread {
         }
 
         //        如果没有任何符合的模板文本，则判断有没有可能是允许自定义的(如选择器中的选定名称或者help里的页码)
+        CommandStats checker = noMatchs(result, all, target, displayJson, saveNext, inCommandJson, groupFilter);
+
+        /*
+        Don't Delete it!!!
+        There have a bug, if not charAt, then the parse will not normal
+        不要删除这行!!!
+        这有一个小bug，如果不进行charAt，解析会变得不太正常
+         */
+        //        result.charAt(0);
+
+        return checker;
+    }
+
+    public static CommandStats noMatchs(StringBuilder result, StringBuilder all, String target, JSONObject displayJson, String saveNext, JSONObject inCommandJson, String groupFilter) {
+        String exceptType = "";
+        try {
+            exceptType = inCommandJson.get("except").toString();
+        } catch (Exception e) {
+
+        }
+
+        if(! groupFilter.equals("") & ! target.equals("") & ! target.equals(groupFilter) & ! all.toString().contains(exceptType))
+            return customCommandError(String.format(languageSet.getCommandWord(inCommandJson.get("valueErr").toString()), target));
+
         if(result.toString().equals("")) {
             try {
                 if(all.toString().contains("@String")) {
@@ -784,6 +859,7 @@ public class CommandParsing extends Thread {
 
             try {
                 if(all.toString().contains("@Integer")) {
+                    JSONObject json = new JSONObject(displayJson.get("@Integer").toString());
                     try {
                         showElementsIsOne = true;
 
@@ -796,12 +872,12 @@ public class CommandParsing extends Thread {
                         }
                         int targetValue = Integer.parseInt(target);
                         if(new JSONObject(displayJson.get("@Integer").toString()).getLong("limited") > targetValue) {
-                            result = new StringBuilder(targetValue + "    " + languageSet.getCommandWord(new JSONObject(displayJson.get("@Integer").toString()).get("description").toString()) + "\t\n");
+                            result = new StringBuilder(targetValue + "    " + languageSet.getCommandWord(json.get("description").toString()) + "\t\n");
                         } else {
-                            return invalidedValue(languageSet.getCommandWord(new JSONObject(displayJson.get("@Integer").toString()).get("valueOutLimited").toString()) + " - \"%s\"\n");
+                            return invalidedValue(languageSet.getCommandWord(json.get("valueOutLimited").toString()) + " - \"%s\"\n");
                         }
                     } catch (NumberFormatException e) {
-                        return invalidedValue(languageSet.getCommandWord(new JSONObject(displayJson.get("@Integer").toString()).get("valueErr").toString()) + " - \"%s\"\n");
+                        return invalidedValue(languageSet.getCommandWord(json.get("valueErr").toString()) + " - \"%s\"\n");
                     }
                 }
             } catch (Exception e) {
@@ -810,6 +886,18 @@ public class CommandParsing extends Thread {
 
             try {
                 if(all.toString().contains("@Double")) {
+                    int ignoredSize = 0;
+                    try {
+                        ignoredSize = new JSONObject(displayJson.get("@Double").toString()).getInt("ignoredSize");
+                    } catch (Exception e) {
+
+                    }
+
+                    if(ignoredSize > 0 & ignoredSize < target.length())
+                        target = target.substring(ignoredSize);
+
+                    JSONObject json = new JSONObject(displayJson.get("@Double").toString());
+
                     try {
                         showElementsIsOne = true;
 
@@ -822,12 +910,25 @@ public class CommandParsing extends Thread {
                         }
                         double targetValue = Double.parseDouble(target);
                         if(new JSONObject(displayJson.get("@Double").toString()).getLong("limited") > targetValue) {
-                            result = new StringBuilder(targetValue + "    " + languageSet.getCommandWord(new JSONObject(displayJson.get("@Double").toString()).get("description").toString()) + "\t\n");
+                            result = new StringBuilder(targetValue + "    " + String.format(languageSet.getCommandWord(json.get("description").toString()), targetValue) + "\t\n");
                         } else {
-                            return invalidedValue(languageSet.getCommandWord(new JSONObject(displayJson.get("@Double").toString()).get("valueOutLimited").toString()) + " - \"%s\"\n");
+                            return invalidedValue(languageSet.getCommandWord(json.get("valueOutLimited").toString()) + " - \"%s\"\n");
                         }
                     } catch (NumberFormatException e) {
-                        return invalidedValue(languageSet.getCommandWord(new JSONObject(displayJson.get("@Double").toString()).get("valueErr").toString()) + " - \"%s\"\n");
+                        try {
+                            if(new JSONObject(displayJson.get(saveNext).toString()).get("extends") != null) {
+                                JSONArray extendJsons = new JSONArray(new JSONObject(displayJson.get(saveNext).toString()).get("extends").toString());
+                                for(Object extendJson : extendJsons) {
+                                    if(new JSONObject(extendJson.toString()).get("@Double") != null) {
+                                        return noMatchs(result, all, target, new JSONObject(extendJson.toString()), saveNext, inCommandJson, groupFilter);
+                                    }
+                                }
+                            }
+                        } catch (Exception e1) {
+
+                        }
+
+                        return invalidedValue(languageSet.getCommandWord(json.get("valueErr").toString()) + " - \"%s\"\n");
                     }
                 }
             } catch (Exception e) {
@@ -835,32 +936,23 @@ public class CommandParsing extends Thread {
             }
 
             try {
-                if(all.toString().contains("@sel_more")) {
+                if(all.toString().contains("@sel_extends")) {
                     showElementsIsOne = true;
 
                     try {
-                        new JSONObject(displayJson.get("@sel_more").toString()).get("wiki").toString();
-                        wikis = "@sel_more";
+                        new JSONObject(displayJson.get("@sel_extends").toString()).get("wiki").toString();
+                        wikis = "@sel_extends";
                         hasWiki = true;
                     } catch (Exception ex) {
                         // it did not have wiki
                     }
 
-                    result = new StringBuilder(target + "    " + languageSet.getCommandWord(new JSONObject(displayJson.get("@sel_more").toString()).get("description").toString()) + "\t\n");
-
+                    result = new StringBuilder(target + "    " + languageSet.getCommandWord(new JSONObject(displayJson.get("@sel_extends").toString()).get("description").toString()) + "\t\n");
                 }
             } catch (Exception e) {
 
             }
         }
-
-        /*
-        Don't Delete it!!!
-        There have a bug, if not charAt, then the parse will not normal
-        不要删除这行!!!
-        这有一个小bug，如果不进行charAt，解析会变得不太正常
-         */
-        result.charAt(0);
 
         return new CommandChecker<>(result.toString());
     }
@@ -891,23 +983,25 @@ public class CommandParsing extends Thread {
                 @Integer
                 @Double
                 @Float
-                $limited""";
+                $limited
+                @sel_extends""";
     }
 
     public void initCommandJSON(String initPath) {
         try {
-            initCommandJSON(new File(Resources.getResourceByFile("/com/github/zhuaidadaya/resources/resource_files/commands.json", this.getClass()).toURI()));
+            initCommandJSON(Resources.getResource("/com/github/zhuaidadaya/resources/resource_files/commands.json", Resources.class));
 
-            for(File f : new File(initPath).listFiles())
-                initCommandJSON(f);
+            for(File f : new File(initPath).listFiles()) {
+                initCommandJSON(new FileInputStream(f));
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
     }
 
-    public void initCommandJSON(File f) {
+    public void initCommandJSON(InputStream inputStream) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(f));
+            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
 
             StringBuilder command = new StringBuilder();
             String c;
@@ -918,8 +1012,9 @@ public class CommandParsing extends Thread {
 
             for(Object o : JSONc.keySet())
                 commandsJson.putOnce(o.toString(), JSONc.get(o.toString()));
+
         } catch (Exception e) {
-            //            e.printStackTrace();
+
         }
     }
 
@@ -934,7 +1029,7 @@ public class CommandParsing extends Thread {
 
     public void commands(String command_perf, boolean perf, String command) {
         try {
-            command(command_perf, perf, new File(Resources.getResourceByFile("/com/github/zhuaidadaya/resources/resource_files/commands.json", this.getClass()).toURI()), command);
+            command(command_perf, perf, command);
         } catch (Exception e) {
 
         }
@@ -942,28 +1037,57 @@ public class CommandParsing extends Thread {
 
     @Override
     public void run() {
+                new Thread(() -> {
+                    while(! Errors.CannotHandle) {
+                        if(! Community.isDaemons) {
+                            //                Resources.initLanguage.initLang("commands/commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
+                            initCommandJSON(ConfigMain.resPath + "commands/");
+                            Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
+
+                            try {
+                                Thread.sleep(250);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            try {
+                                Thread.sleep(500);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }).start();
+
         new Thread(() -> {
+            String text = inputUI.inputArea.getText();
             while(! Errors.CannotHandle) {
-                //                Resources.initLanguage.initLang("commands/commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
-                Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if(! Community.isDaemons) {
+                    changing = ! text.equals(inputUI.inputArea.getText());
+                    text = inputUI.inputArea.getText();
+
+                    try {
+                        Thread.sleep(30);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }).start();
 
         while(! Errors.CannotHandle) {
-            long standTick = 50;
+            long standTick = inputUI.inputArea.getText().equals("") ? 200 : (Community.excessProcess ? 1 : 125);
             long tick = System.currentTimeMillis();
 
             if(! Community.isDaemons) {
                 var input = inputUI.inputArea.getText();
                 if(! input.equals("") & ! input.contains("\n")) {
-                    initCommandJSON(ConfigUtil.resPath);
-                    Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
-
                     //                    if (MchUI.input_Command.getText().lastIndexOf("/") == 0 | !MchUI.input_Command.getText().contains("/")) {
                     if(! MchUI.switchTip.isFocusOwner()) {
                         //                        new CommandParsing().commands("", Community.perf, MchUI.input_Command.getText());

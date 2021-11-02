@@ -1,7 +1,6 @@
 package com.github.zhuaidadaya.MCH.lib;
 
 import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 
 public class OpenInExplore {

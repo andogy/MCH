@@ -44,7 +44,7 @@ public class inputUI extends Community {
 
             @Override
             public void layoutContainer(Container parent) {
-                inputArea_scrollPane.setBounds(0,0,jFrame.getWidth() - 10,jFrame.getHeight() - 20);
+                inputArea_scrollPane.setBounds(0,0,jFrame.getWidth(),jFrame.getHeight() - 20);
                 MchUI.tip_scrollPane.setBounds(inputArea.getBounds());
             }
         };

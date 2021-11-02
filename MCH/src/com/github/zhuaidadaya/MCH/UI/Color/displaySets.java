@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.UI.Color;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
@@ -146,10 +146,10 @@ public class displaySets extends Thread {
         ExtraUI.Level1OfMLSL.setBorderPainted(false);
         ExtraUI.Level1OfMLSL.setFocusPainted(false);
 
-        ConfigUtil.continues.setBorderPainted(false);
-        ConfigUtil.continues.setFocusPainted(false);
-        ConfigUtil.autoSet.setBorderPainted(false);
-        ConfigUtil.autoSet.setFocusPainted(false);
+        ConfigMain.continues.setBorderPainted(false);
+        ConfigMain.continues.setFocusPainted(false);
+        ConfigMain.autoSet.setBorderPainted(false);
+        ConfigMain.autoSet.setFocusPainted(false);
 
         MinecraftLauncher.launch.setBorderPainted(false);
         MinecraftLauncher.launch.setFocusPainted(false);
@@ -248,7 +248,14 @@ public class displaySets extends Thread {
         MinecraftLauncher.lastPage.setBorderPainted(false);
         MinecraftLauncher.lastPage.setFocusPainted(false);
 
+        MenuUI2.excessProcessNot.setBorderPainted(false);
+        MenuUI2.excessProcessNot.setFocusPainted(false);
+        MenuUI2.excessProcess.setBorderPainted(false);
+        MenuUI2.excessProcess.setFocusPainted(false);
+
         loadingWindow.progress.setBorderPainted(false);
+
+        MchUI.progressBar.setBorderPainted(false);
 
         Color foregroundColor = new Color(214, 214, 214);
         Color foregroundColor_dark = new Color(214, 214, 214);
@@ -307,14 +314,14 @@ public class displaySets extends Thread {
         MinecraftLauncher.forceStopMinecraft.setForeground(foregroundColor);
 
         //        固定颜色配置界面(初始化引导)
-        ConfigUtil.jt.setForeground(foregroundColor);
-        ConfigUtil.continues.setForeground(foregroundColor);
-        ConfigUtil.autoSet.setForeground(foregroundColor);
+        ConfigMain.jt.setForeground(foregroundColor);
+        ConfigMain.continues.setForeground(foregroundColor);
+        ConfigMain.autoSet.setForeground(foregroundColor);
 
-        ConfigUtil.jFrame.getContentPane().setBackground(backgroundColor);
-        ConfigUtil.jt.setBackground(backgroundColor);
-        ConfigUtil.continues.setBackground(buttonColor);
-        ConfigUtil.autoSet.setBackground(buttonColor);
+        ConfigMain.jFrame.getContentPane().setBackground(backgroundColor);
+        ConfigMain.jt.setBackground(backgroundColor);
+        ConfigMain.continues.setBackground(buttonColor);
+        ConfigMain.autoSet.setBackground(buttonColor);
 
         loadingWindow.jFrame.getContentPane().setBackground(backgroundColor);
         loadingWindow.loadingTip.setForeground(foregroundColor);
@@ -661,6 +668,14 @@ public class displaySets extends Thread {
             MinecraftLauncher.addMojangAccount.setBackground(buttonColor);
         }
 
+        if(Community.excessProcess) {
+            MenuUI2.excessProcessNot.setBackground(buttonColor);
+            MenuUI2.excessProcess.setBackground(backgroundColor);
+        } else {
+            MenuUI2.excessProcessNot.setBackground(backgroundColor);
+            MenuUI2.excessProcess.setBackground(buttonColor);
+        }
+
         MchUI.tips.setForeground(foregroundColor);
         //        MchUI.input_Command.setForeground(foregroundColor);
         MchUI.menu.setForeground(foregroundColor);
@@ -912,8 +927,16 @@ public class displaySets extends Thread {
         MinecraftLauncher.lastPage.setBackground(buttonColor);
         MinecraftLauncher.lastPage.setForeground(foregroundColor);
 
+        MenuUI2.excessProcessNot.setForeground(foregroundColor);
+        MenuUI2.excessProcess.setForeground(foregroundColor);
+
+        MchUI.progressBar.setBackground(backgroundColor);
+        MchUI.progressBar.setForeground(inputBoxColor);
+
         Errors.jTextArea.setBackground(backgroundColor_dark);
         Errors.jTextArea.setForeground(foregroundColor_dark);
+
+        MenuUI2.excessProcessOrNot.setForeground(foregroundColor);
     }
 
     public static void hadesColor() {
@@ -1436,6 +1459,9 @@ public class displaySets extends Thread {
         MenuUI2.toWiki.setVisible(false);
         MenuUI2.toWikiNot.setVisible(false);
         MenuUI2.Chinese_TW.setVisible(false);
+        MenuUI2.excessProcessOrNot.setVisible(false);
+        MenuUI2.excessProcessNot.setVisible(false);
+        MenuUI2.excessProcess.setVisible(false);
         switch(Community.setsDisplayID) {
             case 0 -> {
                 MenuUI2.saveCacheOrNot.setVisible(true);
@@ -1460,6 +1486,9 @@ public class displaySets extends Thread {
                 MenuUI2.fastLoad.setVisible(true);
                 MenuUI2.fastLoadYes.setVisible(true);
                 MenuUI2.fastLoadNo.setVisible(true);
+                MenuUI2.excessProcessOrNot.setVisible(true);
+                MenuUI2.excessProcessNot.setVisible(true);
+                MenuUI2.excessProcess.setVisible(true);
             }
             case 1 -> {
                 MenuUI2.Color.setVisible(true);

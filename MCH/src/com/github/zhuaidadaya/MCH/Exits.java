@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.UI.MenuUI2;
 import com.github.zhuaidadaya.MCH.UI.exit;
 import com.github.zhuaidadaya.MCH.Events.Errors;
@@ -67,13 +67,13 @@ class p_test {
 
 class iniEx {
     public iniEx() {
-        ConfigUtil.jFrame.addWindowListener(new WindowAdapter() {
+        ConfigMain.jFrame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 if (! MchUI.jFrame.isVisible()) {
                     exit.Ex();
                 } else {
-                    ConfigUtil.jFrame.setVisible(false);
+                    ConfigMain.jFrame.setVisible(false);
                 }
             }
         });
@@ -109,7 +109,7 @@ class MenuUi2 {
         MenuUI2.jFrame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                if (ConfigUtil.settingIni) {
+                if (ConfigMain.settingIni) {
                     exit.Ex();
                 } else {
                     MenuUI2.jFrame.setVisible(false);

@@ -1,7 +1,7 @@
 package com.github.zhuaidadaya.MCH.Command;
 
 import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
@@ -107,7 +107,7 @@ public class Parsing extends Thread {
                     Community.commandLength = allStr.length();
                     Community.nowPoint = 0;
 
-                    ConfigUtil.jFrame.setAlwaysOnTop(Community.onTop);
+                    ConfigMain.jFrame.setAlwaysOnTop(Community.onTop);
                     MchUI.jFrame.setAlwaysOnTop(Community.onTop);
                     MenuUI.jFrame.setAlwaysOnTop(Community.onTop);
                     MenuUI2.jFrame.setAlwaysOnTop(Community.onTop);
@@ -141,7 +141,7 @@ public class Parsing extends Thread {
                     if(allStr.equals(".reload")) {
                         new Thread(() -> {
                             loadingWindow.ui();
-                            new ConfigUtil();
+                            new ConfigMain();
                             new ExtraLoader().LoadExtra();
                             loadingWindow.jFrame.setVisible(false);
                         }).start();
@@ -252,8 +252,8 @@ public class Parsing extends Thread {
 
                     allStr = allStr.replace("\r", "").replace("\n", "");
 
-                    ConfigUtil.input_command = "Input@" + allStr;
-                    ConfigUtil.WriteConfig();
+                    ConfigMain.input_command = "Input@" + allStr;
+                    ConfigMain.WriteConfig();
                     //                    }
                 } catch (Exception ex) {
                     //                ex.printStackTrace();

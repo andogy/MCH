@@ -1,0 +1,6 @@
+{
+    "index": "/com/github/zhuaidadaya/resources/resource_files/tooltip/tooltip.index",
+    "chinese": "/com/github/zhuaidadaya/resources/resource_files/tooltip/indexes/chinese.index",
+    "english": "/com/github/zhuaidadaya/resources/resource_files/tooltip/indexes/english.index",
+    "chinese_tw": "/com/github/zhuaidadaya/resources/resource_files/tooltip/indexes/chinese_tw.index"
+}

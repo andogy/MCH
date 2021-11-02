@@ -1,9 +1,8 @@
 package com.github.zhuaidadaya.MCH.UI;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
 import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.Events.Errors;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
 import com.github.zhuaidadaya.MCH.Help.Helps;
@@ -96,6 +95,10 @@ public class MenuUI2 extends Community {
     public static JButton toWiki = new JButton();
     public static JButton toWikiNot = new JButton();
 
+    public static JLabel excessProcessOrNot = new JLabel();
+    public static JButton excessProcess = new JButton();
+    public static JButton excessProcessNot = new JButton();
+
     public MenuUI2() {
         UI();
     }
@@ -169,7 +172,7 @@ public class MenuUI2 extends Community {
             uiSizeMap.put(setting_display, new Rectangle(80, 280, 80, 34));
             uiSizeMap.put(setting_upd, new Rectangle(160, 280, 80, 34));
             uiSizeMap.put(setting_info, new Rectangle(240, 280, 80, 34));
-            if(! ConfigUtil.settingIni) {
+            if(! ConfigMain.settingIni) {
                 uiSizeMap.put(setting_command, new Rectangle(320, 280, 100, 34));
             } else {
                 uiSizeMap.put(setting_command, new Rectangle(160, 280, 100, 34));
@@ -220,14 +223,17 @@ public class MenuUI2 extends Community {
 
             uiSizeMap.put(deleteData, new Rectangle(0, 40 + 35 + 100 + 30 + 40, 110, 30));
 
-            setting_upd.setVisible(! ConfigUtil.settingIni);
-            setting_info.setVisible(! ConfigUtil.settingIni);
-            iniFinished.setVisible(ConfigUtil.settingIni);
-            iniHelper.setVisible(ConfigUtil.settingIni);
+            uiSizeMap.put(excessProcessOrNot, new Rectangle(270, 85, 80, 30));
+            uiSizeMap.put(excessProcessNot, new Rectangle(340, 85, 90, 30));
+            uiSizeMap.put(excessProcess, new Rectangle(440, 85, 100, 30));
+
+            setting_upd.setVisible(! ConfigMain.settingIni);
+            setting_info.setVisible(! ConfigMain.settingIni);
+            iniFinished.setVisible(ConfigMain.settingIni);
+            iniHelper.setVisible(ConfigMain.settingIni);
         }
 
         {
-
             jFrame.add(saveCacheOrNot);
             jFrame.add(saveCache);
             jFrame.add(notSaveCache);
@@ -304,6 +310,10 @@ public class MenuUI2 extends Community {
             jFrame.add(toWikiOrNot);
             jFrame.add(toWiki);
             jFrame.add(toWikiNot);
+
+            jFrame.add(excessProcessOrNot);
+            jFrame.add(excessProcessNot);
+            jFrame.add(excessProcess);
 
             jFrame.setLayout(new LayoutManager() {
                 @Override
@@ -412,10 +422,14 @@ public class MenuUI2 extends Community {
 
                     deleteData.setBounds(0, 40 + 35 + 100 + 30 + 40, 110, 30);
 
-                    setting_upd.setVisible(! ConfigUtil.settingIni);
-                    setting_info.setVisible(! ConfigUtil.settingIni);
-                    iniFinished.setVisible(ConfigUtil.settingIni);
-                    iniHelper.setVisible(ConfigUtil.settingIni);
+                    excessProcessOrNot.setBounds(uiSizeMap.getRectangle(excessProcessOrNot));
+                    excessProcessNot.setBounds(uiSizeMap.getRectangle(excessProcessNot));
+                    excessProcess.setBounds(uiSizeMap.getRectangle(excessProcess));
+
+                    setting_upd.setVisible(! ConfigMain.settingIni);
+                    setting_info.setVisible(! ConfigMain.settingIni);
+                    iniFinished.setVisible(ConfigMain.settingIni);
+                    iniHelper.setVisible(ConfigMain.settingIni);
                 }
             });
         }
@@ -429,9 +443,9 @@ public class MenuUI2 extends Community {
 
         iniFinished.addActionListener(e -> {
             jFrame.setVisible(false);
-            ConfigUtil.settingIni = false;
+            ConfigMain.settingIni = false;
             jFrame.setAlwaysOnTop(Community.onTop);
-            ConfigUtil.defaultIniSetOver();
+            ConfigMain.defaultIniSetOver();
         });
         iniHelper.addActionListener(e -> {
             Helps.iniHelps();
@@ -481,7 +495,7 @@ public class MenuUI2 extends Community {
 
         showDir.addActionListener(e -> {
             if(! Community.isDaemons) {
-                OpenInExplore.open(ConfigUtil.path);
+                OpenInExplore.open(ConfigMain.path);
             }
         });
 
@@ -516,6 +530,9 @@ public class MenuUI2 extends Community {
             }
         });
 
+        excessProcess.addActionListener(e -> Events.switchExcessProcess(true));
+        excessProcessNot.addActionListener(e -> Events.switchExcessProcess(false));
+
         checkUPD.addActionListener(e -> {
             if(Community.canUPD) {
                 URLs.nowUPD = true;
@@ -527,10 +544,10 @@ public class MenuUI2 extends Community {
         MenuUI2.deleteData.addActionListener(e -> {
             if(! Community.isDaemons) {
                 new Thread(() -> {
-                    File[] caches = new File(ConfigUtil.path + "logs/").listFiles();
+                    File[] caches = new File(ConfigMain.path + "logs/").listFiles();
 
                     filesOperator.fileCount = 0;
-                    filesOperator.countFiles(caches);;
+                    filesOperator.countFiles(caches);
 
                     loadingWindow.ui();
 

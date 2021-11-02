@@ -137,7 +137,7 @@ public class Declared() {
 ```java
 package Mex;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.lib.Log;
 
 import java.io.File;
@@ -147,7 +147,7 @@ import java.nio.charset.StandardCharsets;
 public class Declared() {
     public void onLoad() {
         //将日志存储到MCH的默认位置,有需要可以自行更改        
-        File logSaveTo = new File(ConfigUtil.runLogsPath + "latest.log");
+        File logSaveTo = new File(ConfigMain.runLogsPath + "latest.log");
 
         //如果是false则写入前删除文件内容
         //不建议设为false
@@ -177,7 +177,7 @@ public class Declared() {
 ```java
 package Mex;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.lib.Log;
 
 import java.io.File;
@@ -186,7 +186,7 @@ import java.nio.charset.StandardCharsets;
 
 public class Declared() {
     public void onLoad() {
-        File logSaveTo = new File(ConfigUtil.runLogsPath + "latest.log");
+        File logSaveTo = new File(ConfigMain.runLogsPath + "latest.log");
         boolean append = true;
         Charset charset = StandardCharsets.UTF_8;
         String log = "this is a log";
@@ -202,7 +202,7 @@ public class Declared() {
 ```java
 package Mex;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.lib.Log;
 
 import java.nio.charset.StandardCharsets;
@@ -210,7 +210,7 @@ import java.nio.charset.StandardCharsets;
 public class Declared() {
     public void onLoad() {
         //直接在给参数时临时建立参数        
-        Log.writeLog(ConfigUtil.runLogsPath + "latest.log", true, StandardCharsets.UTF_8, "this is a log", false);
+        Log.writeLog(ConfigMain.runLogsPath + "latest.log", true, StandardCharsets.UTF_8, "this is a log", false);
     }
 }
 ```
@@ -370,14 +370,14 @@ MCH在写入以及读取配置文件时会对其加密<br>
 ```java
 package Mex;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Community;
 
 public class Declared() {
     public void onLoad() {
         Community.extraConf.put("config-name", "config-value");
         try {
-            ConfigUtil.WriteConfig();
+            ConfigMain.WriteConfig();
         } catch (Exception ignored) {
             // 使用try来捕捉写入失败时抛出的错误
         }

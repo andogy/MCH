@@ -12,7 +12,7 @@ import java.awt.*;
 public class MchUI extends Community {
 
     public static JFrame jFrame = new JFrame();
-//    public static JTextPane input_Command = new JTextPane();
+    //    public static JTextPane input_Command = new JTextPane();
     public static JButton menu = new JButton();
     public static JTextPane commandArea = new JTextPane();
     public static JTextPane commandDisplay = new JTextPane();
@@ -20,8 +20,10 @@ public class MchUI extends Community {
     public static JTextArea switchTip = new JTextArea();
 
     public static JScrollPane command_scrollPane = new JScrollPane(commandDisplay);
-//    public static JScrollPane input_scrollPane = new JScrollPane(input_Command);
-public static JScrollPane tip_scrollPane = new JScrollPane(switchTip);
+    //    public static JScrollPane input_scrollPane = new JScrollPane(input_Command);
+    public static JScrollPane tip_scrollPane = new JScrollPane(switchTip);
+
+    public static JProgressBar progressBar = new JProgressBar();
 
     public MchUI() {
         //        解析输入
@@ -45,16 +47,16 @@ public static JScrollPane tip_scrollPane = new JScrollPane(switchTip);
         command_scrollPane.setViewportView(commandDisplay);
         command_scrollPane.setBorder(null);
 
-//        input_scrollPane.getHorizontalScrollBar().setValue(0);
-//        input_scrollPane.setViewportView(input_Command);
-//        input_scrollPane.setBorder(null);
+        //        input_scrollPane.getHorizontalScrollBar().setValue(0);
+        //        input_scrollPane.setViewportView(input_Command);
+        //        input_scrollPane.setBorder(null);
 
         tip_scrollPane.getHorizontalScrollBar().setValue(0);
         tip_scrollPane.setViewportView(switchTip);
         tip_scrollPane.setBorder(null);
 
         commandDisplay.setFont(new Font(commandDisplay.getFont().getName(), Font.PLAIN, 13));
-//        input_Command.setFont(new Font(command1.getFont().getName(), Font.PLAIN, 14));
+        //        input_Command.setFont(new Font(command1.getFont().getName(), Font.PLAIN, 14));
         switchTip.setFont(new Font(commandDisplay.getFont().getName(), Font.PLAIN, 13));
 
         //设置窗口位置
@@ -93,8 +95,9 @@ public static JScrollPane tip_scrollPane = new JScrollPane(switchTip);
 
                 command_scrollPane.setBounds(5, 0, Width + 100, Height - (20 + 65));
                 tips.setBounds(0, Height - 65 - 20, Width, 20);
-//                input_scrollPane.setBounds(0, Height - 65, Width - 110, 100);
+                //                input_scrollPane.setBounds(0, Height - 65, Width - 110, 100);
                 menu.setBounds(Width - 100, Height - 65, 80, 27);
+                progressBar.setBounds(0,Height - 65,Width - 100,27);
             }
         };
 
@@ -107,11 +110,13 @@ public static JScrollPane tip_scrollPane = new JScrollPane(switchTip);
         //        jFrame.add(switchTip);
 
         jFrame.add(command_scrollPane);
-//        jFrame.add(input_scrollPane);
+        //        jFrame.add(input_scrollPane);
+
+        jFrame.add(progressBar);
 
         switchTip.setVisible(false);
         tip_scrollPane.setVisible(false);
-//        input_scrollPane.setVisible(false);
+        //        input_scrollPane.setVisible(false);
 
         commandArea.setEditable(false);
         commandDisplay.setEditable(false);

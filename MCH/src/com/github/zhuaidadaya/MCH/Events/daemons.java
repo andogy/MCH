@@ -70,6 +70,8 @@ public class daemons extends Thread {
                                 }
                                 ExtraUI.functionEdit.setEditable(false);
                             }
+                        } else {
+                            Runtime.getRuntime().gc();
                         }
 
                     } catch (Exception ignored) {

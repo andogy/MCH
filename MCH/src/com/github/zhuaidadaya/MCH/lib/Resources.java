@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.lib;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
@@ -100,7 +100,7 @@ public class Resources extends Thread {
         public static HashMap<String, String> lang = new HashMap<>();
 
         public initLanguage() {
-            createPath(ConfigUtil.resPath);
+            createPath(ConfigMain.resPath);
 
             //            initLang("languages.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
             //            initLang("commands/commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
@@ -110,11 +110,11 @@ public class Resources extends Thread {
         }
 
         public static void initLang(String langFile, String resourceRoot, String targetLanguage) {
-            String languagesPath = ConfigUtil.resPath + langFile;
+            String languagesPath = ConfigMain.resPath + langFile;
 
             File f = null;
-            if(new File(ConfigUtil.resPath + langFile).isFile()) {
-                f = new File(ConfigUtil.resPath + langFile);
+            if(new File(ConfigMain.resPath + langFile).isFile()) {
+                f = new File(ConfigMain.resPath + langFile);
             } else {
 
             }
@@ -181,7 +181,7 @@ public class Resources extends Thread {
                 }
             } catch (FileNotFoundException e) {
 
-                ConfigUtil.languageSet = "Language@Auto";
+                ConfigMain.languageSet = "Language@Auto";
 
                 //修复语言文件
                 new Resources().fixResource(resourceRoot + langFile, languagesPath, false);
@@ -189,7 +189,7 @@ public class Resources extends Thread {
                 Errors.errors(null, e, false, "languageInit", "null", 700, 520, false,false);
 
             } catch (Exception e) {
-                ConfigUtil.languageSet = "Language@Auto";
+                ConfigMain.languageSet = "Language@Auto";
 
                 //修复语言文件
                 new Resources().fixResource(resourceRoot + langFile, languagesPath, false);
@@ -268,7 +268,7 @@ public class Resources extends Thread {
                     i--;
                 }
             } catch (Exception | Error e) {
-                ConfigUtil.languageSet = "Language@Auto";
+                ConfigMain.languageSet = "Language@Auto";
                 if(e instanceof Exception) {
                     Errors.errors(null, (Exception) e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true,false);
                 } else {

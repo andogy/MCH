@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
@@ -64,6 +64,10 @@ public class Community {
 
     public static boolean perf = false;
 
+    public static boolean excessProcess = false;
+
+    public static LinkedHashMap<String ,String> toolTips = new LinkedHashMap<>();
+
     public static limitedTypes showCommands = limitedTypes.ALL_EDITION;
     public static limitedTypes showCommandMethod = limitedTypes.BEDROCK;
 
@@ -84,7 +88,7 @@ public class Community {
     public static extraLists lis = new extraLists();
 
     public Community() {
-        ConfigUtil.uploadConfig();
+        ConfigMain.uploadConfig();
     }
 
     public static void main(String[] args) {
@@ -96,30 +100,30 @@ public class Community {
 
         saveErrorLog = true;
         saveRunLog = true;
-        ConfigUtil.path = System.getProperty("user.home").replace("\\", "/") + "/AppData/Roaming/" + ConfigUtil.path;
+        ConfigMain.path = System.getProperty("user.home").replace("\\", "/") + "/AppData/Roaming/" + ConfigMain.path;
 //        Config.path = "D:/normal/MCH/";
 
         if(args.contains("developing"))
-            ConfigUtil.path = "/MCH_testing_path/";
-        ConfigUtil.resPath = ConfigUtil.path + ConfigUtil.resPath;
-        ConfigUtil.runLogsPath = ConfigUtil.path + ConfigUtil.runLogsPath;
-        ConfigUtil.errLogsPath = ConfigUtil.path + ConfigUtil.errLogsPath;
-        ConfigUtil.logsPath = ConfigUtil.path + ConfigUtil.logsPath;
+            ConfigMain.path = "/MCH_testing_path/";
+        ConfigMain.resPath = ConfigMain.path + ConfigMain.resPath;
+        ConfigMain.runLogsPath = ConfigMain.path + ConfigMain.runLogsPath;
+        ConfigMain.errLogsPath = ConfigMain.path + ConfigMain.errLogsPath;
+        ConfigMain.logsPath = ConfigMain.path + ConfigMain.logsPath;
 
-        Log.defErrPath = new File(ConfigUtil.errLogsPath);
-        Log.defRunPath = new File(ConfigUtil.runLogsPath);
+        Log.defErrPath = new File(ConfigMain.errLogsPath);
+        Log.defRunPath = new File(ConfigMain.runLogsPath);
 
         /*
         封装文件部分
          */
-        File runTo = new File(ConfigUtil.path + "logs/");
+        File runTo = new File(ConfigMain.path + "logs/");
         try {
             Log.packetLog(runTo.getAbsoluteFile(), runTo.getAbsolutePath() + "/run/latest.log");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        new File(ConfigUtil.path + "extra/").mkdirs();
+        new File(ConfigMain.path + "extra/").mkdirs();
 
         LangID = 0;
         new Resources.initLanguage();
@@ -157,9 +161,9 @@ public class Community {
                 new Resources.initLanguage();
                 languageSet.Language();
 
-                new ConfigUtil();
+                new ConfigMain();
                 try {
-                    ConfigUtil.uploadConfig();
+                    ConfigMain.uploadConfig();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -200,7 +204,7 @@ public class Community {
                     displaySets.Color();
 
                     Log.writeLog("[Main Thread/INFO] reloading config");
-                    ConfigUtil.parsing(false);
+                    ConfigMain.parsing(false);
 
                     new Resources.initLanguage();
                     languageSet.Language();
@@ -210,14 +214,14 @@ public class Community {
                     new Resources.initLanguage();
                     new languageSet().start();
 
-                    new File(ConfigUtil.path + "res.cache").delete();
+                    new File(ConfigMain.path + "res.cache").delete();
 
         /*
         预加载部分
          */
 
                     //        创建文件夹
-                    File f = new File(ConfigUtil.path);
+                    File f = new File(ConfigMain.path);
                     f.mkdirs();
 
                     Exits.Exit_Button();
@@ -242,10 +246,10 @@ public class Community {
 
                         //        开启websocket监听线程,给wsServer使用预留准备
                         //        new webSocket.webSocketListener().start();
-
-                        //        这个线程用于计算MCH文件夹大小
-                        new dirSize().start();
                     }
+
+                    //        这个线程用于计算MCH文件夹大小
+                    new dirSize().start();
 
                     new daemons().start();
 
@@ -268,7 +272,7 @@ public class Community {
                         new Thread(() -> {
                             //        显示UI
                             LoadAssembly.loadAssembly("[Main Thread/INFO] Loading UI", lang.get("loading_MchUI"), false);
-                            if(ConfigUtil.canStartUI) {
+                            if(ConfigMain.canStartUI) {
                                 new MchUI();
                                 loadingWindow.jFrame.setVisible(false);
                             } else {

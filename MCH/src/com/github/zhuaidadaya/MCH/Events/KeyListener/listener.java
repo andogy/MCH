@@ -2,7 +2,7 @@ package com.github.zhuaidadaya.MCH.Events.KeyListener;
 
 import com.github.zhuaidadaya.MCH.Command.CommandParsing;
 import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
@@ -611,7 +611,7 @@ class errorFrame {
                                 }
                             }
 
-                            String reportFile = ConfigUtil.path + "logs/reports/report" + Errors.latestErrorReport.hashCode() + "/report.log";
+                            String reportFile = ConfigMain.path + "logs/reports/report" + Errors.latestErrorReport.hashCode() + "/report.log";
                             File parent = new File(new File(reportFile).getParent());
                             parent.mkdirs();
                             BufferedWriter bw = new BufferedWriter(new FileWriter(reportFile));

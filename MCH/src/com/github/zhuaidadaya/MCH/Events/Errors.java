@@ -1,9 +1,8 @@
 package com.github.zhuaidadaya.MCH.Events;
 
 import com.github.zhuaidadaya.MCH.Community;
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.UI.*;
-import com.github.zhuaidadaya.MCH.Unicode;
 import com.github.zhuaidadaya.MCH.lib.Log;
 import com.github.zhuaidadaya.MCH.lib.Resources;
 
@@ -80,7 +79,7 @@ public class Errors extends Throwable {
             MchUI.jFrame.setVisible(false);
             MenuUI.jFrame.setVisible(false);
             MenuUI2.jFrame.setVisible(false);
-            ConfigUtil.jFrame.setVisible(false);
+            ConfigMain.jFrame.setVisible(false);
             ExtraUI.jFrame.setVisible(false);
             inputUI.jFrame.setVisible(false);
             loadingWindow.jFrame.setVisible(false);
@@ -125,7 +124,7 @@ public class Errors extends Throwable {
                 FileWriter fr;
                 if(exceptionSource.equals("history")) {
                     try {
-                        fr = new FileWriter(ConfigUtil.path + "history.txt", false);
+                        fr = new FileWriter(ConfigMain.path + "history.txt", false);
                         fr.write("");
                         fr.close();
                     } catch (Exception ignored) {
@@ -137,9 +136,9 @@ public class Errors extends Throwable {
                 else
                     jTextArea.setText(String.format(Resources.initLanguage.lang.get("err"), er));
 
-                jTextArea.setText(jTextArea.getText() + "\n" + String.format(Resources.initLanguage.lang.get("SourceAt"), exceptionSource) + String.format(Resources.initLanguage.lang.get("message"), message) + "\n\n" + String.format(Resources.initLanguage.lang.get("err-already-save"), ConfigUtil.path + "logs/err/latest.log"));
+                jTextArea.setText(jTextArea.getText() + "\n" + String.format(Resources.initLanguage.lang.get("SourceAt"), exceptionSource) + String.format(Resources.initLanguage.lang.get("message"), message) + "\n\n" + String.format(Resources.initLanguage.lang.get("err-already-save"), ConfigMain.path + "logs/err/latest.log"));
 
-                File file = new File(ConfigUtil.path + "logs/err/latest.log");
+                File file = new File(ConfigMain.path + "logs/err/latest.log");
 
                 if(file.length() > 2048000) {
                     file.delete();

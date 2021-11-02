@@ -1,14 +1,16 @@
 package com.github.zhuaidadaya.MCH.UI.Lang;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.UI.*;
 import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
 
+import java.awt.*;
 import java.util.HashMap;
 
 import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.lang;
+import static com.github.zhuaidadaya.MCH.Community.toolTips;
 
 public class languageSet extends Thread {
     public static String c = "";
@@ -27,7 +29,7 @@ public class languageSet extends Thread {
             exit.buttonEXIT.setText(lang.get("exit"));
             exit.buttonEXITNot.setText(lang.get("exitNot"));
 
-            MenuUI2.PATH.setText(lang.get("configPath") + ConfigUtil.path);
+            MenuUI2.PATH.setText(lang.get("configPath") + ConfigMain.path);
             MenuUI2.exButton.setText(lang.get("exButton"));
             MenuUI2.exButtonExit.setText(lang.get("exitMCH"));
             MenuUI2.exButtonNarrow.setText(lang.get("smallerMCH"));
@@ -234,6 +236,12 @@ public class languageSet extends Thread {
             if(! Community.functionEditing) {
                 ExtraUI.functionEdit.setText(lang.get("disableFunctionEdit"));
             }
+
+            MenuUI2.excessProcessOrNot.setText(lang.get("processor"));
+            MenuUI2.excessProcessNot.setText(lang.get("limited"));
+            MenuUI2.excessProcess.setText(lang.get("unlimited"));
+
+            MenuUI2.excessProcessOrNot.setToolTipText(toolTips.get("processor"));
         } catch (Exception e) {
 
         }

@@ -1,6 +1,6 @@
 package com.github.zhuaidadaya.MCH.Events;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigUtil;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
 import com.github.zhuaidadaya.MCH.UI.MchUI;
@@ -22,7 +22,7 @@ public class historyReader extends Thread {
     //    这个参数用来检测外部写入历史,当文本编辑器将历史文件改变时使用这个变量确认后进行刷新
     public static long historyLength = 0;
 
-    public static File file = new File(ConfigUtil.logsPath + "history.txt");
+    public static File file = new File(ConfigMain.logsPath + "history.txt");
 
     public static String s;
 
@@ -105,7 +105,7 @@ public class historyReader extends Thread {
             } else {
                 if (Community.historySaveID == 0) {
                     fr.close();
-                    filesOperator.saveCache(file, new File(ConfigUtil.path + "save\\history\\"), "history");
+                    filesOperator.saveCache(file, new File(ConfigMain.path + "save\\history\\"), "history");
                 }
 
                 if (Community.LangID == 0) {

@@ -319,7 +319,10 @@
                     "@kick_reason": "<原因 : 字符串>",
                     "@reason": "原因",
                     "@double_valueErr": "是一个错误的双精浮点数",
-                    "@item_special_data": "特殊值"
+                    "@item_special_data": "特殊值",
+                    "@unsupportedGroupType": "不支持的组类型: %s",
+                    "@x_add": "向x轴正方向加值%s方块",
+                    "@left_add": "向正面向的左方向加值%s方块"
                 }
             ]
         },
@@ -637,7 +640,10 @@
                     "@kick_reason": "<reason : String>",
                     "@reason": "reason",
                     "@double_valueErr": "is a error double number",
-                    "@item_special_data": "special data"
+                    "@item_special_data": "special data",
+                    "@unsupportedGroupType": "unsupported group type: %s",
+                    "@x_add": "increase %s blocks distance to positive direction of X axis",
+                    "@left_add": "increase %s blocks distance to left direction at facing"
                 }
             ]
         },
@@ -958,7 +964,10 @@
                     "@coordinates_wikiTips": "坐标",
                     "@reason": "<原因 : 字符串>",
                     "@double_valueErr": "是一个错误的双精浮点数",
-                    "@item_special_data": "特殊值"
+                    "@item_special_data": "特殊值",
+                    "@unsupportedGroupType": "不支持的组类型: %s",
+                    "@x_add": "向x轴正方向加值%s方块",
+                    "@left_add": "向正面向的左方向加值%s方块"
                 }
             ]
         }
@@ -1173,7 +1182,8 @@
                         "tree": [
                             "@bossbars",
                             "@namespace",
-                            "@boolean"
+                            "@boolean",
+                            "@end"
                         ]
                     },
                     {
@@ -1188,14 +1198,16 @@
                         "tree": [
                             "@bossbars",
                             "@namespace",
-                            "@bossbar_sets"
+                            "@bossbar_sets",
+                            "@end"
                         ]
                     },
                     {
                         "tree": [
                             "@bossbars",
                             "@namespace",
-                            "@bossbar_gets"
+                            "@bossbar_gets",
+                            "@end"
                         ]
                     },
                     {
@@ -1203,7 +1215,8 @@
                             "@bossbars",
                             "@namespace",
                             "@bossbar_sets",
-                            "@bossbar_colors"
+                            "@bossbar_colors",
+                            "@end"
                         ]
                     },
                     {
@@ -1211,7 +1224,8 @@
                             "@bossbars",
                             "@namespace",
                             "@bossbar_sets",
-                            "@bossbar_set_max"
+                            "@bossbar_set_max",
+                            "@end"
                         ]
                     },
                     {
@@ -1219,7 +1233,8 @@
                             "@bossbars",
                             "@namespace",
                             "@bossbar_sets",
-                            "@json"
+                            "@json",
+                            "@end"
                         ]
                     },
                     {
@@ -1227,7 +1242,8 @@
                             "@bossbars",
                             "@namespace",
                             "@bossbar_sets",
-                            "@sel"
+                            "@sel",
+                            "@end"
                         ]
                     },
                     {
@@ -1235,7 +1251,8 @@
                             "@bossbars",
                             "@namespace",
                             "@bossbar_sets",
-                            "@bossbar_styles"
+                            "@bossbar_styles",
+                            "@end"
                         ]
                     },
                     {
@@ -1243,7 +1260,8 @@
                             "@bossbars",
                             "@namespace",
                             "@bossbar_sets",
-                            "@bossbar_value"
+                            "@bossbar_value",
+                            "@end"
                         ]
                     },
                     {
@@ -1251,7 +1269,8 @@
                             "@bossbars",
                             "@namespace",
                             "@bossbar_sets",
-                            "@boolean"
+                            "@boolean",
+                            "@end"
                         ]
                     }
                 ]
@@ -1383,9 +1402,16 @@
                 "usage": [
                     {
                         "tree": [
-                            "@clone_x_start",
-                            "@clone_y_start",
-                            "@clone_z_start",
+                            {
+                                "group": [
+                                    "@clone_x_start",
+                                    "@clone_y_start",
+                                    "@clone_z_start"
+                                ],
+                                "type": "xyz",
+                                "valueErr": "@unsupportedGroupType",
+                                "except": ""
+                            },
                             "@clone_x_diagonally",
                             "@clone_y_diagonally",
                             "@clone_z_diagonally",
@@ -1793,7 +1819,8 @@
                             "@json",
                             "@end"
                         ]
-                    },{
+                    },
+                    {
                         "tree": [
                             "@sel",
                             "@all_items",
@@ -1898,9 +1925,9 @@
                 },
                 "@Integer": {
                     "description": "@item_special_data",
-                    "limited":2147483647,
-                    "valueErr":"@Integer_valueErr",
-                    "valueOutLimited":"@valueOutLimited"
+                    "limited": 2147483647,
+                    "valueErr": "@Integer_valueErr",
+                    "valueOutLimited": "@valueOutLimited"
                 }
             },
             "@items_datas": {
@@ -2587,7 +2614,7 @@
                 },
                 "@Integer": {
                     "description": "@salt",
-                    "valueErr": "@valueErr",
+                    "valueErr": "@Integer_valueErr",
                     "valueOutLimited": "@valueOutLimited",
                     "limited": 2147483647
                 }
@@ -2597,6 +2624,11 @@
                     "description": "@x_position_integer"
                 },
                 "~": {
+                    "description": "@current_position",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "^": {
                     "description": "@current_position",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
                     "wikiTips": "@current_position_wikiTips"
@@ -2619,6 +2651,11 @@
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
                     "wikiTips": "@current_position_wikiTips"
                 },
+                "^": {
+                    "description": "@current_position",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "wikiTips": "@current_position_wikiTips"
+                },
                 "@Double": {
                     "description": "@y",
                     "valueErr": "@double_valueErr",
@@ -2633,6 +2670,11 @@
                     "description": "@z_position_integer"
                 },
                 "~": {
+                    "description": "@current_position",
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "^": {
                     "description": "@current_position",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
                     "wikiTips": "@current_position_wikiTips"
@@ -2653,7 +2695,38 @@
                 "~": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
                     "description": "@current_position",
-                    "wikiTips": "@current_position_wikiTips"
+                    "wikiTips": "@current_position_wikiTips",
+                    "extends": [
+                        {
+                            "@Double": {
+                                "description": "@x_add",
+                                "valueErr": "@double_valueErr",
+                                "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                                "wikiTips": "@coordinates_wikiTips",
+                                "valueOutLimited": "@valueOutLimited",
+                                "limited": 2147483647,
+                                "ignoredSize": 1
+                            }
+                        }
+                    ]
+                },
+                "^": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips",
+                    "extends": [
+                        {
+                            "@Double": {
+                                "description": "@left_add",
+                                "valueErr": "@double_valueErr",
+                                "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                                "wikiTips": "@coordinates_wikiTips",
+                                "valueOutLimited": "@valueOutLimited",
+                                "limited": 2147483647,
+                                "ignoredSize": 1
+                            }
+                        }
+                    ]
                 },
                 "@Double": {
                     "description": "@x",
@@ -2669,6 +2742,11 @@
                     "description": "@clone_y_start_position_integer"
                 },
                 "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "^": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
@@ -2691,6 +2769,11 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
+                "^": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
                 "@Double": {
                     "description": "@z",
                     "valueErr": "@double_valueErr",
@@ -2705,6 +2788,11 @@
                     "description": "@clone_x_diagonally_position_integer"
                 },
                 "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "^": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
@@ -2727,6 +2815,11 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
+                "^": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
                 "@Double": {
                     "description": "@y",
                     "valueErr": "@valueErr",
@@ -2741,6 +2834,11 @@
                     "description": "@clone_z_diagonally_position_integer"
                 },
                 "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "^": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
@@ -2763,6 +2861,11 @@
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
                 },
+                "^": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
                 "@Double": {
                     "description": "@x",
                     "valueErr": "@valueErr",
@@ -2775,6 +2878,11 @@
             "@clone_y_target": {
                 "": {
                     "description": "@clone_y_position_target"
+                },
+                "^": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
                 },
                 "~": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
@@ -2795,6 +2903,11 @@
                     "description": "@clone_z_position_target"
                 },
                 "~": {
+                    "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
+                    "description": "@current_position",
+                    "wikiTips": "@current_position_wikiTips"
+                },
+                "^": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
                     "description": "@current_position",
                     "wikiTips": "@current_position_wikiTips"
@@ -3075,8 +3188,7 @@
                     "description": "@sel_s"
                 },
                 "@String": {
-                    "description": "@appointName",
-                    "except": "[]"
+                    "description": "@appointName"
                 }
             },
             "@sel_one": {
