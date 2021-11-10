@@ -1,10 +1,11 @@
 package com.github.zhuaidadaya.MCH.lib;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Community;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.UI.loadingWindow;
+import com.github.zhuaidadaya.MCH.lib.extras.ExtraVersion;
 import com.github.zhuaidadaya.MCH.lib.json.JSONArray;
 import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
 
@@ -16,6 +17,25 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class Resources extends Thread {
+    public static ExtraVersion getExtraVersion(String versionResource) {
+        try {
+            InputStream res = Resources.getResource(versionResource, Resources.class);
+            BufferedReader br = new BufferedReader(new InputStreamReader(res));
+
+            String cache;
+            StringBuilder all = new StringBuilder();
+            while((cache = br.readLine()) != null) {
+                all.append(cache);
+            }
+
+            JSONObject ex = new JSONObject(all.toString());
+
+            return new ExtraVersion(ex.get("name").toString(), ex.get("ver").toString(), ex.get("ver_id").toString(), ex.get("upd_id").toString(), versionResource);
+        } catch (Exception e) {
+            return new ExtraVersion();
+        }
+    }
+
     public static InputStream getResource(String resource, Class<?> getC) {
         return getC.getResourceAsStream(resource);
     }
@@ -37,6 +57,11 @@ public class Resources extends Thread {
     public static void createPath(String path) {
         if(! new File(path).isDirectory())
             new File(path).mkdirs();
+    }
+
+    public static void createParent(String path) {
+        if(! new File(path).isDirectory())
+            new File(new File(path).getParent()).mkdirs();
     }
 
     public void fixResource(String resource, String fixTarget, boolean lineWrap) {
@@ -186,7 +211,7 @@ public class Resources extends Thread {
                 //修复语言文件
                 new Resources().fixResource(resourceRoot + langFile, languagesPath, false);
 
-                Errors.errors(null, e, false, "languageInit", "null", 700, 520, false,false);
+                Errors.errors(null, e, false, "languageInit", "null", 700, 520, false, false);
 
             } catch (Exception e) {
                 ConfigMain.languageSet = "Language@Auto";
@@ -195,7 +220,7 @@ public class Resources extends Thread {
                 new Resources().fixResource(resourceRoot + langFile, languagesPath, false);
 
                 loadingWindow.loading.append(Arrays.toString(e.getStackTrace()).replace(", ", "\n") + "\n");
-                Errors.errors(null, e, false, json.toString(), "null", 700, 520, false,false);
+                Errors.errors(null, e, false, json.toString(), "null", 700, 520, false, false);
 
             } catch (Error error) {
 
@@ -270,9 +295,9 @@ public class Resources extends Thread {
             } catch (Exception | Error e) {
                 ConfigMain.languageSet = "Language@Auto";
                 if(e instanceof Exception) {
-                    Errors.errors(null, (Exception) e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true,false);
+                    Errors.errors(null, (Exception) e, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change, or delete it\nfile here: " + resourceRoot + langFile, 700, 800, true, false);
                 } else {
-                    Errors.errors((Error) e, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change\nif You Do not Know Error where is\nPlease use Language File by MCH", 700, 520, true,false);
+                    Errors.errors((Error) e, null, true, "LanguageParse", "Your Language File Has Some Error\nPlease Check that and change, or delete it\nfile here: " + resourceRoot + langFile, 700, 800, true, false);
                 }
             }
         }

@@ -27,10 +27,9 @@ MCH在Minecraft指令方面提供帮助<br>
 你可以在release里面下载到最新的MCH<br>
 如果你不知道什么是release, 你只需要<a href="https://github.com/zhuaidadaya/MCH/releases">点击这里</a><br>
 
-请在使用MCH前阅读用户协议<br>
+请在使用MCH前阅读<br>
 <a href="https://github.com/andogy/MCH/tree/main/%E4%B8%AD%E6%96%87/%E5%B8%AE%E5%8A%A9/%E7%94%A8%E6%88%B7%E5%8D%8F%E8%AE%AE">
-中文页面</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/andogy/MCH/tree/main/English/Helps/agreement">
-english-page</a>
+用户协议</a>
 
 ```
 MacOs 或 Linux 的用户请稍等一段时间

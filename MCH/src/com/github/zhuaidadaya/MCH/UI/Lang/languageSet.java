@@ -1,16 +1,17 @@
 package com.github.zhuaidadaya.MCH.UI.Lang;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Community;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.UI.*;
 import com.github.zhuaidadaya.MCH.lib.json.JSONObject;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
 
-import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.lang;
 import static com.github.zhuaidadaya.MCH.Community.toolTips;
+import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.lang;
 
 public class languageSet extends Thread {
     public static String c = "";
@@ -241,6 +242,7 @@ public class languageSet extends Thread {
             MenuUI2.excessProcessNot.setText(lang.get("limited"));
             MenuUI2.excessProcess.setText(lang.get("unlimited"));
 
+            MenuUI2.excessProcessOrNot.updateUI();
             MenuUI2.excessProcessOrNot.setToolTipText(toolTips.get("processor"));
         } catch (Exception e) {
 
@@ -264,7 +266,7 @@ public class languageSet extends Thread {
                     e.printStackTrace();
                 }
 
-                    Language();
+                Language();
             } else {
                 try {
                     Thread.sleep(500);

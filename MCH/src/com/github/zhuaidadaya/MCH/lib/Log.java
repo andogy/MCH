@@ -21,15 +21,19 @@ public class Log {
     public static File defRunPath = new File(ConfigMain.runLogsPath);
     public static File defErrPath = new File(ConfigMain.errLogsPath);
 
-    public static void outLog(Object log, boolean WARN) {
-        writeLog(null, log, WARN, null);
+    public static String getLog(Object log,String outType,Object exID) {
+        return exID == null ? times.getTime(timeType.LONG_LOG) + log + "\n" : times.getTime(timeType.LONG_LOG) + "[" + exID + "/" + outType + "] " + log + "\n";
     }
 
-    public static void writeLog(File logFile, boolean append, Charset charset, Object log, boolean WARN) {
-        writeLog(logFile == null ? null : logFile.getAbsolutePath(), append, charset, log, WARN);
+    public static void outLog(Object log, boolean WARN,String outType) {
+        writeLog(null, log, WARN, null,outType);
     }
 
-    public static void writeLog(String logFile, boolean append, Charset charset, Object log, boolean WARN) {
+    public static void writeLog(File logFile, boolean append, Charset charset, Object log, boolean WARN,String outType) {
+        writeLog(logFile == null ? null : logFile.getAbsolutePath(), append, charset, log, WARN,outType);
+    }
+
+    public static void writeLog(String logFile, boolean append, Charset charset, Object log, boolean WARN,String outType) {
         try {
             if(logFile != null) {
                 logFile = logFile.replace("\\", "/");
@@ -43,15 +47,15 @@ public class Log {
 
                 }
             }
-            writeLog(logFile == null ? null : new BufferedWriter(new FileWriter(logFile, charset, append)), log, WARN, null);
+            writeLog(logFile == null ? null : new BufferedWriter(new FileWriter(logFile, charset, append)), log, WARN, null,outType);
         } catch (Exception e) {
 
         }
     }
 
-    public static void writeLog(BufferedWriter logger, Object log, boolean WARN, Object exID) {
+    public static void writeLog(BufferedWriter logger, Object log, boolean WARN, Object exID,String outType) {
         try {
-            log = exID == null ? times.getTime(timeType.LONG_LOG) + log : times.getTime(timeType.LONG_LOG) + "[" + exID + "] " + log;
+            log = exID == null ? times.getTime(timeType.LONG_LOG) + log : times.getTime(timeType.LONG_LOG) + "[" + exID + "/" + outType + "] " + log;
 
             if (WARN)
                 System.err.println(log);
@@ -67,21 +71,21 @@ public class Log {
         }
     }
 
-    public static void writeLog(Object log, String type) {
+    public static void writeLog(Object log, String type,String outType) {
         loadingWindow.loading.setText(log.toString() + "\n" + loadingWindow.loading.getText());
 
         if (type.equals("error"))
-            writeLog(Community.saveErrorLog ? defErrPath : null, defAppend, defCharset, log, true);
+            writeLog(Community.saveErrorLog ? defErrPath : null, defAppend, defCharset, log, true,outType);
         else if (type.equals("log"))
-            writeLog(Community.saveRunLog ? defRunPath : null, defAppend, defCharset, log, false);
+            writeLog(Community.saveRunLog ? defRunPath : null, defAppend, defCharset, log, false,outType);
     }
 
     public static void writeLog(Object log) {
-        writeLog(log, "log");
+        writeLog(log, "log","INFO");
     }
 
     public static void writeErr(Object log) {
-        writeLog(log, "error");
+        writeLog(log, "error","ERROR");
     }
 
     public static void compress(String srcPath, String dstPath) throws IOException {

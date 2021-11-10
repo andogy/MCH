@@ -1,7 +1,7 @@
 package com.github.zhuaidadaya.MCH;
 
-import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Command.limitedTypes;
+import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
@@ -14,6 +14,9 @@ import com.github.zhuaidadaya.MCH.UI.Color.displaySets;
 import com.github.zhuaidadaya.MCH.UI.*;
 import com.github.zhuaidadaya.MCH.UI.Lang.languageSet;
 import com.github.zhuaidadaya.MCH.lib.*;
+import com.github.zhuaidadaya.MCH.lib.extras.ExtraLoader;
+import com.github.zhuaidadaya.MCH.lib.extras.ExtraVersion;
+import com.github.zhuaidadaya.MCH.lib.extras.ExtraVersions;
 
 import javax.swing.*;
 import java.io.File;
@@ -25,6 +28,8 @@ import java.util.Locale;
 import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.lang;
 
 public class Community {
+    Logger logger = new Logger("Main Thread");
+
     public static boolean launcher = false;
 
     public static int ColorID = 1;
@@ -63,10 +68,11 @@ public class Community {
     public static boolean showInvalidCommand = true;
 
     public static boolean perf = false;
+    public static boolean dPerf = false;
 
     public static boolean excessProcess = false;
 
-    public static LinkedHashMap<String ,String> toolTips = new LinkedHashMap<>();
+    public static LinkedHashMap<String, String> toolTips = new LinkedHashMap<>();
 
     public static limitedTypes showCommands = limitedTypes.ALL_EDITION;
     public static limitedTypes showCommandMethod = limitedTypes.BEDROCK;
@@ -85,7 +91,7 @@ public class Community {
     public static String verID;
     public static String ver;
 
-    public static extraLists lis = new extraLists();
+    public static ExtraVersions<String,ExtraVersion> extraVersions = new ExtraVersions<>();
 
     public Community() {
         ConfigMain.uploadConfig();
@@ -96,12 +102,28 @@ public class Community {
     }
 
     public void startMch(String... arg) {
+        dPerf = true;
+
+        ExtraVersion exv = Resources.getExtraVersion("/com/github/zhuaidadaya/resources/resource_files/version/version.json");
+        extraVersions.put(exv);
+
+        while(new File(ConfigMain.path + "res.cache").isFile()) {
+            new File(ConfigMain.path + "res.cache").delete();
+        }
+
+        Exits.Exit_Button();
+
+        displaySets.Color();
+
+        //        keyboard监听线程
+        new listener().start();
+
         HashSet<String> args = new HashSet<>(Arrays.asList(arg));
 
         saveErrorLog = true;
         saveRunLog = true;
         ConfigMain.path = System.getProperty("user.home").replace("\\", "/") + "/AppData/Roaming/" + ConfigMain.path;
-//        Config.path = "D:/normal/MCH/";
+        //        Config.path = "D:/normal/MCH/";
 
         if(args.contains("developing"))
             ConfigMain.path = "/MCH_testing_path/";
@@ -109,6 +131,7 @@ public class Community {
         ConfigMain.runLogsPath = ConfigMain.path + ConfigMain.runLogsPath;
         ConfigMain.errLogsPath = ConfigMain.path + ConfigMain.errLogsPath;
         ConfigMain.logsPath = ConfigMain.path + ConfigMain.logsPath;
+        ConfigMain.dPerfLogsPath = ConfigMain.path + ConfigMain.dPerfLogsPath;
 
         Log.defErrPath = new File(ConfigMain.errLogsPath);
         Log.defRunPath = new File(ConfigMain.runLogsPath);
@@ -131,9 +154,12 @@ public class Community {
         launcher = args.contains("launcher");
 
         if(args.contains("ex-tes")) {
-            lis.showWindow();
+            new ExtraLoader().LoadExtra(false);
 
-            new ExtraLoader().LoadExtra();
+            for(Object exv_tes : extraVersions.keySet()) {
+                ExtraVersion ex = (ExtraVersion) exv_tes;
+                System.out.println(ex.getInfo());
+            }
         } else {
             if(args.contains("perf-ui"))
                 perf = true;
@@ -142,12 +168,15 @@ public class Community {
                 new Thread(PTEST :: rabbitTest).start();
             } else {
                 displaySets.Color();
+
+                LoadToolTips.load("/com/github/zhuaidadaya/resources/resource_files/tooltip/tooltip.index");
+
                 new Resources.initLanguage();
                 languageSet.Language();
 
-                UPD_ID = lang.get("UPD_ID");
-                verID = lang.get("VER_ID");
-                ver = lang.get("ver");
+                UPD_ID = extraVersions.get(exv).getUpdateID();
+                verID = extraVersions.get(exv).getID();
+                ver = extraVersions.get(exv).getVersion();
 
                 loadingWindow.ui();
 
@@ -204,7 +233,7 @@ public class Community {
                     displaySets.Color();
 
                     Log.writeLog("[Main Thread/INFO] reloading config");
-                    ConfigMain.parsing(false);
+                    ConfigMain.parsing(true);
 
                     new Resources.initLanguage();
                     languageSet.Language();
@@ -214,8 +243,6 @@ public class Community {
                     new Resources.initLanguage();
                     new languageSet().start();
 
-                    new File(ConfigMain.path + "res.cache").delete();
-
         /*
         预加载部分
          */
@@ -224,12 +251,7 @@ public class Community {
                     File f = new File(ConfigMain.path);
                     f.mkdirs();
 
-                    Exits.Exit_Button();
-
                     new exit();
-
-                    //        keyboard监听线程
-                    new listener().start();
 
                     //        处理URL请求的线程
                     new URLs().start();
@@ -266,7 +288,7 @@ public class Community {
                     new ExtraUI();
 
                     //                    new ExtraLoader().LoadExtra();
-                    new Thread(() -> new ExtraLoader().LoadExtra()).start();
+                    new Thread(() -> new ExtraLoader().LoadExtra(true)).start();
 
                     if(! args.contains("noc")) {
                         new Thread(() -> {

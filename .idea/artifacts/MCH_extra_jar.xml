@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact name="MCH_extra.jar">
-    <output-path>$USER_HOME$/MinecraftCommandHelper/extra</output-path>
+    <output-path>$USER_HOME$/AppData/Roaming/MinecraftCommandHelper/extra</output-path>
     <root id="root">
       <element id="archive" name="MCH_extra.jar">
         <element id="module-output" name="MCH_extra" />

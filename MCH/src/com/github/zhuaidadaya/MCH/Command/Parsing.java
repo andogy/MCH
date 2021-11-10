@@ -11,7 +11,7 @@ import com.github.zhuaidadaya.MCH.Exits;
 import com.github.zhuaidadaya.MCH.Times.times;
 import com.github.zhuaidadaya.MCH.UI.Color.displaySets;
 import com.github.zhuaidadaya.MCH.UI.*;
-import com.github.zhuaidadaya.MCH.lib.ExtraLoader;
+import com.github.zhuaidadaya.MCH.lib.extras.ExtraLoader;
 
 import javax.swing.*;
 import javax.swing.text.*;
@@ -142,10 +142,20 @@ public class Parsing extends Thread {
                         new Thread(() -> {
                             loadingWindow.ui();
                             new ConfigMain();
-                            new ExtraLoader().LoadExtra();
+                            new ExtraLoader().LoadExtra(true);
                             loadingWindow.jFrame.setVisible(false);
                         }).start();
                         //                            MchUI.input_Command.setText("");
+                        inputUI.inputArea.setText("");
+                    }
+
+                    if(allStr.equals(".performance on")) {
+                        Community.dPerf = true;
+                        inputUI.inputArea.setText("");
+                    }
+
+                    if(allStr.equals(".performance off")) {
+                        Community.dPerf = false;
                         inputUI.inputArea.setText("");
                     }
 

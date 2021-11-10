@@ -1,4 +1,4 @@
-package com.github.zhuaidadaya.MCH.lib;
+package com.github.zhuaidadaya.MCH.lib.extras;
 
 import java.net.URL;
 import java.net.URLClassLoader;

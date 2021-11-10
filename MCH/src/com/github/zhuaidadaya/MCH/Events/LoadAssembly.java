@@ -6,7 +6,6 @@ import com.github.zhuaidadaya.MCH.lib.Log;
 import java.awt.*;
 
 public class LoadAssembly {
-
     public static void loadAssembly(Object Assembly, Object status, Color statusColor, boolean warn) {
         try {
             loadingWindow.status.setText(status.toString());
@@ -16,9 +15,12 @@ public class LoadAssembly {
         }
 
         try {
-            Log.writeLog(Assembly);
+            if(warn)
+                Log.writeErr(Assembly);
+            else
+                Log.writeLog(Assembly);
         } catch (Exception e) {
-            Errors.errors(null, e, false, "loadAssembly", "", 700, 520, false,false);
+            Errors.errors(null, e, false, "loadAssembly", "", 700, 520, false, false);
         }
 
         //try {

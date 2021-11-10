@@ -7,6 +7,7 @@ import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.UI.*;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.text.*;
 import java.awt.*;
 import java.util.Random;
@@ -276,20 +277,26 @@ public class displaySets extends Thread {
             grayColor = inputBoxColor;
         }
 
+        Errors.jFrame.getContentPane().setBackground(backgroundColor_dark);
+        Errors.jTextArea.setBackground(backgroundColor_dark);
+        Errors.jTextArea.setForeground(foregroundColor_dark);
+
         MinecraftLauncher.deleteWarning.setBackground(backgroundColor);
         MinecraftLauncher.deleteWarning.setForeground(foregroundColor);
 
         MinecraftLauncher.deleteVersion.setBackground(buttonColor);
         MinecraftLauncher.deleteVersion.setForeground(foregroundColor);
 
-        MinecraftLauncher.runningMinecraftLogsScrollPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
-        MinecraftLauncher.selectedMinecraftLogsScrollPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
-        MinecraftLauncher.verScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
-        MinecraftLauncher.downloadScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
-        MinecraftLauncher.runningScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
-        MinecraftLauncher.javaScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
-        MinecraftLauncher.minecraftAreaList.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
-        MinecraftLauncher.userListScrollPane.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor));
+        Border tipColorBorder = BorderFactory.createMatteBorder(0, 0, 0, 0, tipColor);
+
+        MinecraftLauncher.runningMinecraftLogsScrollPanel.setBorder(tipColorBorder);
+        MinecraftLauncher.selectedMinecraftLogsScrollPanel.setBorder(tipColorBorder);
+        MinecraftLauncher.verScrollPane.setBorder(tipColorBorder);
+        MinecraftLauncher.downloadScrollPane.setBorder(tipColorBorder);
+        MinecraftLauncher.runningScrollPane.setBorder(tipColorBorder);
+        MinecraftLauncher.javaScrollPane.setBorder(tipColorBorder);
+        MinecraftLauncher.minecraftAreaList.setBorder(tipColorBorder);
+        MinecraftLauncher.userListScrollPane.setBorder(tipColorBorder);
 
         MinecraftLauncher.downloadName.setCaretColor(caretColor);
 
@@ -933,10 +940,11 @@ public class displaySets extends Thread {
         MchUI.progressBar.setBackground(backgroundColor);
         MchUI.progressBar.setForeground(inputBoxColor);
 
-        Errors.jTextArea.setBackground(backgroundColor_dark);
-        Errors.jTextArea.setForeground(foregroundColor_dark);
-
         MenuUI2.excessProcessOrNot.setForeground(foregroundColor);
+        MenuUI2.excessProcessOrNot.setNewTooltipBackground(backgroundColor);
+        MenuUI2.excessProcessOrNot.setNewTooltipForeground(foregroundColor);
+        MenuUI2.excessProcessOrNot.setNewTooltipBorder(tipColor);
+        MenuUI2.excessProcessOrNot.createToolTip();
     }
 
     public static void hadesColor() {

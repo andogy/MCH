@@ -4,8 +4,8 @@ import com.github.zhuaidadaya.MCH.Command.limitedTypes;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.LoadAssembly;
+import com.github.zhuaidadaya.MCH.Logger;
 import com.github.zhuaidadaya.MCH.UI.*;
-import com.github.zhuaidadaya.MCH.lib.path;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +19,9 @@ import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.lang;
 
 @Config
 public class ConfigMain {
+   public static Logger config_logger = new Logger("Config Thread");
+   public static Logger recode_logger = new Logger("Config Thread");
+
     public static JTextArea jt = new JTextArea();
     public static JFrame jFrame = new JFrame();
     public static JButton continues = new JButton();
@@ -58,6 +61,7 @@ public class ConfigMain {
     public static String path = "MinecraftCommandHelper/";
     public static String runLogsPath = "logs/run/latest.log";
     public static String errLogsPath = "logs/err/latest.log";
+    public static String dPerfLogsPath = "logs/perf/latest.log";
     public static String resPath = "resources/";
     public static String logsPath = "logs/";
 
@@ -157,8 +161,8 @@ public class ConfigMain {
                     encoding += i + lim + checkCode;
 
                 if(saveAllLog) {
-                    LoadAssembly.loadAssembly("[Recode Thread/INFO] recoding <ConfigEncoder$" + s.length() + "@" + encoding + "> to <" + s1 + ">", lang.get("conf-recoding") + s, false);
-                    LoadAssembly.loadAssembly("[Recode Thread/INFO] recode from <" + s.chars() + ">", lang.get("conf-recoding") + s, false);
+                    LoadAssembly.loadAssembly("[Recode Thread/INFO] recoding <ConfigEncoder$" + s.length() + "@" + encoding + "> to <" + s1 + ">", lang.get("conf-recoding"), false);
+                    LoadAssembly.loadAssembly("[Recode Thread/INFO] recode from <" + s.chars() + ">", lang.get("conf-recoding"), false);
                 }
 
                 s = s1.toString();

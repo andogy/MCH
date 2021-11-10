@@ -83,15 +83,15 @@ MCH会将其显示在扩展列表中
 ```java
 package Mex;
 
-import com.github.zhuaidadaya.MCH.exOut;
+import com.github.zhuaidadaya.MCH.Logger;
 
 public class Declared() {
-    exOut out = new exOut();
+    Logger out = new Logger();
 
     public void onLoad() {
         //此处应当使用扩展的名称来作为exID
         //非强制性,看得懂是什么的的都行              
-        out.setExID("MchExtraName");
+        out.setLoggerName("MchExtraName");
 
         out.println("xxx now is loading");
     }
@@ -107,11 +107,11 @@ public class Declared() {
 ```java
 package Mex;
 
-import com.github.zhuaidadaya.MCH.exOut;
+import com.github.zhuaidadaya.MCH.Logger;
 
 public class Declared() {
     //在创建之初直接设定exID    
-    exOut out = new exOut().setExID("MchExtraName");
+    Logger out = new Logger().setLoggerName("MchExtraName");
 
     public void onLoad() {
         out.println("xxx now is loading");

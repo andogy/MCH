@@ -13,6 +13,7 @@ import com.github.zhuaidadaya.MCH.UI.ExtraUI;
 import com.github.zhuaidadaya.MCH.UI.Lang.languageSet;
 import com.github.zhuaidadaya.MCH.UI.MinecraftLauncher;
 import com.github.zhuaidadaya.MCH.UI.inputUI;
+import com.github.zhuaidadaya.MCH.lib.LoadToolTips;
 import com.github.zhuaidadaya.MCH.lib.Resources;
 
 import java.awt.*;
@@ -114,6 +115,8 @@ public class Events {
                     ConfigMain.languageSet = "Language@Chinese_TW";
                 }
             }
+
+            LoadToolTips.load("/com/github/zhuaidadaya/resources/resource_files/tooltip/tooltip.index");
 
             languageSet.Language();
 

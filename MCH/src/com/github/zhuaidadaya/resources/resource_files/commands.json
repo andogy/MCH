@@ -125,15 +125,15 @@
                     "@z_position_integer": "<z轴坐标 : 整数>",
                     "@z": "z轴坐标",
                     "@current_position": "当前位置",
-                    "@clone_x_start_position_integer": "<区域起始坐标(X轴): 整数>",
-                    "@clone_y_start_position_integer": "<区域起始坐标(Y轴) : 整数>",
-                    "@clone_z_start_position_integer": "<区域起始坐标(Z轴) : 整数>",
-                    "@clone_x_diagonally_position_integer": "<区域对角坐标(X轴) : 整数>",
-                    "@clone_y_diagonally_position_integer": "<区域对角坐标(Y轴) : 整数>",
-                    "@clone_z_diagonally_position_integer": "<区域对角坐标(Z轴) : 整数>",
-                    "@clone_x_position_target": "<目标坐标(X轴) : 整数>",
-                    "@clone_y_position_target": "<目标坐标(Y轴) : 整数>",
-                    "@clone_z_position_target": "<目标坐标(Z轴) : 整数>",
+                    "@clone_x_start_positio": "<区域起始坐标(X轴) : 浮点>",
+                    "@clone_y_start_position": "<区域起始坐标(Y轴) : 浮点>",
+                    "@clone_z_start_position": "<区域起始坐标(Z轴) : 浮点>",
+                    "@clone_x_diagonally_position": "<区域对角坐标(X轴) : 浮点>",
+                    "@clone_y_diagonally_position": "<区域对角坐标(Y轴) : 浮点>",
+                    "@clone_z_diagonally_position": "<区域对角坐标(Z轴) : 浮点>",
+                    "@clone_x_target": "<目标坐标(X轴) : 浮点>",
+                    "@clone_y_target": "<目标坐标(Y轴) : 浮点>",
+                    "@clone_z_target": "<目标坐标(Z轴) : 浮点>",
                     "@clone_replace": "直接替换方块",
                     "@clone_replace_normal": "默认替换方式",
                     "@clone_replace_force": "强制替换",
@@ -321,8 +321,12 @@
                     "@double_valueErr": "是一个错误的双精浮点数",
                     "@item_special_data": "特殊值",
                     "@unsupportedGroupType": "不支持的组类型: %s",
-                    "@x_add": "向x轴正方向加值%s方块",
-                    "@left_add": "向正面向的左方向加值%s方块"
+                    "@x_add": "向x轴方向加值%s方块",
+                    "@left_add": "向正面向的左方向加值%s方块",
+                    "@y_add": "向y轴方向加值%s方块",
+                    "@up_add": "向正面向的上方向加值%s方块",
+                    "@z_add": "向z轴方向加值%s方块",
+                    "@front_add": "向正面向的右方向加值%s方块"
                 }
             ]
         },
@@ -438,22 +442,22 @@
                     "@command_clear": "clear items in players item list",
                     "@command_clearspawnpoint": "clear spawn point of player",
                     "@command_clone": "clone the area from position to other position",
-                    "@x_position_integer": "<X-axis : Integer>",
+                    "@x_position": "<X-axis : Integer>",
                     "@x": "X-axis",
-                    "@y_position_integer": "<Z-axis : Integer>",
+                    "@y_position": "<Z-axis : Integer>",
                     "@y": "Y-axis",
-                    "@z_position_integer": "<Z-axis : Integer>",
+                    "@z_position": "<Z-axis : Integer>",
                     "@z": "Z-axis",
                     "@current_position": "current position",
-                    "@clone_x_start_position_integer": "<area start position(X-axis): Integer>",
-                    "@clone_y_start_position_integer": "<area start position(Y-axis) : Integer>",
-                    "@clone_z_start_position_integer": "<area start position(Z-axis) : Integer>",
-                    "@clone_x_diagonally_position_integer": "<area diagonally position(X-axis): Integer>",
-                    "@clone_y_diagonally_position_integer": "<area diagonally position(Y-axis): Integer>",
-                    "@clone_z_diagonally_position_integer": "<area diagonally position(Z-axis): Integer>",
-                    "@clone_x_position_target": "<target position(X-axis)> : Integer",
-                    "@clone_y_position_target": "<target position(Y-axis)> : Integer",
-                    "@clone_z_position_target": "<target position(Z-axis)> : Integer",
+                    "@clone_x_start_position": "<area start position(X-axis): Double>",
+                    "@clone_y_start_position": "<area start position(Y-axis) : Double>",
+                    "@clone_z_start_positio": "<area start position(Z-axis) : Double>",
+                    "@clone_x_diagonally_position": "<area diagonally position(X-axis): Double>",
+                    "@clone_y_diagonally_position": "<area diagonally position(Y-axis): Double>",
+                    "@clone_z_diagonally_position": "<area diagonally position(Z-axis): Double>",
+                    "@clone_x_target": "<target position(X-axis)> : Double",
+                    "@clone_y_target": "<target position(Y-axis)> : Double",
+                    "@clone_z_target": "<target position(Z-axis)> : Double",
                     "@clone_replace": "direct replace the blocks",
                     "@clone_replace_normal": "default replace type",
                     "@clone_replace_force": "force replace",
@@ -643,7 +647,11 @@
                     "@item_special_data": "special data",
                     "@unsupportedGroupType": "unsupported group type: %s",
                     "@x_add": "increase %s blocks distance to positive direction of X axis",
-                    "@left_add": "increase %s blocks distance to left direction at facing"
+                    "@left_add": "increase %s blocks distance to left direction at facing",
+                    "@y_add": "increase %s blocks distance to positive direction of Y axis",
+                    "@up_add": "increase %s blocks distance to up direction at facing",
+                    "@z_add": "increase %s blocks distance to positive direction of Z axis",
+                    "@front_add": "increase %s blocks distance to front direction at facing"
                 }
             ]
         },
@@ -772,15 +780,15 @@
                     "@z_position_integer": "<z轴坐标 : 整数>",
                     "@z": "z轴坐标",
                     "@current_position": "当前位置",
-                    "@clone_x_start_position_integer": "<区域起始坐标(X轴): 整数>",
-                    "@clone_y_start_position_integer": "<区域起始坐标(Y轴) : 整数>",
-                    "@clone_z_start_position_integer": "<区域起始坐标(Z轴) : 整数>",
-                    "@clone_x_diagonally_position_integer": "<区域对角坐标(X轴) : 整数>",
-                    "@clone_y_diagonally_position_integer": "<区域对角坐标(Y轴) : 整数>",
-                    "@clone_z_diagonally_position_integer": "<区域对角坐标(Z轴) : 整数>",
-                    "@clone_x_position_target": "<目标坐标(X轴) : 整数>",
-                    "@clone_y_position_target": "<目标坐标(Y轴) : 整数>",
-                    "@clone_z_position_target": "<目标坐标(Z轴) : 整数>",
+                    "@clone_x_start_positio": "<区域起始坐标(X轴) : 浮点>",
+                    "@clone_y_start_position": "<区域起始坐标(Y轴) : 浮点>",
+                    "@clone_z_start_position": "<区域起始坐标(Z轴) : 浮点>",
+                    "@clone_x_diagonally_position": "<区域对角坐标(X轴) : 浮点>",
+                    "@clone_y_diagonally_position": "<区域对角坐标(Y轴) : 浮点>",
+                    "@clone_z_diagonally_position": "<区域对角坐标(Z轴) : 浮点>",
+                    "@clone_x_target": "<目标坐标(X轴) : 浮点>",
+                    "@clone_y_target": "<目标坐标(Y轴) : 浮点>",
+                    "@clone_z_target": "<目标坐标(Z轴) : 浮点>",
                     "@clone_replace": "直接替换方块",
                     "@clone_replace_normal": "默认替换方式",
                     "@clone_replace_force": "强制替换",
@@ -966,14 +974,22 @@
                     "@double_valueErr": "是一个错误的双精浮点数",
                     "@item_special_data": "特殊值",
                     "@unsupportedGroupType": "不支持的组类型: %s",
-                    "@x_add": "向x轴正方向加值%s方块",
-                    "@left_add": "向正面向的左方向加值%s方块"
+                    "@x_add": "向x轴方向加值%s方块",
+                    "@left_add": "向正面向的左方向加值%s方块",
+                    "@y_add": "向y轴方向加值%s方块",
+                    "@up_add": "向正面向的上方向加值%s方块",
+                    "@z_add": "向z轴方向加值%s方块",
+                    "@front_add": "向正面向的右方向加值%s方块",
+                    "@intensity": "<强度 : 浮点>"
                 }
             ]
         }
     ],
     "resources": {
         "commands": {
+            ".reload": {
+                "description": ""
+            },
             "detect": {
                 "description": "@execute_detect",
                 "tips": "This is not a command, it is in /execute",
@@ -986,9 +1002,16 @@
                 "usage": [
                     {
                         "tree": [
-                            "@x",
-                            "@y",
-                            "@z",
+                            {
+                                "group": [
+                                    "@x",
+                                    "@y",
+                                    "@z"
+                                ],
+                                "type": "xyz",
+                                "valueErr": "@unsupportedGroupType",
+                                "except": ""
+                            },
                             "@blocks",
                             "@block_data",
                             "@commands"
@@ -1289,7 +1312,11 @@
                         ]
                     },
                     {
-                        "tree": "camerashake add @sel @float;limit=4) @float @camerashake_type"
+                        "tree": [
+                            "@camerashake_operation",
+                            "@sel",
+                            "@camerashake_add"
+                        ]
                     },
                     {
                         "tree": "camerashake stop @sel"
@@ -1412,12 +1439,26 @@
                                 "valueErr": "@unsupportedGroupType",
                                 "except": ""
                             },
-                            "@clone_x_diagonally",
-                            "@clone_y_diagonally",
-                            "@clone_z_diagonally",
-                            "@clone_x_target",
-                            "@clone_y_target",
-                            "@clone_z_target",
+                            {
+                                "group": [
+                                    "@clone_x_diagonally",
+                                    "@clone_y_diagonally",
+                                    "@clone_z_diagonally"
+                                ],
+                                "type": "xyz",
+                                "valueErr": "@unsupportedGroupType",
+                                "except": ""
+                            },
+                            {
+                                "group": [
+                                    "@clone_x_target",
+                                    "@clone_y_target",
+                                    "@clone_z_target"
+                                ],
+                                "type": "xyz",
+                                "valueErr": "@unsupportedGroupType",
+                                "except": ""
+                            },
                             "@clone_type",
                             "@clone_replace_type",
                             "@blocks",
@@ -1426,15 +1467,36 @@
                     },
                     {
                         "tree": [
-                            "@clone_x_start",
-                            "@clone_y_start",
-                            "@clone_z_start",
-                            "@clone_x_diagonally",
-                            "@clone_y_diagonally",
-                            "@clone_z_diagonally",
-                            "@clone_x_target",
-                            "@clone_y_target",
-                            "@clone_z_target",
+                            {
+                                "group": [
+                                    "@clone_x_start",
+                                    "@clone_y_start",
+                                    "@clone_z_start"
+                                ],
+                                "type": "xyz",
+                                "valueErr": "@unsupportedGroupType",
+                                "except": ""
+                            },
+                            {
+                                "group": [
+                                    "@clone_x_diagonally",
+                                    "@clone_y_diagonally",
+                                    "@clone_z_diagonally"
+                                ],
+                                "type": "xyz",
+                                "valueErr": "@unsupportedGroupType",
+                                "except": ""
+                            },
+                            {
+                                "group": [
+                                    "@clone_x_target",
+                                    "@clone_y_target",
+                                    "@clone_z_target"
+                                ],
+                                "type": "xyz",
+                                "valueErr": "@unsupportedGroupType",
+                                "except": ""
+                            },
                             "@clone_type",
                             "@blocks",
                             "@clone_replace_type",
@@ -1755,6 +1817,22 @@
                         "tree": [
                             "@gugu",
                             "@end"
+                        ]
+                    },
+                    {
+                        "tree": [
+                            "@sel",
+                            {
+                                "group": [
+                                    "@x",
+                                    "@y",
+                                    "@z"
+                                ],
+                                "type": "xyz",
+                                "valueErr": "@unsupportedGroupType",
+                                "except": ""
+                            },
+                            "@commands"
                         ]
                     }
                 ]
@@ -2621,17 +2699,43 @@
             },
             "@x": {
                 "": {
-                    "description": "@x_position_integer"
+                    "description": "@x_position"
                 },
                 "~": {
                     "description": "@current_position",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
-                    "wikiTips": "@current_position_wikiTips"
+                    "wikiTips": "@current_position_wikiTips",
+                    "extends": [
+                        {
+                            "@Double": {
+                                "description": "@x_add",
+                                "valueErr": "@double_valueErr",
+                                "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                                "wikiTips": "@coordinates_wikiTips",
+                                "valueOutLimited": "@valueOutLimited",
+                                "limited": 2147483647,
+                                "ignoredSize": 1
+                            }
+                        }
+                    ]
                 },
                 "^": {
                     "description": "@current_position",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
-                    "wikiTips": "@current_position_wikiTips"
+                    "wikiTips": "@current_position_wikiTips",
+                    "extends": [
+                        {
+                            "@Double": {
+                                "description": "@left_add",
+                                "valueErr": "@double_valueErr",
+                                "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                                "wikiTips": "@coordinates_wikiTips",
+                                "valueOutLimited": "@valueOutLimited",
+                                "limited": 2147483647,
+                                "ignoredSize": 1
+                            }
+                        }
+                    ]
                 },
                 "@Double": {
                     "description": "@x",
@@ -2644,17 +2748,43 @@
             },
             "@y": {
                 "": {
-                    "description": "@y_position_integer"
+                    "description": "@y_position"
                 },
                 "~": {
                     "description": "@current_position",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
-                    "wikiTips": "@current_position_wikiTips"
+                    "wikiTips": "@current_position_wikiTips",
+                    "extends": [
+                        {
+                            "@Double": {
+                                "description": "@y_add",
+                                "valueErr": "@double_valueErr",
+                                "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                                "wikiTips": "@coordinates_wikiTips",
+                                "valueOutLimited": "@valueOutLimited",
+                                "limited": 2147483647,
+                                "ignoredSize": 1
+                            }
+                        }
+                    ]
                 },
                 "^": {
                     "description": "@current_position",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
-                    "wikiTips": "@current_position_wikiTips"
+                    "wikiTips": "@current_position_wikiTips",
+                    "extends": [
+                        {
+                            "@Double": {
+                                "description": "@up_add",
+                                "valueErr": "@double_valueErr",
+                                "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                                "wikiTips": "@coordinates_wikiTips",
+                                "valueOutLimited": "@valueOutLimited",
+                                "limited": 2147483647,
+                                "ignoredSize": 1
+                            }
+                        }
+                    ]
                 },
                 "@Double": {
                     "description": "@y",
@@ -2667,17 +2797,43 @@
             },
             "@z": {
                 "": {
-                    "description": "@z_position_integer"
+                    "description": "@z_position"
                 },
                 "~": {
                     "description": "@current_position",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
-                    "wikiTips": "@current_position_wikiTips"
+                    "wikiTips": "@current_position_wikiTips",
+                    "extends": [
+                        {
+                            "@Double": {
+                                "description": "@z_add",
+                                "valueErr": "@double_valueErr",
+                                "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                                "wikiTips": "@coordinates_wikiTips",
+                                "valueOutLimited": "@valueOutLimited",
+                                "limited": 2147483647,
+                                "ignoredSize": 1
+                            }
+                        }
+                    ]
                 },
                 "^": {
                     "description": "@current_position",
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
-                    "wikiTips": "@current_position_wikiTips"
+                    "wikiTips": "@current_position_wikiTips",
+                    "extends": [
+                        {
+                            "@Double": {
+                                "description": "@front_add",
+                                "valueErr": "@double_valueErr",
+                                "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%9D%90%E6%A0%87",
+                                "wikiTips": "@coordinates_wikiTips",
+                                "valueOutLimited": "@valueOutLimited",
+                                "limited": 2147483647,
+                                "ignoredSize": 1
+                            }
+                        }
+                    ]
                 },
                 "@Double": {
                     "description": "@z",
@@ -2690,7 +2846,7 @@
             },
             "@clone_x_start": {
                 "": {
-                    "description": "@clone_x_start_position_integer"
+                    "description": "@clone_x_start_position"
                 },
                 "~": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
@@ -2739,7 +2895,7 @@
             },
             "@clone_y_start": {
                 "": {
-                    "description": "@clone_y_start_position_integer"
+                    "description": "@clone_y_start_position"
                 },
                 "~": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
@@ -2762,7 +2918,7 @@
             },
             "@clone_z_start": {
                 "": {
-                    "description": "@clone_z_start_position_integer"
+                    "description": "@clone_z_start_position"
                 },
                 "~": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
@@ -2785,7 +2941,7 @@
             },
             "@clone_x_diagonally": {
                 "": {
-                    "description": "@clone_x_diagonally_position_integer"
+                    "description": "@clone_x_diagonally_position"
                 },
                 "~": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
@@ -2808,7 +2964,7 @@
             },
             "@clone_y_diagonally": {
                 "": {
-                    "description": "@clone_y_diagonally_position_integer"
+                    "description": "@clone_y_diagonally_position"
                 },
                 "~": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
@@ -2831,7 +2987,7 @@
             },
             "@clone_z_diagonally": {
                 "": {
-                    "description": "@clone_z_diagonally_position_integer"
+                    "description": "@clone_z_diagonally_position"
                 },
                 "~": {
                     "wiki": "https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4#.E6.B3.A2.E6.B5.AA.E5.8F.B7",
@@ -3348,6 +3504,17 @@
                 },
                 "stop": {
                     "description": "@camerashake_stop"
+                }
+            },
+            "@camerashake_add": {
+                "": {
+                    "description": "@null"
+                },
+                "@Double": {
+                    "description": "@null",
+                    "valueErr": "@double_valueErr",
+                    "valueOutLimited": "@double_valueOutLimited",
+                    "limited": 4
                 }
             },
             "@connect": {

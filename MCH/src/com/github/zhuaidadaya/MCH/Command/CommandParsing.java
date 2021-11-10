@@ -6,11 +6,13 @@ import com.github.zhuaidadaya.MCH.Events.Errors;
 import com.github.zhuaidadaya.MCH.Events.KeyListener.listener;
 import com.github.zhuaidadaya.MCH.Events.historyReader;
 import com.github.zhuaidadaya.MCH.Help.Helps;
+import com.github.zhuaidadaya.MCH.Logger;
 import com.github.zhuaidadaya.MCH.UI.Lang.languageSet;
 import com.github.zhuaidadaya.MCH.UI.MchUI;
 import com.github.zhuaidadaya.MCH.UI.inputUI;
 import com.github.zhuaidadaya.MCH.UI.loadingWindow;
 import com.github.zhuaidadaya.MCH.UI.perf_UI;
+import com.github.zhuaidadaya.MCH.lib.Log;
 import com.github.zhuaidadaya.MCH.lib.Resources;
 import com.github.zhuaidadaya.MCH.lib.json.JSONArray;
 import com.github.zhuaidadaya.MCH.lib.json.JSONException;
@@ -20,11 +22,16 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+import static com.github.zhuaidadaya.MCH.lib.Resources.initLanguage.lang;
+
 @Command
 public class CommandParsing extends Thread {
+    public static Logger logger = new Logger("Command Parse Thread");
+
     public static int willOver = 150;
     public static int steps = 0;
     public static int commandSteps = 0;
+    public static int commandSteps_old = 0;
     public static int commandSteps_inside = 0;
     public static int execute = 0;
     public static int lastExecute = 0;
@@ -54,6 +61,21 @@ public class CommandParsing extends Thread {
     public static String wikis = "";
 
     public static JSONObject commandsJson = new JSONObject();
+
+    public static BufferedWriter dPerfWriter;
+    public static String dPerfCache = "";
+    public static long dPerfTime = 0;
+    public static long dPerfTime_last = 0;
+    public static long stackDeep = 0;
+
+    static {
+        try {
+            Resources.createParent(ConfigMain.dPerfLogsPath);
+            dPerfWriter = new BufferedWriter(new FileWriter(ConfigMain.dPerfLogsPath, StandardCharsets.UTF_8, true));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Test
     public static void main(String[] args) {
@@ -125,6 +147,13 @@ public class CommandParsing extends Thread {
             MchUI.progressBar.setValue(0);
             MchUI.progressBar.setMaximum(completeCommand.length());
 
+            if(Community.dPerf) {
+                dPerfCache += Log.getLog("-----------parse stack-----------", "INFO", logger.getLoggerName());
+                dPerfTime = System.currentTimeMillis();
+                dPerfTime_last = dPerfTime;
+            }
+
+            stackDeep = 0;
             CommandStats stats = checkCommand(json, target, completeCommand, jsonResources, json, target, json, jsonResources, new LinkedHashMap<>(), "", null);
             comm = completeCommand;
 
@@ -136,6 +165,15 @@ public class CommandParsing extends Thread {
         } catch (Exception e) {
             e.printStackTrace();
             MchUI.commandArea.setText(languageSet.getCommandWord("commandsNotFound"));
+        }
+
+        try {
+            if(Community.dPerf) {
+                dPerfWriter.write(dPerfCache);
+                dPerfWriter.flush();
+            }
+        } catch (Exception e) {
+
         }
 
         if(perf)
@@ -179,10 +217,26 @@ public class CommandParsing extends Thread {
 
     public static CommandStats checkCommand(JSONObject commandJson, String target, String targetSource, JSONObject resources, JSONObject displayJson, String commandTarget, JSONObject sourceJson, JSONObject sourceResource, LinkedHashMap<Object, Object> group, String groupType, JSONObject inCommandJson) {
         MchUI.progressBar.setValue(MchUI.progressBar.getMaximum() - targetSource.length());
+        stackDeep++;
+
+        boolean sameLength = command.length() == MchUI.progressBar.getValue();
+
+        try {
+            if(Community.dPerf) {
+                dPerfCache += (Log.getLog("- Step[" + allSteps + " - " + (commandSteps + 1) + "](" + commandSteps_inside + ")", "INFO", logger.getLoggerName()));
+                dPerfCache += (Log.getLog("Command: " + command, "INFO", logger.getLoggerName()));
+                dPerfCache += (Log.getLog("Sub Command: " + target, "INFO", logger.getLoggerName()));
+                dPerfCache += (Log.getLog("Step Time: " + (System.currentTimeMillis() - dPerfTime_last) + "ms", "INFO", logger.getLoggerName()));
+                dPerfCache += (Log.getLog("Command Time: " + (System.currentTimeMillis() - dPerfTime) + "ms", "INFO", logger.getLoggerName()));
+                dPerfTime_last = System.currentTimeMillis();
+            }
+        } catch (Exception e) {
+
+        }
 
         //        if(changing)
         //            targetSource = "";
-        boolean inGroup = false;
+        boolean inGroupLimited = false;
 
         er = false;
         //        boolean full = MchUI.input_Command.getText().length() == MchUI.input_Command.getCaretPosition() || MchUI.input_Command.getCaretPosition() == 0;
@@ -202,70 +256,68 @@ public class CommandParsing extends Thread {
             } catch (Exception ignored) {
 
             }
-            try {
-                JSONArray forks = new JSONArray(new JSONObject(commandJson.get(commandTarget).toString()).get("forks").toString());
-                int i = forks.length() - 1;
-                while(i >= 0) {
 
-                    //                    判断分支是否java版独有
-                    if(new JSONObject(forks.get(i).toString()).get("fork").equals("java")) {
-                        limited = limitedTypes.JAVA;
-                    }
+            if(sameLength) {
+                try {
+                    JSONArray forks = new JSONArray(new JSONObject(commandJson.get(commandTarget).toString()).get("forks").toString());
+                    int i = forks.length() - 1;
+                    while(i >= 0) {
 
-                    //                    判断分支是否基岩版独有
-                    if(new JSONObject(forks.get(i).toString()).get("fork").equals("bedrock")) {
-                        limited = limitedTypes.BEDROCK;
-                    }
+                        //                    判断分支是否java版独有
+                        if(new JSONObject(forks.get(i).toString()).get("fork").equals("java")) {
+                            limited = limitedTypes.JAVA;
+                        }
 
-                    //                    判断分支是否通用
-                    if(new JSONObject(forks.get(i).toString()).get("fork").equals("normal")) {
-                        limited = limitedTypes.ALL_EDITION;
-                    }
+                        //                    判断分支是否基岩版独有
+                        if(new JSONObject(forks.get(i).toString()).get("fork").equals("bedrock")) {
+                            limited = limitedTypes.BEDROCK;
+                        }
 
-                    if(! (limited.equals(limitedTypes.ALL_EDITION))) {
+                        //                    判断分支是否通用
+                        if(new JSONObject(forks.get(i).toString()).get("fork").equals("normal")) {
+                            limited = limitedTypes.ALL_EDITION;
+                        }
 
-                        if(limited.equals(limitedTypes.JAVA)) {
-                            if(Community.showCommandMethod.equals(limitedTypes.JAVA)) {
-                                if(! (i == steps)) {
-                                    steps = i;
+                        if(! (limited.equals(limitedTypes.ALL_EDITION))) {
+
+                            if(limited.equals(limitedTypes.JAVA)) {
+                                if(Community.showCommandMethod.equals(limitedTypes.JAVA)) {
+                                    if(! (i == steps)) {
+                                        steps = i;
+                                    }
+                                }
+                            }
+
+                            if(limited.equals(limitedTypes.BEDROCK)) {
+                                if(Community.showCommandMethod.equals(limitedTypes.BEDROCK)) {
+                                    if(! (i == steps)) {
+                                        steps = i;
+                                    }
                                 }
                             }
                         }
 
-                        if(limited.equals(limitedTypes.BEDROCK)) {
-                            if(Community.showCommandMethod.equals(limitedTypes.BEDROCK)) {
-                                if(! (i == steps)) {
-                                    steps = i;
-                                }
-                            }
-                        }
+                        i--;
                     }
+                } catch (Exception e) {
 
-                    i--;
                 }
-            } catch (Exception e) {
-
             }
             String lists;
 
             try {
                 CommandStats stats;
                 if(commandTarget.equals("?") | commandTarget.equals("help")) {
-                    //                    if(full)
                     stats = containsTarget(commandJson, target, group, groupType, inCommandJson);
-                    //                    else
-                    //                        lists = containsTarget(commandJson, target, commandJson, inputUI.inputArea.getText().substring(0, getNealyStepPosByCaret()), "");
-                    //                    lists = containsTarget(commandJson, target, commandJson, MchUI.input_Command.getText().substring(0, getNealyStepPosByCaret()));
                 } else {
-                    //                    if(full)
                     stats = containsTarget(displayJson, target, group, groupType, inCommandJson);
-                    //                    else
-                    //                        lists = containsTarget(displayJson, target, commandJson, inputUI.inputArea.getText().substring(0, getNealyStepPosByCaret()), "");
                 }
+
                 if(! stats.getStats().equals("error"))
                     lists = stats.getInfo();
                 else
                     return stats;
+
             } catch (Exception e) {
                 return commandNotFound();
             }
@@ -287,8 +339,11 @@ public class CommandParsing extends Thread {
                 //                commandNotFound();
             }
 
+            boolean inGroup = false;
+
             try {
                 JSONObject gp = new JSONObject(jsa.get(commandSteps).toString());
+                inGroup = true;
                 inCommandJson = gp;
                 commandSteps_inside++;
                 groupType = gp.get("type").toString();
@@ -298,10 +353,18 @@ public class CommandParsing extends Thread {
                     group.clear();
                     groupType = "";
                 } else {
-                    inGroup = true;
+                    inGroupLimited = true;
                 }
             } catch (Exception ex) {
                 groupType = "";
+            }
+
+            if(commandSteps_old != commandSteps) {
+                if(commandSteps_inside == 0 & inGroup) {
+                    commandSteps_inside++;
+                    inGroupLimited = true;
+                }
+                commandSteps_old = commandSteps;
             }
 
             if(commandSteps_inside != 0) {
@@ -331,79 +394,89 @@ public class CommandParsing extends Thread {
                 try {
                     String STP = jsa.get(getStep).toString();
 
-                    if(inGroup & getStep > 0)
+                    try {
+                        if(Community.dPerf) {
+                            dPerfCache += (Log.getLog("STP: " + STP, "INFO", logger.getLoggerName()));
+                            dPerfCache += (Log.getLog("Group: " + (groupType.equals("") ? "No Group" : groupType), "INFO", logger.getLoggerName()));
+                        }
+                    } catch (Exception e) {
+
+                    }
+
+                    if(inGroupLimited & getStep > 0)
                         group.put(group.size(), target);
 
                     if(! STP.equals("@end")) {
-
                         boolean err = false;
+                        if(sameLength) {
 
-                        stepNow = STP;
+                            stepNow = STP;
 
-                        //        selector
-                        //                        if(STP.equals("@sel")) {
-                        //                            try {
-                        //                                String sel = targetSource.substring(targetSource.indexOf("[") + 1, targetSource.indexOf("]"));
-                        //
-                        //                                if(! sel.equals("")) {
-                        //                                    if(sel.contains(",")) {
-                        //                                        containsTarget(displayJson, sel.substring(0, sel.indexOf(",")), commandJson, commandTarget, sel.substring(0, sel.indexOf(",")));
-                        //                                    } else {
-                        //                                        containsTarget(new JSONObject(resources.get("@sel").toString()), sel, commandJson, commandTarget, "@sel");
-                        //                                    }
-                        //                                }
-                        //                            } catch (StringIndexOutOfBoundsException e) {
-                        //
-                        //                            }
-                        //                        }
+                            //        selector
+                            //                        if(STP.equals("@sel")) {
+                            //                            try {
+                            //                                String sel = targetSource.substring(targetSource.indexOf("[") + 1, targetSource.indexOf("]"));
+                            //
+                            //                                if(! sel.equals("")) {
+                            //                                    if(sel.contains(",")) {
+                            //                                        containsTarget(displayJson, sel.substring(0, sel.indexOf(",")), commandJson, commandTarget, sel.substring(0, sel.indexOf(",")));
+                            //                                    } else {
+                            //                                        containsTarget(new JSONObject(resources.get("@sel").toString()), sel, commandJson, commandTarget, "@sel");
+                            //                                    }
+                            //                                }
+                            //                            } catch (StringIndexOutOfBoundsException e) {
+                            //
+                            //                            }
+                            //                        }
 
-                        //        namespace
-                        if(STP.equals("@namespace")) {
-                            try {
-                                String namespace = targetSource.substring(targetSource.indexOf(" ") + 1, targetSource.indexOf(" ", 2));
-                                if(! namespace.equals("") & ! namespace.contains(":")) {
-                                    MchUI.commandArea.setText("\"" + namespace + "\"" + languageSet.getCommandWord("mayErrNamespace"));
+                            //        namespace
+                            if(STP.equals("@namespace")) {
+                                try {
+                                    String namespace = targetSource.substring(targetSource.indexOf(" ") + 1, targetSource.indexOf(" ", 2));
+                                    if(! namespace.equals("") & ! namespace.contains(":")) {
+                                        MchUI.commandArea.setText("\"" + namespace + "\"" + languageSet.getCommandWord("mayErrNamespace"));
+                                        err = true;
+                                    }
+                                } catch (StringIndexOutOfBoundsException e) {
+
+                                }
+                            }
+
+                            //        json
+                            if(STP.equals("@json")) {
+                                try {
+                                    String json = targetSource.substring(targetSource.lastIndexOf(" ") + 1);
+
+                                    if(! json.equals("")) {
+                                        JSONObject jo = new JSONObject(json);
+                                        MchUI.commandArea.setText(jo.toString());
+                                    } else {
+
+                                    }
+                                } catch (JSONException e) {
+                                    throw new CommandErrException(String.format(languageSet.getCommandWord("jsonErr"), targetSource.substring(targetSource.lastIndexOf(" ") + 1)));
+                                } catch (StringIndexOutOfBoundsException e) {
+
+                                }
+                            }
+
+                            //        uuid
+
+                            if(STP.equals("@uuid")) {
+                                try {
+                                    UUID uuid = UUID.fromString(targetSource.substring(targetSource.lastIndexOf(" ")));
+                                    System.out.println(uuid + "  is correct uuid");
+                                } catch (IllegalArgumentException e) {
                                     err = true;
+                                } catch (StringIndexOutOfBoundsException e) {
+                                    //                                errProcess
                                 }
-                            } catch (StringIndexOutOfBoundsException e) {
-
                             }
-                        }
 
-                        //        json
-                        if(STP.equals("@json")) {
-                            try {
-                                String json = targetSource.substring(targetSource.lastIndexOf(" ") + 1);
-
-                                if(! json.equals("")) {
-                                    JSONObject jo = new JSONObject(json);
-                                    MchUI.commandArea.setText(jo.toString());
-                                } else {
-
-                                }
-                            } catch (JSONException e) {
-                                throw new CommandErrException(String.format(languageSet.getCommandWord("jsonErr"), targetSource.substring(targetSource.lastIndexOf(" ") + 1)));
-                            } catch (StringIndexOutOfBoundsException e) {
-
-                            }
-                        }
-
-                        //        uuid
-
-                        if(STP.equals("@uuid")) {
-                            try {
-                                UUID uuid = UUID.fromString(targetSource.substring(targetSource.lastIndexOf(" ")));
-                                System.out.println(uuid + "  is correct uuid");
-                            } catch (IllegalArgumentException e) {
-                                err = true;
-                            } catch (StringIndexOutOfBoundsException e) {
-                                //                                errProcess
-                            }
                         }
 
                         boolean over = false;
                         if(! err) {
-
                             targetSource = targetSource.substring(targetSource.indexOf(" ") + 1);
 
                             if(targetSource.contains(" ")) {
@@ -434,22 +507,16 @@ public class CommandParsing extends Thread {
                                 commandText = buffered;
 
                                 try {
-
-                                    if(commandText.charAt(0) == ' ') {
-                                        commandText = commandText.substring(1);
+                                    if(buffered.charAt(0) == ' ') {
+                                        commandText = buffered.substring(1);
 
                                         allSteps += 1;
                                     }
-
                                 } catch (Exception ignored) {
 
                                 }
 
-                                if(commandText.contains(" ")) {
-                                    commandTarget = commandText.substring(0, commandText.indexOf(" "));
-                                } else {
-                                    commandTarget = commandText;
-                                }
+                                commandTarget = commandText.contains(" ") ? commandText.substring(0, commandText.indexOf(" ")) : commandText;
 
                                 commandSteps = 0;
                                 steps = 0;
@@ -459,20 +526,7 @@ public class CommandParsing extends Thread {
                                 return checkCommand(sourceJson, target, commandText, sourceResource, sourceJson, target, sourceJson, sourceResource, group, groupType, inCommandJson);
                             }
 
-                            try {
-                                if(! toResource.equals("") & jsa.get(getStep).toString().equals("@RESOURCE_WRAP")) {
-                                    displayJson = new JSONObject((resources.get(toResource)).toString());
-
-                                    toResource = "";
-                                } else {
-                                    displayJson = new JSONObject((resources.get(jsa.get(getStep).toString()).toString()));
-                                }
-                            } catch (Exception e) {
-                                steps++;
-                                //displayJson = new JSONObject((resources.get(jsa.get(commandSteps).toString()).toString()));
-                            }
-
-                            if(! inGroup) {
+                            if(! inGroupLimited) {
                                 commandSteps++;
                                 commandSteps_inside = 0;
                             }
@@ -494,9 +548,37 @@ public class CommandParsing extends Thread {
                             }
                         }
 
+                        try {
+                            if(! toResource.equals("") & jsa.get(getStep).toString().equals("@RESOURCE_WRAP")) {
+                                displayJson = new JSONObject((resources.get(toResource)).toString());
+
+                                toResource = "";
+                            } else {
+                                displayJson = new JSONObject((resources.get(jsa.get(getStep).toString()).toString()));
+                            }
+                        } catch (Exception e) {
+                            steps++;
+                            //displayJson = new JSONObject((resources.get(jsa.get(commandSteps).toString()).toString()));
+                        }
 
                         if(! over) {
-                            return checkCommand(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, group, groupType, inCommandJson);
+                            try {
+                                return checkCommand(commandJson, target, targetSource, resources, displayJson, commandTarget, sourceJson, sourceResource, group, groupType, inCommandJson);
+                            } catch (StackOverflowError e) {
+                                System.gc();
+                                if(Community.dPerf) {
+                                    dPerfCache = Log.getLog("-----------parse stack-----------", "ERROR", logger.getLoggerName());
+                                    dPerfCache += Log.getLog("Fail to parse: StackOverflowError", "ERROR", logger.getLoggerName());
+                                    dPerfCache += Log.getLog("latest Step -[" + allSteps + " - " + (commandSteps + 1) + "](" + commandSteps_inside + ")", "ERROR", logger.getLoggerName());
+                                    dPerfCache += Log.getLog("Stack Size: ", "ERROR", logger.getLoggerName());
+                                    dPerfCache += Log.getLog("      Max: " + Runtime.getRuntime().maxMemory(), "ERROR", logger.getLoggerName());
+                                    dPerfCache += Log.getLog("     Free: " + Runtime.getRuntime().freeMemory(), "ERROR", logger.getLoggerName());
+                                    dPerfCache += Log.getLog("     Deep: " + (stackDeep + 1), "ERROR", logger.getLoggerName());
+                                    dPerfCache += Log.getLog("    Cache: " + dPerfCache.length(), "ERROR", logger.getLoggerName());
+                                    dPerfCache += Log.getLog("Command Size:" + command.length(), "ERROR", logger.getLoggerName());
+                                    throw new CommandErrException(lang.get("stack_oom"));
+                                }
+                            }
                         } else {
                             throw new CommandOverException();
                         }
@@ -530,7 +612,7 @@ public class CommandParsing extends Thread {
                 MchUI.commandArea.setText(lists);
             }
         } catch (CommandErrException e) {
-            return customCommandError(e.getMessage());
+            return customCommandError(e.getMessage() == null ? "" : e.getMessage());
         } catch (CommandOverException e) {
             return commandOver();
         }
@@ -555,7 +637,7 @@ public class CommandParsing extends Thread {
     public static CommandStats customCommandError(String message) {
         er = true;
 
-        int err = allSteps < 1 ? (commandSteps_inside > 0 ? commandSteps_inside : commandSteps) : allSteps + 2;
+        int err = allSteps < 1 ? (commandSteps_inside > 0 ? commandSteps_inside : commandSteps + 1) : allSteps + 2;
         int errPos = 0;
 
         String cacheCommand = command;
@@ -700,12 +782,12 @@ public class CommandParsing extends Thread {
 
                 }
 
-                try {
-                    //                获得命令使用限制列表
-                    limited = getLimited(new JSONArray(new JSONObject(displayJson.get(next).toString()).get("limited").toString()));
-                } catch (Exception e) {
-
-                }
+                //                try {
+                //                获得命令使用限制列表
+                //                    limited = getLimited(new JSONArray(new JSONObject(displayJson.get(next).toString()).get("limited").toString()));
+                //                } catch (Exception e) {
+                //
+                //                }
 
                 try {
                     catchLimited = new JSONObject(displayJson.get(next).toString()).get("catchLimited").toString();
@@ -836,12 +918,14 @@ public class CommandParsing extends Thread {
 
         }
 
-        if(! groupFilter.equals("") & ! target.equals("") & ! target.equals(groupFilter) & ! all.toString().contains(exceptType))
+        String all_string = all.toString();
+
+        if(! groupFilter.equals("") & ! target.equals("") & ! target.equals(groupFilter) & ! all_string.contains(exceptType))
             return customCommandError(String.format(languageSet.getCommandWord(inCommandJson.get("valueErr").toString()), target));
 
         if(result.toString().equals("")) {
             try {
-                if(all.toString().contains("@String")) {
+                if(all_string.contains("@String")) {
                     showElementsIsOne = true;
 
                     try {
@@ -858,7 +942,7 @@ public class CommandParsing extends Thread {
             }
 
             try {
-                if(all.toString().contains("@Integer")) {
+                if(all_string.contains("@Integer")) {
                     JSONObject json = new JSONObject(displayJson.get("@Integer").toString());
                     try {
                         showElementsIsOne = true;
@@ -885,7 +969,7 @@ public class CommandParsing extends Thread {
             }
 
             try {
-                if(all.toString().contains("@Double")) {
+                if(all_string.contains("@Double")) {
                     int ignoredSize = 0;
                     try {
                         ignoredSize = new JSONObject(displayJson.get("@Double").toString()).getInt("ignoredSize");
@@ -936,7 +1020,7 @@ public class CommandParsing extends Thread {
             }
 
             try {
-                if(all.toString().contains("@sel_extends")) {
+                if(all_string.contains("@sel_extends")) {
                     showElementsIsOne = true;
 
                     try {
@@ -1037,27 +1121,27 @@ public class CommandParsing extends Thread {
 
     @Override
     public void run() {
-                new Thread(() -> {
-                    while(! Errors.CannotHandle) {
-                        if(! Community.isDaemons) {
-                            //                Resources.initLanguage.initLang("commands/commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
-                            initCommandJSON(ConfigMain.resPath + "commands/");
-                            Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
+        new Thread(() -> {
+            while(! Errors.CannotHandle) {
+                if(! Community.isDaemons) {
+                    //                Resources.initLanguage.initLang("commands/commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "");
+                    initCommandJSON(ConfigMain.resPath + "commands/");
+                    Resources.initLanguage.initFromSelf("commands.json", "/com/github/zhuaidadaya/resources/resource_files/", "", this.getClass());
 
-                            try {
-                                Thread.sleep(250);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        } else {
-                            try {
-                                Thread.sleep(500);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
+                    try {
+                        Thread.sleep(250);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                }).start();
+                } else {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
 
         new Thread(() -> {
             String text = inputUI.inputArea.getText();
@@ -1082,7 +1166,7 @@ public class CommandParsing extends Thread {
         }).start();
 
         while(! Errors.CannotHandle) {
-            long standTick = inputUI.inputArea.getText().equals("") ? 200 : (Community.excessProcess ? 1 : 125);
+            long standTick = Community.dPerf ? 500 : (inputUI.inputArea.getText().equals("") ? 200 : (Community.excessProcess ? 1 : 125));
             long tick = System.currentTimeMillis();
 
             if(! Community.isDaemons) {

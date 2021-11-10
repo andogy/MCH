@@ -10,7 +10,25 @@ import java.io.InputStreamReader;
 
 public class LoadToolTips {
     public static void loadToolTips(JSONObject index) {
-        System.out.println(index);
+        BufferedReader br;
+        String cache;
+        StringBuilder all = new StringBuilder();
+        for(Object o : index.keySet()) {
+            System.out.println(o.toString());
+            System.out.println(index.get(o.toString()));
+
+            try {
+                br = new BufferedReader(new InputStreamReader(Resources.getResource(index.get(o.toString()).toString(), Resources.class)));
+
+                while((cache = br.readLine()) != null) {
+                    all.append(cache);
+                }
+
+                Community.toolTips.put(o.toString(),all.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

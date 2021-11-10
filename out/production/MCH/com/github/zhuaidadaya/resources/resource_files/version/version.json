@@ -1,0 +1,8 @@
+{
+    "upd_id": "157",
+    "ver_id": "138890100156",
+    "ver": "test-56",
+    "name": "MCH",
+    "description": "MCH Header",
+    "loader": "com.github.zhuaidadaya.MCH.Community"
+}

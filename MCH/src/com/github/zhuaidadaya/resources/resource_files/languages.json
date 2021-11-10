@@ -244,13 +244,11 @@
                     "unSupport-conf": "不支持的配置",
                     "description": "描述",
                     "name": "名称",
-                    "reg": "已注册"
+                    "reg": "已注册",
+                    "stack_oom": "解析时发生了栈溢出的OOM, 正在退回深度并重试\n\n如果长时间无法完成解析\n请手动添加-Xss参数\n\n建议值-Xss32M"
                 },
                 {
-                    "nowFeature": "NPL模块优化下载功能\nNPL模块支持启动服务端\n稍微更改配置文件写入, 现在不会写入多余字符\n更改版本ID算法\n",
-                    "UPD_ID": "157",
-                    "VER_ID": "138890100156",
-                    "ver": "test-56"
+                    "nowFeature": "NPL模块优化下载功能\nNPL模块支持启动服务端\n稍微更改配置文件写入, 现在不会写入多余字符\n更改版本ID算法\n"
                 }
             ]
         },
@@ -495,13 +493,11 @@
                     "unSupport-conf": "unsupport configs",
                     "description": "description",
                     "name": "name",
-                    "reg": "regin"
+                    "reg": "regin",
+                    "stack_oom": "stack out of memory in parsing, now return depth and retrying\n\nif unable to parse completed for long time\nplease use -Xss VM arguments to increase stack memory\n\nsuggest set to -Xss32M"
                 },
                 {
-                    "nowFeature": "optimized download for NPL\nNPL can launch minecraft server\nchange config write, now will not write redundant character\nchange algorithm of version ID\n",
-                    "UPD_ID": "157",
-                    "VER_ID": "138890100156",
-                    "ver": "test-56"
+                    "nowFeature": "optimized download for NPL\nNPL can launch minecraft server\nchange config write, now will not write redundant character\nchange algorithm of version ID\n"
                 }
             ]
         },
@@ -743,13 +739,11 @@
                     "conf-recoding": "正在重编码配置",
                     "description": "描述",
                     "name": "名称",
-                    "reg": "已注册"
+                    "reg": "已注册",
+                    "stack_oom": "解析时发生了栈溢出的OOM, 正在退回深度并重试\n\n如果长时间无法完成解析\n请手动添加-Xss参数\n\n建议值-Xss32M"
                 },
                 {
-                    "nowFeature": "NPL模块优化下载功能\nNPL模块支持启动服务端\n稍微更改配置文件写入, 现在不会写入多余字符\n更改版本ID算法\n",
-                    "UPD_ID": "157",
-                    "VER_ID": "138890100156",
-                    "ver": "test-56"
+                    "nowFeature": "NPL模块优化下载功能\nNPL模块支持启动服务端\n稍微更改配置文件写入, 现在不会写入多余字符\n更改版本ID算法\n"
                 }
             ]
         }

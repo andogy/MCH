@@ -3,6 +3,7 @@ package com.github.zhuaidadaya.MCH.Events;
 import com.github.zhuaidadaya.MCH.Community;
 import com.github.zhuaidadaya.MCH.Config.ConfigMain;
 import com.github.zhuaidadaya.MCH.UI.*;
+import com.github.zhuaidadaya.MCH.Logger;
 import com.github.zhuaidadaya.MCH.lib.Log;
 import com.github.zhuaidadaya.MCH.lib.Resources;
 
@@ -10,7 +11,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class Errors extends Throwable {
@@ -28,6 +28,8 @@ public class Errors extends Throwable {
 
     public static boolean reportCrash_onceOnly = false;
     public static boolean reportCrash = false;
+
+    public static Logger logger = new Logger("Error Thread");
 
     public Errors() {
 
@@ -144,10 +146,10 @@ public class Errors extends Throwable {
                     file.delete();
                 }
                 if(! showNow)
-                    Log.writeLog(file, true, StandardCharsets.UTF_8, "[ERROR Thread/INFO] " + er + "\nSourceAt:" + exceptionSource, false);
+                    logger.error(er + "\nSourceAt:" + exceptionSource);
             } else {
                 if(! showNow)
-                    Log.outLog(er, true);
+                    logger.error(er);
                 if(cannotHandle)
                     jTextArea.setText(String.format(Resources.initLanguage.lang.get("err-cannot-handle"), er));
                 else

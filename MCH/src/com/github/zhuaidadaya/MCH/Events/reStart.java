@@ -11,7 +11,7 @@ import java.io.FileWriter;
 import java.util.Arrays;
 
 public class reStart {
-    public static String jvmConf = "-Xmx120M -Xms120M";
+    public static String jvmConf = "-Xmx200M -Xms200M";
 
     public static void setJvmConf(String conf) {
         jvmConf = conf;
@@ -24,7 +24,7 @@ public class reStart {
     public void restart(String... args) {
         try {
             Runtime r = Runtime.getRuntime();
-            String str = r.exec("%JAVA_HOME%\\bin\\java.exe " + jvmConf + " -jar \"" + new getJar().getOldPath(this.getClass()) + "\" " + Arrays.toString(args)).toString();
+            String str = r.exec("java " + jvmConf + " -jar \"" + new getJar().getOldPath(this.getClass()) + "\" " + Arrays.toString(args)).toString();
             File file = new File(ConfigMain.path + "res.cache");
             FileWriter fw = new FileWriter(file);
             fw.write(file.hashCode());
@@ -38,21 +38,22 @@ public class reStart {
                 Thread.sleep(1);
             } while (System.currentTimeMillis() - startRestart <= 2000);
 
-            boolean restart = new File(ConfigMain.path + "res.cache").delete();
+            boolean restart = file.isFile();
 
+            
 //            exit.Ex();
             if (restart) {
+                file.delete();
+
                 Errors.tips(400, 220,  Resources.initLanguage.lang.get("restart-failed"),Resources.initLanguage.lang.get("restart-failed-title"));
 
                 Thread.sleep(10000);
-
-                exit.Ex();
             } else {
                 throw new Exception();
             }
         } catch (Exception e) {
-//            Errors.tips(400, 220,  Resources.initLanguage.lang.get("restart-failed"),Resources.initLanguage.lang.get("restart-failed-title"));
-            Errors.errors(null,e,false, "restart", Resources.initLanguage.lang.get("restart-failed"),700,1080,true,false);
+            Errors.errors(null,e,false, "restart", Resources.initLanguage.lang.get("restart-failed"),700,800,true,false);
+
         }
     }
 }

@@ -26,14 +26,13 @@ public class historyReader extends Thread {
 
     public static String s;
 
-    public static String history = "";
+    public static StringBuilder history = new StringBuilder();
 
     public static void flush() {
-
         try {
             FileReader fileReader = new FileReader(file);
             BufferedReader fr = new BufferedReader(fileReader);
-            history = "";
+            history = new StringBuilder();
 
             historyLength = file.length();
 
@@ -73,12 +72,12 @@ public class historyReader extends Thread {
 
 //                    if(BreakRead & ! MchUI.input_Command.getText().equals("")) {
                     if (BreakRead & !inputUI.inputArea.getText().equals("")) {
-                        history = "";
+                        history = new StringBuilder();
                         break;
                     }
 
                     if (s.length() >= 1)
-                        history = s + "\n" + history;
+                        history.append(s).append("\n").append(history);
 
                 }
 
@@ -87,9 +86,9 @@ public class historyReader extends Thread {
                     if (inputUI.inputArea.getText().equals("")) {
                         if (history.equals("") || history.equals("\n")) {
                             if (Community.LangID == 0) {
-                                history = "没有历史命令记录!";
+                                history = new StringBuilder("没有历史命令记录!");
                             } else if (Community.LangID == 1) {
-                                history = "There is no historical command record!";
+                                history = new StringBuilder("There is no historical command record!");
                             }
                         }
                     }
@@ -97,7 +96,7 @@ public class historyReader extends Thread {
 
                 if (!BreakRead | inputUI.inputArea.getText().equals("")) {
 //                    if(! BreakRead | MchUI.input_Command.getText().equals("")) {
-                    MchUI.commandDisplay.setText(history);
+                    MchUI.commandArea.setText(history.toString());
                 }
 
                 history = null;
@@ -135,7 +134,7 @@ public class historyReader extends Thread {
                 historyLength = file.length();
 
                 if (Errors.CannotHandle) {
-                    history = "";
+                    history = new StringBuilder("");
                     break;
                 }
 
@@ -150,7 +149,7 @@ public class historyReader extends Thread {
 //                        if (MchUI.input_Command.getText().equals("")) {
                         if (inputUI.inputArea.getText().equals("")) {
                             if (!BreakRead) {
-                                MchUI.commandDisplay.setText("");
+                                MchUI.commandArea.setText("");
                             }
                             if (file.isFile() & file.length() != historyLength) {
                                 if (Community.historySaveID != 2) {
@@ -176,7 +175,7 @@ public class historyReader extends Thread {
                             }
                         } else if (inputUI.inputArea.getText().equals("")) {
 //                            } else if (MchUI.input_Command.getText().equals("")) {
-                            MchUI.commandDisplay.setText("");
+                            MchUI.commandArea.setText("");
                         }
                     } catch (Exception e) {
 

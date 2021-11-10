@@ -7,6 +7,7 @@ import com.github.zhuaidadaya.MCH.Events.Events;
 import com.github.zhuaidadaya.MCH.Events.UPD.URLs;
 import com.github.zhuaidadaya.MCH.Help.Helps;
 import com.github.zhuaidadaya.MCH.UI.Color.displaySets;
+import com.github.zhuaidadaya.MCH.UI.Components.TextLabel;
 import com.github.zhuaidadaya.MCH.lib.OpenInExplore;
 import com.github.zhuaidadaya.MCH.lib.filesOperator;
 
@@ -17,19 +18,19 @@ import java.io.File;
 public class MenuUI2 extends Community {
     public static JFrame jFrame = new JFrame();
 
-    public static JLabel saveCacheOrNot = new JLabel();
+    public static TextLabel saveCacheOrNot = new TextLabel();
     public static JButton saveCache = new JButton();
     public static JButton notSaveCache = new JButton();
 
-    public static JLabel saveErrorLogsOrNot = new JLabel();
+    public static TextLabel saveErrorLogsOrNot = new TextLabel();
     public static JButton saveErrorLogs = new JButton();
     public static JButton noSaveErrorLogs = new JButton();
 
-    public static JLabel saveRunLogsOrNot = new JLabel();
+    public static TextLabel saveRunLogsOrNot = new TextLabel();
     public static JButton saveRunLogs = new JButton();
     public static JButton noSaveRunLogs = new JButton();
 
-    public static JLabel autoUpdOrNot = new JLabel();
+    public static TextLabel autoUpdOrNot = new TextLabel();
     public static JButton autoUPD = new JButton();
     public static JButton noAutoUPD = new JButton();
 
@@ -38,31 +39,31 @@ public class MenuUI2 extends Community {
     public static JButton setting_upd = new JButton();
     public static JButton setting_info = new JButton();
 
-    public static JLabel saveHistoryOrNot = new JLabel();
+    public static TextLabel saveHistoryOrNot = new TextLabel();
     public static JButton saveHistory = new JButton();
     public static JButton saveAllHistory = new JButton();
     public static JButton notSaveHistory = new JButton();
 
-    public static JLabel Color = new JLabel();
+    public static TextLabel Color = new TextLabel();
     public static JButton Black = new JButton();
     public static JButton White = new JButton();
     public static JButton Hades = new JButton();
     public static JButton colorAuto = new JButton();
     public static JButton User_Color = new JButton();
 
-    public static JLabel exButton = new JLabel();
+    public static TextLabel exButton = new TextLabel();
     public static JButton exButtonExit = new JButton();
     public static JButton exButtonNarrow = new JButton();
-    public static JLabel Language = new JLabel();
+    public static TextLabel Language = new TextLabel();
     public static JButton Chinese_ZH = new JButton();
     public static JButton Chinese_TW = new JButton();
     public static JButton English = new JButton();
     public static JButton LanguageAuto = new JButton();
 
-    public static JLabel fastLoad = new JLabel();
+    public static TextLabel fastLoad = new TextLabel();
     public static JButton fastLoadYes = new JButton();
     public static JButton fastLoadNo = new JButton();
-    public static JLabel onTops = new JLabel();
+    public static TextLabel onTops = new TextLabel();
     public static JButton onTop = new JButton();
     public static JButton noOnTop = new JButton();
 
@@ -70,32 +71,32 @@ public class MenuUI2 extends Community {
     public static JTextArea checkReturn = new JTextArea();
     public static JTextArea updateInfo = new JTextArea();
 
-    public static JLabel aboutMCH = new JLabel();
-    public static JLabel PATH = new JLabel();
+    public static TextLabel aboutMCH = new TextLabel();
+    public static TextLabel PATH = new TextLabel();
     public static JButton showDir = new JButton();
-    public static JLabel mchDirSize = new JLabel();
+    public static TextLabel mchDirSize = new TextLabel();
     public static JTextArea versionInfo = new JTextArea();
-    public static JLabel aboutDevelopOfMCH = new JLabel();
+    public static TextLabel aboutDevelopOfMCH = new TextLabel();
     public static JTextArea Developers = new JTextArea();
     public static JButton deleteData = new JButton();
 
     public static JButton setting_command = new JButton();
-    public static JLabel invalidCommand = new JLabel();
+    public static TextLabel invalidCommand = new TextLabel();
     public static JButton showInvalidCommand = new JButton();
     public static JButton noShowInvalidCommand = new JButton();
 
-    public static JLabel showCommandsMethod = new JLabel();
+    public static TextLabel showCommandsMethod = new TextLabel();
     public static JButton firstBedrock = new JButton();
     public static JButton firstJava = new JButton();
 
     public static JButton iniFinished = new JButton();
     public static JButton iniHelper = new JButton();
 
-    public static JLabel toWikiOrNot = new JLabel();
+    public static TextLabel toWikiOrNot = new TextLabel();
     public static JButton toWiki = new JButton();
     public static JButton toWikiNot = new JButton();
 
-    public static JLabel excessProcessOrNot = new JLabel();
+    public static TextLabel excessProcessOrNot = new TextLabel();
     public static JButton excessProcess = new JButton();
     public static JButton excessProcessNot = new JButton();
 
