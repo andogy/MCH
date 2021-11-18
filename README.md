@@ -43,7 +43,7 @@ MCH are not optimized for macos and linus, so will have many bugs
 ## developers
 
 MCH develop just by two developer<br>
-(two beginner)<br>
+(two rookie)<br>
 this cause inefficiency extraordinary, and we can get two tired developer so, we wanna more developers can join to ours develop<br>
 but we know this is almost impossible to achieve
 
@@ -53,7 +53,7 @@ you need use Tencent qq communicate with us<br>
 we communicate in chinese<br>
 if you cannot speak chinese, don't worry, we also can speak english<br>
 <b>
-you just need send a request to my QQ(124319875) and waiting for it
+you just need send a request to my QQ Group(124319875) and waiting for it
 </b>
 
 ## MCH history
