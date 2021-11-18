@@ -11,6 +11,7 @@
 
 如果不是完全改得和原来不一样，请分发时公告MCH源
 如果改得MCH它家里人都认不出的话，那这已经算是你的自行开发了，请随意
+(MCH它家里人: 对于上句话，我们详细点的描述是：如果你把MCH搞成迷幻变色龙然后ui一团糟，但是源码基于我们的话，你也需要通知一声。毕竟生了个孩子你把他拆了他还是我们的孩子)
 ```
 
 ### 社区
@@ -65,9 +66,10 @@
 Release地址: [Github](https://github.com/zhuaidadaya/MCH/releases)<br>
 反馈:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr)、[邮箱](mailto:1501917367@qq.com)、[Issue](https://github.com/zhuaidadaya/MCH/issues)
 <hr>
-协议版本: 1.32<br>
+协议版本: 1.33<br>
 <br>
 <b>
 Copyright © 2021. MCH@Zhuaidadaya<br>
-Copyright © 2021. MCH
+Copyright © 2021. MCH<br>
+(andogy: 我在考虑要不要加我的名字，但还是算了吧)
 </b>
