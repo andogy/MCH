@@ -10,7 +10,7 @@ this project is make by a few beginner<br>
 and you can join to this project<br>
 
 ```
-if you can, i hope you join!<br>
+if you can, i hope you join!
 ```
 
 <br>
