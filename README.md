@@ -53,12 +53,13 @@ you need use Tencent qq communicate with us<br>
 we communicate in chinese<br>
 if you cannot speak chinese, don't worry, we also can speak english<br>
 <b>
-you just need send request to we qq(124319875) and waiting for
+you just need send a request to my QQ(124319875) and waiting for it
 </b>
 
 ## MCH history
 
-MCH project start with April 9, 2021<br>
+MCH project start with April 10, 2021<br>
+(andogy: And this idea is suck! That is our absolute impulse. LOL)
 at present we have not a first official release version<br>
 
 # Documentions
