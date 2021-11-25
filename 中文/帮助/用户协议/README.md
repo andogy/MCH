@@ -68,11 +68,16 @@ MCH相关部分都采用了 GUN GPL v3.0 协议
 GUN GPL v3.0 以及本协议内容均为需要遵守的部分
 ```
 
+## LICENSES
+[Minecraft Command Helper](https://github.com/zhuaidadaya/MCH/blob/main/LICENSE)</br>
+[Config Util](https://github.com/zhuaidadaya/ConfigUtil/blob/main/LICENSE)
+
 <hr>
 
 直链下载地址:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)<br>
 Release地址: [Github](https://github.com/zhuaidadaya/MCH/releases)<br>
-反馈:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr)、[邮箱](mailto:1501917367@qq.com)、[Issue](https://github.com/zhuaidadaya/MCH/issues)
+反馈:<br>
+[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr)、[邮箱](mailto:1501917367@qq.com)、[Issue](https://github.com/zhuaidadaya/MCH/issues)
 <hr>
 协议版本: 1.35<br>
 <br>
