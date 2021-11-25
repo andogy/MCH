@@ -118,4 +118,4 @@ if have any error,please contack to (Wechat)zhuaidadaya or (QQ)1501917367<br>
 thanks for you<br>
 
 updated: 2021.11.26 
-updates: #About GPL LICENSE (@T "### Other")
+updates: #About GPL LICENSE (@T "## Other")
