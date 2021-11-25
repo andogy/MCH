@@ -90,11 +90,15 @@ this agreement are principal content extraction and supplement
 you should be comply with GUN GPL v3.0 and this agreement
 ```
 
+## LICENSES
+[Minecraft Command Helper](https://github.com/zhuaidadaya/MCH/blob/main/LICENSE)</br>
+[Config Util](https://github.com/zhuaidadaya/ConfigUtil/blob/main/LICENSE)
+
 <hr>
 
 direct download:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)<br>
-Release: [Github](https://github.com/zhuaidadaya/MCH/releases)
-feedback from:
+Release: [Github](https://github.com/zhuaidadaya/MCH/releases)<br>
+feedback from:<br>
 [1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr) or 
 [mail](mailto:1501917367@qq.com) and 
 [Issue](https://github.com/zhuaidadaya/MCH/issues)
@@ -105,10 +109,6 @@ agreement version: 1.32<br>
 Copyright © 2021. MCH@Zhuaidadaya<br>
 Copyright © 2021. MCH
 </b>
-
-## LICENSES
-[Minecraft Command Helper](https://github.com/zhuaidadaya/MCH/blob/main/LICENSE)</br>
-[Config Util](https://github.com/zhuaidadaya/ConfigUtil/blob/main/LICENSE)
 
 ## - translation -
 
