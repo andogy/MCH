@@ -60,16 +60,27 @@
 （说人话就是：只允许我们自行分配，你无权修改分发）
 ```
 
+### 其他
+```
+MCH相关部分都采用了 GUN GPL v3.0 协议
+此协议为部分内容重点提取或补充
+
+GUN GPL v3.0 以及本协议内容均为需要遵守的部分
+```
+
 <hr>
 
 直链下载地址:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)<br>
 Release地址: [Github](https://github.com/zhuaidadaya/MCH/releases)<br>
 反馈:[1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr)、[邮箱](mailto:1501917367@qq.com)、[Issue](https://github.com/zhuaidadaya/MCH/issues)
 <hr>
-协议版本: 1.33<br>
+协议版本: 1.35<br>
 <br>
 <b>
 Copyright © 2021. MCH@Zhuaidadaya<br>
 Copyright © 2021. MCH<br>
 (andogy: 我在考虑要不要加我的名字，但还是算了吧)
 </b>
+
+updated: 2021.11.26 
+updates: #About GPL LICENSE (@T "### 其他")
