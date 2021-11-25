@@ -81,6 +81,15 @@ non source rights distribution is not allowed
        and you have no right to modify the distribution)
 ```
 
+
+### Other
+```
+this adopted GUN GPL v3.0 LICENSE in relevant parts of MCH
+this agreement are principal content extraction and supplement
+
+you should be comply with GUN GPL v3.0 and this agreement
+```
+
 <hr>
 
 direct download:[Github](https://raw.githubusercontent.com/andogy/MCH/main/Public/MCH.jar)<br>
@@ -97,6 +106,10 @@ Copyright © 2021. MCH@Zhuaidadaya<br>
 Copyright © 2021. MCH
 </b>
 
+## LICENSES
+<a herf="https://github.com/zhuaidadaya/MCH/blob/main/LICENSE">Minecraft Command Helper</a>
+<a herf="https://github.com/zhuaidadaya/ConfigUtil/blob/main/LICENSE">Config Util</a>
+
 ## - translation -
 
 ["zhuaidadaya"](https://github.com/zhuaidadaya) translated all about MCH texts<br>
@@ -104,5 +117,5 @@ Copyright © 2021. MCH
 if have any error,please contack to (Wechat)zhuaidadaya or (QQ)1501917367<br>
 thanks for you<br>
 
-(zhuaidadaya: this agreement is so strict)
-(andogy: no, I don't think so)
+updated: 2021.11.26 
+updates: #About GPL LICENSE (@T "### Other")
