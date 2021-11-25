@@ -107,8 +107,8 @@ Copyright © 2021. MCH
 </b>
 
 ## LICENSES
-<a herf="https://github.com/zhuaidadaya/MCH/blob/main/LICENSE">Minecraft Command Helper</a>
-<a herf="https://github.com/zhuaidadaya/ConfigUtil/blob/main/LICENSE">Config Util</a>
+[Minecraft Command Helper](https://github.com/zhuaidadaya/MCH/blob/main/LICENSE)</br>
+[Config Util](https://github.com/zhuaidadaya/ConfigUtil/blob/main/LICENSE)
 
 ## - translation -
 
