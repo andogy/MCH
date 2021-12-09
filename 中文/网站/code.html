@@ -16,7 +16,10 @@
 <br>
 -----<br>
 代码如下:<br><br>
-
+import java.awt.datatransfer.StringSelection;<br>
+import java.awt.Toolkit;<br><br>
+import java.awt.datatransfer.Clipboard;<br>
+<br>
 StringSelection selection = new StringSelection(MchUI.input_Command.getText());<br>
 Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();<br>
 clipboard.setContents(selection, null);<br>
@@ -54,7 +57,7 @@ true : CannotCannotHandle(设定无法处理,以此停止程序运行,如果不�
 <br>
 停止了以后会降低CPU运作、内存占用<br>
 <br>
-因为要给予提示,所以不能直接System.exit(*);<br>
+因为要给予提示,所以不能直接System.exit(0);<br>
 而是要给一个窗口留在面前显示<br>
 所以只停止不直接退出,也免得不看帮助的用户觉得那是一个大问题<br>
 <br>
@@ -62,7 +65,7 @@ true : CannotCannotHandle(设定无法处理,以此停止程序运行,如果不�
 <hr>
 咕咕咕
 <hr>
-<big><strong><p class="center">页面版本: 1.0（最终版本）</p></big></strong>
+<big><strong><p class="center">页面版本: 1.1</p></big></strong>
 <textarea />
 </body>
 </html>
