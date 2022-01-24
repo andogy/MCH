@@ -67,6 +67,8 @@ we ask all service costs
        time costs
        and ETC. 
 shall be borne by the development team
+
+can open sponsorship if project extend from MCH licence
 ```
 
 ### share
@@ -103,7 +105,7 @@ feedback from:<br>
 [mail](mailto:1501917367@qq.com) and 
 [Issue](https://github.com/zhuaidadaya/MCH/issues)
 <hr>
-agreement version: 1.32<br>
+agreement version: 1.37<br>
 <br>
 <b>
 Copyright © 2021. MCH@Zhuaidadaya<br>
