@@ -47,6 +47,8 @@
 在以上任何操作中不得存在利益关系
 包括付费、赞助、募捐等
 要求一切服务费用、开发费用、分发费用、时间成本等均由开发团队承担
+
+继承自MCH的项目允许开放赞助, 其他需要准守
 ```
 
 ### 共享
@@ -79,7 +81,7 @@ Release地址: [Github](https://github.com/zhuaidadaya/MCH/releases)<br>
 反馈:<br>
 [1026701078(QQ)](https://jq.qq.com/?_wv=1027&amp;k=xBFSpkKr)、[邮箱](mailto:1501917367@qq.com)、[Issue](https://github.com/zhuaidadaya/MCH/issues)
 <hr>
-协议版本: 1.35<br>
+协议版本: 1.37<br>
 <br>
 <b>
 Copyright © 2021. MCH@Zhuaidadaya<br>
